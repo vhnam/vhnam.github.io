@@ -1,0 +1,28 @@
+.about-me {
+	padding-bottom: 20px;
+	border-bottom: 1px solid #ccc;
+}
+
+.profile-avatar {
+	border-radius: 62px;
+	-webkit-transition: border-radius 0.5s ease;
+	-moz-transition: border-radius 0.5s ease;
+	-o-transition: border-radius 0.5s ease;
+	transition: border-radius 0.5s ease;
+}
+
+.profile-avatar:hover {
+	border-radius: 4px;
+}
+
+.profile-avatar-div {
+	padding-top: 30px;
+}
+
+.profile-name {
+	color: #19add8;
+}
+
+.profile-summary {
+	text-align: justify;
+}
