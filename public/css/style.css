@@ -1,6 +1,6 @@
 body {
-	background-color: #f2f2f2;
 	font-family: 'Open Sans', sans-serif;
+	background-color: #f2f2f2;
 }
 
 header {
@@ -17,6 +17,11 @@ header {
 
 .center-screen {
 	margin: 0 auto;
+}
+
+.clear-both {
+	height: 80px;
+	clear: both;
 }
 
 .header-brand {
