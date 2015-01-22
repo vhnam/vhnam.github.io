@@ -17,8 +17,8 @@ header {
 }
 
 .header-brand {
-	margin: 0;
 	float: right;
+	margin: 0;
 	font-size: 24px;
 	line-height: 2em;
 }
@@ -29,19 +29,22 @@ header {
 }
 
 .widget {
-	text-align: center;
 	position: fixed;
-	bottom: 10%;
 	right: 2%;
+	bottom: 10%;
 	color: #f2f2f2;
+	text-align: center;
 }
 
 .widget > div {
-	height: 30px;
-	line-height: 2.3em;
 	width: 80px;
+	height: 30px;
 	margin-top: 5px;
+	line-height: 2.3em;
 	border-radius: 4px;
+	-webkit-transition: background-color 0.5s ease;
+	-moz-transition: background-color 0.5s ease;
+	-o-transition: background-color 0.5s ease;
 	transition: background-color 0.5s ease;
 }
 
@@ -50,6 +53,7 @@ header {
 }
 
 .widget-top {
+	display: none;
 	background-color: #5cb85c;
 }
 
@@ -71,4 +75,15 @@ header {
 
 .widget-index:active {
 	background-color: #286192;
+}
+
+.post-content {
+	width: 60%;
+	margin-top: 30px;
+	text-align: justify;
+}
+
+.widget-index > a {
+	color: #f2f2f2;
+	text-decoration: none;
 }
