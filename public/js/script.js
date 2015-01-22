@@ -7,7 +7,7 @@ $(window).scroll(function() {
 });
 
 $('.widget-top').click(function() {
-    $('body').animate({
+    $('body, html').animate({
     	scrollTop: 0
     }, 'slow');
 });
