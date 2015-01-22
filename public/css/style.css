@@ -1,0 +1,74 @@
+body {
+	background-color: #f2f2f2;
+}
+
+header {
+	height: 50px;
+	background-color: #000;
+}
+
+.app-standard {
+	width: 980px;
+	height: inherit;
+}
+
+.center-screen {
+	margin: 0 auto;
+}
+
+.header-brand {
+	margin: 0;
+	float: right;
+	font-size: 24px;
+	line-height: 2em;
+}
+
+.header-brand > a {
+	color: #f2f2f2;
+	text-decoration: none;
+}
+
+.widget {
+	text-align: center;
+	position: fixed;
+	bottom: 10%;
+	right: 2%;
+	color: #f2f2f2;
+}
+
+.widget > div {
+	height: 30px;
+	line-height: 2.3em;
+	width: 80px;
+	margin-top: 5px;
+	border-radius: 4px;
+	transition: background-color 0.5s ease;
+}
+
+.widget > div:hover {
+	cursor: pointer;
+}
+
+.widget-top {
+	background-color: #5cb85c;
+}
+
+.widget-top:hover {
+	background-color: #8ccd8c;
+}
+
+.widget-top:active {
+	background-color: #499349;
+}
+
+.widget-index {
+	background-color: #337ab7;
+}
+
+.widget-index:hover {
+	background-color: #70a1cc;
+}
+
+.widget-index:active {
+	background-color: #286192;
+}
