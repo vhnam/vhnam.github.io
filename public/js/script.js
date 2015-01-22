@@ -1,5 +1,5 @@
 $(window).scroll(function() {
-	if($(this).scrollTop()>100) {
+	if($(this).scrollTop() > 100) {
 		$('.widget-top').fadeIn('slow');
 	} else {
 		$('.widget-top').fadeOut('slow');
