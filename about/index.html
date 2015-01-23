@@ -11,7 +11,7 @@
 		<link href="http://fonts.googleapis.com/css?family=Open+Sans&amp;subset=latin,vietnamese" rel="stylesheet" type="text/css">
 	</head>
 	<body>
-		<header>
+		<!-- <header>
 			<div class="app-standard center-screen">
 				<h1 class="header-brand" title="Kỹ thuật và kiến thức lập trình">
 					<a href="/">Programming Techniques and Knowledge</a>
@@ -39,7 +39,61 @@
 					Next
 				</button>
 			</div>
-		</section>
+		</section> -->
+
+		<div>
+			<header>
+				<img class="header-logo" src="/public/img/logo.png" alt="Logo">
+				<h1 class="header-brand" title="Công nghệ phần mềm">
+					<a href="/">Software Engineering</a>
+				</h1>
+				<nav>
+					<ul class="nav header-index">
+						<li>
+							<a href="/">Blog</a>
+						</li>
+						<li>
+							<a href="/index">Index</a>
+						</li>
+						<li>
+							<a href="/about">About</a>
+						</li>
+					</ul>
+				</nav>
+				<nav class="nav-contact">
+					<div>
+						<a href="https://github.com/vhnam">
+							<img title="Github"src="/public/img/github.png" alt="Github">
+						</a>
+						<a href="https://www.linkedin.com/in/namvh">
+							<img title="LinkedIn" src="/public/img/linkedin.png" alt="LinkedIn">
+						</a>
+					</div>
+				</nav>
+			</header>
+			<div class="content">
+				<section class="post-content center-screen" data-ng-controller="IndexController">
+					<h3 class="post-title" title="Dòng thời gian">Timeline</h3>
+					<ul class="nav nav-index">
+						<li data-ng-repeat="post in postCollection | startFrom:currentPage * pageSize | limitTo:pageSize">
+							<span class="glyphicon glyphicon-link"></span> {{post.time}}
+							<a href="{{post.link}}">{{post.title}}</a>
+						</li>
+					</ul>
+					<div class="div-btn-pagination">
+						<button type="button" class="btn btn-info" data-ng-disabled="currentPage == 0" data-ng-click="currentPage=currentPage-1">
+							Previous
+						</button>
+						<span class="badge badge-pagination">
+							{{currentPage+1}} / {{numberOfPages()}}
+						</span>
+						<button type="button" class="btn btn-info" data-ng-disabled="currentPage >= postCollection.length / pageSize - 1" data-ng-click="currentPage = currentPage + 1">
+							Next
+						</button>
+					</div>
+				</section>
+			</div>
+		</div>
 
 		<div class="widget">
 			<div class="widget-top">
