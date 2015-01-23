@@ -12,7 +12,7 @@ body {
 }*/
 
 header {
-	position: absolute;
+	position: fixed;
 	width: 23%;
 	height: 100%;
 	background-color: #19add8;
@@ -149,6 +149,10 @@ header {
 .widget-index > a {
 	color: #f2f2f2;
 	text-decoration: none;
+}
+
+.nav-index {
+	min-height: 400px;
 }
 
 .nav-index > li {

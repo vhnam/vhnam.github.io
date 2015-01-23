@@ -2,7 +2,7 @@ angular.module('index', [])
 	.factory('Post', function($http) {
 		return {
 			get: function() {
-				return $http.get('/about/index.json');
+				return $http.get('/index/index.json');
 			}
 		};
 	})
@@ -10,7 +10,7 @@ angular.module('index', [])
 		Post.get().then(function(collection) {
 			$scope.postCollection = collection.data;
 			$scope.currentPage = 0;
-			$scope.pageSize = 20;
+			$scope.pageSize = 6;
 
 			$scope.numberOfPages = function(){
 				return Math.ceil($scope.postCollection.length / $scope.pageSize);
