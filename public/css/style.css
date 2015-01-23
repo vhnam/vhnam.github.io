@@ -116,3 +116,23 @@ header {
 	color: #19add8;
 	font-size: 17px;
 }
+
+.div-btn-pagination {
+	margin-bottom: 50px;
+	text-align: center;
+}
+
+.badge-pagination {
+	margin-left: 20px;
+	margin-right: 20px;
+}
+
+.div-btn-pagination > button {
+	width: 100px;
+}
+
+.div-btn-pagination > button:disabled {
+	background-color: #f2f2f2;
+	color: #999;
+	border: 1px solid #ccc;
+}

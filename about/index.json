@@ -1,7 +1,8 @@
-{
-	"Friday, January 23, 2015" : {
+[
+	{
+		"time" : "Friday, January 23, 2015",
 		"title" : "Hướng dẫn cài đặt MongoDB trên Ubuntu",
 		"link": "/post/2015/01/23/huong-dan-cai-dat-mongodb-tren-ubuntu",
 		"description" : "Hello World"
 	}
-}
+]

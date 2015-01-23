@@ -23,11 +23,22 @@
 		<section class="post-content center-screen" data-ng-controller="IndexController">
 			<h3 class="post-title" title="Dòng thời gian">Timeline</h3>
 			<ul class="nav nav-index">
-				<li data-ng-repeat="(key, value) in postCollection">
-					<span class="glyphicon glyphicon-link"></span> {{key}}
-					<a href="{{value.link}}">{{value.title}}</a>
+				<li data-ng-repeat="post in postCollection | startFrom:currentPage * pageSize | limitTo:pageSize">
+					<span class="glyphicon glyphicon-link"></span> {{post.time}}
+					<a href="{{post.link}}">{{post.title}}</a>
 				</li>
 			</ul>
+			<div class="div-btn-pagination">
+				<button type="button" class="btn btn-info" data-ng-disabled="currentPage == 0" data-ng-click="currentPage=currentPage-1">
+					Previous
+				</button>
+				<span class="badge badge-pagination">
+					{{currentPage+1}} / {{numberOfPages()}}
+				</span>
+				<button type="button" class="btn btn-info" data-ng-disabled="currentPage >= postCollection.length / pageSize - 1" data-ng-click="currentPage = currentPage + 1">
+					Next
+				</button>
+			</div>
 		</section>
 
 		<div class="widget">
