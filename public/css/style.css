@@ -3,14 +3,6 @@ body {
 	background-color: #f2f2f2;
 }
 
-/*header {
-	position: fixed;
-	width: 100%;
-	height: 50px;
-	z-index: 999;
-	background-color: #19add8;
-}*/
-
 header {
 	position: fixed;
 	width: 23%;
@@ -189,4 +181,26 @@ header {
 	background-color: #f2f2f2;
 	color: #999;
 	border: 1px solid #ccc;
+}
+
+.profile-avatar {
+	border-radius: 62px;
+	box-shadow: 0 10px 16px 0 rgba(0, 0, 0, 0.2);
+	-webkit-transition: border-radius 0.5s ease;
+	-moz-transition: border-radius 0.5s ease;
+	-o-transition: border-radius 0.5s ease;
+	transition: border-radius 0.5s ease;
+}
+
+.profile-avatar:hover {
+	border-radius: 4px;
+}
+
+.profile-avatar-div {
+	padding-top: 15px;
+	text-align: center;
+}
+
+.about-me {
+	margin-top: 60px;
 }
