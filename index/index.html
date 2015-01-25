@@ -51,15 +51,21 @@
 						</li>
 					</ul>
 					<div class="div-btn-pagination">
-						<button type="button" class="btn btn-info pagination-element" data-ng-disabled="currentPage == 0" data-ng-click="currentPage=currentPage-1">
-							Previous
-						</button>
-						<span class="badge badge-pagination pagination-element">
-							{{currentPage+1}} / {{numberOfPages()}}
-						</span>
-						<button type="button" class="btn btn-info pagination-element" data-ng-disabled="currentPage >= postCollection.length / pageSize - 1" data-ng-click="currentPage = currentPage + 1">
-							Next
-						</button>
+						<div class="col-md-4">
+							<button type="button" class="btn btn-info pagination-element" data-ng-disabled="currentPage == 0" data-ng-click="currentPage=currentPage-1">
+								Previous
+							</button>
+						</div>
+						<div class="col-md-4">
+							<span class="badge badge-pagination pagination-element">
+								{{currentPage+1}} / {{numberOfPages()}}
+							</span>
+						</div>
+						<div class="col-md-4">
+							<button type="button" class="btn btn-info pagination-element" data-ng-disabled="currentPage >= postCollection.length / pageSize - 1" data-ng-click="currentPage = currentPage + 1">
+								Next
+							</button>
+						</div>
 					</div>
 				</section>
 			</div>
