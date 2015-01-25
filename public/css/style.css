@@ -130,12 +130,23 @@ header {
 }
 
 .post-content {
+	line-height: 1.6em;
 	text-align: justify;
 }
 
 .post-title {
 	margin-bottom: 30px;
 	color: #1c1d1e;
+}
+
+.post-url {
+	color: #1A0DAB;
+}
+
+.post-time {
+	text-align: right;
+	margin-top: 30px;
+	margin-bottom: 30px;
 }
 
 .widget-index > a {
@@ -213,6 +224,10 @@ header {
 	margin-top: 60px;
 }
 
+article img {
+	margin-top: 5px;
+}
+
 @media (max-width: 560px) {
 	header {
 		position: relative;
@@ -220,13 +235,20 @@ header {
 	}
 
 	.header-logo {
+		display: none;
 		padding-right: 20%;
 		padding-left: 20%;
 		padding-top: 10%;
 	}
 
+	.header-brand {
+		padding-top: 20px;
+		margin-top: 0;
+	}
+
 	.content {
 		width: 100%;
+		padding-top: 0;
 		padding-right: 30px;
 	}
 

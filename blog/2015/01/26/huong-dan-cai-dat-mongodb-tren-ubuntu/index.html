@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="description" content="Software Engineering">
+		<title>Underground World</title>
+		<link href="public/img/favicon.png" rel="shortcut icon">
+		<link rel="stylesheet" href="/public/css/bootstrap.css">
+		<link rel="stylesheet" href="/public/css/bootstrap-theme.css">
+		<link rel="stylesheet" href="/public/css/style.css">
+		<link rel="stylesheet" href="/public/css/profile.css">
+		<link href="http://fonts.googleapis.com/css?family=Open+Sans&amp;subset=latin,vietnamese" rel="stylesheet" type="text/css">
+	</head>
+	<body>
+		<div>
+			<header>
+				<img class="header-logo" src="/public/img/logo.png" alt="Logo">
+				<h1 class="header-brand" title="Công nghệ phần mềm">
+					<a href="/">Software Engineering</a>
+				</h1>
+				<nav>
+					<ul class="nav header-index">
+						<li>
+							<a href="/">Blog</a>
+						</li>
+						<li>
+							<a href="/index">Index</a>
+						</li>
+						<li>
+							<a href="/about">About</a>
+						</li>
+					</ul>
+				</nav>
+				<nav class="nav-contact">
+					<div>
+						<a href="https://github.com/vhnam">
+							<img title="Github"src="/public/img/github.png" alt="Github">
+						</a>
+						<a href="https://www.linkedin.com/in/namvh">
+							<img title="LinkedIn" src="/public/img/linkedin.png" alt="LinkedIn">
+						</a>
+					</div>
+				</nav>
+			</header>
+			<section class="content">
+				<h2 class="post-title">Hướng dẫn cài đặt MongoDB trên Ubuntu</h2>
+				<div class="post-content">
+					<p>
+						Trong một lần, do yêu cầu công việc, mình cần môi trường để thử nghiệm. Do tính mình thích xài hàng miễn phí nên nghĩ tới chạy MongoDB trên trang Koding.com. Trên đây, họ cung cấp cho mình một server miễn phí chạy hệ điều hành Ubuntu 14.04 với 1GB RAM, 1 Core CPU và 3 GB lưu trữ.<br>
+						Bài viết dưới đây, bạn có thể cài đặt nó trên hệ điều hành Ubuntu hoặc trên trang Koding.com.
+					</p>
+					<article>
+						<h3>Khái quát</h3>
+						<p>
+							<span class="glyphicon glyphicon-tag"></span>
+							MongoDB là một cơ sở dữ liệu mã nguồn mở dạng Document và là cơ sở dữ liệu hàng đầu trong họ NoSQL, được viết bằng ngôn ngữ C++ và phát triển bởi MongoDB Inc.
+						</p>
+						<p>
+							<span class="glyphicon glyphicon-tag"></span>
+							Ubuntu là một hệ điều hành mã nguồn mở dựa trên Debian GNU/Linux, là một trong các distro thông dụng của hệ điều hành Linux được phát triển bởi Canonical Ltd và cộng đồng Ubuntu.
+						</p>
+						<p>
+							<span class="glyphicon glyphicon-tag"></span>
+							Koding là một môi trường lập trình trực tuyến thuộc sở hữu của Koding, Inc. Nền tảng của Koding hỗ trợ người dùng lập trình Python, Java, Node.js, Perl, C, C++, PHP và Golang. Người dùng chỉ cần sử dụng trình duyệt Web có kết nối tới koding.com là có thể lập trình được.
+						</p>
+						<h3>Hướng dẫn cài đặt</h3>
+						<p>
+							Đầu tiên là bạn cần phải vào Terminal (màn hình console tương tự Command Promt của Windows). Nếu bạn sử dụng Ubuntu thì bấm tổ hợp phím Ctrl + Alt + T, còn ai sử dụng Koding thì nó có sẵn rồi.
+						</p>
+						<p>
+							Và bạn gõ lệnh <code>sudo su</code> để lên quyền Root.<br>
+							<img src="/blog/2015/01/26/huong-dan-cai-dat-mongodb-tren-ubuntu/img/sudo_su.png" alt="sudo su">
+						</p>
+						<p>
+							Tiếp theo nhập MongoDB public GPG Key.<br>
+							<code>apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv 7F0CEB10</code>
+						</p>
+						<p>
+							Tạo danh sách các file của MongoDB tại thư mục <span class="post-url">/etc/apt/sources.list.d/mongodb.list</span>.<br>
+							<code>echo 'deb http://downloads-distro.mongodb.org/repo/ubuntu-upstart dist 10gen' | sudo tee /etc/apt/sources.list.d/mongodb.list</code>
+						</p>
+						<p>
+							Cập nhật lại gói dữ liệu<br>
+							<code>apt-get update</code>
+						</p>
+						<p>
+							Cập nhật các package của MongoDB. Lệnh dưới đây hỗ trợ cài đặt phiên bản mới nhất đã chạy ổn định, khác với phiên bản mới nhất nhưng đang giai đoạn thử nghiệm.<br>
+							<code>apt-get install -y mongodb-org</code><br>
+							Các package này gồm:
+							<ul>
+								<li>mongodb-org</li>
+								<li>mongodb-org-server</li>
+								<li>mongodb-org-mongos</li>
+								<li>mongodb-org-shell</li>
+								<li>mongodb-org-tools</li>
+							</ul>
+						</p>
+						<p>
+							Mặc định thì hệ thống sẽ tự động cập nhật các phiên bản mới nhất của MongoDB. Nhưng để tránh cập nhật các phiên bản có thể xảy ra xung đột với hệ thống của bạn thì nên làm theo bước dưới đây.<br>
+							<code>echo "mongodb-org hold" | sudo dpkg --set-selections</code><br>
+							<code>echo "mongodb-org-server hold" | sudo dpkg --set-selections</code><br>
+							<code>echo "mongodb-org-shell hold" | sudo dpkg --set-selections</code><br>
+							<code>echo "mongodb-org-mongos hold" | sudo dpkg --set-selections</code><br>
+							<code>echo "mongodb-org-tools hold" | sudo dpkg --set-selections</code>
+						</p>
+					</article>
+					<article>
+						<h3>Kiểm tra</h3>
+						<p>
+							Bạn phải lên quyền Root để khởi động service của MongoDB. Mặc định sẽ chạy ở port 27017.<br>
+							<img src="/blog/2015/01/26/huong-dan-cai-dat-mongodb-tren-ubuntu/img/service_mongod_start.png" alt="service mongod start">
+						</p>
+						<p>
+							Sau đó bạn gõ lệnh <code>mongo</code> để sử dụng MongoDB. Dòng <code>connecting to: test</code> có nghĩa là đã kết nối thành công tới Collection tên là "test".<br>
+							<img src="/blog/2015/01/26/huong-dan-cai-dat-mongodb-tren-ubuntu/img/mongo.png" alt="mongo">
+						</p>
+						<p>
+							Như vậy bạn đã cài đặt MongoDB thành công rồi.
+						</p>
+					</article>
+					<article>
+						<h3>Lưu ý</h3>
+						<p>
+							Khi bạn cài MongoDB trên Koding sẽ có một vấn đề phát sinh đó chính là vùng nhớ bị giới hạn. Bạn phải cấu hình lại trong <span class="post-url">/etc/mongod.conf</span> với quyền Root.<br>
+							<code>nano /etc/mongod.conf</code>
+						</p>
+						<p>
+							Sau đó bạn thêm dòng <code>smallfiles=true</code> vào cuối file này.<br>
+							<img src="/blog/2015/01/26/huong-dan-cai-dat-mongodb-tren-ubuntu/img/smallfiles_true.png" alt="smallfiles=true">
+						</p>
+						<p>
+							Để hoàn tất, bạn bấm Ctrl + X rồi Y và cuối cùng là Enter. Và khởi động lại service để hoàn tất quá trình cài đặt.<br>
+							<img src="/blog/2015/01/26/huong-dan-cai-dat-mongodb-tren-ubuntu/img/service_mongod_restart.png" alt="service mongod restart">
+						</p>
+					</article>
+					<article>
+						<h3>Tham khảo</h3>
+						<ul>
+							<li>
+								<a href="http://www.mongodb.org/">MongoDB</a>
+							</li>
+							<li>
+								<a href="http://www.ubuntu.com/">Ubuntu</a>
+							</li>
+							<li>
+								<a href="https://koding.com/">Koding</a>
+							</li>
+							<li>
+								<a href="http://docs.mongodb.org/manual/tutorial/install-mongodb-on-ubuntu/">Install MongoDB on Ubuntu</a>
+							</li>
+							<li>
+								<a href="http://learn.koding.com/guides/install-mongodb/">Install MongoDB on Koding</a>
+							</li>
+						</ul>
+					</article>
+				</div>
+				<div class="post-time">
+					Last Modified: 2:40 AM - Monday, January 26, 2015
+				</div>
+			</section>
+		</div>
+
+		<div class="widget">
+			<div class="widget-top">
+				<span class="glyphicon glyphicon-chevron-up"></span>
+			</div>
+			<div class="widget-index" title="Mục lục">
+				<a href="/index">
+					<span class="glyphicon glyphicon-list-alt"></span> Index
+				</a>
+			</div>
+		</div>
+
+		<script src="/public/js/jquery.js"></script>
+		<script src="/public/js/script.js"></script>
+	</body>
+</html>
