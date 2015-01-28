@@ -9,6 +9,7 @@ body {
 	width: 77%;
 	min-height: 100%;
 	padding: 40px 110px 0 30px;
+	margin-bottom: 50px;
 }
 
 .app-standard {
@@ -226,9 +227,10 @@ article img {
 }
 
 .description {
-	padding: 5px 20px;
+	padding: 5px 50px;
 	margin: 0;
 	font-size: 14px;
+	text-align: justify;
 }
 
 .post-link {

@@ -3,12 +3,12 @@
 		"time" : "Wednesday, January 28, 2015 - 11:09 PM",
 		"title" : "Hướng dẫn cài đặt RockMongo trên Koding",
 		"link": "/blog/2015/01/28/huong-dan-cai-dat-rockmongo-tren-koding",
-		"description" : "Hello World"
+		"description" : "Mặc định khi bạn sử dụng Koding.com thì bạn phải thao tác với MongoDB bằng dòng lệnh. RockMongo là một công cụ quản trị được viết trên PHP 5 để hỗ trợ giao diện cho bạn trong việc thao tác với MongoDB."
 	},
 	{
 		"time" : "Monday, January 26, 2015 - 2:40 AM",
 		"title" : "Hướng dẫn cài đặt MongoDB trên Ubuntu",
 		"link": "/blog/2015/01/26/huong-dan-cai-dat-mongodb-tren-ubuntu",
-		"description" : "Hello World"
+		"description" : "Hướng dẫn cách cài đặt MongoDB trên hệ điều hành Ubuntu và trên Koding.com."
 	}
 ]
