@@ -72,6 +72,10 @@ header {
 	border-radius: 4px;
 }
 
+.header-index > li > a:active {
+	background-color: #148aac;
+}
+
 .nav-contact {
 	margin-bottom: 20px;
 	margin-top: 35px;
@@ -219,6 +223,16 @@ header {
 
 article img {
 	margin-top: 5px;
+}
+
+.description {
+	padding: 5px 20px;
+	margin: 0;
+	font-size: 14px;
+}
+
+.post-link {
+	padding-top: 0 !important;
 }
 
 @media (max-width: 560px) {
