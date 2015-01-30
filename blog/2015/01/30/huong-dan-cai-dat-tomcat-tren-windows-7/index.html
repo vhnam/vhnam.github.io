@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="description" content="Software Engineering">
+		<title>Underground World</title>
+		<link href="/public/img/favicon.png" rel="shortcut icon">
+		<link rel="stylesheet" href="/public/css/bootstrap.css">
+		<link rel="stylesheet" href="/public/css/bootstrap-theme.css">
+		<link rel="stylesheet" href="/public/css/style.css">
+		<link href="http://fonts.googleapis.com/css?family=Open+Sans&amp;subset=latin,vietnamese" rel="stylesheet" type="text/css">
+	</head>
+	<body>
+		<div>
+			<header>
+				<img class="header-logo" src="/public/img/logo.png" alt="Logo">
+				<h1 class="header-brand" title="Công nghệ phần mềm">
+					<a href="/">Software Engineering</a>
+				</h1>
+				<nav>
+					<ul class="nav header-index">
+						<li>
+							<a href="/">Blog</a>
+						</li>
+						<li>
+							<a href="/index">Index</a>
+						</li>
+						<li>
+							<a href="/about">About</a>
+						</li>
+					</ul>
+				</nav>
+				<nav class="nav-contact">
+					<div>
+						<a href="https://github.com/vhnam">
+							<img title="Github" src="/public/img/github.png" alt="Github">
+						</a>
+						<a href="https://www.linkedin.com/in/namvh">
+							<img title="LinkedIn" src="/public/img/linkedin.png" alt="LinkedIn">
+						</a>
+					</div>
+				</nav>
+			</header>
+			<section class="content">
+				<h2 class="post-title">Hướng dẫn cài đặt Tomcat trên Windows 7</h2>
+				<div class="post-content">
+					<p>
+						Học kỳ này mình có một môn liên quan tới Java, đồ án là làm web với Java. Tranh thủ vừa cài đặt Tomcat vừa viết blog luôn.
+					</p>
+					<article>
+						<h3>Tomcat</h3>
+						<p>
+							Apache Tomcat là một Java Servlet được phát triển bởi Apache Software Foundation (ASF). Tomcat thi hành các ứng dụng Java Servlet và JavaServer Pages (JSP) từ Sun Microsystems, và cung cấp một máy chủ HTTP cho ngôn ngữ Java thuần túy để thực thi các chương trình lệnh viết bằng ngôn ngữ Java.<br>
+							<span class="right">--- Theo Wikipedia ---</span>
+						</p>
+					</article>
+					<article>
+						<h3>Tải và Cài đặt</h3>
+						<p>
+							Đầu tiên, bạn phải tải và cài đặt Java Runtime Environment (JRE), Java Development Kit (JDK) tại <a href="http://www.oracle.com/technetwork/java/javase/downloads/index.html">đây</a>.
+						</p>
+						<p>
+							Sau đó, bạn vào <a href="http://tomcat.apache.org/download-80.cgi">http://tomcat.apache.org/download-80.cgi</a> để tải Tomcat. Chọn Core -> gói <strong>zip</strong>.<br>
+							<img src="/blog/2015/01/30/huong-dan-cai-dat-tomcat-tren-windows-7/img/download_tomcat.png" alt="Download Tomcat">
+						</p>
+						<p>
+							Bạn chép nó vào một thư mục nào đó (không phải Desktop), ở đây mình chọn <span class="post-url">C:\</span>. Giải nén và mình đề nghị đổi lại tên cho nó ngắn.<br>
+							<img src="/blog/2015/01/30/huong-dan-cai-dat-tomcat-tren-windows-7/img/unzip.png" alt="Unzip">
+						</p>
+					</article>
+					<article>
+						<h3>Tạo biến môi trường JAVA_HOME</h3>
+						<p>
+							Mở Command Prompt (cmd), gõ đường dẫn tới thư mục cài JDK, của mình là <span class="post-url">C:\Program Files\Java\jdk1.7.0_21</span> và gõ <code>set JAVA_HOME</code> để kiểm tra biến môi trường <code>JAVA_HOME</code> có tồn tại hay chưa. Nếu đã có thì nó sẽ hiển thị ra một đường dẫn, còn không thì như hình dưới.<br>
+							<img src="/blog/2015/01/30/huong-dan-cai-dat-tomcat-tren-windows-7/img/check_JAVA_HOME.png" alt="Check JAVA_HOME">
+						</p>
+						<p>
+							Để tạo biến môi trường <code>JAVA_HOME</code> thì bạn vào Start -> Control Panel -> System -> Advanced System Settings -> Environment Variables.<br>
+							<img src="/blog/2015/01/30/huong-dan-cai-dat-tomcat-tren-windows-7/img/environment_variables.png" alt="Environment Variables">
+						</p>
+						<p>
+							Bạn chọn <strong>New</strong> hoặc (<strong>Edit</strong> để chỉnh sửa) ở mục System Variables. Ở <strong>Variable Name</strong> bạn gõ <code>JAVA_HOME</code>. Ở <strong>Variable Value</strong> bạn gõ đường dẫn tới thư mục chứa JDK. Sau đó, chọn <strong>OK</strong>.<br>
+							<img src="/blog/2015/01/30/huong-dan-cai-dat-tomcat-tren-windows-7/img/set_JAVA_HOME.png" alt="Set JAVA_HOME">
+						</p>
+						<p>
+							Khởi động lại Command Prompt để kiểm tra.<br>
+							<img src="/blog/2015/01/30/huong-dan-cai-dat-tomcat-tren-windows-7/img/set_JAVA_HOME_success.png" alt="Set JAVA_HOME successfully">
+						</p>
+					</article>
+					<article>
+						<h3>Cấu hình Tomcat Server</h3>
+						<p>
+							Bạn vào thư mục <span class="post-url">conf</span> bên trong thư mục đã giải nén lúc ban đầu, của mình là <span class="post-url">C:\tomcat\conf</span>. Chúng ta sẽ cấu hình những file dưới đây và nhớ BACKUP lại trước khi cấu hình nhé.<br>
+							<ol>
+								<li>server.xml</li>
+								<li>web.xml</li>
+								<li>context.xml</li>
+								<li>tomcat-users.xml</li>
+							</ol>
+							<ul>
+								<li>
+									<h4>"conf\server.xml" - Cấu hình port TCP</h4>
+									<p>
+										Mặc định, Tomcat sẽ chạy ở port 8080. bạn có thể chọn port khác trong khoảng từ 1024 tới 65535, nếu port đó không có tiến trình nào đang sử dụng. Vào Command Prompt, gõ <code>netstat -a</code> để hiển thị danh sách những port đang chạy với địa chỉ IP là 0.0.0.0 nhé. Ở đây, mình chọn 8088 để làm ví dụ. Vì port 8080 đang chạy localhost cho blog đang viết.<br>
+										<img src="/blog/2015/01/30/huong-dan-cai-dat-tomcat-tren-windows-7/img/server.xml.png" alt="server.xml">
+									</p>
+								</li>
+								<li>
+									<h4"conf\web.xml"> - Kích hoạt Directory Listing</h4>
+									<p>
+										Bạn tìm đoạn khai báo servlet-name là <code>default</code>. Bạn tìm thẻ <code>init-param</code> sửa <code>param-value</code> từ <code>false</code> thành <code>true</code>.<br>
+										<img src="/blog/2015/01/30/huong-dan-cai-dat-tomcat-tren-windows-7/img/web.xml.png" alt="web.xml">
+									</p>
+								</li>
+								<li>
+									<h4>"conf\context.xml" - Cho phép tự động reload</h4>
+									<p>
+										Bạn tìm thẻ <code>context</code>, thêm thuộc tính <code>reloadable="true"</code> vào là được.<br>
+										<img src="/blog/2015/01/30/huong-dan-cai-dat-tomcat-tren-windows-7/img/context.xml.png" alt="context.xml">
+									</p>
+								</li>
+								<li>
+									<h4>"conf\tomcat-users.xml" - Chỉnh sửa cấu hình tài khoản manager (option)</h4>
+									<p>
+										File này dùng để cấu hình vào phần manager. <code>username</code> là tên đăng nhập, <code>password</code> là mật khẩu với <code>rolename</code> là <code>manager-gui</code>. Phần này sẽ được làm rõ sau.<br>
+										<img src="/blog/2015/01/30/huong-dan-cai-dat-tomcat-tren-windows-7/img/tomcat-users.xml.png" alt="tomcat-users.xml">
+									</p>
+								</li>
+							</ul>
+						</p>
+					</article>
+					<article>
+						<h3>Khởi động Tomcat Server</h3>
+						<p>
+							Mở Command Prompt, vào thư mục <span class="post-url">bin</span> thư mục cài đặt Tomcat, bạn gõ lệnh <code>startup</code>.<br>
+							<img src="/blog/2015/01/30/huong-dan-cai-dat-tomcat-tren-windows-7/img/start_tomcat.png" alt="Start Tomcat Server">
+						</p>
+						<p>
+							Đồng thời một màn hình Console hiện ra<br>
+							<img src="/blog/2015/01/30/huong-dan-cai-dat-tomcat-tren-windows-7/img/java_console.png" alt="Java Console">
+						</p>
+						<p>
+							Bạn chạy vào đường dẫn <span class="post-url">127.0.0.1:8088</span> để tận hưởng kết quả.<br>
+							<img src="/blog/2015/01/30/huong-dan-cai-dat-tomcat-tren-windows-7/img/tomcat.png" alt="Tomcat">
+						</p>
+					</article>
+					<article>
+						<h3>Tắt Tomcat Server</h3>
+						<p>
+							Bạn vào thư mục <span class="post-url">bin</span> trong thư mục cài đặt Tomcat và gõ lệnh <code>shutdown</code> để tắt.<br>
+							<img src="/blog/2015/01/30/huong-dan-cai-dat-tomcat-tren-windows-7/img/shutdown.png" alt="Shutdown Tomcat Server">
+						</p>
+					</article>
+					<article>
+						<h3>Phần quản trị</h3>
+						<p>
+							Như đã nói ở trên, file <span class="post-url">tomcat-users.xml</span> dùng để cấu hình tải khoản Manager. Bạn vào đường dẫn <span class="post-url">127.0.0.1/manager</span> sẽ hiện lên một khung đăng nhập. Điền tài khoản đã cấu hình lúc nãy với <code>rolename</code> là <code>manager-gui</code> để vào phần này.<br>
+							<img src="/blog/2015/01/30/huong-dan-cai-dat-tomcat-tren-windows-7/img/auth.png" alt="Authentication Required">
+						</p>
+						<p>
+							Đây là kết quả<br>
+							<img src="/blog/2015/01/30/huong-dan-cai-dat-tomcat-tren-windows-7/img/manager.png" alt="Manager">
+						</p>
+					</article>
+					<article>
+						<h3>Kết</h3>
+						<p>
+							Bài viết này hướng dẫn bạn cài đặt Tomcat sẽ có một bài viết khác hướng dẫn làm quen với Tomcat Server.
+						</p>
+					</article>
+					<article>
+						<h3>Tham khảo</h3>
+						<p>
+							<a href="http://www.ntu.edu.sg/home/ehchua/programming/howto/Tomcat_HowTo.html">How to Install Apache Tomcat 7 or 8 (on Windows, Mac OS X, Ubuntu) and Get Started with Java Servlet Programming</a>
+						</p>
+					</article>
+				</div>
+				<div class="post-time">
+					Last Modified: 4:53 PM - Friday, January 30, 2015
+				</div>
+			</section>
+		</div>
+
+		<div class="widget">
+			<div class="widget-top">
+				<span class="glyphicon glyphicon-chevron-up"></span>
+			</div>
+			<div class="widget-index" title="Mục lục">
+				<a href="/index">
+					<span class="glyphicon glyphicon-list-alt"></span> Index
+				</a>
+			</div>
+		</div>
+
+		<script src="/public/js/jquery.js"></script>
+		<script src="/public/js/script.js"></script>
+	</body>
+</html>
