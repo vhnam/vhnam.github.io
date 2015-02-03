@@ -1,5 +1,11 @@
 [
 	{
+		"time" : "Tuesday, February 03, 2015 - 4:49 PM",
+		"title" : "Hướng dẫn thay đổi Docroot trên GlassFish 4",
+		"link": "/blog/2015/02/03/huong-dan-thay-doi-docroot-tren-glassfish-4",
+		"description" : "Nếu bạn không thích đường dẫn \"127.0.0.1:8080/example\" thì cần phải thay đổi docroot để đường dẫn trở thành \"127.0.0.1:8080\" để vào project Example."
+	},
+	{
 		"time" : "Friday, January 30, 2015 - 4:53 PM",
 		"title" : "Hướng dẫn cài đặt Tomcat trên Windows 7",
 		"link": "/blog/2015/01/30/huong-dan-cai-dat-tomcat-tren-windows-7",
