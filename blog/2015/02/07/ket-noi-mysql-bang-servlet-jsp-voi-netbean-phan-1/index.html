@@ -44,10 +44,54 @@
 			<section class="content">
 				<h2 class="post-title">Kết nối MySQL bằng Servlet - JSP với NetBean (phần 1)</h2>
 				<div class="post-content">
-					
+					<p>
+						Cấu hình môi trường để chạy được web với ngôn ngữ Java có phần phức tạp so với những ngôn ngữ mình đã làm qua. Bài viết này hơi nhiều, mình xin chia ra làm 2 phần. Ở phần 1, mình chủ yếu trình bày cách cấu hình MySQL trong NetBean để tiện thao tác, đỡ phải mở một chương trình khác để thao tác. Nếu bạn có thể chuyển sang phần 2 để coi cách kết nối bằng ngôn ngữ Java.
+					</p>
+					<article>
+						<h3>MySQL</h3>
+						<p>
+							MySQL là hệ quản trị cơ sở dữ liệu mã nguồn mở phổ biến nhất thế giới, thuộc loại cơ sở dữ liệu quan hệ (RDBMS) và được các nhà phát triển rất ưa chuộng trong quá trình phát triển ứng dụng. Vì MySQL là cơ sở dữ liệu tốc độ cao, ổn định và dễ sử dụng, có tính khả chuyển, hoạt động trên nhiều hệ điều hành cung cấp một hệ thống lớn các hàm tiện ích rất mạnh. Với tốc độ và tính bảo mật cao, MySQL rất thích hợp cho các ứng dụng có truy cập CSDL trên internet.
+						</p>
+						<p>
+							MySQL được sử dụng cho việc bổ trợ PHP, Perl, và nhiều ngôn ngữ khác, nó làm nơi lưu trữ những thông tin trên các trang web viết bằng PHP hay Perl,...<br>
+							<span class="right">--- Theo Wikipedia ---</span>
+						</p>
+					</article>
+					<article>
+						<h3>Cấu hình</h3>
+						<p>
+							Bạn khởi động NetBean, ở góc trên trái, chọn thẻ <strong>Services</strong> -> <strong>Database</strong>, chuột phải chọn <strong>New Connection</strong>.<br>
+							<img src="/blog/2015/02/07/ket-noi-mysql-bang-servlet-jsp-voi-netbean-phan-1/img/new_connection.png" alt="New Connection">
+						</p>
+						<p>
+							Ở mục <strong>Driver</strong> chọn <strong>MySQL (Connector/J driver)</strong>. Ở khung <strong>Driver file(s)</strong> sẽ hiển thị driver tương ứng. Lúc mình cài NetBean 8.0, nó đã có sẵn nên không cần phải download. Nhấn <strong>Next</strong><br>
+							<img src="/blog/2015/02/07/ket-noi-mysql-bang-servlet-jsp-voi-netbean-phan-1/img/locate_driver.png" alt="Locate Driver">
+						</p>
+						<p>
+							Mục <strong>host</strong> thì mình không thích chữ <code>localhost</code> nên đổi thành <code>127.0.0.1</code> cho đẹp, chứ thật ra tụi nó là một. Chọn <strong>port</strong> <code>3306</code> vì đây là port mặc định của MySQL. Mục <strong>Database</strong> thì nhập tên của database mà bạn muốn sử dụng. <strong>User Name</strong>, <strong>Password</strong> là của tài khoản để vào phần quản trị MySQL (tài khoản vào PHPMyAdmin cho dễ hiểu). Xong rồi nhấn <strong>Test Connection</strong> để kiểm tra có kết nối thành công hay không.
+						</p>
+						<p>
+							Chỗ <strong>JDBC URL</strong> là url dùng để kết nối tới CSDL. Cấu trúc của nó gồm <code>jdbc:mysql://</code> + <code>&lt;host&gt;</code> + <code>:</code> + <code>&lt;port&gt;</code> + <code>&frasl;</code> + <code>&lt;database&gt;</code>.<br>
+							<img src="/blog/2015/02/07/ket-noi-mysql-bang-servlet-jsp-voi-netbean-phan-1/img/customize_connection.png" alt="Customize Connection">
+						</p>
+						<p>
+							Sau khi nhấn <strong>Next</strong> ta sẽ tới bước <strong>Choose Database Schema</strong>. Bước này cứ mạnh dạn <strong>Next</strong> để tới <strong>Choose name for connection</strong>. Ở khung <strong>Input connection name</strong>, nếu không thích tên xấu xí thì đổi.<br>
+							<img src="/blog/2015/02/07/ket-noi-mysql-bang-servlet-jsp-voi-netbean-phan-1/img/choose_name_for_connection.png" alt="Choose name for connection">
+						</p>
+						<p>
+							Cuối cùng <strong>Finish</strong>.<br>
+							<img src="/blog/2015/02/07/ket-noi-mysql-bang-servlet-jsp-voi-netbean-phan-1/img/finish_new_connection.png" alt="Finish">
+						</p>
+						<p>
+							Bạn có thể thao tác thêm/xóa/sửa/truy vấn ngay tại NetBean. Và lúc tạo bảng, mặc định NetBean sẽ chọn <strong>InnoDB</strong>.
+						</p>
+						<p>
+							Đã hết phần 1, các bạn có thể coi tiếp phần 2 tại <a href="#">đây</a>.
+						</p>
+					</article>
 				</div>
 				<div class="post-time">
-					Last Modified: 4:49 PM - Tuesday, February 03, 2015
+					Last Modified: 1:45 AM - Saturday, February 07, 2015
 				</div>
 			</section>
 		</div>
