@@ -1,5 +1,11 @@
 [
 	{
+		"time" : "Saturday, February 07, 2015 - 12:51 AM",
+		"title" : "Kết nối MySQL bằng Servlet - JSP với NetBean (phần 1)",
+		"link": "/blog/2015/02/07/ket-noi-mysql-bang-servlet-jsp-voi-netbean-phan-1",
+		"description" : "Cấu hình để kết nối MySQL trên môi trường web với ngôn ngữ Java hơi phức tạp. Phần 1, mình xin chia sẻ các bước chuẩn bị ở phía cơ sở dữ liệu, cụ thể là MySQL."
+	},
+	{
 		"time" : "Tuesday, February 03, 2015 - 4:49 PM",
 		"title" : "Hướng dẫn thay đổi Docroot trên GlassFish 4",
 		"link": "/blog/2015/02/03/huong-dan-thay-doi-docroot-tren-glassfish-4",
