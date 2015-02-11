@@ -45,7 +45,7 @@
 				<h2 class="post-title">Kết nối MySQL bằng Servlet - JSP với NetBean (phần 1)</h2>
 				<div class="post-content">
 					<p>
-						Cấu hình môi trường để chạy được web với ngôn ngữ Java có phần phức tạp so với những ngôn ngữ mình đã làm qua. Bài viết này hơi nhiều, mình xin chia ra làm 2 phần. Ở phần 1, mình chủ yếu trình bày cách cấu hình MySQL trong NetBean để tiện thao tác, đỡ phải mở một chương trình khác để thao tác. Nếu bạn có thể chuyển sang phần 2 để coi cách kết nối bằng ngôn ngữ Java.
+						Cấu hình môi trường để chạy được web với ngôn ngữ Java có phần phức tạp so với những ngôn ngữ mình đã làm qua. Bài viết này hơi nhiều, mình xin chia ra làm 2 phần. Ở phần 1, mình chủ yếu trình bày cách cấu hình MySQL trong NetBean để tiện thao tác và cách tạo Project.
 					</p>
 					<article>
 						<h3>MySQL</h3>
@@ -58,7 +58,7 @@
 						</p>
 					</article>
 					<article>
-						<h3>Cấu hình</h3>
+						<h3>Cấu hình MySQL</h3>
 						<p>
 							Bạn khởi động NetBean, ở góc trên trái, chọn thẻ <strong>Services</strong> -> <strong>Database</strong>, chuột phải chọn <strong>New Connection</strong>.<br>
 							<img src="/blog/2015/02/07/ket-noi-mysql-bang-servlet-jsp-voi-netbean-phan-1/img/new_connection.png" alt="New Connection">
@@ -85,13 +85,54 @@
 						<p>
 							Bạn có thể thao tác thêm/xóa/sửa/truy vấn ngay tại NetBean. Và lúc tạo bảng, mặc định NetBean sẽ chọn <strong>InnoDB</strong>.
 						</p>
+					</article>
+					<article>
+						<h3>Tạo project</h3>
 						<p>
-							Đã hết phần 1, các bạn có thể coi tiếp phần 2 tại <a href="#">đây</a>.
+							<strong>File</strong> -> <strong>New Project</strong> hoặc bạn nhấn <code>Ctrl</code> + <code>Shift</code> + <code>N</code>. Sau đó chọn <strong>Java Web</strong> -> <strong>Web Application</strong> như trong hình.<br>
+							<img src="/blog/2015/02/07/ket-noi-mysql-bang-servlet-jsp-voi-netbean-phan-1/img/choose_project.png" alt="Choose Project">
 						</p>
+						<p>
+							<strong>Project Name</strong> là tên của project mà bạn tạo ra. <strong>Project Location</strong> là nơi bạn sẽ lưu project. <strong>Project Folder</strong> là nơi mà bạn sẽ tìm lại được project mà bạn đã tạo.<br>
+							<img src="/blog/2015/02/07/ket-noi-mysql-bang-servlet-jsp-voi-netbean-phan-1/img/name_and_location.png" alt="Name and Location">
+						</p>
+						<p>
+							<strong>Server</strong> là loại Web Server mà bạn sẽ dùng. <strong>Java EE version</strong> là phiên bản JavaEE sẽ sử dụng.<br>
+							<img src="/blog/2015/02/07/ket-noi-mysql-bang-servlet-jsp-voi-netbean-phan-1/img/server_and_settings.png" alt="Server and Settings">
+						</p>
+						<p>
+							Nếu có nhu cầu sử dụng framework nào thì bạn cứ việc chọn.<br>
+							<img src="/blog/2015/02/07/ket-noi-mysql-bang-servlet-jsp-voi-netbean-phan-1/img/frameworks.png" alt="Frameworks">
+						</p>
+						<p>
+							Sau đó, bạn chuột phải vào project, chọn <strong>Properties</strong> -> <strong>Libraries</strong> -> <strong>Add JAR/Folder</strong> để chọn driver. Và lưu ý, bạn phải đặt driver đó trong thư mục <span class="post-url">/web/WEB-INF/lib</span> của project.<br>
+							<img src="/blog/2015/02/07/ket-noi-mysql-bang-servlet-jsp-voi-netbean-phan-1/img/structure_folder.png" alt="Folder Structure"><br>
+							<img src="/blog/2015/02/07/ket-noi-mysql-bang-servlet-jsp-voi-netbean-phan-1/img/import_library.png" alt="Import Library">
+						</p>
+					</article>
+					<article>
+						<h3>Phần 2</h3>
+						<p>
+							<a href="http://vhnam.github.io/blog/2015/02/07/ket-noi-mysql-bang-servlet-jsp-voi-netbean-phan-2/">Kết nối MySQL bằng Servlet - JSP phần 2</a>
+						</p>
+					</article>
+					<article>
+						<h3>Tham khảo</h3>
+						<ul>
+							<li>
+								<a href="https://thaihoanghai.wordpress.com/2013/04/22/servlet-jsp-example-mysql/">Servlet + JSP + MySQL Examplse</a>
+							</li>
+							<li>
+								<a href="http://congdongjava.com/forum/threads/t%E1%BB%95ng-quan-v%E1%BB%81-servlet-servlet-in-java-web-application.1720/">Tổng quan về Servlet - Servlet in Java Web Application</a>
+							</li>
+							<li>
+								<a href="http://stackoverflow.com/questions/15799841/access-to-mysql-using-java-servlet-solved">Access to MySQL using Java Servlet? (Solved)</a>
+							</li>
+						</ul>
 					</article>
 				</div>
 				<div class="post-time">
-					Last Modified: 1:45 AM - Saturday, February 07, 2015
+					Last Modified: 10:44 PM - Webnesday, February 07, 2015
 				</div>
 			</section>
 		</div>

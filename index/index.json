@@ -1,18 +1,18 @@
 [
 	{
-		"time" : "Saturday, February 07, 2015 - 1:45 AM",
+		"time" : "Wednesday, February 11, 2015 - 1:55 PM",
 		"title" : "Kết nối MySQL bằng Servlet - JSP với NetBean (phần 2)",
 		"link": "/blog/2015/02/07/ket-noi-mysql-bang-servlet-jsp-voi-netbean-phan-2",
-		"description" : "Tiếp tục phần 1, mình sẽ bắt đầu vào việc kết nối với MySQL bằng Servlet - JSP."
+		"description" : "Ở phần 2, mình sẽ bắt đầu vào việc kết nối với MySQL bằng Servlet - JSP."
 	},
 	{
-		"time" : "Saturday, February 07, 2015 - 1:45 AM",
+		"time" : "Wednesday, February 11, 2015 - 10:44 PM",
 		"title" : "Kết nối MySQL bằng Servlet - JSP với NetBean (phần 1)",
 		"link": "/blog/2015/02/07/ket-noi-mysql-bang-servlet-jsp-voi-netbean-phan-1",
-		"description" : "Cấu hình để kết nối MySQL trên môi trường web với ngôn ngữ Java hơi phức tạp. Phần 1, mình xin chia sẻ các bước cấu hình MySQL trong NetBean để tiện thao tác, đỡ phải mở một chương trình khác để thao tác với MySQL."
+		"description" : "Phần 1, mình sẽ nói về cách thao tác với MySQL trong NetBean và cách tạo một Project."
 	},
 	{
-		"time" : "TWednesday, February 11, 2015 - 1:55 PM",
+		"time" : "Tuesday, February 03, 2015 - 4:49 PM",
 		"title" : "Hướng dẫn thay đổi Docroot trên GlassFish 4",
 		"link": "/blog/2015/02/03/huong-dan-thay-doi-docroot-tren-glassfish-4",
 		"description" : "Nếu bạn không thích đường dẫn \"127.0.0.1:8080/example\" thì cần phải thay đổi docroot để đường dẫn trở thành \"127.0.0.1:8080\" để vào project Example."
