@@ -1,5 +1,11 @@
 [
 	{
+		"time" : "Tuesday, February 17, 2015 - 1:43 AM",
+		"title" : "Giới thiệu GitHub",
+		"link": "/blog/2015/02/16/gioi-thieu-github",
+		"description" : "Cộng đồng mã nguồn mở ngày một tăng lên, họ sử dụng GitHub như là mạng xã hội dành cho giới lập trình viên với khoảng 3,4 triệu người dùng và 16,7 triệu repo."
+	},
+	{
 		"time" : "Thursday, February 12, 2015 - 12:29 AM",
 		"title" : "Kết nối MySQL bằng Servlet - JSP với NetBean (phần 2)",
 		"link": "/blog/2015/02/07/ket-noi-mysql-bang-servlet-jsp-voi-netbean-phan-2",

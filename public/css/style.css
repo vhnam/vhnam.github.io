@@ -158,6 +158,10 @@ header {
 	margin-bottom: 30px;
 }
 
+.post-section-h4 {
+	margin-left: 20px;
+}
+
 .widget-index > a {
 	color: #f2f2f2;
 	text-decoration: none;
