@@ -1,6 +1,12 @@
 [
 	{
 		"time" : "Thursday, February 19, 2015 - 1:58 AM",
+		"title" : "Lợi ích khi tạo một repository trên GitHub",
+		"link": "/blog/2015/02/20/loi-ich-khi-tao-mot-repository-tren-github",
+		"description" : "Nếu bạn cảm thấy phiền phức khi thao tác với codepad.org hay pastebin.com. Gist của GitHub sẽ là một sự lựa chọn sáng suốt."
+	},
+	{
+		"time" : "Thursday, February 19, 2015 - 1:58 AM",
 		"title" : "Giới thiệu Gist - GitHub",
 		"link": "/blog/2015/02/19/gioi-thieu-gist-github",
 		"description" : "Nếu bạn cảm thấy phiền phức khi thao tác với codepad.org hay pastebin.com. Gist của GitHub sẽ là một sự lựa chọn sáng suốt."
