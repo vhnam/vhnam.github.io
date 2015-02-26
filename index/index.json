@@ -1,9 +1,9 @@
 [
 	{
-		"time" : "Thursday, February 26, 2015 - 3:33 PM",
+		"time" : "Thursday, February 26, 2015 - 9:36 PM",
 		"title" : "Hướng dẫn thao tác với repository trên GitHub",
 		"link": "/blog/2015/02/26/huong-dan-thao-tac-voi-repository-tren-github",
-		"description" : "Có thể các bạn nghĩ việc tạo một repository trên GitHub chỉ để lưu trữ source code. Bài viết này, mình mong muốn các bạn biết thêm về lợi ích của việc tạo repository trên GitHub."
+		"description" : "Bài viết này hướng dẫn các bạn cách add SSH Key, clone, tạo branch, commit, pull và push từ máy tính tới GitHub."
 	},
 	{
 		"time" : "Friday, February 20, 2015 - 8:03 PM",

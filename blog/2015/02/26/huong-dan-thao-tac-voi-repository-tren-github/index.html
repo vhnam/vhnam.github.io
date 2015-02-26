@@ -49,15 +49,15 @@
 						<h3>Tạo SSH Key</h3>
 						<p>
 							Bạn mở PuTTYgen để bắt đầu tạo SSH Key. Lưu ý là mã được tạo ra bằng thuật toán RSA. Do đó, bạn sẽ cần lưu 2 khóa <strong>public</strong> và <strong>private</strong>.<br>
-							<img src="/blog/2015/02/26/huong-dan-tao-repository-tren-github/img/puttygen.png" alt="PuTTYgen">
+							<img src="/blog/2015/02/26/huong-dan-thao-tac-voi-repository-tren-github/img/puttygen.png" alt="PuTTYgen">
 						</p>
 						<p>
 							Tiếp theo, bạn nhấn nút <strong>Generate</strong> và di chuyển con chuột trong vùng được khoanh màu đỏ để tạo SSH Key.<br>
-							<img src="/blog/2015/02/26/huong-dan-tao-repository-tren-github/img/gen-key.png" alt="Generate SSH Key">
+							<img src="/blog/2015/02/26/huong-dan-thao-tac-voi-repository-tren-github/img/gen-key.png" alt="Generate SSH Key">
 						</p>
 						<p>
 							Sau khi hoàn tất, bạn nhấn <strong>Save private key</strong> để lưu khóa <strong>private</strong>. Tiếp theo, bạn copy đoạn trong khung được khoanh tròn để lưu lại khóa <strong>public</strong>.<br>
-							<img src="/blog/2015/02/26/huong-dan-tao-repository-tren-github/img/public-key.png" alt="Public Key">
+							<img src="/blog/2015/02/26/huong-dan-thao-tac-voi-repository-tren-github/img/public-key.png" alt="Public Key">
 						</p>
 					</article>
 					<article>
@@ -67,18 +67,18 @@
 						</p>
 						<p>
 							Tiếp theo, vào trang <a href="https://code.google.com/p/tortoisegit/wiki/Download">https://code.google.com/p/tortoisegit/wiki/Download</a> để tải <strong>TortoiseGit</strong> rồi cài. Sau khi cài xong, bạn nhấn chuột phải sẽ ra như hình bên dưới.<br>
-							<img src="/blog/2015/02/26/huong-dan-tao-repository-tren-github/img/install-tortoisegit-successfully.png" alt="Install Successfully">
+							<img src="/blog/2015/02/26/huong-dan-thao-tac-voi-repository-tren-github/img/install-tortoisegit-successfully.png" alt="Install Successfully">
 						</p>
 					</article>
 					<article>
 						<h3>Thêm SSH Key vào GitHub</h3>
 						<p>
 							Bạn vào phần <strong>Settings</strong> trên GitHub. Nhìn sang cột bên trái, chọn <strong>SSH Keys</strong>.<br>
-							<img src="/blog/2015/02/26/huong-dan-tao-repository-tren-github/img/ssh-keys.png" alt="SSH Keys">
+							<img src="/blog/2015/02/26/huong-dan-thao-tac-voi-repository-tren-github/img/ssh-keys.png" alt="SSH Keys">
 						</p>
 						<p>
 							Nhấn nút <strong>Add Key</strong>, điền <strong>Title</strong> và copy <strong>Public Key</strong> vào khung <strong>Key</strong>.<br>
-							<img src="/blog/2015/02/26/huong-dan-tao-repository-tren-github/img/add-ssh-key.png" alt="Add SSH Key">
+							<img src="/blog/2015/02/26/huong-dan-thao-tac-voi-repository-tren-github/img/add-ssh-key.png" alt="Add SSH Key">
 						</p>
 						<p>
 							Nhấn nút <strong>Add key</strong> để nó điều hướng sang trang khác. Xác nhận password là xong.
@@ -91,20 +91,57 @@
 						</p>
 						<p>
 							Ta vào trang chủ trên GitHub, chọn tab <strong>Repositories</strong>, nhấn nút <strong>New</strong>.<br>
-							<img src="/blog/2015/02/26/huong-dan-tao-repository-tren-github/img/new-repo.png" alt="New Repo">
+							<img src="/blog/2015/02/26/huong-dan-thao-tac-voi-repository-tren-github/img/new-repo.png" alt="New Repo">
 						</p>
 						<p>
 							Bạn điền đẩy đủ thông tin bao gồm tên của repo, mô tả (description), public hay private, có cần file README hay không, chịu ảnh hưởng của bản quyền mã nguồn mở nào,...<br>
-							<img src="/blog/2015/02/26/huong-dan-tao-repository-tren-github/img/new.png" alt="Create repository">
+							<img src="/blog/2015/02/26/huong-dan-thao-tac-voi-repository-tren-github/img/new.png" alt="Create repository">
 						</p>
 						<p>
 							Và đây là kết quả.<br>
-							<img src="/blog/2015/02/26/huong-dan-tao-repository-tren-github/img/create-repo-successfully.png" alt="Create repository successfully">
+							<img src="/blog/2015/02/26/huong-dan-thao-tac-voi-repository-tren-github/img/create-repo-successfully.png" alt="Create repository successfully">
+						</p>
+					</article>
+					<article>
+						<h3>Git</h3>
+						<p>
+							Mình chỉ giới thiệu Git theo như những gì mình hiểu về nó thôi. Tư tưởng của nó là sản phẩm của bạn có thể có nhiều nhánh để phát triển. Trong đó, nhánh <strong>master</strong> là nhánh hoàn thiện nhất của dự án.<br>
+							<img src="/blog/2015/02/26/huong-dan-thao-tac-voi-repository-tren-github/img/repository-diagram.png" alt="Repository Diagram">
+						</p>
+						<p>
+							Ví dụ, dự án của bạn gồm có 3 người làm là Tủn, Tồ và Tèo. Nếu làm theo cách thông thường, Tủn làm xong việc mới, Tồ mới làm tiếp được. Tèo muốn thay đổi mã nguồn thì Tủn và Tồ thở oxy. Làm theo tư tưởng trên. Mỗi người sẽ tạo một nhánh (<strong>branch</strong>). Mỗi nhánh tương đương với một chức năng trong dự án. Ai làm xong chức năng nào thì <strong>merge</strong> vào nhánh <strong>master</strong>.<br>
+							<img src="/blog/2015/02/26/huong-dan-thao-tac-voi-repository-tren-github/img/git-workflow.png" alt="Git Workflow">
+						</p>
+						<p>
+							Trong quá trình phát triển, người ta sẽ chia ra từng chặng đường nhỏ. Trong mỗi chặng đường, công việc bao gồm phân tích - phác thảo - thiết kế - kiểm thử. Vòng lặp sẽ liên tục cho tới khi hoàn thành dự án sẽ kết thúc.<br>
+							<img src="/blog/2015/02/26/huong-dan-thao-tac-voi-repository-tren-github/img/agile-method.png" alt="Agile Methodology">
+						</p>
+						<p>
+							Thực ra, Git là công cụ implement triết lý Agile trong phương pháp lập trình linh hoạt.
+						</p>
+					</article>
+					<article>
+						<h3>Phát triển</h3>
+						<p>
+							Nhìn xuống góc bên phải, chọn vào <strong>SSH</strong> để lấy được URL cho việc clone bằng giao thức SSH. Sau đó, vào thư mục cần lưu trên máy tính, chuột phải chọn <strong>Git clone</strong> rồi đánh dấu vào ô <strong>Load Putty Key</strong>, chọn đường dẫn tới nơi chứa <strong>private key</strong> có định dạng <strong>*.ppk</strong>. Nếu bạn chọn <strong>HTTPS</strong> thì KHÔNG cần chọn vào ô đó. Lưu ý là URL của 2 giao thức này khác nhau.<br>
+							<img src="/blog/2015/02/26/huong-dan-thao-tac-voi-repository-tren-github/img/git-clone.png" alt="Git Clone">
+						</p>
+						<p>
+							Mặc định, bạn sẽ thao tác với nhánh <strong>master</strong>. Để tạo một nhánh khác, bạn chuột phải vào repo lưu trên máy, chọn <strong>TortoiseGit</strong> -> <strong>Create Branch</strong>.<br>
+							<img src="/blog/2015/02/26/huong-dan-thao-tac-voi-repository-tren-github/img/create-branch.png" alt="Create Branch">
+						</p>
+						<p>
+							Sau đó, điền tên nhánh cần tạo, nhánh mới rẽ từ nhánh nào, muốn chuyển sang nhánh mới liền sau khi tạo hay không,...<br>
+							<img src="/blog/2015/02/26/huong-dan-thao-tac-voi-repository-tren-github/img/dev-branch.png" alt="Create Development Branch">
+						</p>
+						<p>
+							Chuột phải vào repo lưu trên máy để kiểm tra đã chuyển sang nhánh mới hay chưa.<br>
+							<img src="/blog/2015/02/26/huong-dan-thao-tac-voi-repository-tren-github/img/development.png" alt="Development Branch">
 						</p>
 					</article>
 				</div>
 				<div class="post-time">
-					Last Modified: 4:49 PM - Tuesday, February 03, 2015
+					Last Modified: 9:36 PM - Thursday, February 26, 2015
 				</div>
 			</section>
 		</div>
