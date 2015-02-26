@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="description" content="Software Engineering">
+		<title>Hướng dẫn tạo repository trên GitHub</title>
+		<link href="/public/img/favicon.png" rel="shortcut icon">
+		<link rel="stylesheet" href="/public/css/bootstrap.css">
+		<link rel="stylesheet" href="/public/css/bootstrap-theme.css">
+		<link rel="stylesheet" href="/public/css/style.css">
+		<link href="http://fonts.googleapis.com/css?family=Open+Sans&amp;subset=latin,vietnamese" rel="stylesheet" type="text/css">
+	</head>
+	<body>
+		<div>
+			<header>
+				<img class="header-logo" src="/public/img/logo.png" alt="Logo">
+				<h1 class="header-brand" title="Công nghệ phần mềm">
+					<a href="/">Software Engineering</a>
+				</h1>
+				<nav>
+					<ul class="nav header-index">
+						<li>
+							<a href="/">Blog</a>
+						</li>
+						<li>
+							<a href="/index">Index</a>
+						</li>
+						<li>
+							<a href="/about">About</a>
+						</li>
+					</ul>
+				</nav>
+				<nav class="nav-contact">
+					<div>
+						<a href="https://github.com/vhnam">
+							<img title="Github" src="/public/img/github.png" alt="Github">
+						</a>
+						<a href="https://www.linkedin.com/in/namvh">
+							<img title="LinkedIn" src="/public/img/linkedin.png" alt="LinkedIn">
+						</a>
+					</div>
+				</nav>
+			</header>
+			<section class="content">
+				<h2 class="post-title">Hướng dẫn tạo repository trên GitHub</h2>
+				<div class="post-content">
+					Chức năng chính của GitHub dùng để lưu trữ source code. Bài viết này, mình sẽ giúp các bạn tạo một repository trên GitHub. Có một số vấn đề trong bài viết này, mình sẽ sử dụng TortoiseGit để thao tác với GitHub và sử dụng giao thức SSH để truyền dữ liệu.
+					<article>
+						<h3>Tạo SSH Key</h3>
+						<p>
+							Bạn mở PuTTYgen để bắt đầu tạo SSH Key. Lưu ý là mã được tạo ra bằng thuật toán RSA. Do đó, bạn sẽ cần lưu 2 khóa <strong>public</strong> và <strong>private</strong>.<br>
+							<img src="/blog/2015/02/26/huong-dan-tao-repository-tren-github/img/puttygen.png" alt="PuTTYgen">
+						</p>
+						<p>
+							Tiếp theo, bạn nhấn nút <strong>Generate</strong> và di chuyển con chuột trong vùng được khoanh màu đỏ để tạo SSH Key.<br>
+							<img src="/blog/2015/02/26/huong-dan-tao-repository-tren-github/img/gen-key.png" alt="Generate SSH Key">
+						</p>
+						<p>
+							Sau khi hoàn tất, bạn nhấn <strong>Save private key</strong> để lưu khóa <strong>private</strong>. Tiếp theo, bạn copy đoạn trong khung được khoanh tròn để lưu lại khóa <strong>public</strong>.<br>
+							<img src="/blog/2015/02/26/huong-dan-tao-repository-tren-github/img/public-key.png" alt="Public Key">
+						</p>
+					</article>
+					<article>
+						<h3>TortoiseGit</h3>
+						<p>
+							Đầu tiên, bạn phải vào trang <a href="http://git-scm.com/download/win">http://git-scm.com/download/win</a> để tải <strong>Git</strong> về và cài đặt.
+						</p>
+						<p>
+							Tiếp theo, vào trang <a href="https://code.google.com/p/tortoisegit/wiki/Download">https://code.google.com/p/tortoisegit/wiki/Download</a> để tải <strong>TortoiseGit</strong> rồi cài. Sau khi cài xong, bạn nhấn chuột phải sẽ ra như hình bên dưới.<br>
+							<img src="/blog/2015/02/26/huong-dan-tao-repository-tren-github/img/install-tortoisegit-successfully.png" alt="Install Successfully">
+						</p>
+					</article>
+					<article>
+						<h3>Thêm SSH Key vào GitHub</h3>
+						<p>
+							Bạn vào phần <strong>Settings</strong> trên GitHub. Nhìn sang cột bên trái, chọn <strong>SSH Keys</strong>.<br>
+							<img src="/blog/2015/02/26/huong-dan-tao-repository-tren-github/img/ssh-keys.png" alt="SSH Keys">
+						</p>
+						<p>
+							Nhấn nút <strong>Add Key</strong>, điền <strong>Title</strong> và copy <strong>Public Key</strong> vào khung <strong>Key</strong>.<br>
+							<img src="/blog/2015/02/26/huong-dan-tao-repository-tren-github/img/add-ssh-key.png" alt="Add SSH Key">
+						</p>
+					</article>
+				</div>
+				<div class="post-time">
+					Last Modified: 4:49 PM - Tuesday, February 03, 2015
+				</div>
+			</section>
+		</div>
+
+		<div class="widget">
+			<div class="widget-top">
+				<span class="glyphicon glyphicon-chevron-up"></span>
+			</div>
+			<div class="widget-index" title="Mục lục">
+				<a href="/index">
+					<span class="glyphicon glyphicon-list-alt"></span> Index
+				</a>
+			</div>
+		</div>
+
+		<script src="/public/js/jquery.js"></script>
+		<script src="/public/js/script.js"></script>
+	</body>
+</html>
