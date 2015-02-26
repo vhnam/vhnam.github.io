@@ -3,7 +3,7 @@
 	<head>
 		<meta charset="utf-8">
 		<meta name="description" content="Software Engineering">
-		<title>Hướng dẫn tạo repository trên GitHub</title>
+		<title>Hướng dẫn thao tác với repository trên GitHub</title>
 		<link href="/public/img/favicon.png" rel="shortcut icon">
 		<link rel="stylesheet" href="/public/css/bootstrap.css">
 		<link rel="stylesheet" href="/public/css/bootstrap-theme.css">
@@ -42,9 +42,9 @@
 				</nav>
 			</header>
 			<section class="content">
-				<h2 class="post-title">Hướng dẫn tạo repository trên GitHub</h2>
+				<h2 class="post-title">Hướng dẫn thao tác với repository trên GitHub</h2>
 				<div class="post-content">
-					Chức năng chính của GitHub dùng để lưu trữ source code. Bài viết này, mình sẽ giúp các bạn tạo một repository trên GitHub. Có một số vấn đề trong bài viết này, mình sẽ sử dụng TortoiseGit để thao tác với GitHub và sử dụng giao thức SSH để truyền dữ liệu.
+					Chức năng chính của GitHub dùng để lưu trữ source code. Bài viết này, mình sẽ giúp các bạn thao tác với một repository trên GitHub. Có một số vấn đề trong bài viết này, mình sẽ sử dụng TortoiseGit để thao tác với GitHub và sử dụng giao thức SSH để truyền dữ liệu.
 					<article>
 						<h3>Tạo SSH Key</h3>
 						<p>
@@ -79,6 +79,27 @@
 						<p>
 							Nhấn nút <strong>Add Key</strong>, điền <strong>Title</strong> và copy <strong>Public Key</strong> vào khung <strong>Key</strong>.<br>
 							<img src="/blog/2015/02/26/huong-dan-tao-repository-tren-github/img/add-ssh-key.png" alt="Add SSH Key">
+						</p>
+						<p>
+							Nhấn nút <strong>Add key</strong> để nó điều hướng sang trang khác. Xác nhận password là xong.
+						</p>
+					</article>
+					<article>
+						<h3>Tạo repository</h3>
+						<p>
+							Sau khi tạo xong SSH Key, cài đặt Git và TortoiseGit xong, chúng ta sẽ tạo một repository trên GitHub.
+						</p>
+						<p>
+							Ta vào trang chủ trên GitHub, chọn tab <strong>Repositories</strong>, nhấn nút <strong>New</strong>.<br>
+							<img src="/blog/2015/02/26/huong-dan-tao-repository-tren-github/img/new-repo.png" alt="New Repo">
+						</p>
+						<p>
+							Bạn điền đẩy đủ thông tin bao gồm tên của repo, mô tả (description), public hay private, có cần file README hay không, chịu ảnh hưởng của bản quyền mã nguồn mở nào,...<br>
+							<img src="/blog/2015/02/26/huong-dan-tao-repository-tren-github/img/new.png" alt="Create repository">
+						</p>
+						<p>
+							Và đây là kết quả.<br>
+							<img src="/blog/2015/02/26/huong-dan-tao-repository-tren-github/img/create-repo-successfully.png" alt="Create repository successfully">
 						</p>
 					</article>
 				</div>

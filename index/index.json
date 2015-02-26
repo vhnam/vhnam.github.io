@@ -1,5 +1,11 @@
 [
 	{
+		"time" : "Thursday, February 26, 2015 - 3:33 PM",
+		"title" : "Hướng dẫn thao tác với repository trên GitHub",
+		"link": "/blog/2015/02/26/huong-dan-thao-tac-voi-repository-tren-github",
+		"description" : "Có thể các bạn nghĩ việc tạo một repository trên GitHub chỉ để lưu trữ source code. Bài viết này, mình mong muốn các bạn biết thêm về lợi ích của việc tạo repository trên GitHub."
+	},
+	{
 		"time" : "Friday, February 20, 2015 - 8:03 PM",
 		"title" : "Lợi ích khi tạo một repository trên GitHub",
 		"link": "/blog/2015/02/20/loi-ich-khi-tao-mot-repository-tren-github",
