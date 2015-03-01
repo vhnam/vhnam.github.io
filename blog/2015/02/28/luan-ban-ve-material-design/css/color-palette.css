@@ -1,0 +1,201 @@
+/* Color Palette */
+.color-palette > tbody > tr > td {
+	width: 6.7%;
+	text-align: center;
+	text-transform: uppercase;
+}
+
+.color-palette > tbody > tr > td.space {
+	background-color: #fff;
+}
+
+.color-palette > tbody > tr > td.color-black {
+	color: #000;
+	font-weight: 500;
+}
+
+.color-palette > tbody > tr > td.color-white {
+	color: #fff;
+	font-weight: 500;
+}
+
+/* Black */
+.black {
+	background-color: #000;
+}
+
+/* White */
+.white {
+	background-color: #fff;
+}
+
+/* Red */
+.red-50 {
+	background-color: #ffebee;
+}
+
+.red-100 {
+	background-color: #ffcdd2;
+}
+
+.red-200 {
+	background-color: #ef9a9a;
+}
+
+.red-300 {
+	background-color: #e57373;
+}
+
+.red-400 {
+	background-color: #ef5350;
+}
+
+.red-500 {
+	background-color: #f44336;
+}
+
+.red-600 {
+	background-color: #e53935;
+}
+
+.red-700 {
+	background-color: #d32f2f;
+}
+
+.red-800 {
+	background-color: #c62828;
+}
+
+.red-900 {
+	background-color: #b71c1c;
+}
+
+.red-A100 {
+	background-color: #ff8a80;
+}
+
+.red-A200 {
+	background-color: #ff5252;
+}
+
+.red-A400 {
+	background-color: #ff1744;
+}
+
+.red-A700 {
+	background-color: #d50000;
+}
+
+/* Pink */
+.pink-50 {
+	background-color: #fce4ec;
+}
+
+.pink-100 {
+	background-color: #f8bbd0;
+}
+
+.pink-200 {
+	background-color: #f48fb1;
+}
+
+.pink-300 {
+	background-color: #f06292;
+}
+
+.pink-400 {
+	background-color: #ec407a;
+}
+
+.pink-500 {
+	background-color: #e91e63;
+}
+
+.pink-600 {
+	background-color: #d81b60;
+}
+
+.pink-700 {
+	background-color: #c2185b;
+}
+
+.pink-800 {
+	background-color: #ad1457;
+}
+
+.pink-900 {
+	background-color: #880e4f;
+}
+
+.pink-A100 {
+	background-color: #ff80ab;
+}
+
+.pink-A200 {
+	background-color: #ff4081;
+}
+
+.pink-A400 {
+	background-color: #f50057;
+}
+
+.pink-A700 {
+	background-color: #c51162;
+}
+
+/* Purple */
+.purple-50 {
+	background-color: #f3e5f5;
+}
+
+.purple-100 {
+	background-color: #e1bee7;
+}
+
+.purple-200 {
+	background-color: #ce93d8;
+}
+
+.purple-300 {
+	background-color: #ba68c8;
+}
+
+.purple-400 {
+	background-color: #ab47bc;
+}
+
+.purple-500 {
+	background-color: #9c27b0;
+}
+
+.purple-600 {
+	background-color: #8e24aa;
+}
+
+.purple-700 {
+	background-color: #7b1fa2;
+}
+
+.purple-800 {
+	background-color: #6a1b9a;
+}
+
+.purple-900 {
+	background-color: #4a148c;
+}
+
+.purple-A100 {
+	background-color: #ea80fc;
+}
+
+.purple-A200 {
+	background-color: #e040fb;
+}
+
+.purple-A400 {
+	background-color: #d500f9;
+}
+
+.purple-A700 {
+	background-color: #aa00ff;
+}
