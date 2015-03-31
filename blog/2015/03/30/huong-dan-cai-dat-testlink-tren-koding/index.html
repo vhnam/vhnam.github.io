@@ -44,11 +44,145 @@
 			<section class="content">
 				<h2 class="post-title">Hướng dẫn cài đặt TestLink trên Koding</h2>
 				<div class="post-content">
-					Chức năng chính của GitHub dùng để lưu trữ source code. Bài viết này, mình sẽ giúp các bạn thao tác với một repository trên GitHub. Có một số vấn đề trong bài viết này, mình sẽ sử dụng TortoiseGit để thao tác với GitHub và sử dụng giao thức SSH để truyền dữ liệu.
-					
+					Mới lúc sáng, thầy yêu cầu tụi mình cài đặt TestLink và BugZilla trên một host nào đó. Sẵn tiện có Koding.io, nó cho miễn phí máy với 3GB ổ cứng, 1GB RAM chạy hệ điều hành Ubuntu nên đẩy lên đây cho tiện. Nếu có hư, dễ dàng cài đặt lại.
+					<article>
+						<h3>Cấu hình Koding</h3>
+						<p>
+							Bạn vào trang <a href="https://koding.com/">https://koding.com/</a>. Tại đây, bạn có 2 cách để có thể đăng nhập.
+							<ul>
+								<li>Nhập <strong>Username</strong> và <strong>Password</strong> rồi nhấn <strong>Sign up</strong>.</li>
+								<li>Đăng nhập bằng tài khoản <strong>GitHub</strong>.</li>
+							</ul>
+							<img src="/blog/2015/03/30/huong-dan-cai-dat-testlink-tren-koding/img/koding-index.png" alt="Koding Index">
+						</p>
+						<p>
+							Đây là màn hình sau khi đăng nhập. Gồm 4 phần chính.
+							<ul>
+								<li>Bảng điều khiển.</li>
+								<li>Cây thư mục.</li>
+								<li>Tab màn hình Console.</li>
+								<li>Tab màn hình mở file dạng text.</li>
+							</ul>
+							<img src="/blog/2015/03/30/huong-dan-cai-dat-testlink-tren-koding/img/index.png" alt="Index">
+						</p>
+						<p>
+							Mặc định, ổ cứng đã sử dụng 57% do cài đặt sẵn môi trường để phát triển Go, Python, Ruby, PHP, Perl, C/C++, Java, MySQL, MongoDB,... Do đó, ta sẽ chạy lệnh để dọn bớt những thứ không cần thiết.<br>
+							<img src="/blog/2015/03/30/huong-dan-cai-dat-testlink-tren-koding/img/disk-storage.png" alt="Disk Storage">
+						</p>
+						<p>
+							Bạn chạy lệnh dưới đây để xóa những thứ không cần thiết. Và đã giảm xuống còn 39%.<br>
+							<code>sudo apt-get -y --force-yes autoremove java* apache2* apache2-* vim-* golang-* cpp-* ftp</code><br>
+							<img src="/blog/2015/03/30/huong-dan-cai-dat-testlink-tren-koding/img/remove-services.png" alt="Remove services">
+						</p>
+					</article>
+					<article>
+						<h3>Cài đặt MySQL</h3>
+						<p>
+							Trước khi cài, ta cần phải update. Ta gõ lệnh <code>sudo apt-get update</code>. Nếu các bạn muốn copy/paste thì chuột phải vào Terminal sẽ hiện ra menu lệnh. Máy chủ của Koding đã ở Mỹ nên việc chạy lệnh sẽ rất nhanh.<br>
+							<img src="/blog/2015/03/30/huong-dan-cai-dat-testlink-tren-koding/img/update.png" alt="sudo apt-get update"><br>
+						</p>
+						<p>
+							 Sau đó, ta gõ tiếp lệnh <code>sudo apt-get install mysql-server mysql-common mysql-client</code> để cài đặt MySQL. Lưu ý là trong quá trình cài đặt, sẽ có bước hỏi Yes/No, bạn nhớ gõ <strong>y</strong> và nhấn <strong>Enter</strong>.<br>
+							<img src="/blog/2015/03/30/huong-dan-cai-dat-testlink-tren-koding/img/install-mysql.png" alt="Install MySQL">
+						</p>
+						<p>
+							Bước này, bạn nhập mật khẩu của <strong>root</strong> user trong MySQL. Sau khi nhập xong, nhớ bấm nút mũi tên xuống trên bàn phím.<br>
+							<img src="/blog/2015/03/30/huong-dan-cai-dat-testlink-tren-koding/img/root-password.png" alt="MySQL Root user passphrase">
+						</p>
+						<p>
+							Xác nhận lại mật khẩu.<br>
+							<img src="/blog/2015/03/30/huong-dan-cai-dat-testlink-tren-koding/img/confirm-password.png" alt="Confirm MySQL Root user passphrase">
+						</p>
+						<p>
+							Như vậy, ta đã cài đặt xong <strong>MySQL</strong>, ta có thể kiểm tra đã chạy hay chưa bằng cách gõ lệnh <code>sudo netstat -tupln</code>. Ta thấy <strong>MySQL</strong> đã chạy ở port <strong>3306</strong>.<br>
+							<img src="/blog/2015/03/30/huong-dan-cai-dat-testlink-tren-koding/img/check-mysql.png" alt="Check MySQL Service">
+						</p>
+						<p>
+							Hoặc kiểm tra bằng cách vào <strong>MySQL</strong> với lệnh <code>mysql -u root -p</code> rồi nhập password đã tạo lúc nãy. Để thoát thì ta nhấn tổ hợp phím <code>Ctrl + C</code>.<br>
+							<img src="/blog/2015/03/30/huong-dan-cai-dat-testlink-tren-koding/img/login-mysql.png" alt="Login MySQL">
+						</p>
+					</article>
+					<article>
+						<h3>Cài PHPMyAdmin</h3>
+						<p>
+							Để sử dụng <strong>MySQL</strong> thuận tiện, ta sử dụng <strong>PHPMyAdmin</strong>. Ta gõ lệnh <code>sudo apt-get install phpmyadmin</code> để cài đặt.<br>
+							<img src="/blog/2015/03/30/huong-dan-cai-dat-testlink-tren-koding/img/install-phpmyadmin.png" alt="Install PHPMyAdmin">
+						</p>
+						<p>
+							Trong lúc cài, có hỏi Yes/No thì gõ <strong>y</strong> và nhấn <strong>Enter</strong>.<br>
+							<img src="/blog/2015/03/30/huong-dan-cai-dat-testlink-tren-koding/img/installing-phpmyadmin.png" alt="Install PHPMyAdmin">
+						</p>
+						<p>
+							Bước này, nó hỏi mình muốn sử dụng Web Server nào thì bạn chọn <strong>Apache2</strong>. Sau đó, nhấn <strong>Enter</strong> để xác nhận.<br>
+							<img src="/blog/2015/03/30/huong-dan-cai-dat-testlink-tren-koding/img/choose-web-server.png" alt="Choose Web Server">
+						</p>
+						<p>
+							Bấm mũi tên qua phải trên bàn phím rồi nhấn <strong>Enter</strong>.<br>
+							<img src="/blog/2015/03/30/huong-dan-cai-dat-testlink-tren-koding/img/choose-option.png" alt="Choose Option">
+						</p>
+						<p>
+							Chọn <strong>Yes</strong> để sử dụng <strong>dbconfig-common</strong>.<br>
+							<img src="/blog/2015/03/30/huong-dan-cai-dat-testlink-tren-koding/img/dbconfig-common.png" alt="Using dbconfig-common">
+						</p>
+						<p>
+							Nhập mật khẩu của <strong>MySQL</strong> lúc nãy đã tạo. Sau đó, nhấn phím mũi tên xuống để chọn <strong>OK</strong>.<br>
+							<img src="/blog/2015/03/30/huong-dan-cai-dat-testlink-tren-koding/img/create-database-and-user.png" alt="Create database and user">
+						</p>
+						<p>
+							Bước này bạn có thể bỏ qua nhưng <strong>PHPMyAdmin</strong> sẽ sinh mật khẩu tự động, thôi thì ta gõ lại mật khẩu lúc nãy cho chắc ăn.<br>
+							<img src="/blog/2015/03/30/huong-dan-cai-dat-testlink-tren-koding/img/password-for-phpmyadmin.png" alt="Password for PHPMyAdmin">
+						</p>
+						<p>
+							Xác nhận lại mật khẩu.<br>
+							<img src="/blog/2015/03/30/huong-dan-cai-dat-testlink-tren-koding/img/password-confirm.png" alt="Password Confirmation">
+						</p>
+						<p>
+							Tiếp theo, ta chỉnh sửa file cấu hình <strong>Apache2</strong> bằng cách gõ lệnh <code>sudo nano /etc/apache2/apache2.conf</code>.<br>
+							<img src="/blog/2015/03/30/huong-dan-cai-dat-testlink-tren-koding/img/open-apache2.conf.png" alt="Open apache2.conf">
+						</p>
+						<p>
+							Bấm nút mũi tên xuống để di chuyển con trỏ chuột xuống phía dưới cùng của file, ta thêm dòng <code>Include /etc/phpmyadmin/apache.conf</code>. Nhấn <code>Ctrl + X</code> rồi gõ chữ <strong>y</strong> và nhấn <strong>Enter</strong>.<br>
+							<img src="/blog/2015/03/30/huong-dan-cai-dat-testlink-tren-koding/img/add-command.png" alt="Add command">
+						</p>
+						<p>
+							Kích hoạt phần mở rộng <strong>mcrypt</strong>, gõ lệnh <code>sudo php5enmod mcrypt</code>.<br>
+							<img src="/blog/2015/03/30/huong-dan-cai-dat-testlink-tren-koding/img/enable-mcrypt.png" alt="Enable mcrypt">
+						</p>
+						<p>
+							Cuối cùng, khởi động lại Apache2 với lệnh <code>sudo service apache2 restart</code>.<br>
+							<img src="/blog/2015/03/30/huong-dan-cai-dat-testlink-tren-koding/img/restart-apache2.png" alt="Restart Apache2">
+						</p>
+						<p>
+							Bạn vào địa chỉ <code>http://KODING_USERNAME.koding.io/phpmyadmin</code>. Cụ thể, địa chỉ của mình là <a href="http://vhnam.koding.io/phpmyadmin/">http://vhnam.koding.io/phpmyadmin/</a><br>
+							<img src="/blog/2015/03/30/huong-dan-cai-dat-testlink-tren-koding/img/welcome-phpmyadmin.png" alt="Welcome to PHPMyAdmin">
+						</p>
+					</article>
+					<article>
+						<h3>Cài đặt TestLink</h3>
+						<p>
+							Đầu tiên, bạn vào trang <a href="https://github.com/TestLinkOpenSourceTRMS/testlink-code/tree/master">https://github.com/TestLinkOpenSourceTRMS/testlink-code/tree/master</a>.<br>
+							<img src="/blog/2015/03/30/huong-dan-cai-dat-testlink-tren-koding/img/testlink-github.png" alt="TestLink on GitHub">
+						</p>
+						<p>
+							Tại mục <strong>clone URL</strong>, bạn nhấn vào <strong>HTTPS</strong> hoặc <strong>SSH</strong> (nếu đã cài đặt). Bạn copy đường dẫn đó.<br>
+							<img src="/blog/2015/03/30/huong-dan-cai-dat-testlink-tren-koding/img/clone-url.png" alt="Clone URL">
+						</p>
+						<p>
+							Sau đó chuyển sang <strong>Koding</strong>, tại thư mục <code>/home/KODING_USERNAME/Web</code>, ta gõ lệnh <code>git clone &lt;Clone URL&gt;</code>. Vì mặc định, <strong>Koding</strong> chọn thư mục này để public ra Internet.<br>
+							<img src="/blog/2015/03/30/huong-dan-cai-dat-testlink-tren-koding/img/clone-testlink.png" alt="Clone TestLink">
+						</p>
+						<p>
+							Khi clone thành công, tại thư mục <code>/home/KODING_USERNAME/Web</code> sẽ xuất hiện thư mục <strong>testlink-code</strong>.<br>
+							<img src="/blog/2015/03/30/huong-dan-cai-dat-testlink-tren-koding/img/clone-successfully.png" alt="Clone Successfully">
+						</p>
+						<p>
+							Bạn vào trình duyệt, gõ đường dẫn <code>http://KODING_USERNAME.koding.io/testlink-code</code> để vào <strong>TestLink</strong>. Cụ thể của mình là <a href="http://vhnam.koding.io/testlink-code">http://vhnam.koding.io/testlink-code</a>.<br>
+							<img src="/blog/2015/03/30/huong-dan-cai-dat-testlink-tren-koding/img/installation-testlink.png" alt="Installation">
+						</p>
+					</article>
 				</div>
 				<div class="post-time">
-					Last Modified: 11:26 PM - Friday, February 27, 2015
+					Last Modified: 1:24 AM - Tuesday, March 31, 2015
 				</div>
 			</section>
 		</div>
