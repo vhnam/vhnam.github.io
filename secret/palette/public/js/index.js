@@ -21,7 +21,7 @@ angular.module('palette', [])
             },
 
             convertToHex: function(data) {
-                var value = parseInt(data).toString(16);
+                var value = parseInt(data).toString(16).toUpperCase();
 
                 if (value.length < 2) {
                     value = '0' + value;
