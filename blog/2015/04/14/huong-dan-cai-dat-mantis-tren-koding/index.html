@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="description" content="Software Engineering">
+		<title>Hướng dẫn cài đặt Mantis trên Koding</title>
+		<link href="/public/img/favicon.png" rel="shortcut icon">
+		<link rel="stylesheet" href="/public/css/bootstrap.css">
+		<link rel="stylesheet" href="/public/css/bootstrap-theme.css">
+		<link rel="stylesheet" href="/public/css/style.css">
+		<link href="http://fonts.googleapis.com/css?family=Open+Sans&amp;subset=latin,vietnamese" rel="stylesheet" type="text/css">
+	</head>
+	<body>
+		<div>
+			<header>
+				<img class="header-logo" src="/public/img/logo.png" alt="Logo">
+				<h1 class="header-brand" title="Công nghệ phần mềm">
+					<a href="/">Software Engineering</a>
+				</h1>
+				<nav>
+					<ul class="nav header-index">
+						<li>
+							<a href="/">Blog</a>
+						</li>
+						<li>
+							<a href="/index">Index</a>
+						</li>
+						<li>
+							<a href="/about">About</a>
+						</li>
+					</ul>
+				</nav>
+				<nav class="nav-contact">
+					<div>
+						<a href="https://github.com/vhnam">
+							<img title="Github" src="/public/img/github.png" alt="Github">
+						</a>
+						<a href="https://www.linkedin.com/in/namvh">
+							<img title="LinkedIn" src="/public/img/linkedin.png" alt="LinkedIn">
+						</a>
+					</div>
+				</nav>
+			</header>
+			<section class="content">
+				<h2 class="post-title">Hướng dẫn cài đặt Mantis trên Koding</h2>
+				<div class="post-content">
+					Nhân tiện bữa nay được thầy kêu về cài đặt Bug Tracking Management như BugZilla hoặc Mantis lên host. Do lúc trước đã thử cài BugZilla trên trang <strong>Koding.com</strong> không thành công nên mình từ bỏ và chuyển sang Mantis. Nói chung chọn trang Koding cũng vì nó có thể <strong>Reinitialize VM</strong> nên chọn vậy thôi.
+					<article>
+						<h3>Cài đặt MySQL</h3>
+						<p>
+							Đầu tiên, ta phải cài <strong>MySQL</strong> trên host vì Mantis cần một cơ sở dữ liệu để lưu trữ thông tin. Sau khi tạo xong, ta tạo một database có tên là <strong>bugtracker</strong>.
+						</p>
+					</article>
+					<article>
+						<h3>Cài đặt Mantis</h3>
+						<p>
+							Trước tiên, ta vào trang <strong>Koding</strong>, vào thư mục <span class="post-url">/var/www</span>.<br>
+							<img src="/blog/2015/04/14/huong-dan-cai-dat-mantis-tren-koding/img/var_www.png" alt="/var/www directory">
+						</p>
+						<p>
+							Gõ lệnh <code>wget http://downloads.sourceforge.net/project/mantisbt/mantis-stable/1.2.19/mantisbt-1.2.19.zip</code> để tải <strong>Mantis</strong>.<br>
+							<img src="/blog/2015/04/14/huong-dan-cai-dat-mantis-tren-koding/img/download-mantis.png" alt="Download Mantis">
+						</p>
+						<p>
+							Tiếp theo, ta gõ lệnh <code>unzip mantisbt-1.2.19.zip</code> để giải nén thư mục. Sau đó, ta gõ <code>mv mantisbt-1.2.19/ mantisbt</code> để đổi tên thư mục. Gõ tiếp lệnh <code>sudo chmod -R 755 mantisbt</code> để phân quyền cho thư mục.<br>
+							<img src="/blog/2015/04/14/huong-dan-cai-dat-mantis-tren-koding/img/set-chmod.png" alt="set chmod">
+						</p>
+					</article>
+				</div>
+				<div class="post-time">
+					Last Modified: 2:40 AM - Monday, January 26, 2015
+				</div>
+			</section>
+		</div>
+
+		<div class="widget">
+			<div class="widget-top">
+				<span class="glyphicon glyphicon-chevron-up"></span>
+			</div>
+			<div class="widget-index" title="Mục lục">
+				<a href="/index">
+					<span class="glyphicon glyphicon-list-alt"></span> Index
+				</a>
+			</div>
+		</div>
+
+		<script src="/public/js/jquery.js"></script>
+		<script src="/public/js/script.js"></script>
+	</body>
+</html>
