@@ -81,6 +81,19 @@ angular.module('palette', [])
 
             angular.element(buttons[index]).addClass('pink-A200');
         }
+
+        scope.closeDialog = function() {
+            scope.displayDialog = false;
+        }
+
+        scope.showDialog = function() {
+            scope.displayDialog = true;
+        }
+
+        setTimeout(function() {
+            var buttons = document.getElementsByClassName('checked-button');
+            angular.element(buttons[0]).addClass('pink-A200');
+        }, 500);
     }])
 ;
 
