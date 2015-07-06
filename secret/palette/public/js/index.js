@@ -7,12 +7,15 @@ angular.module('palette', [])
     .factory('Color', function() {
         return {
             getGRB: function(color) {
-                for (var s = document.styleSheets.length - 1; s >= 0; s--) {
-                    var cssRules = document.styleSheets[s].cssRules || document.styleSheets[s].rules || [];
+                var cssRules,
+                    index = document.styleSheets.length - 1;
+
+                while (index--) {
+                    var cssRules = document.styleSheets[index].cssRules || document.styleSheets[index].rules || [];
 
                     for (var c = 0; c < cssRules.length; c++) {
                         if (cssRules[c].selectorText === '.' + color) {
-                            return cssRules[c]. style['background-color'];
+                            return cssRules[c].style['background-color'];
                         }
                     }
                 }
