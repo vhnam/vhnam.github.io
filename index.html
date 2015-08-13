@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html>
-
-  <head>
+    <head>
     <meta charset='utf-8'>
     <meta http-equiv="X-UA-Compatible" content="chrome=1">
     <meta name="description" content="Nơi chia sẻ kinh nghiệm lập trình, học tập.">
@@ -14,11 +13,27 @@
         <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
         <script src="http://css3-mediaqueries-js.googlecode.com/svn/trunk/css3-mediaqueries.js"></script>
     <![endif]-->
-  </head>
+    <link rel="import" href="/public/components/paper-drawer-panel/paper-drawer-panel.html">
+    <link rel="stylesheet" href="/public/css/style.css">
+    </head>
+    <body>
+        <!-- HEADER -->
+        <!-- <header>
+            <paper-button>
+                <iron-icon src="/public/img/menu.svg"></iron-icon>
+            </paper-button>
+            <a href="/">
+                <h1>The complex world</h1>
+            </a>
+        </header> -->
+        <paper-drawer-panel>
+            <div drawer> Drawer panel... </div>
+            <div main> Main panel... </div>
+        </paper-drawer-panel>
 
-  <body>
+        <script src="/public/components/webcomponentsjs/webcomponents-lite.min.js"></script>
 
-
+        <!-- Google Analytics -->
         <script type="text/javascript">
             var gaJsHost = (('https:' == document.location.protocol) ? 'https://ssl.' : 'http://www.');
             document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
@@ -29,7 +44,5 @@
                 pageTracker._trackPageview();
             } catch(err) {}
         </script>
-
-
-  </body>
+    </body>
 </html>
