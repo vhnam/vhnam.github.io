@@ -13,60 +13,38 @@
         <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
         <script src="http://css3-mediaqueries-js.googlecode.com/svn/trunk/css3-mediaqueries.js"></script>
     <![endif]-->
-    <link rel="stylesheet" href="/public/css/normalize.css">
+    <script src="/public/components/webcomponentsjs/webcomponents-lite.min.js"></script>
+    <link rel="import" href="/public/components/paper-drawer-panel/paper-drawer-panel.html">
+    <link rel="import" href="/public/components/paper-header-panel/paper-header-panel.html">
+    <link rel="import" href="/public/components/paper-toolbar/paper-toolbar.html">
+    <link rel="import" href="/public/components/paper-icon-button/paper-icon-button.html">
     <link rel="stylesheet" href="/public/css/style.css">
     </head>
     <body>
         <!-- HEADER -->
-        <header>
+        <!-- <header>
+            <paper-button>
+                <iron-icon src="/public/img/menu.svg"></iron-icon>
+            </paper-button>
             <a href="/">
                 <h1>The complex world</h1>
             </a>
-        </header>
-
-        <!-- Cover -->
-        <section class="index-cover">
-            <article class="index-cover-content">
-                <img src="/public/img/anonymous-face.png" alt="Avatar" class="avatar" />
-                <h2>Thế giới riêng của một ai đó.</h2>
-                <nav class="social-networks">
-                    <li>
-                        <a href="#">
-                            <img src="/public/img/linkedin.png" alt="LinkedIn" />
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#">
-                            <img src="/public/img/github.png" alt="GitHub" />
-                        </a>
-                    </li>
-                </nav>
-            </article>
-        </section>
-
-        <!-- Introduction and Navigator -->
-        <section class="index-intro">
-            <article>
-                <nav>
-                    <li>
-                        <a href="#">Blog</a>
-                    </li>
-                    <li>
-                        <a href="#">Demo</a>
-                    </li>
-                    <li>
-                        <a href="#">About</a>
-                    </li>
-                </nav>
-            </article>
-        </section>
-
-        <!-- Footer -->
-        <footer>
-            <a href="/about" class="footer-copyright">
-                <h2>Copyright by <span class="author">Nam Vo Hoai</span>.</h2>
-            </a>
-        </footer>
+        </header> -->
+        <paper-drawer-panel>
+            <paper-header-panel drawer>
+                <paper-toolbar>
+                    <div>Application</div>
+                </paper-toolbar>
+                <div> Drawer content... </div>
+            </paper-header-panel>
+            <paper-header-panel main>
+                <paper-toolbar>
+                    <paper-icon-button src="/public/img/menu.svg" paper-drawer-toggle></paper-icon-button>
+                    <div>Trang chủ</div>
+                </paper-toolbar>
+                <div></div>
+            </paper-header-panel>
+        </paper-drawer-panel>
 
         <!-- Google Analytics -->
         <script type="text/javascript">
