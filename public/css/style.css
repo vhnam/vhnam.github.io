@@ -4,11 +4,17 @@
  * @author Nam Vo <vhnam2504@gmail.com>
 */
 
+/* ====== Primary ======*/
 html, body {
     font-size: 12px;
     color: #212121;
 }
 
+body {
+    font-family: RobotoDraft,Roboto,Helvetica Neue,Helvetica,Arial,sans-serif;
+}
+
+/* ====== Footer ======*/
 header {
     height: 64px;
     background-color: #303f97;
@@ -27,6 +33,7 @@ header > a > h1 {
     font-weight: 400;
 }
 
+/* ====== Footer ======*/
 footer {
     height: 64px;
     background-color: #37474f;
@@ -50,6 +57,7 @@ footer .footer-copyright {
     opacity: 0.6;
 }
 
+/* ====== Cover ======*/
 section.index-cover {
     position: relative;
     height: calc(100vh - 64px);
@@ -59,7 +67,7 @@ section.index-cover {
 .index-cover article.index-cover-content {
     position: absolute;
     width: 300px;
-    top: 30vh;
+    top: 20vh;
     left: calc(50vw - 150px);
     text-align: center;
 }
@@ -93,18 +101,87 @@ section.index-cover {
     height: 36px;
 }
 
+/* ====== Introduction ======*/
 section.index-intro {
     height: calc(100vh - 64px);
     background-color: #fff;
+    position: relative;
 }
 
-.index-intro article {
+.index-intro .intro-quote {
+    width: 695px;
+    margin: 0 auto;
+    color: #ff4081;
+    padding-top: 36px;
+}
+
+.intro-quote blockquote {
+    font-size: 16px;
+}
+
+.intro-quote h4 {
+    font-style: italic;
+    font-weight: 400;
+    float: right;
+    margin: 0;
+}
+
+.index-intro .navigator {
     margin: 0 auto;
     width: 1140px;
-    padding: 32px 0;
+    clear: both;
+    position: absolute;
+    left: calc(50vw - 570px);
+    top: 40vh;
 }
 
 .index-intro nav > li {
     float: left;
     width: 33.33%;
+    list-style-type: none;
+}
+
+.index-intro a {
+    text-decoration: none;
+}
+
+.index-intro a .nav-content {
+    text-align: center;
+    color: #212121;
+}
+
+.index-intro a .nav-content:hover {
+    opacity: 0.7;
+}
+
+.nav-content .nav-icon {
+    width: 36px;
+    height: 36px;
+}
+
+.nav-content h3 {
+    font-size: 24px;
+    font-weight: 400;
+    color: #03A9F4;
+    margin-top: 32px;
+    margin-bottom: 8px;
+}
+
+.nav-content .description {
+    font-size: 14px;
+    line-height: 1.75em;
+    width: 60%;
+    margin: 0px auto;
+}
+
+@media(max-width: 1140px) {
+    .index-intro .navigator {
+        width: inherit;
+    }
+}
+
+@media(max-width: 990px) {
+    .index-intro nav > li {
+        float: none;
+    }
 }
