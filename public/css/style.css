@@ -4,7 +4,7 @@
  * @author Nam Vo <vhnam2504@gmail.com>
 */
 
-/* ====== Primary ======*/
+/* ====== Primary ====== */
 html, body {
     font-size: 12px;
     color: #212121;
@@ -14,7 +14,7 @@ body {
     font-family: RobotoDraft,Roboto,Helvetica Neue,Helvetica,Arial,sans-serif;
 }
 
-/* ====== Footer ======*/
+/* ====== Footer ====== */
 header {
     height: 64px;
     background-color: #303f97;
@@ -33,7 +33,7 @@ header > a > h1 {
     font-weight: 400;
 }
 
-/* ====== Footer ======*/
+/* ====== Footer ====== */
 footer {
     height: 64px;
     background-color: #37474f;
@@ -57,7 +57,7 @@ footer .footer-copyright {
     opacity: 0.6;
 }
 
-/* ====== Cover ======*/
+/* ====== Cover ====== */
 section.index-cover {
     position: relative;
     height: calc(100vh - 64px);
@@ -101,7 +101,7 @@ section.index-cover {
     height: 36px;
 }
 
-/* ====== Introduction ======*/
+/* ====== Introduction ====== */
 section.index-intro {
     height: calc(100vh - 64px);
     background-color: #fff;
@@ -128,11 +128,13 @@ section.index-intro {
 
 .index-intro .navigator {
     margin: 0 auto;
-    width: 1140px;
+    width: 960px;
     clear: both;
     position: absolute;
-    left: calc(50vw - 570px);
+    left: 50%;
+    right: 50%;
     top: 40vh;
+    transform: translate(-50%, -50%);
 }
 
 .index-intro nav > li {
@@ -174,14 +176,34 @@ section.index-intro {
     margin: 0px auto;
 }
 
-@media(max-width: 1140px) {
+/* ====== Responsive ====== */
+@media(max-width: 960px) {
     .index-intro .navigator {
-        width: inherit;
+        width: 100%;
+        top: 50vh;
     }
 }
 
-@media(max-width: 990px) {
-    .index-intro nav > li {
+@media(max-width: 770px) {
+    .index-intro .intro-quote {
+        width: 90%;
+    }
+}
+
+@media(max-width: 480px) {
+    .index-intro .intro-quote,
+    .nav-content .nav-icon,
+    footer {
+        display: none;
+    }
+
+    section.index-intro {
+        height: 100vh;
+    }
+
+    .index-intro .navigator li {
         float: none;
+        width: 80%;
+        margin: 32px auto;
     }
 }
