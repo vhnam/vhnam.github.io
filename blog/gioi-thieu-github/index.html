@@ -34,6 +34,10 @@
             <div class="inner clearfix">
                 <section id="main-content">
                     <h2 itemprop="headline">Giới thiệu GitHub</h2>
+                    <div class="time">
+                        <time datetime="2015-09-29 02:25" itemprop="datePublished">Ngày 29 tháng 9 năm 2015 - 2:25 Sáng</time>
+                    </div>
+
                     <p>
                         GitHub là một kho lưu trữ dựa trên nền tảng Web. GitHub cung cấp khả năng quản lý mã nguồn và các phiên bản của mã nguồn theo cơ chế Git và có bổ sung một số chức năng của riêng mình. Bài viết này được viết nhằm mục đích giới thiệu cho các bạn biết GitHub hỗ trợ những gì. Nếu có thời gian, mình sẽ viết chi tiết về từng chức năng của GitHub.
                     </p>
@@ -49,7 +53,7 @@
                     <h3 itemprop="headline">Quản lý mã nguồn</h3>
                     <h4 itemprop="headline">Cá nhân</h4>
                     <p>
-                        Toàn bộ repository (repo) của các bạn sẽ được hiển thị trên trang cá nhân của từng người. Phần <strong>Popular repositories</strong> là những repo cá nhân của người đó. Còn <strong>Repositories contributed to</strong> là những repo mà người đó đóng góp cho một cá nhân/tổ chức khác. Dưới đây là các repo của Jeremy Ashkenas, người tạo ra Backbone, Underscore và CoffeeScript.
+                        Toàn bộ repository (repo) của các bạn sẽ được hiển thị trên trang cá nhân của từng người. Phần <strong>Popular repositories</strong> là những repo cá nhân của người đó. Còn <strong>Repositories contributed to</strong> là những repo mà người đó đóng góp cho một cá nhân/tổ chức khác. Dưới đây là các repo của <a href="https://github.com/jashkenas">Jeremy Ashkenas</a>, người tạo ra Backbone, Underscore và CoffeeScript.
                     </p>
                     <img src="/blog/gioi-thieu-github/images/jashkenas.png" alt="Jeremy Ashkenas's Repositories" itemprop="image" />
                     <p>
@@ -69,6 +73,15 @@
                         Và các repo này có thể liên kết lại để tạo thành submodule của một repo nào đó. Ví dụ như ở project <strong>cocos2d-x</strong> này. Bạn thấy folder <strong>plugin</strong> có <strong>@dc25546</strong> kế bên. Dấu hiệu này cho ta biết, <strong>plugin</strong> là một repo riêng và cũng chính là submodule của repo <strong>cocos2d-x</strong>.
                     </p>
                     <img src="/blog/gioi-thieu-github/images/cocos2d-x.png" alt="cocos2d-x" itemprop="image" />
+                    <h4 itemprop="headline">Tích hợp liên tục (Continuous Integration)</h4>
+                    <p>
+                        Ngoài việc quản lý, GitHub còn hỗ trợ việc <a href="https://en.wikipedia.org/wiki/Continuous_integration">tích hợp liên tục</a> để tự động chạy Test với <a href="https://travis-ci.org/">Travis CI</a>. Theo xu hướng bây giờ, khi làm một sản phẩm thì bắt buộc phải viết test và làm theo mô hình <a href="https://en.wikipedia.org/wiki/Test-driven_development">Test-driven development</a>. Để thuận tiện cho việc chạy Unit Test thì ta sẽ sử dụng CI để cho chạy tự động. Những repo trên GitHub có báo <strong>build: passing</strong> đều được đánh giá rất cao. Nếu bạn cần một open-source để gắn vào project của mình thì sẽ an tâm hơn.
+                    </p>
+                    <img src="/blog/gioi-thieu-github/images/github-react.png" alt="React - CI - Github" itemprop="image" />
+                    <p>
+                        Còn đây là kết quả trên <a href="https://travis-ci.org/facebook/react">Travis-CI</a>.
+                    </p>
+                    <img src="/blog/gioi-thieu-github/images/travis-react.png" alt="React - CI - Travis CI" itemprop="image" />
 
                     <h3 itemprop="headline">Hỗ trợ khám phá công nghệ mới</h3>
                     <p>
