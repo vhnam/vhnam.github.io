@@ -884,3 +884,24 @@ footer a:hover {
 header h1 {
   width: 100%;
 }
+
+/* Contact */
+.contact {
+  width: 100%;
+  list-style-type: none;
+}
+
+.contact li {
+  float: left;
+}
+
+.contact li img {
+  width: 64px;
+  height: 64px;
+}
+
+.copyright {
+  line-height: ;
+  padding-top: 16px;
+  clear: both;
+}
