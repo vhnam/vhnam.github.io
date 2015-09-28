@@ -888,16 +888,18 @@ header h1 {
 /* Contact */
 .contact {
   width: 100%;
+  padding-left: 0;
   list-style-type: none;
 }
 
 .contact li {
   float: left;
+  margin-right: 8px;
 }
 
 .contact li img {
-  width: 64px;
-  height: 64px;
+  width: 56px;
+  height: 56px;
 }
 
 .copyright {
