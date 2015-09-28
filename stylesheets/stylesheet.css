@@ -885,6 +885,29 @@ header h1 {
   width: 100%;
 }
 
+/* Content */
+#main-content img {
+  margin-bottom: 20px;
+  margin-top: 8px;
+}
+
+#main-content .reference {
+  line-height: 1.75em;
+}
+
+#main-content h2,
+#main-content h3,
+#main-content h4,
+#main-content h5,
+#main-content h6,
+#main-content p {
+  font-family: "Open Sans","Helvetica Neue",Helvetica,Arial,sans-serif;
+}
+
+#main-content p {
+  line-height: 1.75em;
+}
+
 /* Contact */
 .contact {
   width: 100%;
