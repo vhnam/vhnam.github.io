@@ -954,33 +954,69 @@ header h1 {
   margin-right: 24px;
 }
 
-.home .time {
+.time {
   margin-bottom: 4px !important;
 }
 
-.home .list {
+.list {
   padding: 0;
   list-style-type: none;
 }
 
-.home .list .list-field {
+.list .list-field {
   padding: 4px 0;
   margin-top: 16px;
   border-bottom: 1px solid #e0e0e0;
 }
 
-.home .list .list-field:first-child {
+.list .list-field:first-child {
   margin-top: 0;
 }
 
-.home .list .list-field .title {
+.list .list-field .title {
   font-size: 18px;
 }
 
-.home .list .list-field .description {
+.list .list-field .description {
   margin-bottom: 8px;
 }
 
-.home .more {
+.more {
   text-align: right;
+}
+
+/* Block Pagination */
+.block-pagination {
+  text-align: right;
+}
+
+.block-pagination .btn {
+  width: 80px;
+  padding: 4px 0;
+  color: #fff;
+  border-radius: 3px;
+  border: 1px solid #fafafa;
+  background-color: #2196f3;
+  cursor: pointer;
+}
+
+.block-pagination .btn:hover {
+  opacity: 0.8;
+}
+
+.block-pagination .btn:active {
+  background-color: #1976d2;
+}
+
+.block-pagination .btn:disabled {
+  opacity: 1;
+  color: #212121;
+  background-color: #e0e0e0;
+  cursor: not-allowed;
+}
+
+.block-pagination .badge {
+  width: 80px;
+  display: inline-block;
+  text-align: center;
 }

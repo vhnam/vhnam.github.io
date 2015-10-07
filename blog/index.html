@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="vi">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+        <meta http-equiv="x-ua-compatible" content="IE=edge" />
+
+        <title>The Complex World</title>
+        <meta name="robots" content="noodp,index,follow" />
+        <meta name="revisit-after" content="1 days" />
+        <meta name="description" content="Giới thiệu Gist" />
+        <meta name="keywords" content="GitHub, Gist" />
+        <link rel="shortcut icon" href="/images/favicon.png" type="image/x-icon" />
+        <link rel="canonical" href="http://vhnam.github.io/blog/gioi-thieu-gist/" />
+        <link rel="publisher" href="https://plus.google.com/116570296349523695729" />
+
+        <meta name="google-site-verification" content="ZFrkEu3QMFl9Kz0JyK2SfzdIZ84lDgm9gLQ6J6FmAvg" />
+        <meta name="p:domain_verify" content="faa7b25edce176988fb8171e9457554a"/>
+
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Architects+Daughter" />
+        <link rel="stylesheet" href="/stylesheets/stylesheet.css" media="screen" />
+        <link rel="stylesheet" href="/stylesheets/github-light.css" media="screen" />
+        <link rel="stylesheet" href="/stylesheets/print.css" media="print" />
+
+        <!--[if lt IE 9]>
+            <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+        <![endif]-->
+    </head>
+
+    <body itemscope="itemscope" itemtype="http://schema.org/WebPage" data-ng-app="blog-list">
+        <header itemscope="itemscope" itemtype="http://schema.org/WPHeader">
+            <div class="inner">
+                <h1 itemprop="headline">The Complex World</h1>
+                <h2 itemprop="description">From Developer to Designer</h2>
+            </div>
+        </header>
+
+        <main id="content-wrapper" itemprop="mainContentOfPage" itemscope="itemscope" itemtype="http://schema.org/Blog">
+            <div class="inner clearfix">
+                <section id="main-content" data-ng-controller="ListControler">
+                    <h2 itemprop="headline">Danh sách các bài viết</h2>
+                    <ul class="list">
+                        <li class="list-field" data-ng-repeat="blog in blogs | startFrom:currentPage * pageSize | limitTo:pageSize">
+                            <a href="{{blog.link}}" class="title">{{blog.name}}</a>
+                            <div class="time">
+                                <time datetime="{{blog.datetime}" itemprop="datePublished">{{blog.time}}</time>
+                            </div>
+                            <p class="description">{{blog.description}}</p>
+                        </li>
+                    </ul>
+                    <div class="block-pagination">
+                        <button type="button" class="btn" data-ng-disabled="currentPage == 0" data-ng-click="currentPage=currentPage-1">
+                            Previous
+                        </button>
+                        <span class="badge">
+                            {{currentPage + 1}} / {{numberOfPages()}}
+                        </span>
+                        <button type="button" class="btn" data-ng-disabled="(currentPage + 1 == numberOfPages()) || (currentPage >= postCollection.length / pageSize - 1)" data-ng-click="currentPage = currentPage + 1">
+                            Next
+                        </button>
+                    </div>
+                </section>
+
+                <aside id="sidebar" itemscope="itemscope" itemtype="http://schema.org/WPSideBar">
+                    <h3 itemprop="headline">Liên lạc</h3>
+                    <div>
+                        <ul class="contact">
+                            <li>
+                                <a href="https://github.com/vhnam">
+                                    <img src="/images/github.png" alt="GitHub" />
+                                </a>
+                            </li>
+                            <li>
+                                <a href="https://vn.linkedin.com/in/namvh">
+                                    <img src="/images/linkedin.png" alt="LinkedIn" />
+                                </a>
+                            </li>
+                            <li>
+                                <a href="https://www.pinterest.com/vhnam2504/">
+                                    <img src="/images/pinterest.png" alt="Pinterest">
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                    <p class="copyright">
+                        Trang này được tạo bởi <a href="https://pages.github.com">GitHub Pages</a>, sử dụng theme Architect của <a href="https://twitter.com/jasonlong">Jason Long</a>.
+                    </p>
+                </aside>
+            </div>
+        </main>
+
+        <script src="/javascripts/main.js"></script>
+        <script src="/javascripts/angular.js"></script>
+        <script src="/javascripts/index.js"></script>
+    </body>
+</html>
