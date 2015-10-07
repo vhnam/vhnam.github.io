@@ -41,9 +41,9 @@
                     <h2 itemprop="headline">Danh sách các bài viết</h2>
                     <ul class="list">
                         <li class="list-field" data-ng-repeat="blog in blogs | startFrom:currentPage * pageSize | limitTo:pageSize">
-                            <a href="{{blog.link}}" class="title">{{blog.name}}</a>
+                            <a data-ng-href="{{blog.link}}" class="title">{{blog.name}}</a>
                             <div class="time">
-                                <time datetime="{{blog.datetime}" itemprop="datePublished">{{blog.time}}</time>
+                                <time datetime="{{blog.datetime}}" itemprop="datePublished">{{blog.time}}</time>
                             </div>
                             <p class="description">{{blog.description}}</p>
                         </li>
