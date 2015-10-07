@@ -13,6 +13,13 @@
             "datetime": "2015-09-29",
             "time" : "Ngày 29 tháng 9 năm 2015",
             "description" : "Nếu bạn cảm thấy phiền phức khi thao tác với codepad.org hay pastebin.com. Gist của GitHub sẽ là một sự lựa chọn sáng suốt."
+        },
+        {
+            "name" : "Giới thiệu GitHub",
+            "link" : "http://vhnam.github.io/blog/gioi-thieu-github/",
+            "datetime": "2015-09-29",
+            "time" : "Ngày 29 tháng 9 năm 2015",
+            "description" : "Cộng đồng mã nguồn mở ngày một tăng lên, họ sử dụng GitHub như là mạng xã hội dành cho giới lập trình viên với khoảng 3,4 triệu người dùng và 16,7 triệu repo."
         }
     ]
 }
