@@ -37,35 +37,24 @@
 
         <main id="content-wrapper" itemprop="mainContentOfPage" itemscope="itemscope" itemtype="http://schema.org/Blog">
             <div class="inner clearfix">
-                <section id="main-content">
-                    <h3 itemprop="headline">
-                    <a id="welcome-to-github-pages" class="anchor" href="#welcome-to-github-pages" aria-hidden="true"><span class="octicon octicon-link"></span></a>Welcome to GitHub Pages.</h3>
+                <section id="main-content" class="home">
+                    <h3 itemprop="headline">Sơ lược</h3>
+                    <img src="images/avatar.jpg" class="avatar" alt="Nam Vo Hoai">
+                    <p>
+                        Tên mình là Võ Hoài Nam. Hiện tại, mình đang là một Developer theo hướng Front-End và đang có ý định học thêm về Design. Đó là lý do tại sao mình lại chọn description là <strong>"From Developer to Designer"</strong>. Thật ra, do mình thích chương trình <em>"From Developer to Founder"</em> của <a href="https://www.facebook.com/gdgviet">GDG Vietnam - Google Developer Groups Vietnam</a> nên dựa theo đó mà chọn.
+                    </p>
+                    <p>
+                        Mục đích viết blog này ra là để cải thiện khả năng diễn đạt một vấn đề nào đó, chia sẻ kiến thức và nói về một sộ quan điểm cá nhân. Đôi khi, mình còn tự thấy suy nghĩ của bản thân còn mâu thuẫn. Do đó, blog của mình có tên là <strong>"The complex world"</strong>.
+                    </p>
 
-                    <p>This automatic page generator is the easiest way to create beautiful pages for all of your projects. Author your page content here <a href="https://guides.github.com/features/mastering-markdown/">using GitHub Flavored Markdown</a>, select a template crafted by a designer, and publish. After your page is generated, you can check out the new <code>gh-pages</code> branch locally. If you’re using GitHub Desktop, simply sync your repository and you’ll see the new branch.</p>
-
-                    <h3 itemprop="headline">
-                    <a id="designer-templates" class="anchor" href="#designer-templates" aria-hidden="true"><span class="octicon octicon-link"></span></a>Designer Templates</h3>
-
-                    <p>We’ve crafted some handsome templates for you to use. Go ahead and click 'Continue to layouts' to browse through them. You can easily go back to edit your page before publishing. After publishing your page, you can revisit the page generator and switch to another theme. Your Page content will be preserved.</p>
-
-                    <h3 itemprop="headline">
-                    <a id="creating-pages-manually" class="anchor" href="#creating-pages-manually" aria-hidden="true"><span class="octicon octicon-link"></span></a>Creating pages manually</h3>
-
-                    <p>If you prefer to not use the automatic generator, push a branch named <code>gh-pages</code> to your repository to create a page manually. In addition to supporting regular HTML content, GitHub Pages support Jekyll, a simple, blog aware static site generator. Jekyll makes it easy to create site-wide headers and footers without having to copy them across every page. It also offers intelligent blog support and other advanced templating features.</p>
-
-                    <h3 itemprop="headline">
-                    <a id="authors-and-contributors" class="anchor" href="#authors-and-contributors" aria-hidden="true"><span class="octicon octicon-link"></span></a>Authors and Contributors</h3>
-
-                    <p>You can <a href="https://github.com/blog/821" class="user-mention">@mention</a> a GitHub username to generate a link to their profile. The resulting <code>&lt;a&gt;</code> element will link to the contributor’s GitHub Profile. For example: In 2007, Chris Wanstrath (<a href="https://github.com/defunkt" class="user-mention">@defunkt</a>), PJ Hyett (<a href="https://github.com/pjhyett" class="user-mention">@pjhyett</a>), and Tom Preston-Werner (<a href="https://github.com/mojombo" class="user-mention">@mojombo</a>) founded GitHub.</p>
-
-                    <h3 itemprop="headline">
-                    <a id="support-or-contact" class="anchor" href="#support-or-contact" aria-hidden="true"><span class="octicon octicon-link"></span></a>Support or Contact</h3>
-
-                    <p>Having trouble with Pages? Check out our <a href="https://help.github.com/pages">documentation</a> or <a href="https://github.com/contact">contact support</a> and we’ll help you sort it out.</p>
+                    <h3 itemprop="headline">Danh sách bài viết</h3>
+                    <div id="blog-list">
+                        <!-- Blog List -->
+                    </div>
                 </section>
 
                 <aside id="sidebar" itemscope="itemscope" itemtype="http://schema.org/WPSideBar">
-                    <h3 itemprop="headline">Contact</h3>
+                    <h3 itemprop="headline">Liên lạc</h3>
                     <div>
                         <ul class="contact">
                             <li>
@@ -85,12 +74,14 @@
                             </li>
                         </ul>
                     </div>
-                    <p class="copyright">This page was generated by <a href="https://pages.github.com">GitHub Pages</a> using the Architect theme by <a href="https://twitter.com/jasonlong">Jason Long</a>.</p>
+                    <p class="copyright">Trang này được tạo bởi <a href="https://pages.github.com">GitHub Pages</a>, sử dụng theme Architect của <a href="https://twitter.com/jasonlong">Jason Long</a>.</p>
                 </aside>
             </div>
         </main>
 
         <script src="/javascripts/main.js"></script>
-
+        <script src="/javascripts/jquery.js"></script>
+        <script src="/javascripts/react.js"></script>
+        <script src="/javascripts/build/home.js"></script>
     </body>
 </html>

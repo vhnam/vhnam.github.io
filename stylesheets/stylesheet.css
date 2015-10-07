@@ -944,3 +944,39 @@ header h1 {
   padding-top: 16px;
   clear: both;
 }
+
+/* Homepage */
+.home .avatar {
+  width: 96px;
+  height: 96px;
+  border-radius: 96px;
+  float: left;
+  margin-right: 24px;
+}
+
+.home .time {
+  margin-bottom: 4px !important;
+}
+
+.home .list {
+  padding: 0;
+  list-style-type: none;
+}
+
+.home .list .list-field {
+  padding: 4px 0;
+  margin-top: 16px;
+  border-bottom: 1px solid #e0e0e0;
+}
+
+.home .list .list-field:first-child {
+  margin-top: 0;
+}
+
+.home .list .list-field .title {
+  font-size: 18px;
+}
+
+.home .list .list-field .description {
+  margin-bottom: 8px;
+}

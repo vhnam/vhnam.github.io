@@ -1,0 +1,18 @@
+{
+    "blogs": [
+        {
+            "name" : "Lợi ích khi tạo một Repository trên GitHub",
+            "link" : "http://vhnam.github.io/blog/loi-ich-khi-tao-mot-repository-tren-github/",
+            "datetime": "2015-09-29",
+            "time" : "Ngày 29 tháng 9 năm 2015",
+            "description" : "Có thể các bạn nghĩ việc tạo một repository trên GitHub chỉ để lưu trữ source code. Bài viết này, mình mong muốn các bạn biết thêm về lợi ích của việc tạo repository trên GitHub."
+        },
+        {
+            "name" : "Giới thiệu Gist",
+            "link" : "http://vhnam.github.io/blog/gioi-thieu-gist/",
+            "datetime": "2015-09-29",
+            "time" : "Ngày 29 tháng 9 năm 2015",
+            "description" : "Nếu bạn cảm thấy phiền phức khi thao tác với codepad.org hay pastebin.com. Gist của GitHub sẽ là một sự lựa chọn sáng suốt."
+        }
+    ]
+}
