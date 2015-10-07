@@ -980,3 +980,7 @@ header h1 {
 .home .list .list-field .description {
   margin-bottom: 8px;
 }
+
+.home .more {
+  text-align: right;
+}
