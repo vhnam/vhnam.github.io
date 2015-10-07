@@ -16,12 +16,17 @@ var ListRow = React.createClass({
 
 var List = React.createClass({
     render: function() {
-        var list = [];
+        var list = [],
+            index = 0;
 
         this.props.blogs.forEach(function(blog) {
             list.push(
                 <ListRow blog={blog} key={blog.name} />
             );
+
+            if (index++ === 10) {
+                break;
+            }
         });
 
         return (
