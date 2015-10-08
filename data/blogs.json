@@ -1,6 +1,13 @@
 {
     "blogs": [
         {
+            "name" : "Giới thiệu kỹ thuật Pomodoro",
+            "link" : "http://vhnam.github.io/blog/gioi-thieu-ky-thuat-pomodoro/",
+            "datetime": "2015-10-08",
+            "time" : "Ngày 8 tháng 10 năm 2015",
+            "description" : "Quản lý thời gian hợp lý là một kỹ năng cần thiết khi làm việc, cũng như học tập. Áp dụng kỹ thuật Pomodoro có thể giúp bạn cải thiện kỹ năng quản lý thời gian tốt hơn."
+        },
+        {
             "name" : "Lợi ích khi tạo một Repository trên GitHub",
             "link" : "http://vhnam.github.io/blog/loi-ich-khi-tao-mot-repository-tren-github/",
             "datetime": "2015-09-29",
