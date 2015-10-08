@@ -922,6 +922,15 @@ header h1 {
   font-size: 12px;
 }
 
+#main-content .list-menu {
+  padding-left: 36px;
+  line-height: 1.75em;
+}
+
+#main-content iframe {
+  width: 100%;
+}
+
 /* Contact */
 .contact {
   width: 100%;
