@@ -1,6 +1,13 @@
 {
     "blogs": [
         {
+            "name" : "Học ở nhà không cần đến lớp - Nên hay không?",
+            "link" : "http://vhnam.github.io/blog/hoc-o-nha-khong-can-den-lop-nen-hay-khong/",
+            "datetime": "2015-10-14",
+            "time" : "Ngày 14 tháng 10 năm 2015",
+            "description" : "Có một bạn đã hỏi về việc \"Phương pháp học ở nhà mà không cần đến lớp\". Mình viết bài này để chia sẻ quan điểm của mình về vấn đề này."
+        },
+        {
             "name" : "Giới thiệu kỹ thuật Pomodoro",
             "link" : "http://vhnam.github.io/blog/gioi-thieu-ky-thuat-pomodoro/",
             "datetime": "2015-10-08",
