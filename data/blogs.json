@@ -1,6 +1,13 @@
 {
     "blogs": [
         {
+            "name" : "Nên sử dụng Web Browser nào khi làm front-end?",
+            "link" : "http://vhnam.github.io/blog/nen-su-dung-web-browser-nao-khi-lam-front-end/",
+            "datetime": "2015-10-26",
+            "time" : "Ngày 26 tháng 10 năm 2015",
+            "description" : "Web Browser là một công cụ quan trọng đối với những bạn front-end developer. Mình chia sẻ nên sử dụng web browser nào khi làm front-end. Điều này, mình rút ra được trong quá trình làm việc."
+        },
+        {
             "name" : "Học ở nhà không cần đến lớp - Nên hay không?",
             "link" : "http://vhnam.github.io/blog/hoc-o-nha-khong-can-den-lop-nen-hay-khong/",
             "datetime": "2015-10-14",
