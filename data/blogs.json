@@ -1,6 +1,13 @@
 {
     "blogs": [
         {
+            "name" : "JavaScript - Debounce Function là gì?",
+            "link" : "http://vhnam.github.io/blog/javascript-debounce-function-la-gi/",
+            "datetime": "2015-11-03",
+            "time" : "Ngày 3 tháng 11 năm 2015",
+            "description" : "Việc xử lý sự kiện gởi dữ liệu với một tần suất nhanh ở các khung search, đôi khi sẽ sai lệch thông tin và ảnh hưởng tới UX. Để giải quyết bài toán này, ta có thể tham khảo kỹ thuật Debounce."
+        },
+        {
             "name" : "Làm thế nào để viết một tutorial chất lượng?",
             "link" : "http://vhnam.github.io/blog/lam-the-nao-de-viet-mot-tutorial-chat-luong/",
             "datetime": "2015-10-29",
