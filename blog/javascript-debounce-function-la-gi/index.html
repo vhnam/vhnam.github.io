@@ -21,6 +21,7 @@
         <link rel="stylesheet" href="/stylesheets/stylesheet.css" media="screen" />
         <link rel="stylesheet" href="/stylesheets/github-light.css" media="screen" />
         <link rel="stylesheet" href="/stylesheets/print.css" media="print" />
+        <link rel="stylesheet" href="css/style.css" />
 
         <!--[if lt IE 9]>
             <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
@@ -61,6 +62,23 @@
                         Trong khi đó, kết quả bạn cần là <strong>"abc"</strong> chứ không phải là <strong>"ab"</strong>. Như vậy, lỗi này sẽ ảnh hưởng tới <a href="https://en.wikipedia.org/wiki/User_experience">UX (User Experience)</a>. Để giải quyết vấn đề đó sẽ có rất nhiều cách. Mình tin là có bác sẽ nghĩ tới chuyện chờ người dùng nhập xong khoảng độ 1 giây, rồi lấy kết quả cuối cùng đem đi gởi. Vậy làm sao để biết nó khi nào nhập xong ta? Lúc đó thì ta sẽ sử dụng một kỹ thuật có tên là <strong>Debounce</strong>.
                     </p>
                     <img src="/blog/javascript-debounce-function-la-gi/images/debounce.png" alt="debounce()" />
+
+                    <h3 itemprop="headline">Demo</h3>
+                    <p>
+                        Ở demo này, mình sẽ sử dụng một hàm <code>getRandomNumber()</code> để phát sinh thời gian delay để giả lập việc gởi request đến server có độ trễ (delay). Do đó, với ví dụ không sử dụng hàm <code>debounce()</code> thì sẽ chờ một khoảng thời gian mới hiện kết quả. TƯơng tự với ví dụ có sử dụng hàm <code>debounce()</code>, nhưng nó sẽ hiện thị kết quả khác.
+                    </p>
+                    <div class="demo-block">
+                        <h4>Không có sử dụng hàm <code>debounce</code></h4>
+                        <input type="text" id="input-without-debounce" placeholder="Write something..." />
+                        <div id="clear-without-debounce" class="btn-clear">CLEAR</div>
+                        <div id="result-without-debounce" class="demo-results"></div>
+                    </div>
+                    <div class="demo-block">
+                        <h4>Có sử dụng hàm <code>debounce</code></h4>
+                        <input type="text" id="input-with-debounce" placeholder="Write something..." />
+                        <div id="clear-with-debounce" class="btn-clear">CLEAR</div>
+                        <div id="result-with-debounce" class="demo-results"></div>
+                    </div>
 
                     <h3 itemprop="headline">Debounce Function</h3>
                     <p>
@@ -154,6 +172,8 @@
             ga('create', 'UA-66016963-1', 'auto');
             ga('send', 'pageview');
         </script>
+        <script src="/javascripts/jquery.js"></script>
+        <script src="js/script.js"></script>
 
     </body>
 </html>
