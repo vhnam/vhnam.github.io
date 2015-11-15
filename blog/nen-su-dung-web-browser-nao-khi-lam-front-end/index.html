@@ -57,7 +57,7 @@
 
                     <h3 itemprop="headline">Luận bàn về các trình duyệt</h3>
                     <p>
-                        Mình không có điều kiện, nên xài máy sử dụng hệ điều hành Microsoft Windows. Lúc mình viết bài này, Windows 10 đã ra, nhưng nó chưa hỗ trợ tốt cho công việc nên mình vẫn còn sử dụng Windows 7.
+                        Mình không có điều kiện, nên xài máy sử dụng hệ điều hành Microsoft Windows. Lúc mình viết bài này, Windows 10 đã ra, nhưng nó chưa hỗ trợ tốt cho công việc nên mình vẫn còn sử dụng Windows 7. Một thời gian sau (thời điểm cập nhật phần Microsoft Edge), mình đã chuyển lên Windows 10 và có thể viết review về nó.
                     </p>
 
                     <h4 itemprop="headline">Google Chrome</h4>
@@ -137,6 +137,15 @@
                         Làm việc với bản Safari 5.1.7 trên Windows cũng vui. Vì giao diện của bạn đẹp lung linh trên các trình duyệt khác thì Safari sẽ làm bạn thất vọng tràn trề. Nhưng đừng nản, cứ search Google, thêm một số prefix là sẽ hiển thị được thôi.
                     </p>
 
+                    <h4 itemprop="headline">Microsoft Edge</h4>
+                    <img src="/blog/nen-su-dung-web-browser-nao-khi-lam-front-end/images/edge.png" alt="Microsoft Edge" />
+                    <p>
+                        <a href="https://en.wikipedia.org/wiki/Microsoft_Edge">Microsoft Edge</a> là phiên bản trình duyệt nhằm thay thế Internet Explorer và chỉ chạy được trên Windows 10 (thời điểm hiện tại).
+                    </p>
+                    <p>
+                        Theo mình, Microsoft Edge có chức năng gần giống Internet Explorer. Microsoft đã thêm một số thứ mới vài Edge như là có thể mở web chạy từ <code>localhost</code> (IE thì không nhận), lưu trang Web dưới dạng PDF,... Nhưng cũng có một số khó khăn đó là không hỗ trợ lưu trang Web dưới dạng HTML như IE, khi F12 thì phần Developer Tools mặc định sẽ tạo một cửa sổ mới (thích hợp với làm việc từ 2 màn hình trở lên, nhưng khó khăn với 1 màn hình), giao diện hơi khó thao tác.
+                    </p>
+
                     <h3 itemprop="headline">Kết luận</h3>
                     <p>
                         Những trình duyệt mình nêu trong bài viết này đều được sử dụng khi làm website. Tiêu chí đầu tiên và cũng là bắt buộc khi làm Front-End là phải hiển thị tốt trên tất cả các trình duyệt (<a href="https://en.wikipedia.org/wiki/Cross-browser">Cross-browser</a>). Bởi vì CSS và JavaScript, mỗi trình duyệt định nghĩa theo một kiểu khác nhau nên có thể Firefox hiểu nhưng Opera không hiểu.
@@ -144,6 +153,10 @@
                     <p>
                         Chẳng hạn như hàm <code>window.navigate('http://www.google.com')</code> trong JavaScript chỉ chạy được trên Microsoft Internet Explorer, muốn chạy trên các trình duyệt khác phải sửa thành <code>window.location.href='http://www.google.com';</code>.
                     </p>
+                    <p>
+                        Còn một điều này khi xài IE và Edge của Microsoft đó là chức năng <strong>Inspect Element</strong>. Mặc định thì nó khi bạn hover vào tag nào đó trong <strong>DOM Explorer</strong> thì nó không highlight ngoài giao diện đâu. Bạn phải làm như hình dưới.
+                    </p>
+                    <img src="/blog/nen-su-dung-web-browser-nao-khi-lam-front-end/images/inspect-element.png" alt="Microsoft IE11/Edge Inspect Element" />
 
                     <h2 itemprop="headline">Tham khảo</h2>
                     <ul class="reference">
@@ -155,6 +168,9 @@
                         </li>
                         <li>
                             <a href="http://shouldiprefix.com">What CSS to prefix?</a>
+                        </li>
+                        <li>
+                            <a href="http://daynhauhoc.com/t/gap-ti-kho-khan-khi-inspect-element-tren-ie11/11612/2">Gặp tí khó khăn khi inspect element trên IE11</a>
                         </li>
                     </ul>
 
