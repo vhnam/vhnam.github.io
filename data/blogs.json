@@ -1,6 +1,13 @@
 {
     "blogs": [
         {
+            "name" : "Quy tắc ngón tay cái khi thiết kế giao diện Mobile",
+            "link" : "http://vhnam.github.io/blog/quy-tac-ngon-tay-cai-khi-thiet-ke-giao-dien-mobile/",
+            "datetime": "2015-11-18",
+            "time" : "Ngày 18 tháng 11 năm 2015",
+            "description" : "Do gặp vấn đề khi thiết kế mấy cái button trên giao diện Mobie, mình tìm hiểu một số quy tắc thiết kế để dễ dàng dùng ngón cái để thao tác. Mình cũng muốn chia sẻ lại với mọi người."
+        },
+        {
             "name" : "JavaScript - Throttle Function là gì?",
             "link" : "http://vhnam.github.io/blog/javascript-throttle-function-la-gi/",
             "datetime": "2015-11-05",

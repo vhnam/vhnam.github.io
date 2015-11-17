@@ -1031,6 +1031,10 @@ header h1 {
 }
 
 /* Figure */
+figure {
+  text-align: center;
+}
+
 figure > img {
   margin-bottom: 0 !important;
 }
@@ -1039,4 +1043,9 @@ figure > figcaption {
   font-size: 12px;
   color: #757575;
   text-align: center;
+}
+
+/* List */
+ul.circle {
+  list-style-type: circle;
 }
