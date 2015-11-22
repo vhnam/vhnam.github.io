@@ -36,10 +36,14 @@
         displayName: "List",
 
         render: function render() {
-            var list = [];
+            var list = [],
+                index = 0,
+                maxPosts = 10;
 
             this.props.blogs.forEach(function (blog) {
-                list.push(React.createElement(ListRow, { blog: blog, key: blog.name }));
+                if (++index < maxPosts) {
+                    list.push(React.createElement(ListRow, { blog: blog, key: blog.name }));
+                }
             });
 
             return React.createElement(
