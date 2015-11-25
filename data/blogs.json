@@ -1,6 +1,13 @@
 {
     "blogs": [
         {
+            "name" : "Wireframe trong thiết kế sản phẩm (Phần 2): Các sắc thái của Wireframe",
+            "link" : "http://vhnam.github.io/blog/wireframe-trong-thiet-ke-san-pham-phan-2/",
+            "datetime": "2015-11-26",
+            "time" : "Ngày 26 tháng 11 năm 2015",
+            "description" : "Đây là bài thứ hai trong loạt bài dịch từ cuốn \"The guide to wireframing\". Phần này đề cập đến những công cụ thiết kế wireframe, một số lưu ý khi thiết kế wireframe và đặc điểm một số loại wireframe thường dùng."
+        },
+        {
             "name" : "Wireframe trong thiết kế Web (Phần 1): Một góc nhìn thực tế về Wireframe",
             "link" : "http://vhnam.github.io/blog/wireframe-trong-thiet-ke-san-pham-phan-1/",
             "datetime": "2015-11-23",
