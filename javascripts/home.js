@@ -45,7 +45,7 @@ $(document).ready(function() {
 
     $.getJSON('data/stories.json', function(data) {
         React.render(
-            <List blog={data.stories} />
+            <List blogs={data.stories} />
         , document.getElementById('story-list'));
     })
 });

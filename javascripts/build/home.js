@@ -58,7 +58,7 @@
         });
 
         $.getJSON('data/stories.json', function (data) {
-            React.render(React.createElement(List, { blog: data.stories }), document.getElementById('story-list'));
+            React.render(React.createElement(List, { blogs: data.stories }), document.getElementById('story-list'));
         });
     });
 })();
