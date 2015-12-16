@@ -1,11 +1,9 @@
-"use strict";
-
 (function () {
 
     var ListRow = React.createClass({
         displayName: "ListRow",
 
-        render: function render() {
+        render: function () {
             return React.createElement(
                 "li",
                 { className: "list-field" },
@@ -35,13 +33,13 @@
     var List = React.createClass({
         displayName: "List",
 
-        render: function render() {
+        render: function () {
             var list = [],
                 index = 0,
                 maxPosts = 10;
 
             this.props.blogs.forEach(function (blog) {
-                if (++index < maxPosts) {
+                if (index++ < maxPosts) {
                     list.push(React.createElement(ListRow, { blog: blog, key: blog.name }));
                 }
             });
@@ -57,6 +55,10 @@
     $(document).ready(function () {
         $.getJSON('data/blogs.json', function (data) {
             React.render(React.createElement(List, { blogs: data.blogs }), document.getElementById('blog-list'));
+        });
+
+        $.getJSON('data/stories.json', function (data) {
+            React.render(React.createElement(List, { blog: data.stories }), document.getElementById('story-list'));
         });
     });
 })();

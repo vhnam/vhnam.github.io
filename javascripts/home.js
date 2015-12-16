@@ -21,7 +21,7 @@ var List = React.createClass({
             maxPosts = 10;
 
         this.props.blogs.forEach(function(blog) {
-            if (++index < maxPosts) {
+            if (index++ < maxPosts) {
                 list.push(
                     <ListRow blog={blog} key={blog.name} />
                 );
@@ -41,6 +41,12 @@ $(document).ready(function() {
         React.render(
             <List blogs={data.blogs} />
         , document.getElementById('blog-list'));
+    });
+
+    $.getJSON('data/stories.json', function(data) {
+        React.render(
+            <List blog={data.stories} />
+        , document.getElementById('story-list'));
     })
 });
 

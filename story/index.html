@@ -5,11 +5,11 @@
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
         <meta http-equiv="x-ua-compatible" content="IE=edge" />
 
-        <title>The Complex World - Chuyện lập trình</title>
+        <title>The Complex World - Tản mạn linh tinh</title>
         <meta name="robots" content="noodp,index,follow" />
         <meta name="revisit-after" content="1 days" />
         <meta name="description" content="Chuyện lập trình" />
-        <meta name="keywords" content="Talking about programming, vhnam.github.io, vhnam, namvh" />
+        <meta name="keywords" content="Story, vhnam.github.io, vhnam, namvh" />
         <link rel="shortcut icon" href="/images/favicon.png" type="image/x-icon" />
         <link rel="canonical" href="http://vhnam.github.io/blog/" />
         <link rel="publisher" href="https://plus.google.com/116570296349523695729" />
@@ -27,7 +27,7 @@
         <![endif]-->
     </head>
 
-    <body itemscope="itemscope" itemtype="http://schema.org/WebPage" data-ng-app="blog-list">
+    <body itemscope="itemscope" itemtype="http://schema.org/WebPage" data-ng-app="story-list">
         <header itemscope="itemscope" itemtype="http://schema.org/WPHeader">
             <div class="inner">
                 <a href="/">
@@ -42,12 +42,12 @@
                 <section id="main-content" data-ng-controller="ListControler">
                     <h2 itemprop="headline">Danh sách các bài viết</h2>
                     <ul class="list">
-                        <li class="list-field" data-ng-repeat="blog in blogs | startFrom:currentPage * pageSize | limitTo:pageSize">
-                            <a data-ng-href="{{blog.link}}" class="title">{{blog.name}}</a>
+                        <li class="list-field" data-ng-repeat="story in stories | startFrom:currentPage * pageSize | limitTo:pageSize">
+                            <a data-ng-href="{{story.link}}" class="title">{{story.name}}</a>
                             <div class="time">
-                                <time datetime="{{blog.datetime}}" itemprop="datePublished">{{blog.time}}</time>
+                                <time datetime="{{story.datetime}}" itemprop="datePublished">{{story.time}}</time>
                             </div>
-                            <p class="description">{{blog.description}}</p>
+                            <p class="description">{{story.description}}</p>
                         </li>
                     </ul>
                     <div class="block-pagination">
@@ -97,7 +97,7 @@
         </main>
 
         <script src="/javascripts/angular.js"></script>
-        <script src="/javascripts/blog.js"></script>
+        <script src="/javascripts/story.js"></script>
         <script>
             (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
             (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
