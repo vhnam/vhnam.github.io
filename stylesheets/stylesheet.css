@@ -1056,8 +1056,8 @@ ul.circle {
   border-top: 1px solid #e0e0e0;
 }
 
-.social-plugin .like-share {
-  padding-top: 16px;
+.social-plugin .like-share > div {
+  margin-top: 16px !important;
 }
 
 .social-plugin .comments {
