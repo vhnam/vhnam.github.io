@@ -1049,3 +1049,17 @@ figure > figcaption {
 ul.circle {
   list-style-type: circle;
 }
+
+/* Social Plugins */
+.social-plugin {
+  margin-top: 32px;
+  border-top: 1px solid #e0e0e0;
+}
+
+.social-plugin .like-share {
+  padding-top: 16px;
+}
+
+.social-plugin .comments {
+  margin-top: 32px;
+}
