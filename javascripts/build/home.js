@@ -36,7 +36,7 @@
         render: function () {
             var list = [],
                 index = 0,
-                maxPosts = 10;
+                maxPosts = 5;
 
             this.props.blogs.forEach(function (blog) {
                 if (index++ < maxPosts) {
