@@ -1,6 +1,20 @@
 {
     "stories": [
         {
+            "name" : "Nên viết gì, nên nói gì",
+            "link" : "http://vhnam.github.io/story/nen-viet-gi-nen-noi-gi/",
+            "datetime": "2016-02-14",
+            "time" : "Ngày 14 tháng 2 năm 2016",
+            "description" : "Lảm nhảm tí về chuyện viết gì, bình luận ở trên mạng."
+        },
+    	{
+            "name" : "Một năm nhiều trải nghiệm",
+            "link" : "http://vhnam.github.io/story/mot-nam-nhieu-trai-nghiem/",
+            "datetime": "2016-02-07",
+            "time" : "Ngày 7 tháng 2 năm 2016",
+            "description" : "Cảm nhận về một năm 2015 với nhiều trải ngiệm."
+        },
+        {
             "name" : "Đạp xe giữa Saigon",
             "link" : "http://vhnam.github.io/story/dap-xe-giua-saigon/",
             "datetime": "2015-12-17",
