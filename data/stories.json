@@ -1,6 +1,13 @@
 {
     "stories": [
         {
+            "name" : "Viết linh tinh",
+            "link" : "http://vhnam.github.io/story/viet-linh-tinh/",
+            "datetime": "2016-04-16",
+            "time" : "Ngày 16 tháng 4 năm 2016",
+            "description" : "Trong một lúc chả muốn làm cái vẹo gì hết, nổi hứng viết cái này."
+        },
+        {
             "name" : "Nên viết gì, nên nói gì",
             "link" : "http://vhnam.github.io/story/nen-viet-gi-nen-noi-gi/",
             "datetime": "2016-02-14",
