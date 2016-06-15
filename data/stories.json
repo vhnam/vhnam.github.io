@@ -1,6 +1,13 @@
 {
     "stories": [
         {
+            "name" : "Thất bại là... dì ghẻ của thành công",
+            "link" : "http://vhnam.github.io/story/that-bai-la-di-ghe-cua-thanh-cong/",
+            "datetime": "2016-06-16",
+            "time" : "Ngày 16 tháng 6 năm 2016",
+            "description" : "Đang chán nản và nghĩ về sự đời dưới góc nhìn của một thằng developer nửa mùa."
+        },
+        {
             "name" : "Viết linh tinh",
             "link" : "http://vhnam.github.io/story/viet-linh-tinh/",
             "datetime": "2016-04-16",
