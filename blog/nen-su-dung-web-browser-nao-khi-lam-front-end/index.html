@@ -83,6 +83,11 @@
                             </li>
                         </ul>
                     </p>
+                    <h5>Cập nhật ngày 11/07/2016</h5>
+                    <p>
+                        Ở thời điểm hiện tại, nó đã đổi tên thành <strong>Device Toolbar</strong>. Cách thiết kế nó cũng tương tự <a href="http://design.google.com/resizer/">Google Resizer</a>.
+                    </p>
+                    <img src="/blog/nen-su-dung-web-browser-nao-khi-lam-front-end/images/device-toolbar.png" alt="Device Toolbar" />
 
                     <h4 itemprop="headline">Mozilla Firefox Developer Edition</h4>
                     <img src="/blog/nen-su-dung-web-browser-nao-khi-lam-front-end/images/DevEdition.png" alt="Firefox Developer Edition" />
@@ -105,6 +110,14 @@
                                 <a href="http://code.tutsplus.com/vi/tutorials/using-firefox-developer-edition-for-web-development--cms-23793">Sử dụng Firefox Developer Edition cho việc phát triển Web</a>
                             </li>
                         </ul>
+                    </p>
+
+                    <h5>Cập nhật ngày 11/07/2016</h5>
+                    <p>
+                        Trong dự án gần đây nhất, mình có bị một lỗi xử lý ở trên Server. Trong quá trình debug, mình chắc chắn Action đó sẽ phải trả ra Exception. Có một điều bất ngờ, trong Task Manager có một Service tên là "<strong>Plugin Container for FirefoxDeveloperEdition (32 bit)</strong>" sử dụng RAM rất nhiều và không trả Exception. Nó cứ quay đều. Bị vài lần, mình thấy lạ lạ. Sau khi tìm hiểu được nguyên nhân, mình mới biết là mỗi lần nó bắt đầu quay là biết phía Server đang có Exception xảy ra, lo mà tắt cái service đó đi, kẻo nó restart máy.
+                    </p>
+                    <p>
+                        Với lỗi khỉ gió này, Firefox bản bình thường (màu đỏ) cũng bị lỗi tương tự.
                     </p>
 
                     <h4 itemprop="headline">Opera</h4>
@@ -144,6 +157,16 @@
                     </p>
                     <p>
                         Theo mình, Microsoft Edge có chức năng gần giống Internet Explorer. Microsoft đã thêm một số thứ mới vài Edge như là có thể mở web chạy từ <code>localhost</code> (IE thì không nhận), lưu trang Web dưới dạng PDF,... Nhưng cũng có một số khó khăn đó là không hỗ trợ lưu trang Web dưới dạng HTML như IE, khi F12 thì phần Developer Tools mặc định sẽ tạo một cửa sổ mới (thích hợp với làm việc từ 2 màn hình trở lên, nhưng khó khăn với 1 màn hình), giao diện hơi khó thao tác.
+                    </p>
+
+                    <h4 itemprop="headline">Cốc Cốc</h4>
+                    <img src="/blog/nen-su-dung-web-browser-nao-khi-lam-front-end/images/coccoc.png" alt="Cốc Cốc" />
+                    <p>
+                        Tại sao lại có Cốc Cốc ở đây nhỉ? Đơn giản là bạn đang ở Việt Nam. Đây là trình duyệt có số lượng người Việt dùng đáng kể và cũng nên kiểm tra kĩ càng trên nó. Dưới đây là thống kế lượng truy cập vào blog của mình trên các trình duyệt, tính tới ngày 11/07/2016.
+                    </p>
+                    <img src="/blog/nen-su-dung-web-browser-nao-khi-lam-front-end/images/analysist-browsers.png" alt="Analysist Browsers" />
+                    <p>
+                        Quay lại câu chuyện dự án gần đây, không trả Exception trên Firefox thì ở Cốc Cốc, nó vẫn đá Exception bình thường. Google Chrome thì vẫn hên xui. Chả hiểu.
                     </p>
 
                     <h3 itemprop="headline">Kết luận</h3>
