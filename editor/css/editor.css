@@ -1,0 +1,67 @@
+.editable {
+    position: relative;
+    width: 90%;
+    height: 160px;
+    padding: 8px 16px;
+    overflow-y: auto;
+    font-size: inherit;
+    line-height: 1.75;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    outline: 0 none;
+}
+
+.editable b {
+    font-weight: 600;
+}
+
+.editable-menu {
+    position: absolute;
+    z-index: 11110 !important;
+    display: none;
+    padding: 0;
+    margin: 0;
+    list-style-type: none;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 3px;
+    box-shadow: 0 0 5px rgba(0,0,0,0.1);
+}
+
+.editable-menu-header {
+    padding: 5px;
+    margin: 5px;
+    font-size: 11px;
+    font-weight: 600;
+    color: #6f8092;
+    cursor: pointer;
+    border-bottom: solid 1px #eaeff1;
+}
+
+.editable-menu ul {
+    max-height: 200px;
+    padding: 0;
+    margin: auto;
+    overflow-y: auto;
+    list-style: none;
+}
+
+.editable-menu li {
+    display: block;
+    padding: 5px 10px;
+    cursor: pointer;
+    border-bottom: 1px solid #ddd;
+}
+
+.editable-menu .current,
+.editable-menu .current small {
+    color: #fff;
+    background-color: #3366FF;
+}
+
+.editable-menu li small {
+    font-size: smaller;
+    font-weight: 500;
+    color: #777;
+}
