@@ -1,6 +1,13 @@
 {
     "stories": [
         {
+            "name" : "Quite my tempo",
+            "link" : "http://vhnam.github.io/story/quite-my-tempo/",
+            "datetime": "2018-06-02",
+            "time" : "Ngày 2 tháng 6 năm 2018",
+            "description" : "Suy nghĩ sau khi xem bộ phim \"Whiplash\", ngẫm về vị trí của người lãnh đạo."
+        },
+        {
             "name" : "Thất bại là... dì ghẻ của thành công",
             "link" : "http://vhnam.github.io/story/that-bai-la-di-ghe-cua-thanh-cong/",
             "datetime": "2016-06-16",
