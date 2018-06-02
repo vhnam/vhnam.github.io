@@ -883,19 +883,26 @@ footer a:hover {
   }
 }
 
-/* Mobile Landscape Size to Tablet Portrait (devices and browsers) */
-@media only screen and (min-width: 480px) and (max-width: 767px) { }
+/***
+ *
+ * Custom
+ *
+ */
 
-/* Mobile Portrait Size to Mobile Landscape Size (devices and browsers) */
-@media only screen and (max-width: 479px) { }
+blockquote {
+  font-size: .9rem;
+}
 
-/* Custom */
 /* Header */
 header h1 {
   width: 100%;
 }
 
 /* Content */
+#content-wrapper {
+  overflow: hidden;
+}
+
 #main-content .time {
   margin-bottom: 16px;
 }
@@ -959,7 +966,7 @@ header h1 {
 }
 
 .copyright {
-  line-height: ;
+  line-height: 1.5;
   padding-top: 16px;
   clear: both;
 }
@@ -1072,4 +1079,22 @@ ul.circle {
 
 .social-plugin .comments {
   margin-top: 32px;
+}
+
+/* Mobile Landscape Size to Tablet Portrait (devices and browsers) */
+@media only screen and (min-width: 480px) and (max-width: 767px) { }
+
+/* Mobile Portrait Size to Mobile Landscape Size (devices and browsers) */
+@media only screen and (max-width: 479px) {
+  header h1 {
+    font-size: 32px;
+  }
+
+  header h2 {
+    font-size: 18px;
+  }
+
+  #main-content h3 {
+    margin-top: 48px;
+  }
 }
