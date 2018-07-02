@@ -9,6 +9,8 @@ function getDiaries() {
             let diaries = res.data.blog;
             let diaryNode = document.getElementById('blog-list');
 
+            console.log(res.data);
+
             render(diaryNode, diaries);
         }
     }).catch((err) => { console.error(err) });

@@ -5,7 +5,7 @@ document.addEventListener('DOMContentLoaded', function() {
 function getDiaries() {
     axios.get('https://vhnam.github.io/src/indexes/blog.json').then(function(res) {
         if (200 === res.status) {
-            let diaries = res.data.stories;
+            let diaries = res.data.blog;
             let diaryNode = document.getElementById('blog-list');
 
             render(diaryNode, diaries);
