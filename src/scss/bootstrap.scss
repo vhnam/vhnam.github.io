@@ -1,0 +1,27 @@
+// Font
+@import url("https://fonts.googleapis.com/css?family=Roboto:300,400,700");
+
+// Bootstrap
+@import '~bootstrap/scss/bootstrap';
+
+body {
+    font-family: 'Roboto', Helvetica, sans-serif;
+    color: #212121;
+}
+
+.nav-item {
+    outline: 0;
+}
+
+.footer {
+    padding: 1rem 0 3rem;
+    font-weight: 300;
+    color: #fff;
+    background-color: #F44336;
+}
+
+@media (max-width: 576px) { 
+    body {
+        overflow-x: hidden;
+    }
+}

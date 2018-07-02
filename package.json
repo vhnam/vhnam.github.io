@@ -1,0 +1,35 @@
+{
+  "name": "vhnam.github.io",
+  "version": "3.0.0",
+  "description": "Nam Vo | Software Developer, Product Manager, UX/UI Designer",
+  "main": "index.js",
+  "scripts": {
+    "dev": "NODE_ENV=development node_modules/webpack/bin/webpack.js --progress --hide-modules --config=node_modules/laravel-mix/setup/webpack.config.js",
+    "watch": "NODE_ENV=development node_modules/webpack/bin/webpack.js --watch --progress --hide-modules --config=node_modules/laravel-mix/setup/webpack.config.js",
+    "hot": "NODE_ENV=development webpack-dev-server --inline --hot --config=node_modules/laravel-mix/setup/webpack.config.js",
+    "production": "NODE_ENV=production node_modules/webpack/bin/webpack.js --progress --hide-modules --config=node_modules/laravel-mix/setup/webpack.config.js",
+    "prod": "npm run production"
+  },
+  "keywords": [
+    "blog",
+    "CV",
+    "diary",
+    "software",
+    "developer",
+    "product manager",
+    "ux",
+    "ui",
+    "designer"
+  ],
+  "author": "Nam Vo",
+  "license": "ISC",
+  "devDependencies": {
+    "axios": "^0.18.0",
+    "jquery": "^3.3.1",
+    "laravel-mix": "^2.1.11",
+    "popper.js": "^1.14.3"
+  },
+  "dependencies": {
+    "bootstrap": "^4.1.1"
+  }
+}

@@ -1,0 +1,37 @@
+.hero {
+    padding: 3rem 0 8rem;
+    color: #fff;
+    background-color: #F44336;
+
+    &__title,
+    &__subtitle {
+        font-weight: 300;
+    }
+
+    &__subtitle {
+        font-size: 1.5rem;
+        color: #fafafa;
+    }
+}
+
+.content {
+    &__body {
+        padding: 2rem 2rem 5rem 2rem; 
+        margin-top: -5rem;
+        background-color: #fff;
+        box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+    }
+}
+
+.mail {
+    padding: 5rem 0;
+
+    &__btn-mail {
+        padding: 1rem;
+        width: 15rem;
+        font-weight: 300;
+        text-align: center;
+        color: #fff;
+        background-color: #F44336;
+    }
+}

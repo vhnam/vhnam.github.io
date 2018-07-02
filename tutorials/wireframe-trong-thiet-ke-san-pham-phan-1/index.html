@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="robots" content="noodp,index,follow">
+    <meta name="revisit-after" content="1 days">
+    <meta name="google-site-verification" content="ZFrkEu3QMFl9Kz0JyK2SfzdIZ84lDgm9gLQ6J6FmAvg">
+    <meta name="p:domain_verify" content="faa7b25edce176988fb8171e9457554a">
+
+    <!-- Facebook Webmasters -->
+    <meta property="og:url" content="https://vhnam.github.io/blog/wireframe-trong-thiet-ke-san-pham-phan-1">
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="Wireframe trong thiết kế Web (Phần 1): Một góc nhìn thực tế về Wireframe">
+    <meta property="og:description" content="Bài viết đầu tiên trong loạt bài dịch từ cuốn &quote;The guide to wireframing&quote;. Phần này đề cập đến việc thiết kế Wireframe dưới góc nhìn thực tế.">
+    <meta property="og:image" content="https://vhnam.github.io/blog/wireframe-trong-thiet-ke-san-pham-phan-1/img/thumbnails.jpg">
+    <meta property="og:locale" content="vi_VN">
+    <meta property="fb:app_id" content="2064203853819553">
+
+    <title>Wireframe trong thiết kế Web (Phần 1): Một góc nhìn thực tế về Wireframe | Nam Vo</title>
+
+    <link rel="shortcut icon" href="/public/favicon.ico" type="image/x-icon">
+    <link rel="canonical" href="http://vhnam.github.io/">
+    <link rel="publisher" href="https://plus.google.com/116570296349523695729">
+
+    <link rel="stylesheet" href="/public/css/bootstrap.css">
+    <link rel="stylesheet" href="/public/css/post.css">
+
+    <!--[if lt IE 9]>
+        <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+</head>
+<body itemscope="itemscope" itemtype="https://schema.org/BlogPosting">
+    <nav class="navbar navbar-expand-lg navbar-light">
+        <div class="container">
+            <a class="navbar-brand" href="/" itemprop="url">
+                <img src="/public/img/favicon.png" alt="Nam Vo" height="48" width="48">
+            </a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNavDropdown">
+                <ul class="navbar-nav flex-row ml-md-auto d-none d-md-flex" itemscope="itemscope" itemtype="https://schema.org/SiteNavigationElement">
+                    <li class="nav-item">
+                        <a class="nav-link" itemprop="url" href="/">Trang chủ</a>
+                    </li>
+                    <li class="nav-item active">
+                        <a class="nav-link" itemprop="url" href="/blog">Nhật Ký</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" itemprop="url" href="/tutorials">Chuyện Lập Trình</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" itemprop="url" href="/about.html">Giới Thiệu</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" itemprop="url" href="/contact.html">Liên Hệ</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <section class="hero">
+        <div class="container">
+            <div class="row">
+                <div class="col"></div>
+                <div class="col-md-8">
+                    <h1 class="hero__title" itemprop="headline">Wireframe trong thiết kế Web (Phần 1): Một góc nhìn thực tế về Wireframe</h1>
+                    <h2 class="hero__subtitle">Ngày 23 tháng 11 năm 2015</h2>
+                    <meta itemprop="author" content="Nam Vo">
+                    <meta itemprop="datePublished" content="2015-11-23">
+                    <meta itemprop="dateModified" content="2015-11-23">
+                    <meta itemprop="mainEntityOfPage" content="Bài viết đầu tiên trong loạt bài dịch từ cuốn &quote;The guide to wireframing&quote;. Phần này đề cập đến việc thiết kế Wireframe dưới góc nhìn thực tế.">
+                </div>
+                <div class="col"></div>
+            </div>
+        </div>
+        <div itemprop="publisher" itemscope itemtype="https://schema.org/Organization">
+            <meta itemprop="name" content="GitHub">
+            <span hidden itemprop="logo" itemscope itemtype="https://schema.org/ImageObject">
+                <img itemprop="url" src="/public/img/github.png" alt="GitHub">
+                <meta itemprop="width" content="48">
+                <meta itemprop="height" content="48">
+             </span>
+        </div>
+    </section>
+
+    <section class="content">
+        <div class="container">
+            <h2 hidden>Nội dung</h2>
+            <div class="row">
+                <div class="col"></div>
+                <div class="col-md-8">
+                    <div class="content__body">
+                        <h3>Lời người dịch</h3>
+<p>
+    Sẵn dịp đọc cuốn "<a itemprop="url" href="http://studio.uxpin.com/ebooks/guide-to-wireframing/">The Guide to Wireframeing</a>" nên mình lược dịch và thêm thắt một số chỗ để có thêm tài liệu tham khảo bằng tiếng Việt. Mình sẽ chia cuốn sách ra làm nhiều phần để mọi người tiện theo dõi. Có một số từ tiếng Anh mình sẽ để nguyên vì dịch ra tiếng Việt rất "bưởi".
+</p>
+
+<h3>Sơ lược</h3>
+<p>
+    <a itemprop="url" href="https://en.wikipedia.org/wiki/Website_wireframe">Wireframe</a> là một công cụ quan trọng trong quá trình thiết kế và phát triển sản phẩm. Khi tạo ra một sản phẩm, wireframe là bản thiết kế giúp developer, product manager và designer có thể nói chuyện được với nhau. Và mỗi khi có gì thay đổi về giao diện thì dễ dàng, nhanh chóng để mọi người có thể hiểu và thực hiện. Wireframe có thể được thực hiện nhanh trên giấy hoặc là máy tính.
+</p>
+<img src="img/wireframe-ipad-pencil-notebook.png" alt="Wireframe, ipad, pencil, notebook" itemprop="image">
+
+<h3>Ai sử dụng wireframe?</h3>
+<p>
+    Bất kỳ ai tham gia phát triển sản phẩm đều có thể sử dụng wireframe, chẳng hạn như là <a itemprop="url" href="https://en.wikipedia.org/wiki/Business_analyst">Business Analyst</a>, <a itemprop="url" href="https://en.wikipedia.org/wiki/Information_architecture">Information architect</a>, <a itemprop="url" href="https://en.wikipedia.org/wiki/User_experience_design">User Experience Designer</a>,...
+</p>
+<p>
+    Những phần sau sẽ nói chi tiết về cách sử dụng wireframe của từng người trong team và các công cụ thiết kế wireframe.
+</p>
+
+<h3>Tại sao bất cứ ai cũng nên sử dụng wireframe?</h3>
+<p>
+    Wireframe có thể hiểu là bản thiết kế. Bản thiết kế này thể hiện các thông tin cơ bản, giao diện của một trang web hoặc ứng dụng di động. Mọi người tham gia phát triển nói có thể góp ý, sửa lỗi khi nói về chi tiết của từng trang.
+    <ul>
+        <li>
+            <strong>Cấu trúc (Structure)</strong> - Header, sidebar, footer, bảng thống kê,... được đặt như thế nào?
+        </li>
+        <li>
+            <strong>Nội dung (Content)</strong> - Trang này sẽ hiện cái gì lên?
+        </li>
+        <li>
+            <strong>Hệ thống phân cấp thông tin (Informational hierarchy)</strong> - Tổ chức thông tin và cách hiển thị?
+        </li>
+        <li>
+            <strong>Chức năng (Functionality)</strong> - Giao diện thể hiện chức năng ra sao?
+        </li>
+        <li>
+            <strong>Cách ứng xử (Behavior)</strong> - Cách người dùng tương tác với giao diện.
+        </li>
+    </ul>
+</p>
+<p>
+    Wireframe không bao gồm việc thể hiện chi tiết giao diện như màu sắc, nội dung hình ảnh, nhận dạng,...
+</p>
+
+<h3>Tại sao tui nên sử dụng wireframe?</h3>
+<p>
+    Cho dù mục đích sử dụng wireframe có là gì? Có được phác thảo trên giấy, hay mấy công cụ chuyên dụng, hình ảnh là một hộp màu xám hay là hình ảnh,... thì nó cũng truyền tải thông tin. So với các phương pháp khác như <a itemprop="url" href="https://en.wikipedia.org/wiki/Mockup">Mock Up</a>, <a itemprop="url" href="https://en.wikipedia.org/wiki/Graphic_design">Visual Design</a> thì vẽ wireframe vẫn là sự lựa chọn tốn ít thời gian nhất để thể hiện thông tin trên giao diện cho người khác.
+</p>
+
+<h4>Sự tương tác và UX Designer, Information Architect</h4>
+<p>
+    UX Designer và Information Architect sử dụng wireframe để thể hiện cách thao tác của người dùng giữa các màn hình. Thường là họ sẽ kết hợp wireframe với <a itemprop="url" href="https://en.wikipedia.org/wiki/Flowchart">Flow Chart</a>, <a itemprop="url" href="https://en.wikipedia.org/wiki/Storyboard">Storyboard</a>.
+</p>
+<p>
+    Như hình dưới, bạn sẽ thấy được những thông tin cơ bản, chức năng có trên màn hình, cách người dùng sẽ tương tác, hệ thống phân cấp thông tin. Sau đó, kết quả sẽ được đưa sang Graphic Designer.
+</p>
+<img src="img/interaction.png" alt="Interaction &amp; UX Designers and Information Architects" itemprop="image">
+
+<h4>Graphic Designer</h4>
+<p>
+    Graphic Designer sẽ dựa vào wireframe để tạo ra các bản mockup với giao diện chi tiết, <a itemprop="url" href="https://en.wikipedia.org/wiki/Software_prototyping">prototype</a> thể hiện cách tương tác để ra bản thiết kế cuối cùng. Bước này sẽ kết hợp với các bản phác họa, storyboard và wireframe.
+</p>
+<p>
+    Khi wireframe đưa tới họ, bạn sẽ thấy nội dung chi tiết của màn hình được thể hiện từ kết quả của UX Designer và Information Architect.
+</p>
+
+<h4>Developer</h4>
+<p>
+    Developer sẽ nhìn vào wireframe để biết có bao nhiêu các chức năng cần thực hiện. Front-End Developer nhìn vào sẽ biết code giao diện như thế nào. Back-End Developer sẽ biết có các chức năng gì để viết phần xử lý.
+</p>
+
+<h4>Business Analysts</h4>
+<p>
+    Business Analysts dùng wireframe để đảm bảo đúng giao diện thể hiện đúng nghiệp vụ, cách tương tác trên màn hình một cách trực quan.
+</p>
+
+<h4>Bộ phận kinh doanh</h4>
+<p>
+    Bộ phận này ý nói đến Product Manager, Project Manager,... dùng wireframe để kiểm tra lại đã đảm bảo yêu cầu của khách hàng, các đối tượng thể hiện trên bản thiết kế nhằm điều chỉnh chiến lược của sản phẩm.
+</p>
+
+<h4>Các bên liên quan</h4>
+<p>
+    Bộ này này gồm khách hàng, partner,... Họ nhìn vào wireframe để đảm bảo bên thiết kế đã làm đúng như trong thỏa thuận.
+</p>
+<p>
+    Wireframe đưa đến những người này thì phải đảm bảo rõ ràng, sạch sẽ vì họ còn công việc của mình nên cần review một cách nhanh chóng để tránh lãng phí thời gian.
+</p>
+
+<h3>Kết thúc phần một</h3>
+<p>
+    Chốt lại phần 1, bạn sẽ hình dung được mọi người sẽ sử dụng wireframe như thế nào, nó có lợi gì. Mình cũng chia sẻ vấn đề của mình liên quan đến wireframe.
+</p>
+<p>
+    Thường thì đa số các bạn sinh viên có thói quen nhảy thẳng vào code giao diện, không có thiết kế. Lâu ngày thành thói quen, nếu bạn có mong muốn làm <strong>startup</strong> thì bạn cũng đâm đầu vào code. Một ngày đẹp trời, bạn thấy nó xấu và muốn sửa thì... đó là một bộ phim kinh dị. Sau này rút kinh nghiệm, vẽ chi tiết giao diện trước bằng <a itemprop="url" href="http://www.adobe.com/products/illustrator.html">Adobe Illustrator</a>, <a itemprop="url" href="http://www.adobe.com/products/photoshop.html">Adobe Photoshop</a>,... người ta hay gọi là mockup. Đỡ hơn nhưng mà nó vẫn rắc rối. Vì thế, hãy vẽ wireframe cho nó đơn giản. Công cụ thì mình sẽ đề cập ở một phần khác. Nói chung thì mình vẽ wireframe cũng lẹ.. khoảng 10 phút là có khoảng gần cả chục bản giao diện. Rồi lọc ra để vẽ mockup. Cuộc đời nó thêm được tí màu hồng.
+</p>
+
+<h3>Tham khảo</h3>
+<ul class="reference">
+    <li>
+        <a itemprop="url" href="http://studio.uxpin.com/ebooks/guide-to-wireframing/">The Guide to Wireframeing for designers, PMs, engineers and anyone who touches product</a>
+    </li>
+</ul>
+                    </div>
+
+                    <div class="content__footer">
+                        <div class="social-plugin">
+                            <div class="like-share">
+                                <!-- Facebook -->
+                                <div class="fb-like" data-href="http://vhnam.github.io/blog/not-quite-my-tempo" data-layout="standard" data-action="like" data-show-faces="true" data-share="true"></div>
+    
+                                <div>
+                                    <!-- Twitter -->
+                                    <a href="https://twitter.com/share" class="twitter-share-button"{count} data-url="http://vhnam.github.io/blog/not-quite-my-tempo" data-via="vhnam2504">Tweet</a>
+    
+                                    <!-- Google Plus -->
+                                    <div class="g-plusone" data-annotation="inline" data-width="300"></div>
+                                </div>
+                            </div>
+                            <div class="comments">
+                                <div class="fb-comments" data-href="http://vhnam.github.io/blog/not-quite-my-tempo" data-numposts="10"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col"></div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6 text-left">
+                    He who loves practice without theory is like the sailor who boards [a] ship without a rudder and compass and never knows where he may cast. — Leonardo da Vinci
+                </div>
+                <div class="col-md-6 text-right">
+                    Copyright &copy; 2018 Nam Vo
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="/public/js/bootstrap.js"></script>
+
+    <script>
+        (function(d, s, id) {
+            var js, fjs = d.getElementsByTagName(s)[0];
+            if (d.getElementById(id)) return;
+            js = d.createElement(s); js.id = id;
+            js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.5";
+            fjs.parentNode.insertBefore(js, fjs);
+        }(document, 'script', 'facebook-jssdk'));
+    </script>
+
+    <script>
+        (function() {
+            var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
+            po.src = 'https://apis.google.com/js/platform.js';
+            var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
+        })();
+    </script>
+
+    <script>
+        !function(d,s,id){
+            var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';
+            if(!d.getElementById(id)){js=d.createElement(s);
+                js.id=id;js.src=p+'://platform.twitter.com/widgets.js';
+                fjs.parentNode.insertBefore(js,fjs);
+            }
+        }(document, 'script', 'twitter-wjs');
+    </script>
+
+    <!-- Facebook Analytics -->
+    <script>
+        window.fbAsyncInit = function() {
+            FB.init({
+                appId      : '2064203853819553',
+                cookie     : true,
+                xfbml      : true,
+                version    : '3.0'
+            });
+            
+            FB.AppEvents.logPageView();   
+        };
+
+        (function(d, s, id){
+            var js, fjs = d.getElementsByTagName(s)[0];
+            if (d.getElementById(id)) {return;}
+            js = d.createElement(s); js.id = id;
+            js.src = "https://connect.facebook.net/en_US/sdk.js";
+            fjs.parentNode.insertBefore(js, fjs);
+        }(document, 'script', 'facebook-jssdk'));
+    </script>
+
+    <!-- Google Analytics -->
+    <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-66016963-1', 'auto');
+        ga('send', 'pageview');
+    </script>
+</body>
+</html>

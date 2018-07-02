@@ -1,0 +1,46 @@
+{
+    "stories": [
+        {
+            "name" : "Not quite my tempo",
+            "link" : "https://vhnam.github.io/blog/not-quite-my-tempo/",
+            "datetime": "2018-06-02",
+            "time" : "Ngày 2 tháng 6 năm 2018",
+            "description" : "Suy nghĩ sau khi xem bộ phim &quote;Whiplash&quote;, ngẫm về vị trí của người lãnh đạo."
+        },
+        {
+            "name" : "Thất bại là... dì ghẻ của thành công",
+            "link" : "https://vhnam.github.io/blog/that-bai-la-di-ghe-cua-thanh-cong/",
+            "datetime": "2016-06-16",
+            "time" : "Ngày 16 tháng 6 năm 2016",
+            "description" : "Đang chán nản và nghĩ về sự đời dưới góc nhìn của một thằng developer nửa mùa."
+        },
+        {
+            "name" : "Viết linh tinh",
+            "link" : "https://vhnam.github.io/blog/viet-linh-tinh/",
+            "datetime": "2016-04-16",
+            "time" : "Ngày 16 tháng 4 năm 2016",
+            "description" : "Trong một lúc chả muốn làm cái vẹo gì hết, nổi hứng viết cái này."
+        },
+        {
+            "name" : "Nên viết gì, nên nói gì",
+            "link" : "https://vhnam.github.io/blog/nen-viet-gi-nen-noi-gi/",
+            "datetime": "2016-02-14",
+            "time" : "Ngày 14 tháng 2 năm 2016",
+            "description" : "Lảm nhảm tí về chuyện viết gì, bình luận ở trên mạng."
+        },
+    	{
+            "name" : "Một năm nhiều trải nghiệm",
+            "link" : "https://vhnam.github.io/blog/mot-nam-nhieu-trai-nghiem/",
+            "datetime": "2016-02-07",
+            "time" : "Ngày 7 tháng 2 năm 2016",
+            "description" : "Cảm nhận về một năm 2015 với nhiều trải ngiệm."
+        },
+        {
+            "name" : "Đạp xe giữa Saigon",
+            "link" : "https://vhnam.github.io/blog/dap-xe-giua-saigon/",
+            "datetime": "2015-12-17",
+            "time" : "Ngày 17 tháng 12 năm 2015",
+            "description" : "Lâu rồi mới có dịp đạp xe đi mua sách vào buổi tối. Một số kỷ niệm về Saigon trên chiếc xe đạp ùa về. Thế là một bài viết linh tinh ra đời."
+        }
+    ]
+}

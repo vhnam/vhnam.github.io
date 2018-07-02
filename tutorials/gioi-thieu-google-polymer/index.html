@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="robots" content="noodp,index,follow">
+    <meta name="revisit-after" content="1 days">
+    <meta name="google-site-verification" content="ZFrkEu3QMFl9Kz0JyK2SfzdIZ84lDgm9gLQ6J6FmAvg">
+    <meta name="p:domain_verify" content="faa7b25edce176988fb8171e9457554a">
+
+    <!-- Facebook Webmasters -->
+    <meta property="og:url" content="https://vhnam.github.io/blog/gioi-thieu-google-polymer">
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="Giới thiệu Google Polymer">
+    <meta property="og:description" content="Hướng dẫn cách khởi tạo một project có sử dụng Google Polymer.">
+    <meta property="og:image" content="https://vhnam.github.io/blog/gioi-thieu-google-polymer/img/thumbnails.jpg">
+    <meta property="og:locale" content="vi_VN">
+    <meta property="fb:app_id" content="2064203853819553">
+
+    <title>Giới thiệu Google Polymer | Nam Vo</title>
+
+    <link rel="shortcut icon" href="/public/favicon.ico" type="image/x-icon">
+    <link rel="canonical" href="http://vhnam.github.io/">
+    <link rel="publisher" href="https://plus.google.com/116570296349523695729">
+
+    <link rel="stylesheet" href="/public/css/bootstrap.css">
+    <link rel="stylesheet" href="/public/css/post.css">
+
+    <!--[if lt IE 9]>
+        <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+</head>
+<body itemscope="itemscope" itemtype="https://schema.org/BlogPosting">
+    <nav class="navbar navbar-expand-lg navbar-light">
+        <div class="container">
+            <a class="navbar-brand" href="/" itemprop="url">
+                <img src="/public/img/favicon.png" alt="Nam Vo" height="48" width="48">
+            </a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNavDropdown">
+                <ul class="navbar-nav flex-row ml-md-auto d-none d-md-flex" itemscope="itemscope" itemtype="https://schema.org/SiteNavigationElement">
+                    <li class="nav-item">
+                        <a class="nav-link" itemprop="url" href="/">Trang chủ</a>
+                    </li>
+                    <li class="nav-item active">
+                        <a class="nav-link" itemprop="url" href="/blog">Nhật Ký</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" itemprop="url" href="/tutorials">Chuyện Lập Trình</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" itemprop="url" href="/about.html">Giới Thiệu</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" itemprop="url" href="/contact.html">Liên Hệ</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <section class="hero">
+        <div class="container">
+            <div class="row">
+                <div class="col"></div>
+                <div class="col-md-8">
+                    <h1 class="hero__title" itemprop="headline">Giới thiệu Google Polymer</h1>
+                    <h2 class="hero__subtitle">Ngày 17 tháng 2 năm 2016</h2>
+                    <meta itemprop="author" content="Nam Vo">
+                    <meta itemprop="datePublished" content="2016-02-17">
+                    <meta itemprop="dateModified" content="2016-02-17">
+                    <meta itemprop="mainEntityOfPage" content="Hướng dẫn cách khởi tạo một project có sử dụng Google Polymer.">
+                </div>
+                <div class="col"></div>
+            </div>
+        </div>
+        <div itemprop="publisher" itemscope itemtype="https://schema.org/Organization">
+            <meta itemprop="name" content="GitHub">
+            <span hidden itemprop="logo" itemscope itemtype="https://schema.org/ImageObject">
+                <img itemprop="url" src="/public/img/github.png" alt="GitHub">
+                <meta itemprop="width" content="48">
+                <meta itemprop="height" content="48">
+             </span>
+        </div>
+    </section>
+
+    <section class="content">
+        <div class="container">
+            <h2 hidden>Nội dung</h2>
+            <div class="row">
+                <div class="col"></div>
+                <div class="col-md-8">
+                    <div class="content__body">
+                        <p>
+    Cái tên Polymer dường như còn mới với chúng ta, hôm nay, mình xin làm một bài hướng dẫn sơ về nó. Số là hồi đó có làm qua nó nhưng lúc còn version 0.5. Đùng một cái, nó cập nhật lên 1.0. Trong khi project chưa có xong. Vài bữa trước có làm lại, thấy cách cấu hình như nó đã thay đổi nên viết vậy thôi.
+</p>
+<img src="/blog/gioi-thieu-google-polymer/images/logo.png" alt="Polymer" itemprop="image">
+
+<h3>Giới thiệu Polymer</h3>
+<p>
+    <a href="https://www.polymer-project.org/">Polymer</a> là một thư viện được thiết kế theo phong cách <a itemprop="url" href="https://en.wikipedia.org/wiki/Web_Components">Web Components</a>, được phát triển bởi Google. Chủ yếu, thư viện này dùng để thể hiện ngôn ngữ thiết kế <a itemprop="url" href="https://en.wikipedia.org/wiki/Material_Design">Material Design</a> của Google.
+</p>
+<img src="/blog/gioi-thieu-google-polymer/images/polymer-project.png" alt="Polymer Project" itemprop="image">
+
+<p>
+    Đôi khi, Polymer làm mình cũng hơi bối rối. Về cơ bản, <a itemprop="url" href="https://angularjs.org/">AngularJS</a> đã có khái niệm <a itemprop="url" href="https://docs.angularjs.org/guide/directive">Directive</a> để tạo Web Components và đã ra một phiên bản Angular thiên về <a itemprop="url" href="https://material.angularjs.org/latest/">Material Design</a>. Nhưng vẫn duy trì song song 2 thư viện này? Nếu có thời gian mình sẽ tìm hiểu, hoặc nếu ai đã tìm hiểu thì cho mình biết nhé.
+</p>
+
+<h3>Hướng dẫn cài đặt</h3>
+<h4>Sử dụng Bower</h4>
+<p>
+    Đầu tiên, ta gõ lệnh <code>bower init</code> như hình.
+</p>
+<img src="/blog/gioi-thieu-google-polymer/images/bower-init.PNG" alt="bower init" itemprop="image">
+
+<p>
+    Sau đó, ta cài Polymer và WebComponentsJS.
+</p>
+<img src="/blog/gioi-thieu-google-polymer/images/install.PNG" alt="Installation" itemprop="image">
+
+<p>
+    Kết quả, ta chỉnh sửa chút xíu sẽ được file <strong>bower.json</strong> như hình.
+</p>
+<img src="/blog/gioi-thieu-google-polymer/images/bower-json.PNG" alt="bower.json" itemprop="image">
+
+<h4>Tải file Zip</h4>
+<p>
+    Cách này thì phía Polymer không khuyến khích. Nên cài bằng <strong>Bower</strong> nếu có thể được. Bạn vào đây để tải về. Link: <a itemprop="url" href="https://www.polymer-project.org/1.0/docs/start/getting-the-code.html#using-zip">https://www.polymer-project.org/1.0/docs/start/getting-the-code.html#using-zip</a>
+</p>
+
+<p>
+    Sau khi tải về và giải nén, bạn copy thư mục <strong>bower_components</strong> vào nơi bạn cần tạo project.
+</p>
+<img src="/blog/gioi-thieu-google-polymer/images/archive.PNG" alt="Archive" itemprop="image">
+
+<h3>Chém gió vài đường</h3>
+<p>
+    Bây giờ, ta tạo một file mới tên là <strong>name-card.html</strong> cùng thư mục project của chúng ta.
+</p>
+<img src="/blog/gioi-thieu-google-polymer/images/structure.PNG" alt="Structure" itemprop="image">
+
+<p>
+    Tiếp theo ta sẽ code lần lượt như sau.
+</p>
+<script src="https://gist.github.com/vhnam/d5669d1abeae5c1077ae.js"></script>
+<script src="https://gist.github.com/vhnam/11dc347a3b3b97dbaca0.js"></script>
+
+<iframe style="width: 100%; height: 250px" src="http://embed.plnkr.co/Pwdtx4uEijUw44f2EUHb/" frameborder="0" allowfullscren="allowfullscren"></iframe>
+
+<p>
+    Như vậy, ta đã xong bài <strong>"Hello World"</strong> của Polymer rồi. Nhưng đó chỉ là sử dụng các components cho bạn tự định nghĩa. Còn sử dụng component của Polymer thì làm sao? Sử dụng của nó thì hơi phức tạp tí. Đó là bạn cần dùng đứa nào thì tải component của đứa đó về. Chẳng hạn mình làm demo của <strong>paper-card</strong>. Đầu tiên, bạn phải tải component cần thiết về.
+</p>
+
+<p>
+    <code>bower install --save PolymerElements/paper-card</code><br>
+    <code>bower install --save PolymerElements/paper-button</code>
+</p>
+
+<script src="https://gist.github.com/vhnam/86ba530df4b5c38d761f.js"></script>
+
+<iframe style="width: 100%; height: 400px" src="http://embed.plnkr.co/vgMQf80ZaLYnnRoHCjmD/" frameborder="0" allowfullscren="allowfullscren"></iframe>
+
+<h3>Gác bút</h3>
+<p>
+    Phần chuẩn bị cho project có sử dụng Polymer đến đây xin tạm dừng. Ở phần sau, mình sẽ chỉ cho các bạn một điểm đáng lưu ý của Polymer.
+</p>
+
+<h3>Tham khảo</h3>
+<ul class="reference">
+    <li>
+        <a href="https://en.wikipedia.org/wiki/Polymer_(library)">Google Polymer</a>
+    </li>
+    <li>
+        <a href="https://www.polymer-project.org/1.0/docs/start/getting-the-code.html">Get the Polymer library</a>
+    </li>
+    <li>
+        <a href="http://stackoverflow.com/questions/31534350/how-do-i-import-polymer-elements-into-code-playgrounds-like-plunker-plnkr-co">How do I import Polymer elements into code playgrounds like plunker (plnkr.co), jsBin and jsFiddle?</a>
+    </li>
+</ul>
+                    </div>
+
+                    <div class="content__footer">
+                        <div class="social-plugin">
+                            <div class="like-share">
+                                <!-- Facebook -->
+                                <div class="fb-like" data-href="http://vhnam.github.io/blog/not-quite-my-tempo" data-layout="standard" data-action="like" data-show-faces="true" data-share="true"></div>
+    
+                                <div>
+                                    <!-- Twitter -->
+                                    <a href="https://twitter.com/share" class="twitter-share-button"{count} data-url="http://vhnam.github.io/blog/not-quite-my-tempo" data-via="vhnam2504">Tweet</a>
+    
+                                    <!-- Google Plus -->
+                                    <div class="g-plusone" data-annotation="inline" data-width="300"></div>
+                                </div>
+                            </div>
+                            <div class="comments">
+                                <div class="fb-comments" data-href="http://vhnam.github.io/blog/not-quite-my-tempo" data-numposts="10"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col"></div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6 text-left">
+                    He who loves practice without theory is like the sailor who boards [a] ship without a rudder and compass and never knows where he may cast. — Leonardo da Vinci
+                </div>
+                <div class="col-md-6 text-right">
+                    Copyright &copy; 2018 Nam Vo
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="/public/js/bootstrap.js"></script>
+
+    <script>
+        (function(d, s, id) {
+            var js, fjs = d.getElementsByTagName(s)[0];
+            if (d.getElementById(id)) return;
+            js = d.createElement(s); js.id = id;
+            js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.5";
+            fjs.parentNode.insertBefore(js, fjs);
+        }(document, 'script', 'facebook-jssdk'));
+    </script>
+
+    <script>
+        (function() {
+            var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
+            po.src = 'https://apis.google.com/js/platform.js';
+            var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
+        })();
+    </script>
+
+    <script>
+        !function(d,s,id){
+            var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';
+            if(!d.getElementById(id)){js=d.createElement(s);
+                js.id=id;js.src=p+'://platform.twitter.com/widgets.js';
+                fjs.parentNode.insertBefore(js,fjs);
+            }
+        }(document, 'script', 'twitter-wjs');
+    </script>
+
+    <!-- Facebook Analytics -->
+    <script>
+        window.fbAsyncInit = function() {
+            FB.init({
+                appId      : '2064203853819553',
+                cookie     : true,
+                xfbml      : true,
+                version    : '3.0'
+            });
+            
+            FB.AppEvents.logPageView();   
+        };
+
+        (function(d, s, id){
+            var js, fjs = d.getElementsByTagName(s)[0];
+            if (d.getElementById(id)) {return;}
+            js = d.createElement(s); js.id = id;
+            js.src = "https://connect.facebook.net/en_US/sdk.js";
+            fjs.parentNode.insertBefore(js, fjs);
+        }(document, 'script', 'facebook-jssdk'));
+    </script>
+
+    <!-- Google Analytics -->
+    <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-66016963-1', 'auto');
+        ga('send', 'pageview');
+    </script>
+</body>
+</html>

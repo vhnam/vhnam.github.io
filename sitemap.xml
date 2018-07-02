@@ -1,83 +1,83 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<urlset xmlns="https://www.sitemaps.org/schemas/sitemap/0.9">
     <url>
-        <loc>http://vhnam.github.io/story/not-quite-my-tempo/</loc>
+        <loc>https://vhnam.github.io/blog/not-quite-my-tempo/</loc>
         <lastmod>2018-06-02</lastmod>
     </url>
     <url>
-        <loc>http://vhnam.github.io/story/that-bai-la-di-ghe-cua-thanh-cong/</loc>
+        <loc>https://vhnam.github.io/blog/that-bai-la-di-ghe-cua-thanh-cong/</loc>
         <lastmod>2016-06-16</lastmod>
     </url>
     <url>
-        <loc>http://vhnam.github.io/story/viet-linh-tinh/</loc>
+        <loc>https://vhnam.github.io/blog/viet-linh-tinh/</loc>
         <lastmod>2016-04-16</lastmod>
     </url>
     <url>
-        <loc>http://vhnam.github.io/blog/gioi-thieu-google-polymer/</loc>
+        <loc>https://vhnam.github.io/tutorials/gioi-thieu-google-polymer/</loc>
         <lastmod>2016-02-17</lastmod>
     </url>
     <url>
-        <loc>http://vhnam.github.io/story/nen-viet-gi-nen-noi-gi/</loc>
+        <loc>https://vhnam.github.io/blog/nen-viet-gi-nen-noi-gi/</loc>
         <lastmod>2016-02-14</lastmod>
     </url>
     <url>
-        <loc>http://vhnam.github.io/story/mot-nam-nhieu-trai-nghiem/</loc>
+        <loc>https://vhnam.github.io/blog/mot-nam-nhieu-trai-nghiem/</loc>
         <lastmod>2016-02-07</lastmod>
     </url>
     <url>
-        <loc>http://vhnam.github.io/blog/wireframe-trong-thiet-ke-san-pham-phan-2/</loc>
+        <loc>https://vhnam.github.io/tutorials/wireframe-trong-thiet-ke-san-pham-phan-2/</loc>
         <lastmod>2015-11-26</lastmod>
     </url>
     <url>
-        <loc>http://vhnam.github.io/blog/wireframe-trong-thiet-ke-san-pham-phan-1/</loc>
+        <loc>https://vhnam.github.io/tutorials/wireframe-trong-thiet-ke-san-pham-phan-1/</loc>
         <lastmod>2015-11-23</lastmod>
     </url>
     <url>
-        <loc>http://vhnam.github.io/blog/quy-tac-ngon-tay-cai-khi-thiet-ke-giao-dien-mobile/</loc>
+        <loc>https://vhnam.github.io/tutorials/quy-tac-ngon-tay-cai-khi-thiet-ke-giao-dien-mobile/</loc>
         <lastmod>2015-11-18</lastmod>
     </url>
     <url>
-        <loc>http://vhnam.github.io/blog/javascript-throttle-function-la-gi/</loc>
+        <loc>https://vhnam.github.io/tutorials/javascript-throttle-function-la-gi/</loc>
         <lastmod>2015-11-05</lastmod>
     </url>
     <url>
-        <loc>http://vhnam.github.io/blog/javascript-debounce-function-la-gi/</loc>
+        <loc>https://vhnam.github.io/tutorials/javascript-debounce-function-la-gi/</loc>
         <lastmod>2015-11-03</lastmod>
     </url>
     <url>
-        <loc>http://vhnam.github.io/blog/lam-the-nao-de-viet-mot-tutorial-chat-luong/</loc>
+        <loc>https://vhnam.github.io/tutorials/lam-the-nao-de-viet-mot-tutorial-chat-luong/</loc>
         <lastmod>2015-10-29</lastmod>
     </url>
     <url>
-        <loc>http://vhnam.github.io/blog/nen-su-dung-web-browser-nao-khi-lam-front-end/</loc>
+        <loc>https://vhnam.github.io/tutorials/nen-su-dung-web-browser-nao-khi-lam-front-end/</loc>
         <lastmod>2015-10-26</lastmod>
     </url>
     <url>
-        <loc>http://vhnam.github.io/blog/hoc-o-nha-khong-can-den-lop-nen-hay-khong/</loc>
+        <loc>https://vhnam.github.io/tutorials/hoc-o-nha-khong-can-den-lop-nen-hay-khong/</loc>
         <lastmod>2015-10-14</lastmod>
     </url>
     <url>
-        <loc>http://vhnam.github.io/blog/gioi-thieu-ky-thuat-pomodoro/</loc>
+        <loc>https://vhnam.github.io/tutorials/gioi-thieu-ky-thuat-pomodoro/</loc>
         <lastmod>2015-10-08</lastmod>
     </url>
     <url>
-        <loc>http://vhnam.github.io/blog/loi-ich-khi-tao-mot-repository-tren-github/</loc>
+        <loc>https://vhnam.github.io/tutorials/loi-ich-khi-tao-mot-repository-tren-github/</loc>
         <lastmod>2015-09-29</lastmod>
     </url>
     <url>
-        <loc>http://vhnam.github.io/blog/gioi-thieu-gist/</loc>
+        <loc>https://vhnam.github.io/tutorials/gioi-thieu-gist/</loc>
         <lastmod>2015-09-29</lastmod>
     </url>
     <url>
-        <loc>http://vhnam.github.io/blog/gioi-thieu-github/</loc>
+        <loc>https://vhnam.github.io/tutorials/gioi-thieu-github/</loc>
         <lastmod>2015-09-29</lastmod>
     </url>
     <url>
-        <loc>http://vhnam.github.io/</loc>
+        <loc>https://vhnam.github.io/</loc>
         <lastmod>2015-09-29</lastmod>
     </url>
     <url>
-        <loc>http://vhnam.github.io/robots.txt</loc>
+        <loc>https://vhnam.github.io/robots.txt</loc>
         <lastmod>2015-09-29</lastmod>
     </url>
 </urlset>

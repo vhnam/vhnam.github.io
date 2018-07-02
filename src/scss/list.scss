@@ -1,0 +1,53 @@
+.hero {
+    padding: 3rem 0 8rem;
+    color: #fff;
+    background-color: #F44336;
+
+    &__title {
+        font-size: 2rem;
+        font-weight: 300;
+    }
+}
+
+.content {
+    &__body {
+        padding: 2rem; 
+        margin-top: -5rem;
+        margin-bottom: 5rem;
+        background-color: #fff;
+        box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+    }
+}
+
+.blog {
+    &__list {
+        padding: 0;
+        margin: 2rem 0 0;
+        list-style-type: none;
+    }
+
+    .list {
+        &__item {
+            display: block;
+            margin-bottom: 2rem;
+            text-decoration: none;
+        }
+    }
+
+    .item {
+        &__title {
+            margin-bottom: .25rem;
+            color: #F44336;
+        }
+
+        &__time {
+            display: block;
+            color: #757575;
+        }
+
+        &__description {
+            margin-top: .25rem;
+            color: #212121;
+        }
+    }
+}

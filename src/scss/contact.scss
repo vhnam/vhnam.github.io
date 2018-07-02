@@ -1,0 +1,38 @@
+.contact {
+    margin: 5rem 0;
+
+    &__greeting {
+        margin-top: 3rem;
+        margin-bottom: 5rem;
+        font-size: 1.5rem;
+        color: #F44336;
+    }
+
+    &__social-networks {
+        display: inline-flex;
+        padding: 0;
+        list-style-type: none;
+    }
+
+    &__download {
+        display: block;
+        margin-top: 3rem;
+    }
+
+    &__btn-download {
+        padding: 1rem;
+        width: 15rem;
+        font-weight: 300;
+        text-align: center;
+        color: #fff;
+        background-color: #F44336;
+    }
+
+    .social-networks {
+        &__icon {
+            width: 48px;
+            height: 48px;
+            margin: 1rem .75rem;
+        }
+    }
+}

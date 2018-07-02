@@ -1,0 +1,109 @@
+.hero {
+    padding: 7rem 0;
+
+    &__name {
+        margin-top: 2rem;
+        font-size: 3rem;
+        color: #F44336;
+    }
+
+    &__title {
+        font-size: 2rem;
+    }
+}
+
+.summary {
+    padding: 5rem 0 10rem 0;
+    color: #fff;
+    font-size: 1.2rem;
+    font-weight: 300;
+    line-height: 1.5;
+    background-color: #F44336;
+}
+
+.blog {
+    &__body {
+        padding: 2rem 2rem 5rem;
+        margin-top: -5rem;
+        background-color: #fff;
+        box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+    }
+
+    &__section {
+        font-size: 1.5rem;
+    }
+
+    &__list {
+        padding: 0;
+        margin: 2rem 0 0;
+        list-style-type: none;
+    }
+
+    &__btn-more {
+        background-color: #fff;
+        border: none;
+        color: #757575;
+        cursor: pointer;
+
+        &:focus {
+            outline: 0;
+        }
+    }
+
+    .list {
+        &__item {
+            display: block;
+            margin-bottom: 2rem;
+            text-decoration: none;
+        }
+    }
+
+    .item {
+        &__title {
+            margin-bottom: .25rem;
+            color: #F44336;
+        }
+
+        &__time {
+            display: block;
+            color: #757575;
+        }
+
+        &__description {
+            margin-top: .25rem;
+            color: #212121;
+        }
+    }
+}
+
+.contact {
+    margin: 5rem 0;
+
+    &__social-networks {
+        display: inline-flex;
+        padding: 0;
+        list-style-type: none;
+    }
+
+    &__download {
+        display: block;
+        margin-top: 3rem;
+    }
+
+    &__btn-download {
+        padding: 1rem;
+        width: 15rem;
+        font-weight: 300;
+        text-align: center;
+        color: #fff;
+        background-color: #F44336;
+    }
+
+    .social-networks {
+        &__icon {
+            width: 48px;
+            height: 48px;
+            margin: 1rem .75rem;
+        }
+    }
+}
