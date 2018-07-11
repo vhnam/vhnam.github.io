@@ -1,9 +1,8 @@
 <!DOCTYPE html>
 <html lang="vi">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="robots" content="noodp,index,follow">
     <meta name="revisit-after" content="1 days">
     <meta name="google-site-verification" content="ZFrkEu3QMFl9Kz0JyK2SfzdIZ84lDgm9gLQ6J6FmAvg">
@@ -14,18 +13,18 @@
     <meta property="og:type" content="website">
     <meta property="og:title" content="Nam Vo | Software Developer, Product Manager, UX/UI Designer">
     <meta property="og:description" content="Software Developer, Product Manager, UX/UI Designer">
-    <meta property="og:image" content="/public/img/leading.jpg">
+    <meta property="og:image" content="https://vhnam.github.io/public/img/leading.jpg">
     <meta property="og:locale" content="vi_VN">
     <meta property="fb:app_id" content="2064203853819553">
 
     <title>Nam Vo | Software Developer, Product Manager, UX/UI Designer</title>
 
-    <link rel="shortcut icon" href="/public/favicon.ico" type="image/x-icon">
+    <link rel="shortcut icon" href="https://vhnam.github.io/public/favicon.ico" type="image/x-icon">
     <link rel="canonical" href="http://vhnam.github.io/">
     <link rel="publisher" href="https://plus.google.com/116570296349523695729">
 
-    <link rel="stylesheet" href="/public/css/bootstrap.css">
-    <link rel="stylesheet" href="/public/css/index.css">
+    <link rel="stylesheet" href="https://vhnam.github.io/public/css/bootstrap.css">
+    <link rel="stylesheet" href="https://vhnam.github.io/public/css/index.css">
 
     <!--[if lt IE 9]>
         <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
@@ -35,13 +34,19 @@
     <nav class="navbar navbar-expand-lg navbar-light">
         <div class="container">
             <a class="navbar-brand" href="/" itemprop="url">
-                <img src="/public/img/favicon.png" alt="Nam Vo" height="48" width="48">
+                <img src="https://vhnam.github.io/public/img/favicon.png" alt="Nam Vo" height="48" width="48">
             </a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarNavDropdown">
-                <ul class="navbar-nav flex-row ml-md-auto d-none d-md-flex" itemscope="itemscope" itemtype="https://schema.org/SiteNavigationElement">
+                <header class="navbar-collapse__header">
+                    <button class="navbar-toggler float-right" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+                        &times;
+                    </button>
+                    <div class="clear-both"></div>
+                </header>
+                <ul class="navbar-nav ml-md-auto navbar-collapse__content" itemscope="itemscope" itemtype="https://schema.org/SiteNavigationElement">
                     <li class="nav-item active">
                         <a class="nav-link" itemprop="url" href="/">Trang chủ</a>
                     </li>
@@ -65,7 +70,7 @@
     <section class="hero">
         <div class="text-center">
             <div class="container">
-                <img src="/public/img/namvh.png" alt="Nam Vo" class="hero__avatar" itemprop="image">
+                <img src="https://vhnam.github.io/public/img/namvh.png" alt="Nam Vo" class="hero__avatar" itemprop="image">
                 <h1 class="hero__name" itemprop="name">Nam Vo</h1>
                 <h2 class="hero__title" itemprop="jobTitle">Software Developer - Product Manager - UX/UI Designer</h2>
             </div>
@@ -128,22 +133,22 @@
                 <ul class="contact__social-networks">
                     <li>
                         <a itemprop="url" href="https://github.com/vhnam">
-                            <img src="/public/img/github.png" class="social-networks__icon" alt="GitHub" />
+                            <img src="https://vhnam.github.io/public/img/github.png" class="social-networks__icon" alt="GitHub" />
                         </a>
                     </li>
                     <li>
                         <a itemprop="url" href="https://vn.linkedin.com/in/namvh">
-                            <img src="/public/img/linkedin.png" class="social-networks__icon" alt="LinkedIn" />
+                            <img src="https://vhnam.github.io/public/img/linkedin.png" class="social-networks__icon" alt="LinkedIn" />
                         </a>
                     </li>
                     <li>
                         <a itemprop="url" href="https://www.pinterest.com/vhnam2504/">
-                            <img src="/public/img/pinterest.png" class="social-networks__icon" alt="Pinterest" />
+                            <img src="https://vhnam.github.io/public/img/pinterest.png" class="social-networks__icon" alt="Pinterest" />
                         </a>
                     </li>
                     <li>
                         <a itemprop="url" href="https://plus.google.com/+NamVoHoai2504">
-                            <img src="/public/img/google+.png" class="social-networks__icon" alt="Google+" />
+                            <img src="https://vhnam.github.io/public/img/google+.png" class="social-networks__icon" alt="Google+" />
                         </a>
                     </li>
                 </ul>
@@ -163,14 +168,25 @@
                     My mama always used to tell me: "If you can't find something to live for, you best find something to die for." - Tupac Shakur, Resurrection, 1971-1996
                 </div>
                 <div class="col-md-6 text-right">
-                    Copyright &copy; 2018 Nam Vo
+                    <span class="footer__copyright">
+                        Copyright &copy; 2018 Nam Vo
+                    </span>
                 </div>
             </div>
         </div>
+        <nav class="privacy-policy navbar navbar-dark bg-dark" itemscope="itemscope" itemtype="https://schema.org/SiteNavigationElement">
+            <div class="container">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" itemprop="url" href="https://vhnam.github.io/privacy-policy.html">Chính sách bảo mật</a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
     </footer>
 
-    <script src="/public/js/bootstrap.js"></script>
-    <script src="/public/js/index.js"></script>
+    <script src="https://vhnam.github.io/public/js/bootstrap.js"></script>
+    <script src="https://vhnam.github.io/public/js/index.js"></script>
 
     <!-- Facebook Analytics -->
     <script>

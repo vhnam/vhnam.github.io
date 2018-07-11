@@ -9,6 +9,7 @@
 
     &__title {
         font-size: 2rem;
+        color: #757575;
     }
 }
 
@@ -97,6 +98,17 @@
         text-align: center;
         color: #fff;
         background-color: #F44336;
+        outline: none;
+        border: 0;
+        cursor: pointer;
+
+        &:hover {
+            background-color: lighten(#F44336, 5%);
+        }
+
+        &:active {
+            background-color: darken(#F44336, 5%);
+        }
     }
 
     .social-networks {
