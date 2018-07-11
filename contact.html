@@ -29,6 +29,16 @@
     <!--[if lt IE 9]>
         <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
     <![endif]-->
+
+    <!-- Global Site Tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-66016963-1"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', 'UA-66016963-1');
+    </script>
 </head>
 <body itemscope="itemscope" itemtype="https://schema.org/Person">
     <nav class="navbar navbar-expand-lg navbar-light">
@@ -156,6 +166,8 @@
         })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
 
         ga('create', 'UA-66016963-1', 'vhnam.github.io');
+        ga('require', 'linkid', 'linkid.js');
+        ga('require', 'displayfeatures');
         ga('send', 'pageview');
     </script>
 </body>
