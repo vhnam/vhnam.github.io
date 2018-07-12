@@ -19,12 +19,12 @@
 
     <title>Viết linh tinh | Nam Vo</title>
 
-    <link rel="shortcut icon" href="/public/favicon.ico" type="image/x-icon">
+    <link rel="shortcut icon" href="https://vhnam.github.io/public/favicon.ico" type="image/x-icon">
     <link rel="canonical" href="http://vhnam.github.io/">
     <link rel="publisher" href="https://plus.google.com/116570296349523695729">
 
-    <link rel="stylesheet" href="/public/css/bootstrap.css">
-    <link rel="stylesheet" href="/public/css/post.css">
+    <link rel="stylesheet" href="https://vhnam.github.io/public/css/bootstrap.css">
+    <link rel="stylesheet" href="https://vhnam.github.io/public/css/post.css">
 
     <!--[if lt IE 9]>
         <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
@@ -34,13 +34,19 @@
     <nav class="navbar navbar-expand-lg navbar-light">
         <div class="container">
             <a class="navbar-brand" href="/" itemprop="url">
-                <img src="/public/img/favicon.png" alt="Nam Vo" height="48" width="48">
+                <img src="https://vhnam.github.io/public/img/favicon.png" alt="Nam Vo" height="48" width="48">
             </a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarNavDropdown">
-                <ul class="navbar-nav flex-row ml-md-auto d-none d-md-flex" itemscope="itemscope" itemtype="https://schema.org/SiteNavigationElement">
+                <header class="navbar-collapse__header">
+                    <button class="navbar-toggler float-right" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+                        &times;
+                    </button>
+                    <div class="clear-both"></div>
+                </header>
+                <ul class="navbar-nav ml-md-auto navbar-collapse__content" itemscope="itemscope" itemtype="https://schema.org/SiteNavigationElement">
                     <li class="nav-item">
                         <a class="nav-link" itemprop="url" href="/">Trang chủ</a>
                     </li>
@@ -79,7 +85,7 @@
         <div itemprop="publisher" itemscope itemtype="https://schema.org/Organization">
             <meta itemprop="name" content="GitHub">
             <span hidden itemprop="logo" itemscope itemtype="https://schema.org/ImageObject">
-                <img itemprop="url" src="/public/img/github.png" alt="GitHub">
+                <img itemprop="url" src="https://vhnam.github.io/public/img/github.png" alt="GitHub">
                 <meta itemprop="width" content="48">
                 <meta itemprop="height" content="48">
              </span>
@@ -172,9 +178,18 @@
                 </div>
             </div>
         </div>
+        <nav class="privacy-policy navbar navbar-dark bg-dark" itemscope="itemscope" itemtype="https://schema.org/SiteNavigationElement">
+            <div class="container">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" itemprop="url" href="https://vhnam.github.io/privacy-policy.html">Chính sách bảo mật</a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
     </footer>
 
-    <script src="/public/js/bootstrap.js"></script>
+    <script src="https://vhnam.github.io/public/js/bootstrap.js"></script>
 
     <script>
         (function(d, s, id) {
@@ -233,6 +248,8 @@
         })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
 
         ga('create', 'UA-66016963-1', 'auto');
+        ga('require', 'linkid', 'linkid.js');
+        ga('require', 'displayfeatures');
         ga('send', 'pageview');
     </script>
 </body>
