@@ -72,10 +72,12 @@ def createContent(title, config, mode):
 
 
 def main():
-    directories = os.listdir('src/content/blog')
+    # directories = os.listdir('src/content/tutorials')
 
-    for directory in directories:
-        build(directory, 'blog')
+    # for directory in directories:
+    #     build(directory, 'tutorials')
+
+    build('wireframe-trong-thiet-ke-san-pham-phan-3', 'tutorials')
 
 
 
