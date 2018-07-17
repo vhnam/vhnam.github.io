@@ -77,7 +77,7 @@ def main():
     # for directory in directories:
     #     build(directory, 'tutorials')
 
-    build('wireframe-trong-thiet-ke-san-pham-phan-3', 'tutorials')
+    build('wireframe-trong-thiet-ke-san-pham-phan-1', 'tutorials')
 
 
 
