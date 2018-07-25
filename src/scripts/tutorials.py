@@ -8,7 +8,7 @@ import json
 
 
 # Usage:
-# > python blog.py
+# > python tutorials.py
 
 
 
@@ -77,7 +77,7 @@ def main():
     # for directory in directories:
     #     build(directory, 'tutorials')
 
-    build('lam-lai-blog-ca-nhan-1', 'tutorials')
+    build('lam-lai-blog-ca-nhan-2', 'tutorials')
 
 
 
