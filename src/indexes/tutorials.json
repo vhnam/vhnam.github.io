@@ -1,6 +1,13 @@
 {
     "tutorials": [
         {
+            "name": "Làm lại blog cá nhân (Phần 1): Khởi động",
+            "link" : "https://vhnam.github.io/tutorials/lam-lai-blog-ca-nhan-1/",
+            "datetime": "2018-07-25",
+            "time": "Ngày 25 tháng 7 năm 2018",
+            "description": "Khi bạn có ý định làm lại website cá nhân và các bước chuẩn bị"
+        },
+        {
             "name": "Wireframe trong thiết kế sản phẩm (Phần 4): Nguyên tắc thiết kế wireframe",
             "link" : "https://vhnam.github.io/tutorials/wireframe-trong-thiet-ke-san-pham-phan-4/",
             "datetime": "2018-07-22",
