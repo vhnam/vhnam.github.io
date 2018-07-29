@@ -1,6 +1,13 @@
 {
     "tutorials": [
         {
+            "name": "Làm lại blog cá nhân (Phần 3): Quản lý cấu hình",
+            "link" : "https://vhnam.github.io/tutorials/lam-lai-blog-ca-nhan-3/",
+            "datetime": "2018-07-29",
+            "time": "Ngày 29 tháng 7 năm 2018",
+            "description": "Phần tiếp theo sau khi có phần thiết kế giao diện là quản lý cấu hình của project"
+        },
+        {
             "name": "Làm lại blog cá nhân (Phần 2): Thiết kế giao diện",
             "link" : "https://vhnam.github.io/tutorials/lam-lai-blog-ca-nhan-2/",
             "datetime": "2018-07-26",

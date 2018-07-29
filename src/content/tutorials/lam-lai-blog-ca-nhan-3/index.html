@@ -1,0 +1,152 @@
+<p>
+    Phần này tớ sẽ giới thiệu các bạn phần quản lý cấu hình của dự án.
+</p>
+
+<img src="img/thumbnails.jpg" alt="Configuration Management" itemprop="image">
+
+<h3>Quản lý cấu hình là gì?</h3>
+<blockquote>
+    "Quản lý cấu hình là bộ khung tổ chức cho phép chúng ta quản lý sự phát triển của tất cá các sản phẩm trên toàn bộ hệ thống thông qua các giai đoạn phát triển phần mềm."
+    <footer>
+        - Thầy Ngô Huy Biên
+    </footer>
+</blockquote>
+
+<img src="img/configuration-management__object.jpg" alt="Configuration Management Object" itemprop="image">
+
+<p>
+    Ở trong bài viết này, tớ sẽ giới thiệu cách tớ quản lý cấu hình blog như thế nào. Và phần lý thuyết, bạn có thể xem thêm tại các link phía dưới.
+</p>
+<ul>
+    <li>
+        Wikipedia, <a itemprop="url" href="https://en.wikipedia.org/wiki/Configuration_management">Configuration management</a>
+    </li>
+    <li>
+        CMPIC, <a itemprop="url" href="https://www.cmpic.com/configuration-management-definition.htm">What is Configuration Management?</a>
+    </li>
+    <li>
+        Association for Project Management, <a itemprop="url" href="https://www.apm.org.uk/body-of-knowledge/delivery/scope-management/configuration-management/">Configuration management</a>
+    </li>
+</ul>
+
+<h3>Đối tượng quản lý cấu hình</h3>
+<p>
+    Để xem nào, blog của tớ cũng không phải là dự án gì to tát cả. Do đó, tài liệu cũng vừa đủ để biết công việc sẽ làm và sau này mở ra coi lại để bảo trì cho dễ. Tớ có một số đối tượng cần quản lý sau.
+</p>
+<ul>
+    <li>
+        Tài liệu thiết kế gồm wireframe và mockup
+    </li>
+    <li>
+        Mã nguồn (Source Code)
+    </li>
+</ul>
+<p>
+    Và một cái quan trọng nữa là Log - nhật ký làm việc (tức là seri bài viết các bạn đang xem).
+</p>
+
+<h3>Quản lý tài liệu thiết kế</h3>
+<p>
+    Tớ tạo một folder trên Google Drive để lưu trữ file Sketch và Balsamiq. Còn folder <strong>Resources</strong> để lưu hình dùng cho blog.
+</p>
+<img src="img/drive.jpg" alt="Google Drive" itemprop="image">
+
+<h3>Quản lý mã nguồn</h3>
+<p>
+    Tớ đã tạo một repository từ năm 2014 đến giờ trên GitHub. Và định dùng GitHub Pages để tạo một website thay vì thuê host. Bạn chỉ cần làm theo hướng dẫn dưới đây là được.
+</p>
+<p>
+    Link: <a itemprop="url" href="https://pages.github.com">https://pages.github.com</a>
+</p>
+<img src="img/github.jpg" alt="Nam Vo Blog on GitHub" itemprop="image">
+
+<h3>Cấu trúc mã nguồn</h3>
+<img src="img/code-structure.jpg" alt="Code Structure" itemprop="image">
+<p>
+    Như các bạn đã thấy, code của tớ được phân cấp theo dạng một trang web tĩnh (static web). Do GitHub Pages chỉ hỗ trợ static web nên mình mượn cấu trúc thư mục để làm đường dẫn cho  bài viết.
+</p>
+<pre>
+blog/               | các bài viết thuộc mục Nhật Ký
+node_modules/       | các packages hỗ trợ trong việc code
+public/             | resources gồm hình ảnh, CSS, JS được public
+src/                | mã nguồn chính của blog
+|__ content/        | nội dung các bài viết
+|__ indexes/        | mục lục của blog và tutorial
+|__ js/             | code JavaScript
+|__ scripts/        | code Template Engine
+|__ scss/           | code SASS
+|__ template/       | giao diện mẫu để chạy Template Engine
+tutorials/          | các bài viết thuộc mục Chuyện Lập Trình
+.gitignore          | đánh dấu các file, thư mục không cần thêm vào Git
+about.html          | trang giới thiệu
+contact.html        | trang liên hệ
+index.html          | trang chủ
+mix-manifest.json   | file cấu hình của Laravel-Mix
+package-lock.json   | file cấu hình của Npm
+package.json        | file cấu hình các package sử dụng cho blog
+privacy-policy.html | trang chính sách bảo mật
+README.md           | file giới thiệu repository
+robots.txt          | file cấu hình cho bot
+sitemap.xml         | file đánh chỉ mục hỗ trợ SEO
+webpack.mix.js      | file cấu hình của Laravel-Mix
+</pre>
+
+<h3>Quản lý packages với NPM</h3>
+<p>
+    Thay vì dùng Bower, Yarn thì mình muốn dùng NPM để đơn giản quản lý package và đơn giản công việc. Các packages mình dùng cho blog gồm:
+</p>
+<ul>
+    <li>
+        <a itemprop="url" href="https://getbootstrap.com/">Bootstrap</a> - Front-End Framework
+    </li>
+    <li>
+        <a itemprop="url" href="https://github.com/axios/axios">Axios</a> - Thư viện giao tiếp HTTP tại client bằng Node.js, sử dụng promise. Mình thay thế Ajax của jQuery
+    </li>
+    <li>
+        <a itemprop="url" href="https://popper.js.org/">PopperJS</a> - Thư viện hỗ trợ popup, một dependency của Bootstrap
+    </li>
+    <li>
+        <a itemprop="url" href="https://jquery.com/">jQuery</a> - Thư viện JavaScript cơ bản, một dependency của Bootstrap
+    </li>
+    <li>
+        <a itemprop="url" href="https://github.com/JeffreyWay/laravel-mix">Laravel-Mix</a> - Thư viện để quản lý và build resources của Laravel, có thể sử dụng độc lập
+    </li>
+</ul>
+
+<h3>Lịch trình dự án</h3>
+<p>
+    Để có động lực hoàn thành công việc, tớ chia ra từng giai đoạn nhỏ.
+</p>
+<ul>
+    <li>
+        <strong>Giai đoạn 1:</strong> Viết khung sườn của blog. Kết quả mong muốn: tóm tắt CV, sitemap.
+    </li>
+    <li>
+        <strong>Giai đoạn 2:</strong> Thiết kế giao diện. Kết quả mong muốn: wireframe và mockup.
+    </li>
+    <li>
+        <strong>Giai đoạn 3:</strong> Cấu hình project. Kết quả mong muốn: thư mục source code đã cài đặt các package cần thiết, 3 màn hình cơ bản là trang chủ, trang giới thiệu, trang liên hệ.
+    </li>
+    <li>
+        <strong>Giai đoạn 4:</strong> Gắn Schema.org. Kết quả mong muốn: các trang HTML đều đã được tối ưu Schema.org.
+    </li>
+    <li>
+        <strong>Giai đoạn 5:</strong> Hoàn thiện Template Engine. Kết quả mong muốn: Template Engine có thể tạo một bài viết với giao diện có sẵn nhanh chóng.
+    </li>
+    <li>
+        <strong>Giai đoạn 6:</strong> Liên kết với các mạng xã hội. Kết quả mong muốn: Gắn <a itemprop="url" href="https://marketingplatform.google.com/about/">Google Analytics</a> và <a itemprop="url" href="https://analytics.facebook.com/">Facebook Analytics</a>.
+    </li>
+</ul>
+
+<h3>Tổng kết</h3>
+<p>
+    Tớ đã xong công việc chuẩn bị. Giờ bắt đầu vào công việc lập trình.
+</p>
+<img src="img/fighting.jpg" alt="Fighting" itemprop="image">
+
+<h3>Tham khảo</h3>
+<ul class="reference">
+    <li>
+        Ngô Huy Biên, Giáo trình Quản lý dự án (Bản nháp)
+    </li>
+</ul>
