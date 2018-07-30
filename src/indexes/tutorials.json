@@ -1,6 +1,13 @@
 {
     "tutorials": [
         {
+            "name": "Làm lại blog cá nhân (Phần 5): Schema.org du hý",
+            "link" : "https://vhnam.github.io/tutorials/lam-lai-blog-ca-nhan-5/",
+            "datetime": "2018-07-30",
+            "time": "Ngày 30 tháng 7 năm 2018",
+            "description": "Phần này tớ gắn Schema.org vào web để hỗ trợ cho các công cụ tìm kiếm như Bing, Google"
+        },
+        {
             "name": "Làm lại blog cá nhân (Phần 4): Bắt đầu với giao diện",
             "link" : "https://vhnam.github.io/tutorials/lam-lai-blog-ca-nhan-4/",
             "datetime": "2018-07-29",

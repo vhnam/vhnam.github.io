@@ -1,0 +1,74 @@
+<p>
+    Phần này tớ sẽ gắn Schema.org để hỗ trợ cho bot của các công cụ tìm kiếm.
+</p>
+<img src="img/thumbnails.jpg" alt="Thumbnails" itemprop="image">
+
+<h3>Schema.org là gì</h3>
+<p>
+    Schema.org là một trang đánh dấu cho dữ liệu có cấu trúc do Google, Microsoft, Yahoo và Yandex phát triển. Mục đích chính là tạo ra một trang đánh dấu dữ liệu có cấu trúc để tất cả các công cụ tìm kiếm đều có thể hiểu được.
+</p>
+<p>
+    Dưới đây là minh hoạ về dữ liệu cấu trúc của Schema.org. Ta có một đoạn code HTML để giới thiệu bộ phim.
+</p>
+<pre>
+&lt;div&gt;
+    &lt;h1&gt;Avatar&lt;/h1&gt;
+    &lt;span&gt;Director: James Cameron (born August 16, 1954)&lt;/span&gt;
+    &lt;span&gt;Science fiction&lt;/span&gt;
+    &lt;a href="../movies/avatar-theatrical-trailer.html"&gt;Trailer&lt;/a&gt;
+&lt;/div&gt;
+</pre>
+<p>
+    Sau khi thêm Schema.org sẽ trở thành như sau.
+</p>
+<pre>
+&lt;div itemscope itemtype ="http://schema.org/Movie"&gt;
+    &lt;h1 itemprop="name"&gt;Avatar&lt;/h1&gt;
+    &lt;div <strong>itemprop="director" itemscope itemtype="http://schema.org/Person"</strong>&gt;
+    Director: &lt;span itemprop="name"&gt;James Cameron&lt;/span&gt; (born &lt;span <strong>itemprop="birthDate"</strong>&gt;August 16, 1954&lt;/span&gt;)
+    &lt;/div&gt;
+    &lt;span itemprop="genre"&gt;Science fiction&lt;/span&gt;
+    &lt;a href="../movies/avatar-theatrical-trailer.html" itemprop="trailer"&gt;Trailer&lt;/a&gt;
+&lt;/div&gt;
+</pre>
+<p>
+    Schema.org cung cấp một kho từ vựng để mọi người tra cứu sử dụng theo từng chủ đề. Bạn có thể tham khảo kho từ vựng đó tại <a itemprop="url" href="https://schema.org/docs/full.html">https://schema.org/docs/full.html</a>.
+</p>
+
+<h3>Lợi ích của Schema.org</h3>
+<p>
+    Như đã nói, Schema.org là một cấu trúc để các công cụ tìm kiếm như Google, Bing có thể hiểu được. Tớ sẽ cho các bạn xem trang chủ sau khi áp dụng cấu trúc Schema.org vào. Tớ dùng <strong>Structured Data Testing Tool</strong> tại địa chỉ <a itemprop="url" href="https://search.google.com/structured-data/testing-tool">https://search.google.com/structured-data/testing-tool</a>.
+</p>
+<img src="img/structured-data-testing-tool.jpg" alt="Structured Data Testing Tool" itemprop="image">
+
+<h3>Cách sử dụng</h3>
+<p>
+    Tớ sẽ ví dụ với schema là <strong>Person</strong>. Đầu tiên, ta vào địa chỉ <a itemprop="url" href="https://schema.org/Person">https://schema.org/Person</a>. Mỗi một bộ từ vựng sẽ có 3 phần chính là.
+</p>
+<ul>
+    <li>
+        Danh sách thuộc tính của đối tượng, kiểu dữ liệu và định nghĩa để biết khi nào sử dụng.
+    </li>
+    <li>
+        Danh sách thuộc tính là thể hiện của đối tượng ở đối tượng khác. VD: <code>actor</code>, <code>author</code>, <code>composer</code> là thể hiện của Person.
+    </li>
+    <li>
+        Ví dụ mẫu khi chưa sử dụng, đã sử dụng dưới dạng microdata, RFDa và JSON-LD.
+    </li>
+</ul>
+<p>
+    Tớ sử dụng Schema.org dưới dạng microdata để dễ kiểm soát.
+</p>
+<img src="img/schema.org.jpg" alt="Schema.org" itemprop="image">
+
+<h3>Tổng kết</h3>
+<p>
+    Sử dụng Schema.org kết hợp với một số semantic tag của HTML5 sẽ giúp các công cụ tìm kiếm hiểu được nội dung trang web của bạn. Nhằm tăng thứ hạng trên công cụ tìm kiếm. Đây là một cách SEO bằng code. Ngoài ra, còn một cách SEO nữa là sử dụng <strong>metadata</strong> sẽ được trình bày ở một bài viết khác.
+</p>
+
+<h3>Tham khảo</h3>
+<ul class="reference">
+    <li>
+        JPWEB, <a itemprop="url" href="https://www.jpwebseo.com/du-lieu-co-cau-truc-schema">Dữ Liệu có cấu trúc Schema.org</a>
+    </li>
+</ul>
