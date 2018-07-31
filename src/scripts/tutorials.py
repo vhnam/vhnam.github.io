@@ -77,7 +77,7 @@ def main():
     # for directory in directories:
     #     build(directory, 'tutorials')
 
-    build('lam-lai-blog-ca-nhan-5', 'tutorials')
+    build('lam-lai-blog-ca-nhan-6', 'tutorials')
 
 
 
