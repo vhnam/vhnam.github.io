@@ -266,6 +266,21 @@ webpack.mix.js      | file cấu hình của Laravel-Mix
     </li>
 </ul>
 
+<h3>Localhost</h3>
+<p>
+    Có một phần quan trọng không thể thiếu là cấu hình localhost. Tớ cần localhost để gửi request lấy danh sách bài viết theo từng mục như <strong>Nhật ký</strong>, <strong>Chuyện lập trình</strong>.
+</p>
+<p>
+    Như đã giới thiệu, tớ sử dụng <strong>MAMP</strong> để tạo môi trường localhost. Dù bạn sử dụng MAMP, XAMPP, LAMP, LEMP gì đi nữa thì chỉ cần nhớ trỏ đến nơi chứa source code là thư mục root của domain là được. Domain ở localhost chính là <strong>localhost</strong> hoặc địa chỉ IP <strong>127.0.0.1</strong>. Các bạn chọn <strong>Document Root</strong> là thư mục chứa source code để chỉ cần gõ <a href="http://localhost">http://localhost</a> là nó tới thẳng trang chủ, nếu bạn dùng port 80.
+</p>
+<p>
+    Ở localhost, thường bạn phải sử dụng port khác do port 80 đôi khi bị phần mềm khác trưng dụng rồi. Port 80 là port dùng cho giao thức <strong>HTTP</strong>. Thường là bạn dùng các port như <strong>8080</strong>, <strong>8888</strong>, <strong>8000</strong>. Nhưng ở MAMP thì khác, nó cho phép ta sử dụng Web Server là Apache hoặc Nginx. Với Apache là <strong>8888</strong> còn Nginx là <strong>7888</strong>.
+</p>
+<p>
+    Tớ dùng Nginx và điều chỉnh lại Document Root. Bạn vào phần <strong>Preferences</strong> để chỉnh nhé.
+</p>
+<img src="img/mamp.jpg" alt="MAMP" itemprop="image">
+
 <h3>Tổng kết</h3>
 <p>
     Tớ đã xong công việc chuẩn bị. Giờ bắt đầu vào công việc lập trình.
