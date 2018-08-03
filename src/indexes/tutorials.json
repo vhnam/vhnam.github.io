@@ -1,6 +1,13 @@
 {
     "tutorials": [
         {
+            "name": "Làm lại blog cá nhân (Phần 8): Deployment",
+            "link" : "https://vhnam.github.io/tutorials/lam-lai-blog-ca-nhan-8/",
+            "datetime": "2018-08-03",
+            "time": "Ngày 3 tháng 8 năm 2018",
+            "description": "Phần này tớ chia sẻ với các bạn cách publish code lên server"
+        },
+        {
             "name": "Làm lại blog cá nhân (Phần 7): Template Engine",
             "link" : "https://vhnam.github.io/tutorials/lam-lai-blog-ca-nhan-7/",
             "datetime": "2018-08-01",
