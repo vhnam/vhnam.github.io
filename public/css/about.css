@@ -1,1 +1,119 @@
-.hero{padding:3rem 0 8rem;color:#fff;background-color:#f44336}.hero__subtitle,.hero__title{font-weight:300}.hero__subtitle{font-size:1.5rem;color:#fafafa}.content__body{padding:2rem 2rem 5rem;margin-top:-5rem;background-color:#fff;-webkit-box-shadow:0 1px 3px rgba(0,0,0,.12),0 1px 2px rgba(0,0,0,.24);box-shadow:0 1px 3px rgba(0,0,0,.12),0 1px 2px rgba(0,0,0,.24)}.mail{padding:5rem 0}.mail__btn-mail{padding:1rem;width:15rem;font-weight:300;text-align:center;color:#fff;background-color:#f44336}
+.hero {
+  padding: 3rem 0 8rem;
+  color: #fff;
+  background-color: #F44336;
+}
+
+.profile__body,
+.projects__body {
+  padding: 2rem;
+  margin-bottom: 3rem;
+  background-color: #fff;
+  -webkit-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+          box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+}
+
+.profile {
+  margin-top: -5rem;
+}
+
+.profile__preword {
+  margin-top: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.profile__preword span {
+  background-color: #F44336;
+  color: #fff;
+  line-height: 1.1;
+  display: inline-block;
+  padding: .5rem 1rem;
+  text-transform: uppercase;
+  position: relative;
+  -webkit-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+          box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+}
+
+.profile__preword span::before {
+  content: '';
+  width: 0;
+  height: 0;
+  top: 100%;
+  left: 5px;
+  display: block;
+  position: absolute;
+  border-style: solid;
+  border-width: 0 0 8px 8px;
+  border-color: transparent;
+  border-left-color: #F44336;
+}
+
+.profile__title {
+  font-size: 2rem;
+  line-height: 1.5;
+  font-weight: 300;
+}
+
+.profile__title--highlight {
+  display: inline-block;
+  font-size: 3rem;
+}
+
+.profile__position {
+  font-weight: 300;
+  line-height: 1.5;
+  color: #757575;
+  font-size: 1rem;
+}
+
+.profile__social-networks {
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  padding: 0;
+  margin-top: 1rem;
+  list-style-type: none;
+}
+
+.profile__list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  border-top: 1px solid #e0e0e0;
+  padding-top: 1rem;
+}
+
+.profile__bio {
+  margin-top: 1rem;
+  padding-top: 1rem;
+  border-top: .5rem solid #F44336;
+}
+
+.profile .social-networks__icon {
+  width: 48px;
+  height: 48px;
+  margin: 1rem .75rem;
+}
+
+.profile .list__item {
+  margin-bottom: .5rem;
+}
+
+.profile .list__title {
+  display: inline-block;
+  width: 5rem;
+}
+
+.projects__list {
+  margin: 0;
+  padding: 0;
+}
+
+.projects .list__item {
+  margin-bottom: 1.5rem;
+}
+
+.projects .list__item:last-child {
+  margin-bottom: 0;
+}
+
