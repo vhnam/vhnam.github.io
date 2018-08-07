@@ -23,6 +23,8 @@
 }
 
 .blog {
+    margin-bottom: 5rem;
+
     &__body {
         padding: 2rem 2rem 5rem;
         margin-top: -5rem;
@@ -73,49 +75,6 @@
         &__description {
             margin-top: .25rem;
             color: #212121;
-        }
-    }
-}
-
-.contact {
-    margin: 5rem 0;
-
-    &__social-networks {
-        display: inline-flex;
-        padding: 0;
-        list-style-type: none;
-    }
-
-    &__download {
-        display: block;
-        margin-top: 3rem;
-    }
-
-    &__btn-download {
-        padding: 1rem;
-        width: 15rem;
-        font-weight: 300;
-        text-align: center;
-        color: #fff;
-        background-color: #F44336;
-        outline: none;
-        border: 0;
-        cursor: pointer;
-
-        &:hover {
-            background-color: lighten(#F44336, 5%);
-        }
-
-        &:active {
-            background-color: darken(#F44336, 5%);
-        }
-    }
-
-    .social-networks {
-        &__icon {
-            width: 48px;
-            height: 48px;
-            margin: 1rem .75rem;
         }
     }
 }
