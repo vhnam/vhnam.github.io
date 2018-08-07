@@ -4,8 +4,40 @@
     background-color: #F44336;
 }
 
+.preword {
+    margin-top: 1rem;
+    margin-bottom: 1.5rem;
+
+    span {
+        background-color: #F44336;
+        color: #fff;
+        line-height: 1.1;
+        display: inline-block;
+        padding: .5rem 1rem;
+        text-transform: uppercase;
+        position: relative;
+        box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+
+        &::before {
+            content: '';
+            width: 0;
+            height: 0;
+            top: 100%;
+            left: 5px;
+            display: block;
+            position: absolute;
+            border-style: solid;
+            border-width: 0 0 8px 8px;
+            border-color: transparent;
+            border-left-color: #F44336;
+        }
+    }
+}
+
 .profile,
-.projects { 
+.projects,
+.awards,
+.miscellaneous { 
     &__body {
         padding: 2rem;
         margin-bottom: 3rem;
@@ -16,36 +48,6 @@
 
 .profile {
     margin-top: -5rem;
-
-    &__preword {
-        margin-top: 1rem;
-        margin-bottom: 1.5rem;
-
-        span {
-            background-color: #F44336;
-            color: #fff;
-            line-height: 1.1;
-            display: inline-block;
-            padding: .5rem 1rem;
-            text-transform: uppercase;
-            position: relative;
-            box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
-
-            &::before {
-                content: '';
-                width: 0;
-                height: 0;
-                top: 100%;
-                left: 5px;
-                display: block;
-                position: absolute;
-                border-style: solid;
-                border-width: 0 0 8px 8px;
-                border-color: transparent;
-                border-left-color: #F44336;
-            }
-        }
-    }
 
     &__title {
         font-size: 2rem;
@@ -110,6 +112,7 @@
     &__list {
         margin: 0;
         padding: 0;
+        list-style-type: square;
     }
 
     .list {
@@ -119,6 +122,162 @@
             &:last-child {
                 margin-bottom: 0;
             }
+        }
+    }
+
+    .item {
+        &__title {
+            display: inline-block;
+            font-size: 1.25rem;
+            font-weight: 400;
+            color: #F44336;  
+        }
+
+        &__sub-title {
+            font-size: 1rem;
+            font-weight: 700;
+        }
+    }
+
+    a {
+        white-space: pre-wrap; /* css-3 */    
+        white-space: -moz-pre-wrap; /* Mozilla, since 1999 */
+        white-space: -pre-wrap; /* Opera 4-6 */    
+        white-space: -o-pre-wrap; /* Opera 7 */    
+        word-wrap: break-word; /* Internet Explorer 5.5+ */
+    }
+}
+
+.experience {
+    $black: #333;
+    $grayDark: #9E9E9E;
+    $grayLight: lightGray;
+
+    @mixin flex($direction) {
+        display: flex;
+        flex-direction: $direction;
+    }
+
+    .container {
+        @include flex(column);
+        align-items: center;
+        margin: 0 auto; 
+        overflow: hidden;
+    }
+
+    .timeline {
+        position: relative;
+        margin-bottom: 3rem;
+
+        &__container {
+            @include flex(column);
+        }
+
+        &__item {
+            width: 48%;
+            padding: 1em;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+            border-top: .25rem solid #F44336;
+
+            &:nth-child(even) {
+                align-self: flex-end;
+            }
+        }
+
+        &:before {
+            content:"";
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 50%;
+            border-left: 2px dashed lightgray;
+            transform: translate(-50%);
+        }
+    }
+
+    .row {
+        @include flex(row);
+    }
+
+    .item {
+        .preword {
+            margin-top: 0;
+            font-size: .75rem;
+        }
+
+        &__title {
+            margin-top: 1rem;
+            font-size: 1.5rem;
+            font-weight: 400;
+        }
+
+        &__organization {
+            font-size: 1rem;
+        }
+
+        &__description {
+            margin-top: 1rem;
+            font-size: 1rem;
+            color: #757575;
+        }
+    }
+}
+
+.awards {
+    li > p {
+        margin-bottom: 0;
+    }
+}
+
+.miscellaneous {
+    &__title {
+        font-size: 1.125rem;
+        font-weight: 700;
+        color: #F44336;
+    }
+
+    img {
+        max-width: 100%;
+    }
+}
+
+@media (max-width: 576px) { 
+    .profile {
+        &__title {
+            font-size: 1.5rem;
+
+            &--highlight {
+                font-size: 2.25rem;
+            }
+        }
+
+        .social-networks__icon {
+            width: 24px;
+            height: 24px;
+        }
+
+        .list__title {
+            width: 3rem;
+        }
+    }
+
+    .projects {
+        .item {
+            &__title {
+                display: block;
+                font-size: 1rem;  
+            }
+        }
+    }
+
+    .experience .timeline {
+        &::before {
+            border-left: none;
+        }
+
+        &__item {
+            width: 100%;
+            margin-bottom: 1.5rem;
         }
     }
 }

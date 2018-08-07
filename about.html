@@ -86,7 +86,7 @@
                         <img class="mt-3" src="/public/img/namvh.png" alt="Nam Vo">
                     </div>
                     <div class="col-md-8">
-                        <div class="profile__preword">
+                        <div class="preword">
                             <span>Xin chào</span>
                         </div>
                         <div class="profile__title">
@@ -116,6 +116,11 @@
                                     <img src="https://vhnam.github.io/public/img/google+.png" class="social-networks__icon" alt="Google+" />
                                 </a>
                             </li>
+                            <li>
+                                <a itemprop="url" href="https://soundcloud.com/namvh">
+                                    <img src="https://vhnam.github.io/public/img/soundcloud.png" class="social-networks__icon" alt="Soundcloud" />
+                                </a>
+                            </li>
                         </ul>
                         <ul class="profile__list">
                             <li class="list__item">
@@ -132,7 +137,7 @@
                         Trước đây, mình là sinh viên trường Đại học Khoa Học Tự Nhiên (ĐHQG - Tp.HCM), khoá 2012. Khi chưa tốt nghiệp, mình được hướng dẫn về cách làm việc nhóm, tư duy phát triển sản phẩm, kỹ năng sống từ thầy Nguyễn Đức Huy. Sau này, mình được thầy Nguyễn Vinh Tiệp làm tư vấn về kỹ thuật cho các sản phẩm khi còn đi làm ở công ty.
                     </p>
                     <p>
-                        Mình học ngành Công Nghệ Phần Mềm, khoa Công Nghệ Thông Tin. Hướng nghiên cứu chính của mình là hành vi người dùng. Đó là nền tảng để lựa chọn giải pháp phù hợp với vấn đề, thiết kế giao diện rồi mới tính đến công nghệ triển khai. Mình mạnh về Front-End và thiết kế UI (process). Thời gian làm Freelance đã rèn luyện mình có thể làm Full-Stack. Sau này, khi trở thành Trưởng phòng CNTT tại VLAB Co., LTD, mình phát triển tiếp kỹ năng làm việc và phát triển nhóm. Tại đó, mình có cơ hội làm việc với nhiều bạn trẻ tài năng để phát triển ứng dụng công khai thông tin quy hoạch trực tuyến cho TP.HCM.
+                        Mình học ngành Công Nghệ Phần Mềm, khoa Công Nghệ Thông Tin. Hướng nghiên cứu chính của mình là hành vi người dùng. Đó là nền tảng để lựa chọn giải pháp phù hợp với vấn đề, thiết kế giao diện rồi mới tính đến công nghệ triển khai. Mình mạnh về Front-End và thiết kế UI (process). Thời gian làm Freelance đã rèn luyện mình có thể làm Full-Stack. Sau này, khi trở thành Trưởng phòng CNTT &amp; Truyền thông tại VLAB Co., LTD, mình phát triển tiếp kỹ năng Marketing, làm việc và phát triển nhóm. Tại đó, mình có cơ hội làm việc với nhiều bạn trẻ tài năng để phát triển ứng dụng công khai thông tin quy hoạch trực tuyến cho TP.HCM.
                     </p>
                 </div>
             </div>
@@ -143,27 +148,225 @@
         <div class="container">
             <h3 class="text-center mb-3">Dự án đã tham gia</h3>
             <div class="projects__body">
-                <ul class="projects__list">
+                <ul class="projects__list list">
                     <li class="list__item">
-                        <h4 class="item__title">Bản đồ Thông tin Quy hoạch Trực tuyến</h4>
+                        [09/2016 - 06/2018] <h4 class="item__title">Bản đồ Thông tin Quy hoạch Trực tuyến</h4>
+                        <h5 class="item__sub-title">Mô tả</h5>
+                        <p>
+                            Sản phẩm công khai thông tin quy hoạch đến người dân cho toàn TP.HCM, gồm các thông tin như quy hoạch phân khu 1/2000, quy hoạch chi tiết 1/500,... Ngoài ra, có một số sản phẩm khác liên quan đến quy hoạch với các chủ đề như cao độ nền, hạ tầng - kỹ thuật,... Dự án hợp tác giữa công ty VLAB Co., LTD với các cơ quan nhà nước như Uỷ Ban Nhân Dân các quận/huyện, Sở Quy hoạch - Kiến Trúc, Sở Thông tin Truyền thông và các tổ chức khác.
+                        </p>
+                        <h5 class="item__sub-title">Sản phẩm đã triển khai</h5>
+                        <p>
+                            <ul>
+                                <li>
+                                    Quận Thủ Đức: <a target="_blank" itemprop="url" href="https://ttqh-thuduc.tphcm.gov.vn">https://ttqh-thuduc.tphcm.gov.vn</a>
+                                </li>
+                                <li>
+                                    Quận 12: <a target="_blank" itemprop="url" href="https://ttqh-q12.hochiminhcity.gov.vn">https://ttqh-q12.hochiminhcity.gov.vn</a>
+                                </li>
+                                <li>
+                                    Quy mô toàn TP.HCM: <a target="_blank" itemprop="url" href="https://thongtinquyhoach.hochiminhcity.gov.vn">https://thongtinquyhoach.hochiminhcity.gov.vn</a>
+                                </li>
+                            </ul>
+                        </p>
+                        <h5 class="item__sub-title">Truyền thông</h5>
+                        <p>
+                            <ul>
+                                <li>
+                                    VNExpress, <a target="_blank" itemprop="url" href="https://vnexpress.net/tin-tuc/thoi-su/nguoi-sai-gon-co-the-xem-thong-tin-quy-hoach-bang-smartphone-3677933.html">Người Sài Gòn có thể xem thông tin quy hoạch bằng smartphone</a>
+                                </li>
+                                <li>
+                                    Pháp Luật, <a target="_blank" itemprop="url" href="http://plo.vn/do-thi/nhap-chuot-xem-thong-tin-quy-hoach-o-quan-thu-duc-716376.html">Nhấp chuột xem thông tin quy hoạch ở quận Thủ Đức</a>
+                                </li>
+                            </ul>
+                        </p>
                     </li>
                     <li class="list__item">
-                        <h4 class="item__title">Hiển thị hành vi người dùng</h4>
+                        [04/2018 - 06/2018] <h4 class="item__title">Hiển thị hành vi người dùng</h4>
+                        <h5 class="item__sub-title">Mô tả</h5>
+                        <p>
+                            Sản phẩm hiển thị kết quả thao tác của người dùng trên các sản phẩm của công ty VLAB Co., LTD. Mục đích để tìm được insights từ phía người dùng để cải thiện sản phẩm. Dữ liệu Hành vi của người dùng được lấy từ Google Analytics tích hợp vào từng sản phẩm. Đây là sản phẩm nội bộ.
+                        </p>
                     </li>
                     <li class="list__item">
-                        <h4 class="item__title">Cải Lương Số</h4>
+                        [10/2015 - 01/2016] <h4 class="item__title">Cải Lương Số</h4>
+                        <h5 class="item__sub-title">Mô tả</h5>
+                        <p>
+                            Trang nhạc và diễn đàn dành cho những ai yêu thích cải lương.
+                        </p>
+                        <h5 class="item__sub-title">Sản phẩm đã triển khai</h5>
+                        <p>
+                            <ul>
+                                <li>
+                                    Cải Lương Số - Trang nhạc, <a target="_blank" itemprop="url" href="http://cailuongso.com/">http://cailuongso.com/</a>
+                                </li>
+                                <li>
+                                    Cải Lương Số - Diễn đàn, <a target="_blank" itemprop="url" href="http://diendan.cailuongso.com/">http://diendan.cailuongso.com/</a>
+                                </li>
+                            </ul>
+                        </p>
                     </li>
                     <li class="list__item">
-                        <h4 class="item__title">Penlook</h4>
+                        [04/2014 - 07/2015] <h4 class="item__title">Penlook</h4>
+                        <h5 class="item__sub-title">Mô tả</h5>
+                        <p>
+                            Dự án khởi nghiệp đầu tiên, Penlook là mạng xã hội dành cho người đi làm. Nơi trao đổi thông tin công việc, tuyển dụng, tìm việc,... tương tự như LinkedIn. Vì thời điểm này, các trang về việc làm ở quy mô mạng xã hội tại Việt Nam chưa có. Chỉ có những nơi rao tin thuần tuý như VietnamWork. Đây là bài học đầu tiên về phát triển sản phẩm thương mại.
+                        </p>
                     </li>
                     <li class="list__item">
-                        <h4 class="item__title">hrm-client</h4>
+                        [02/2015 - 06/2015] <h4 class="item__title">hrm-client</h4>
+                        <h5 class="item__sub-title">Mô tả</h5>
+                        <p>
+                            Sản phẩm liên quan đến IoT đầu tiên khi thực tập vị trí Front-End Developer tại ZenithTek. Sau khi người dùng check-in/ check-out tại thiết bị sẽ gửi thông tin liên quan đến thời gian và người dùng lên server. Tại đó, mình sẽ hiển thị thông tin của từng cá nhân dưới dạng Dashboard cho quản lý.
+                        </p>
                     </li>
                 </ul>
             </div>
         </div>
     </section>
 
+    <section class="experience">
+        <div class="container">
+            <h3 class="text-center mb-3">Kinh nghiệm</h3>
+            <div class="timeline">
+                <div class="timeline__container">
+                    <div class="timeline__item item">
+                        <div class="preword">
+                            <span>11/2016 - 06/2018</span>
+                        </div>
+                        <h4 class="item__title">Trưởng phòng CNTT &amp; Truyền thông</h4>
+                        <h5 class="item__organization"><a itemprop="url" href="https://vlab.tech/">VLAB Co., LTD</a></h5>
+                        <p class="item__description">
+                            <strong>Sứ mệnh:</strong> Công khai thông tin quy hoạch cho người dân tại Tp.HCM<br>
+                            <strong>Lĩnh vực:</strong> GIS, công nghệ, quản lý đô thị, thông tin quy hoạch<br>
+                            <strong>Trách nhiệm:</strong><br>
+                            - Quản lý bộ phận Công nghệ Thông tin, điều phối công việc và phối hợp với các phòng ban khác.<br>
+                            - Phối hợp với khách hàng (UBND/phòng Quản lý Đô thị các quận/huyện, <a itemprop="url" href="http://www.qhkt.hochiminhcity.gov.vn/default.aspx">Sở Quy hoạch - Kiến trúc TP.HCM</a>) và lãnh đạo công ty để đưa ra mô hình, chức năng, thiết kế sản phẩm, quy trình nghiệp vụ.<br>
+                            - Phối hợp với <a itemprop="url" href="http://ict-hcm.gov.vn/">Sở Thông tin - Truyền thông TP.HCM</a> để triển khai sản phẩm.<br>
+                            - Thiết kế UI (thao tác quy trình nghiệp vụ) và cải thiện UX cho tất cả sản phẩm của công ty với Sketch/Figma/Balsamiq.<br>
+                            - Quản lý hạ tầng, triển khai và quyết định giải pháp kỹ thuật.<br>
+                            - Phỏng vấn nhân sự và hướng dẫn giải pháp cho các thành viên.
+                        </p>
+                    </div>
+                    <div class="timeline__item item">
+                        <div class="preword">
+                            <span>10/2015 - 09/2016</span>
+                        </div>
+                        <h4 class="item__title">Freelance Web Developer</h4>
+                        <p class="item__description">
+                            - Bảo trì, phát triển chức năng mới, cải thiện giao diện cho trang <a itemprop="url" href="http://cailuongso.com/">Cải Lương Số</a> với PHP, MySQL.<br>
+                            - Phát triển hệ thống quản lý kho dành cho phụ kiện điện thoại di động với Laravel.<br>
+                            - Phát triển chức năng cho ứng dụng hybrid viết bằng PhoneGap - Angular 1.<br>
+                            - Phát triển RESTful Web Services với Node.js/Express, MySQL.<br>
+                            - Phát triển như viện JavaScript tương tự <a itemprop="url" href="https://github.com/ichord/At.js/">At.js</a>.
+                        </p>
+                    </div>
+                    <div class="timeline__item">
+                        <div class="preword">
+                            <span>01/2015 - 06/2015</span>
+                        </div>
+                        <h4 class="item__title">Thực tập Front-End Developer</h4>
+                        <h5 class="item__organization"><a itemprop="url" href="https://www.linkedin.com/company/zenithtek">ZenithTek</a></h5>
+                        <p class="item__description">
+                            Nghiên cứu ngôn ngữ thiết kế Material Design, áp dụng và phát triển chức năng hiển thị kết quả check-in/check-out trong phần Dashboard với Angular 1, elasticsearch.js, Auth0.
+                        <p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="awards">
+        <div class="container">
+            <h3 class="text-center mb-3">Giải thưởng</h3>
+            <div class="awards__body">
+                <strong>2017</strong>
+                <ul>
+                    <li>
+                        <p>
+                            <strong>TOP 10 Nhân Tài Đất Việt</strong> do VNPT phối hợp với báo Dân Trí tổ chức.<br>
+                            Sản phẩm "Ứng dụng khai thông tin quy hoạch trực tuyến - Bản đồ quy hoạch trực tuyến" tham gia bảng Khởi Nghiệp.<br>
+                            <strong>Truyền thông:</strong>
+                            <ul>
+                                <li>
+                                    Dân Trí, <a itemprop="url" href="http://dantri.com.vn/suc-manh-so/cong-cu-giup-tra-cuu-thong-tin-quy-hoach-va-hien-trang-dat-dai-nhanh-chong-20171111073337558.htm">Công cụ giúp tra cứu thông tin quy hoạch và hiện trạng đất đai nhanh chóng</a>
+                                </li>
+                                <li>
+                                    Nhân Tài Đất Việt, <a itemprop="url" href="http://nhantaidatviet.vnpt.vn/san-pham-ung-dung-cong-khai-thong-tin-quy-hoach-truc-tuyen-ban-do-quy-hoach-truc-tuyen.html">Sản phẩm: Ứng dụng công khai thông tin quy hoạch trực tuyến – Bản đồ quy hoạch trực tuyến</a>
+                                </li>
+                            </ul>
+                        </p>
+                    </li>
+                </ul>
+                <strong>2013</strong>
+                <ul>
+                    <li>
+                        <p>
+                            <strong>Giải Khuyến khích</strong>, cuộc Olympic Tin học của trường ĐH Khoa học Tự Nhiên - ĐHQG TP.HCM
+                        </p>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <section class="miscellaneous">
+        <div class="container">
+            <h3 class="text-center mb-3">Khác</h3>
+            <div class="miscellaneous__body">
+                <h4 class="miscellaneous__title">Hoạt động</h4>
+                <ul>
+                    <li>
+                        <strong>Trumpet</strong>, nhóm nhạc Tao Đàn tại công viên Tao Đàn - TP.HCM, 2016.
+                    </li>
+                    <li>
+                        <strong>Trumpet 1 &amp; 3</strong>, Đội nghi lễ trường THCS Hoàng Văn Thụ - Nhà thiếu nhi Quận 10, 09/2007 - 09/2015.<br>
+                        <strong>Clip biểu biễn:</strong>
+                        <ul>
+                            <li>
+                                Liên hoan "Tiếng Kèn Đội Ta" khu vưc phía Nam lần IV năm 2010 tại Cà Mau, <a itemprop="url" href="https://youtu.be/GlJReiCd9EE">NTNQ10 - Chương trình biểu diễn</a>.
+                            </li>
+                            <li>
+                                Liên hoan "Tiếng Kèn Đội Ta" mở rộng tỉnh Kiên Giang lần XI năm 2011, <a href="https://www.youtube.com/watch?v=0SpdqzSVhNY">Liên Hoan "Tiếng kèn Đội ta" mở rộng tỉnh Kiên Giang Lần thứ XI</a>.
+                            </li>
+                            <li>
+                                Liên hoan "Tiếng Kèn Đội Ta" mở rộng tỉnh Kiên Giang lần XII năm 2013, <a href="https://www.youtube.com/watch?v=-GfMhzQCINk">Phần thi diễn của ntn quận 10</a>.
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <strong>Trưởng nhóm</strong>, câu lạc bộ harmonica trường THPT Nguyễn Du - Q10, 09/2010 - 06/2011
+                    </li>
+                </ul>
+                <h4 class="miscellaneous__title">Sách yêu thích</h4>
+                <ul>
+                    <li>
+                        Hồ Công Hoài Phương, <a itemprop="url" href="https://tiki.vn/quang-cao-khong-noi-lao-p918148.html">Quảng cáo không nói láo</a>
+                    </li>
+                    <li>
+                        Martin Lindstrom, <a itemprop="url" href="https://www.amazon.com/Small-DATA-Clues-Uncover-Trends/dp/1522635181">Small DATA: The Tiny Clues that Uncover Huge Trends</a>
+                    </li>
+                    <li>
+                        Austin Kleon, <a itemprop="url" href="https://www.amazon.com/Steal-Like-Artist-Things-Creative/dp/0761169253">Steal Like an Artist: 10 Things Nobody Told You About Being Creative</a>
+                    </li>
+                    <li>
+                        Phan Văn Trường, <a itemprop="url" href="https://tiki.vn/mot-doi-quan-tri-p787785.html">Một Đời Quản Trị</a>
+                    </li>
+                    <li>
+                        Huỳnh Vĩnh Sơn, <a itemprop="url" href="https://tiki.vn/y-tuong-nay-la-cua-chung-minh-p375208.html">Ý Tưởng Này Là Của Chúng Mình</a>
+                    </li>
+                    <li>
+                        Vương Hồng Sển, <a itemprop="url" href="https://tiki.vn/sai-gon-nam-xua-p373464.html">Saigon năm xưa</a>
+                    </li>
+                </ul>
+                <h4 class="miscellaneous__title">Nhạc cụ</h4>
+                <p>
+                    Thời gian rảnh rỗi mình thường tìm đến âm nhạc để giải trí. Phần tô màu là nhạc cụ mình biết chơi.
+                </p>
+                <img src="/public/img/orchestra-instruments.jpg" alt="Orchestra Instruments" itemprop="image">
+            </div>
+        </div>
+    </section>
 
     <footer class="footer">
         <div class="container">

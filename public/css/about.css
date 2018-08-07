@@ -4,25 +4,12 @@
   background-color: #F44336;
 }
 
-.profile__body,
-.projects__body {
-  padding: 2rem;
-  margin-bottom: 3rem;
-  background-color: #fff;
-  -webkit-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
-          box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
-}
-
-.profile {
-  margin-top: -5rem;
-}
-
-.profile__preword {
+.preword {
   margin-top: 1rem;
   margin-bottom: 1.5rem;
 }
 
-.profile__preword span {
+.preword span {
   background-color: #F44336;
   color: #fff;
   line-height: 1.1;
@@ -34,7 +21,7 @@
           box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
 }
 
-.profile__preword span::before {
+.preword span::before {
   content: '';
   width: 0;
   height: 0;
@@ -46,6 +33,21 @@
   border-width: 0 0 8px 8px;
   border-color: transparent;
   border-left-color: #F44336;
+}
+
+.profile__body,
+.projects__body,
+.awards__body,
+.miscellaneous__body {
+  padding: 2rem;
+  margin-bottom: 3rem;
+  background-color: #fff;
+  -webkit-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+          box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+}
+
+.profile {
+  margin-top: -5rem;
 }
 
 .profile__title {
@@ -107,6 +109,7 @@
 .projects__list {
   margin: 0;
   padding: 0;
+  list-style-type: square;
 }
 
 .projects .list__item {
@@ -115,5 +118,162 @@
 
 .projects .list__item:last-child {
   margin-bottom: 0;
+}
+
+.projects .item__title {
+  display: inline-block;
+  font-size: 1.25rem;
+  font-weight: 400;
+  color: #F44336;
+}
+
+.projects .item__sub-title {
+  font-size: 1rem;
+  font-weight: 700;
+}
+
+.projects a {
+  white-space: pre-wrap;
+  /* css-3 */
+  white-space: -moz-pre-wrap;
+  /* Mozilla, since 1999 */
+  white-space: -pre-wrap;
+  /* Opera 4-6 */
+  white-space: -o-pre-wrap;
+  /* Opera 7 */
+  word-wrap: break-word;
+  /* Internet Explorer 5.5+ */
+}
+
+.experience .container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin: 0 auto;
+  overflow: hidden;
+}
+
+.experience .timeline {
+  position: relative;
+  margin-bottom: 3rem;
+}
+
+.experience .timeline__container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.experience .timeline__item {
+  width: 48%;
+  padding: 1em;
+  -webkit-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+          box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+  border-top: .25rem solid #F44336;
+}
+
+.experience .timeline__item:nth-child(even) {
+  -ms-flex-item-align: end;
+      align-self: flex-end;
+}
+
+.experience .timeline:before {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 50%;
+  border-left: 2px dashed lightgray;
+  -webkit-transform: translate(-50%);
+          transform: translate(-50%);
+}
+
+.experience .row {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+}
+
+.experience .item .preword {
+  margin-top: 0;
+  font-size: .75rem;
+}
+
+.experience .item__title {
+  margin-top: 1rem;
+  font-size: 1.5rem;
+  font-weight: 400;
+}
+
+.experience .item__organization {
+  font-size: 1rem;
+}
+
+.experience .item__description {
+  margin-top: 1rem;
+  font-size: 1rem;
+  color: #757575;
+}
+
+.awards li > p {
+  margin-bottom: 0;
+}
+
+.miscellaneous__title {
+  font-size: 1.125rem;
+  font-weight: 700;
+  color: #F44336;
+}
+
+.miscellaneous img {
+  max-width: 100%;
+}
+
+@media (max-width: 576px) {
+  .profile__title {
+    font-size: 1.5rem;
+  }
+
+  .profile__title--highlight {
+    font-size: 2.25rem;
+  }
+
+  .profile .social-networks__icon {
+    width: 24px;
+    height: 24px;
+  }
+
+  .profile .list__title {
+    width: 3rem;
+  }
+
+  .projects .item__title {
+    display: block;
+    font-size: 1rem;
+  }
+
+  .experience .timeline::before {
+    border-left: none;
+  }
+
+  .experience .timeline__item {
+    width: 100%;
+    margin-bottom: 1.5rem;
+  }
 }
 
