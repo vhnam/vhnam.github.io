@@ -14,10 +14,6 @@ pre {
     padding: 1rem;
 }
 
-h2 {
-    font-size: 2.625rem;
-}
-
 h3 {
     font-size: 2.125rem;
 }
@@ -66,7 +62,15 @@ h4 {
     }
 }
 
-@media (max-width: 576px) { 
+@media (max-width: 576px) {    
+    h3 {
+        font-size: 1.875rem;
+    }
+    
+    h4 {
+        font-size: 	1.5rem;
+    }
+
     body {
         overflow-x: hidden;
     }
