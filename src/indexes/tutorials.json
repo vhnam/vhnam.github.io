@@ -1,6 +1,13 @@
 {
     "tutorials": [
         {
+            "name": "Distributed System",
+            "link" : "https://vhnam.github.io/tutorials/distributed-system/",
+            "datetime": "2018-08-10",
+            "time": "Ngày 10 tháng 8 năm 2018",
+            "description": "Bài viết này tím tắt lại cách hiểu của mình về Distributed System"
+        },
+        {
             "name": "Làm lại blog cá nhân (Phần 8): Deployment",
             "link" : "https://vhnam.github.io/tutorials/lam-lai-blog-ca-nhan-8/",
             "datetime": "2018-08-03",
