@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="robots" content="noodp,index,follow">
+    <meta name="revisit-after" content="1 days">
+    <meta name="google-site-verification" content="ZFrkEu3QMFl9Kz0JyK2SfzdIZ84lDgm9gLQ6J6FmAvg">
+    <meta name="p:domain_verify" content="faa7b25edce176988fb8171e9457554a">
+
+    <!-- Facebook Webmasters -->
+    <meta property="og:url" content="https://vhnam.github.io/blog/distributed-system">
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="Distributed System">
+    <meta property="og:description" content="Bài viết này tím tắt lại cách hiểu của mình về Distributed System">
+    <meta property="og:image" content="https://vhnam.github.io/blog/distributed-system/img/thumbnails.jpg">
+    <meta property="og:locale" content="vi_VN">
+    <meta property="fb:app_id" content="2064203853819553">
+
+    <title>Distributed System | Nam Vo</title>
+
+    <link rel="shortcut icon" href="https://vhnam.github.io/public/favicon.ico" type="image/x-icon">
+    <link rel="canonical" href="http://vhnam.github.io/">
+    <link rel="publisher" href="https://plus.google.com/116570296349523695729">
+
+    <link rel="stylesheet" href="https://vhnam.github.io/public/css/bootstrap.css">
+    <link rel="stylesheet" href="https://vhnam.github.io/public/css/post.css">
+
+    <!--[if lt IE 9]>
+        <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+</head>
+<body itemscope="itemscope" itemtype="https://schema.org/BlogPosting">
+    <nav class="navbar navbar-expand-lg navbar-light">
+        <div class="container">
+            <a class="navbar-brand" href="/" itemprop="url">
+                <img src="https://vhnam.github.io/public/img/favicon.png" alt="Nam Vo" height="48" width="48">
+            </a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNavDropdown">
+                <header class="navbar-collapse__header">
+                    <button class="navbar-toggler float-right" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+                        &times;
+                    </button>
+                    <div class="clear-both"></div>
+                </header>
+                <ul class="navbar-nav ml-md-auto navbar-collapse__content" itemscope="itemscope" itemtype="https://schema.org/SiteNavigationElement">
+                    <li class="nav-item">
+                        <a class="nav-link" itemprop="url" href="/">Trang chủ</a>
+                    </li>
+                    <li class="nav-item active">
+                        <a class="nav-link" itemprop="url" href="/blog">Nhật Ký</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" itemprop="url" href="/tutorials">Chuyện Lập Trình</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" itemprop="url" href="/about.html">Giới Thiệu</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" itemprop="url" href="/contact.html">Liên Hệ</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <section class="hero">
+        <div class="container">
+            <div class="row">
+                <div class="col"></div>
+                <div class="col-md-8">
+                    <h1 class="hero__title" itemprop="headline">Distributed System</h1>
+                    <h2 class="hero__subtitle">Ngày 9 tháng 8 năm 2018</h2>
+                    <meta itemprop="author" content="Nam Vo">
+                    <meta itemprop="datePublished" content="2015-08-09">
+                    <meta itemprop="dateModified" content="2015-08-09">
+                    <meta itemprop="mainEntityOfPage" content="Bài viết này tím tắt lại cách hiểu của mình về Distributed System">
+                </div>
+                <div class="col"></div>
+            </div>
+        </div>
+        <div itemprop="publisher" itemscope itemtype="https://schema.org/Organization">
+            <meta itemprop="name" content="GitHub">
+            <span hidden itemprop="logo" itemscope itemtype="https://schema.org/ImageObject">
+                <img itemprop="url" src="https://vhnam.github.io/public/img/github.png" alt="GitHub">
+                <meta itemprop="width" content="48">
+                <meta itemprop="height" content="48">
+             </span>
+        </div>
+    </section>
+
+    <section class="content">
+        <div class="container">
+            <h2 hidden>Nội dung</h2>
+            <div class="row">
+                <div class="col"></div>
+                <div class="col-md-8">
+                    <div class="content__body">
+                        <p>
+    Ngày xưa, lúc mới bắt tay vào làm dự án <strong>Penlook</strong> với mấy ông anh, khi bàn về kiến trúc có đặt ra chia tải cho nhiều server. Sau này đi làm có kinh nghiệm rồi mới biết nó là gì. Giờ đây quyết định ghi chú lại để dành đọc.
+</p>
+<img src="img/Distributed_Systems.jpg" alt="Distributed System" itemprop="image">
+
+<h3>Dẫn nhập</h3>
+<p>
+    Giả sử sau khi phát triển xong một website buôn bán nhạc cụ, ta sẽ nghĩ chỉ cần thuê 1 con server chạy là đủ rồi. Cấu hình tầm 1 CPU, 1GB RAM, 25GB SSD, 1TB băng thông là được. Và ta sẽ host lên server với domain là <code>https://instruments.com</code>.
+</p>
+<p>
+    Khoảng 3 tháng đầu làm ăn không phát triển lắm, tầm <strong>1000 lượt truy cập/ngày</strong>, tương đương <strong>2 lượt truy cập/phút</strong>. Bỗng một ngày đẹp trời, bạn nhập vè nhạc cụ mới quá hot đi, mọi người đổ xô vào web của bạn để đặt hàng. Có thời điểm lên tới <strong>1000 lượt truy cập tại một thời điểm</strong>, rồi server bị sập. Sau đó, bạn bắt đầu tìm hiểu nguyên nhân và cách giải quyết cho vấn đề trên.
+</p>
+<img src="img/Problem-Solve.jpg" alt="Solving Problem" itemprop="image">
+
+<h3>Tìm hiểu vấn đề</h3>
+<p>
+    Công cụ đơn giản nhất để tìm hiểu số lượng requests dẫn đến sập server đó là <a itemprop="url" href="https://jmeter.apache.org/">Apache JMeter</a>. Sau khi kiểm thử với nhiều khả năng thì đã phát hiện dấu hiệu của vấn đề. Vấn đề ở đây là đến <strong>1000 requests tại một thời điểm</strong> là server sẽ sập. 
+</p>
+<p>
+    Cảm thấy hoang mang, bạn lên Google tìm hiểu và ra được giải pháp. Đó là <strong>Scale Up</strong> (hay <em>Scale Vertically</em>) và <strong>Scale Out</strong> (hay <em>Scaling Horizontally</em>).
+</p>
+<ul>
+    <li>
+        <strong>Scale Up</strong> - Mục đích là cải thiện performance của server hiện tại. Có 2 hướng tiếp cận đó là <em>nâng cấp phần cứng</em> hoặc <em>tối ưu hoá mã nguồn</em>.
+    </li>
+    <li>
+        <strong>Scale Out</strong> - Mục đích là tăng số lượng server. Sau đó, dùng công cụ <strong>load balancing</strong> để điều phối đến nhiều server đã cấu hình.
+    </li>
+</ul>
+<img src="img/horizontal-vertical-scaling-scale-up-and-scale-out-server-infrastructure-diagram.jpg" alt="Different between horizontal and vertical scaling" itemprop="image">
+
+<h4>Scale Up</h4>
+<p>
+    Như đã nói, phương pháp Scale Up là tăng thêm tài nguyên (RAM/CPU/DISK) cho server. Phương pháp này khá tốn kém chi phí. Do đó, người ta có một cách khác để tiết kiệm chi phí đó là sử dụng công nghệ ảo hoá (<em>Virtualization</em>). Có một số loại công nghệ ảo hoá sau:
+</p>
+<ul>
+    <li>
+        Hardware Virtualization
+    </li>
+    <li>
+        OS-level Virtualization
+    </li>
+    <li>
+        Desktop Virtualization
+    </li>
+    <li>
+        Application Virtualization
+    </li>
+    <li>
+        Network Virtualization
+    </li>
+</ul>
+
+<h4>Scale Out</h4>
+<p>
+    Phương pháp Scale Out là tăng thêm số lượng server. Phương pháp này ban đầu hơi tốn kém so với Scale Up nhưng về sau sẽ tiết kiệm hơn. Đây là phiên bản đơn giản của Distributed System. Vì yêu cầu của Distributed System phức tạp hơn nhiều và có nhiều vấn đề kỹ thuật cần quan tâm hơn.
+</p>
+<img src="img/horizontal-vs-vertical-in-cost.png" alt="Cost" itemprop="image">
+
+<h3>Tại sao cần Distributed System?</h3>
+<p>
+    Hệ thống của bạn xử lý công việc cần tốn nhiều tài nguyên. Đôi khi vượt quá khả năng của một server nên bạn sẽ cần phải Scale Out hệ thống. Lúc đó, hệ thống bạn cần đảm bảo các tiêu chí sau:
+</p>
+<ul>
+    <li>
+        Tốc độ của bộ nhớ
+    </li>
+    <li>
+        Dung lượng lớn với tốc độ Input/Output cực nhanh
+    </li>
+    <li>
+        Tốc độ xử lý tính toán (10, 100,.. thậm chí cả ngàn core)
+    </li>
+    <li>
+        Tin cậy, luôn sẵn sàng, downtime gần bằng 0
+    </li>
+    <li>
+        Độ trễ thấp
+    </li>
+</ul>
+<p>
+    Do đó, với Distributed System thì bạn sẽ có phương pháp triển khai phù hợp với công việc hơn. Sau đây là định nghĩa.
+</p>
+<blockquote>
+    A distributed system is a collection of independent computers that appears to its users as a single coherent system.
+    <footer>
+        <strong>Andrew S.Tanenbaum</strong>
+    </footer>
+</blockquote>
+<p>
+    Có hai công việc cơ bản của một hệ thống máy tính đó là <strong>Lưu Trữ</strong> và <strong>Tính Toán</strong>. Distributed System là nghệ thuật giải quyết vấn đề của một máy tính trên nhiều máy tính.
+</p>
+
+<h3>Mục tiêu của Distributed System</h3>
+<p>
+    Để làm gì, cũng cần phải có mục tiêu của nó. Dưới đây là một số mục tiêu mà chúng ta cần nỗ lực để thực hiện nó.
+</p>
+<h4>Dễ dàng truy xuất tài nguyên</h4>
+<p>
+    Cho phép người dùng (ứng dụng) dễ dàng truy xuất tài nguyên từ xa.
+</p>
+<h4>Tính trong suốt</h4>
+<p>
+    Ẩn giấu sự rời rạc của hệ thống đối với người dùng. Theo như Andrew S.Tanenbaum và Maarten Van Steen giới thiệu trong "Distributed Systems: Principles and Paradigms", tiêu chuẩn này được ghi rõ ràng trong đặc tả ISO, năm 1995. Cụ thể thì mình trong rõ phiên bản nào.
+</p>
+
+<h3>Tham khảo</h3>
+<ul class="reference">
+    <li>
+        Mikito Takada, <a itemprop="url" href="http://book.mixu.net/distsys/ebook.html">Distributed Systems for fun and profit</a>
+    </li>
+    <li>
+        Andrew S.Tanenbaum, Maarten Van Steen, <a href="https://www.amazon.com/Distributed-Systems-Principles-Paradigms-Tanenbaum/dp/B00BSZVOYC">Distributed Systems: Principles and Paradigms</a>
+    </li>
+    <li>
+        Hackernoon, <a itemprop="url" href="https://hackernoon.com/a-thorough-introduction-to-distributed-systems-3b91562c9b3c">A Thorough Introduction to Distributed Systems</a>
+    </li>
+    <li>
+        Kipalog, <a itemprop="url" href="https://kipalog.com/posts/Gioi-thieu-MySQL-Replication">Giới thiệu MySQL Replication</a>
+    </li>
+    <li>
+        PC Freak, <a itemprop="url" href="http://www.pc-freak.net/blog/vertical-horizontal-server-services-scaling-vertical-horizontal-hardware-scaling/">What is Vertical scaling and Horizontal scaling – Vertical and Horizontal hardware / services scaling</a>
+    </li>
+    <li>
+        Wikipedia, <a itemprop="url" href="https://en.wikipedia.org/wiki/Virtualization">Virtualization</a>
+    </li>
+    <li>
+        Git, <a itemprop="url" href="https://git-scm.com/book/vi/v1/Bắt-Đầu-Về-Quản-Lý-Phiên-Bản">Bắt Đầu - Về Quản Lý Phiên Bản</a>
+    </li>
+    <li>
+        Quora, <a itemprop="url" href="https://www.quora.com/Why-use-distributed-databases">Why use distributed databases?</a>
+    </li>
+    <li>
+        <a itemprop="url" href="https://text.123doc.org/document/2506400-tinh-trong-suot-cua-mot-he-thong-phan-tan.htm">Bài giảng Hệ phân tán</a>
+    </li>
+</ul>
+
+                    </div>
+
+                    <div class="content__footer">
+                        <div class="social-plugin">
+                            <div class="like-share">
+                                <!-- Facebook -->
+                                <div class="fb-like" data-href="http://vhnam.github.io/blog/not-quite-my-tempo" data-layout="standard" data-action="like" data-show-faces="true" data-share="true"></div>
+    
+                                <div>
+                                    <!-- Twitter -->
+                                    <a href="https://twitter.com/share" class="twitter-share-button"{count} data-url="http://vhnam.github.io/blog/not-quite-my-tempo" data-via="vhnam2504">Tweet</a>
+    
+                                    <!-- Google Plus -->
+                                    <div class="g-plusone" data-annotation="inline" data-width="300"></div>
+                                </div>
+                            </div>
+                            <div class="comments">
+                                <div class="fb-comments" data-href="http://vhnam.github.io/blog/not-quite-my-tempo" data-numposts="10"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col"></div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6 text-left">
+                    He who loves practice without theory is like the sailor who boards [a] ship without a rudder and compass and never knows where he may cast. — Leonardo da Vinci
+                </div>
+                <div class="col-md-6 text-right">
+                    Copyright &copy; 2018 Nam Vo
+                </div>
+            </div>
+        </div>
+        <nav class="privacy-policy navbar navbar-dark bg-dark" itemscope="itemscope" itemtype="https://schema.org/SiteNavigationElement">
+            <div class="container">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" itemprop="url" href="https://vhnam.github.io/privacy-policy.html">Chính sách bảo mật</a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    </footer>
+
+    <script src="https://vhnam.github.io/public/js/bootstrap.js"></script>
+
+    <script>
+        (function(d, s, id) {
+            var js, fjs = d.getElementsByTagName(s)[0];
+            if (d.getElementById(id)) return;
+            js = d.createElement(s); js.id = id;
+            js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.5";
+            fjs.parentNode.insertBefore(js, fjs);
+        }(document, 'script', 'facebook-jssdk'));
+    </script>
+
+    <script>
+        (function() {
+            var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
+            po.src = 'https://apis.google.com/js/platform.js';
+            var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
+        })();
+    </script>
+
+    <script>
+        !function(d,s,id){
+            var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';
+            if(!d.getElementById(id)){js=d.createElement(s);
+                js.id=id;js.src=p+'://platform.twitter.com/widgets.js';
+                fjs.parentNode.insertBefore(js,fjs);
+            }
+        }(document, 'script', 'twitter-wjs');
+    </script>
+
+    <!-- Facebook Analytics -->
+    <script>
+        window.fbAsyncInit = function() {
+            FB.init({
+                appId      : '2064203853819553',
+                xfbml      : true,
+                version    : 'v3.0'
+            });
+            
+            FB.AppEvents.logPageView();   
+        };
+
+        (function(d, s, id){
+            var js, fjs = d.getElementsByTagName(s)[0];
+            if (d.getElementById(id)) {return;}
+            js = d.createElement(s); js.id = id;
+            js.src = "https://connect.facebook.net/en_US/sdk.js";
+            fjs.parentNode.insertBefore(js, fjs);
+        }(document, 'script', 'facebook-jssdk'));
+    </script>
+
+    <!-- Google Analytics -->
+    <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-66016963-1', 'auto');
+        ga('require', 'linkid', 'linkid.js');
+        ga('require', 'displayfeatures');
+        ga('send', 'pageview');
+    </script>
+</body>
+</html>
