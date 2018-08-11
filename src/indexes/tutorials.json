@@ -1,6 +1,13 @@
 {
     "tutorials": [
         {
+            "name": "Distributed System: Các kiểu con đà điểu",
+            "link" : "https://vhnam.github.io/tutorials/distributed-system-cac-kieu-con-da-dieu/",
+            "datetime": "2018-08-11",
+            "time": "Ngày 11 tháng 8 năm 2018",
+            "description": "Bài viết này tiếp tục tóm tắt lại cách hiểu của mình về Distributed System. Phần này tập trung vào các kiểu Distributed System."
+        },
+        {
             "name": "Distributed System",
             "link" : "https://vhnam.github.io/tutorials/distributed-system/",
             "datetime": "2018-08-10",

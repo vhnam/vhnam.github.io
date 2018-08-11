@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="robots" content="noodp,index,follow">
+    <meta name="revisit-after" content="1 days">
+    <meta name="google-site-verification" content="ZFrkEu3QMFl9Kz0JyK2SfzdIZ84lDgm9gLQ6J6FmAvg">
+    <meta name="p:domain_verify" content="faa7b25edce176988fb8171e9457554a">
+
+    <!-- Facebook Webmasters -->
+    <meta property="og:url" content="https://vhnam.github.io/blog/distributed-system-cac-kieu-con-da-dieu">
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="Distributed System: Các kiểu con đà điểu">
+    <meta property="og:description" content="Bài viết này tiếp tục tóm tắt lại cách hiểu của mình về Distributed System. Phần này tập trung vào các kiểu Distributed System.">
+    <meta property="og:image" content="https://vhnam.github.io/blog/distributed-system-cac-kieu-con-da-dieu/img/thumbnails.jpg">
+    <meta property="og:locale" content="vi_VN">
+    <meta property="fb:app_id" content="2064203853819553">
+
+    <title>Distributed System: Các kiểu con đà điểu | Nam Vo</title>
+
+    <link rel="shortcut icon" href="https://vhnam.github.io/public/favicon.ico" type="image/x-icon">
+    <link rel="canonical" href="http://vhnam.github.io/">
+    <link rel="publisher" href="https://plus.google.com/116570296349523695729">
+
+    <link rel="stylesheet" href="https://vhnam.github.io/public/css/bootstrap.css">
+    <link rel="stylesheet" href="https://vhnam.github.io/public/css/post.css">
+
+    <!--[if lt IE 9]>
+        <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+</head>
+<body itemscope="itemscope" itemtype="https://schema.org/BlogPosting">
+    <nav class="navbar navbar-expand-lg navbar-light">
+        <div class="container">
+            <a class="navbar-brand" href="/" itemprop="url">
+                <img src="https://vhnam.github.io/public/img/favicon.png" alt="Nam Vo" height="48" width="48">
+            </a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNavDropdown">
+                <header class="navbar-collapse__header">
+                    <button class="navbar-toggler float-right" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+                        &times;
+                    </button>
+                    <div class="clear-both"></div>
+                </header>
+                <ul class="navbar-nav ml-md-auto navbar-collapse__content" itemscope="itemscope" itemtype="https://schema.org/SiteNavigationElement">
+                    <li class="nav-item">
+                        <a class="nav-link" itemprop="url" href="/">Trang chủ</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" itemprop="url" href="/blog">Nhật Ký</a>
+                    </li>
+                    <li class="nav-item active">
+                        <a class="nav-link" itemprop="url" href="/tutorials">Chuyện Lập Trình</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" itemprop="url" href="/about.html">Giới Thiệu</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" itemprop="url" href="/contact.html">Liên Hệ</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <section class="hero">
+        <div class="container">
+            <div class="row">
+                <div class="col"></div>
+                <div class="col-md-8">
+                    <h1 class="hero__title" itemprop="headline">Distributed System: Các kiểu con đà điểu</h1>
+                    <h2 class="hero__subtitle">Ngày 11 tháng 8 năm 2018</h2>
+                    <meta itemprop="author" content="Nam Vo">
+                    <meta itemprop="datePublished" content="2018-08-11">
+                    <meta itemprop="dateModified" content="2018-08-11">
+                    <meta itemprop="mainEntityOfPage" content="Bài viết này tiếp tục tóm tắt lại cách hiểu của mình về Distributed System. Phần này tập trung vào các kiểu Distributed System.">
+                </div>
+                <div class="col"></div>
+            </div>
+        </div>
+        <div itemprop="publisher" itemscope itemtype="https://schema.org/Organization">
+            <meta itemprop="name" content="GitHub">
+            <span hidden itemprop="logo" itemscope itemtype="https://schema.org/ImageObject">
+                <img itemprop="url" src="https://vhnam.github.io/public/img/github.png" alt="GitHub">
+                <meta itemprop="width" content="48">
+                <meta itemprop="height" content="48">
+             </span>
+        </div>
+    </section>
+
+    <section class="content">
+        <div class="container">
+            <h2 hidden>Nội dung</h2>
+            <div class="row">
+                <div class="col"></div>
+                <div class="col-md-8">
+                    <div class="content__body">
+                        <p>
+    Sau khi tìm hiểu các tính chất của Distributed System (gọi tắt là DS). Phần này sẽ tìm hiểu các loại DS.
+</p>
+<img src="img/thumbnails.jpg" alt="Thumbnails" itemprop="image">
+
+<h3>Distributed Computing Systems</h3>
+<p>
+    Distributed Computing System được sử dụng cho các hệ thống yêu cầu cao về hiệu năng xử lý tính toán. 
+</p>
+
+<h4>Cluster Computing Systems</h4>
+<p>
+    Cluster Computing System trở nên phổ biến khi giá thành/hiệu suất máy tính cá nhân, máy trạm được cải thiện. Nó là tập hợp các máy tính tương đối đơn giản trong một mạng tốc độ cao để tạo thành một siêu máy tính có khả năng tính toán được lập trình song song (<em>parallel</em>).
+</p>
+<img src="img/cluster.png" alt="Cluster Computing System" itemprop="image">
+
+<h4>Grid Computing Systems</h4>
+<p>
+    Thông thường trong Cluster Computing System, các máy tính được kết nối thường cùng một cấu hình, cùng hệ điều hành được kết nối thông qua cùng một mạng. Grid Computing System ngược lại, các máy tính được kết nối có thể khác cấu hình, có thể kết nối cụm máy của tổ chức A với cụm máy của tổ chức B trong một mạng ảo.
+</p>
+<img src="img/grid.png" alt="Grid Computing System" itemprop="image">
+<p>
+    Thiết kế này được chia làm 4 lớp. 
+</p>
+<ul>
+    <li>
+        <strong>Fabric layer</strong> - Cung cấp giao diện cho tài nguyên cục bộ tại một trang web cụ thể. Thông thường, chúng sẽ cung cấp các chức năng để truy vấn trạng thái và khả năng của một tài nguyên, cùng với các hàm để quản lý tài nguyên thực tế (ví dụ: khóa tài nguyên)
+    </li>
+    <li>
+        <strong>Connectivity layer</strong> - Bao gồm các giao thức để hỗ trợ kết nối
+        <ul>
+            <li>
+                Người dùng có thể sử dụng nhiều tài nguyên
+            </li>
+            <li>
+                Xác thực người dùng để sử dụng tài nguyên nhất định
+            </li>
+        </ul>
+    </li>
+    <li>
+        <strong>Resource layer</strong> - Chịu trách nhiệm quản lý tài nguyên, sử dụng thông tin từ Connectivity Layer để gọi Fabric Layer
+    </li>
+    <li>
+        <strong>Collective layer</strong> - Xử lý quyền truy cập tài nguyên
+    </li>
+    <li>
+        <strong>Application layer</strong> - Bao gồm các ứng dụng trong một tổ chức ảo và sử dụng Grid Computing System
+    </li>
+</ul>
+<p>
+    Thông thường, Collective layer, Connectivity layer và Resource layer tạo thành trái tim của lớp trung gian lưới (<em>grid middleware layer</em>). Các lớp này cùng nhau kiểm soát quyền truy cập cũng như quản lý tài nguyên có khả năng phân tán trên nhiều web.
+</p>
+
+<h3>Distributed Information Systems</h3>
+<p>
+    Hệ thống chủ yếu để quản lý và tích hợp các xử lý nghiệp vụ.
+</p>
+<img src="img/dis.jpg" alt="Distributed Information System" itemprop="image">
+
+<h4>Transaction Processing System</h4>
+<p>
+    Các bạn còn nhớ về xử lý Transaction tại database chứ?
+</p>
+<pre>
+BEGIN TRANSACTION(server, transaction);<br>
+    READ(transaction, file-1, data);<br>
+    WRITE(transaction, file-2, data);<br>
+    newData := MODIFIED(data);<br>
+    IF WRONG(newData) THEN<br>
+        ABORT TRANSACTION(transaction);<br>
+    ELSE<br>
+        WRITE(transaction, file-2, newData);<br>
+    END IF;<br>
+END TRANSACTION(transaction);
+</pre>
+<p>
+    Một transaction là một quá trình xử lý từ khi bắt đầu tới khi kết thúc thỏa mãn bốn tính chất <strong>ACID</strong>. Bốn chữ đó viết tắt của bốn tính chất quan trọng sau:
+</p>
+<ul>
+    <li>
+        <strong>Atomicity</strong> là một đề xuất tất cả hoặc không có gì. Tính chất này đảm bảo rằng khi một giao dịch liên quan đến hai hay nhiều xử lý, hoặc là tất cả các xử lý được thực hiện hoặc không có xử lý được thực hiện.
+    </li>
+    <li>
+        <strong>Consistency</strong> đảm bảo rằng một giao dịch không bao giờ được thông qua cơ sở dữ liệu của bạn trong tình trạng dở dang. Tính chất này, hoặc là tạo ra toàn bộ trạng thái mới hoặc rollback tất cả các xử lý để về trạng thái ban đầu, nhưng không bao giờ thông qua cơ sở dữ liệu trong trạng thái dở dang.
+    </li>
+    <li>
+        <strong>Isolation</strong> giữ giao dịch tách rời nhau cho đến khi chúng đã hoàn tất. Tính chất này đảm bảo rằng hai hoặc nhiều giao dịch không bao giờ được trộn lẫn với nhau, tạo ra dữ liệu không chính xác và không phù hợp.
+    </li>
+    <li>
+        <strong>Durability</strong> đảm bảo rằng cơ sở dữ liệu sẽ theo dõi các thay đổi cấp phát trong một cách mà các máy chủ có thể phục hồi từ một sự kết thúc bất thường. Tính chất này đảm bảo rằng trong trường hợp thất bại hay dịch vụ khởi động lại các dữ liệu có sẵn trong  trước khi gặp lỗi.
+    </li>
+</ul>
+<img src="img/acid.png" alt="A.C.I.D" itemprop="image">
+<p>
+    Cho đến nay, transaction thường được dùng trong một database đơn lẻ. Một transaction lồng (nested transaction) có thể được tạo từ nhiều transaction nhỏ khác. Và tính Durability chỉ áp dụng cho lớp trên cùng.
+</p>
+<img src="img/nested-transaction.png" alt="Nested Transaction" itemprop="image">
+<p>
+    Transaction Processing (TP) cho phép ứng dụng truy cập nhiều server/database.
+</p>
+<img src="img/tp-monitor.png" alt="Transaction Processing" itemprop="image">
+
+<h4>Enterprise Application Integration</h4>
+<p>
+    Enterprise Application Integration (EAI) là một tập hợp các công nghệ, dịch vụ hình thành một trung gian để cho phép tích hợp các hệ thống và các ứng dụng độc lập. EAI đóng vai trò như middleware để liên kết các ứng dụng.
+</p>
+<img src="img/middle-ware.png" alt="Enterprise Application Integration" itemprop="image">
+<p>
+    Remote Procedure Calls (RPC) và Remote Method Invocations (RMI) là một ví dụ về middleware. Với RPC, ứng dụng A gọi đến ứng dụng B bằng cách thực hiện procedure call cục bộ, kết quả được B gửi lại tới A bằng message. RMI là một sự cái tiến từ RPC. Về cơ bản cũng tương tự RPC, nhưng hoạt động trên đối tượng thay vì ứng dụng. RPC và RMI đều có bất lợi là caller và callee cần phải chạy cùng lúc tại thời điểm giao tiếp.
+</p>
+<p>
+    Message-oriented middleware (MOM) cho phép ứng dụng gửi message đến các điểm liên lạc hợp lý (publish/subscribe).
+</p>
+
+<h3>Distributed Pervasive Systems</h3>
+<p>
+    Thường là các node nhỏ, sử dụng pin, dùng trong các hệ thống nhúng.
+</p>
+<ul>
+    <li>
+        Bao gồm thay đổi theo ngữ cảnh, tức là hệ thống nhận thức được môi trường của nó thay đổi liên tục. Ví dụ: nhận biết được bỗng dưng... rớt mạng
+    </li>
+    <li>
+        Khuyến khích các thành phần ad-hoc, tức là nhiều thiết bị đa dạng trong hệ thống được sử dụng theo nhiều cách khác nhau bởi những người dùng khác nhau. Do đó, cần dễ dàng cấu hình bộ khung ứng dụng đang chạy trên thiết bị bởi người dùng hoặc điều chỉnh tự động (nhưng có kiểm soát)
+    </li>
+    <li>
+        Nhận dạng chia sẻ (<em>Recognize sharing</em>) là mặc định, 
+    </li>
+</ul>
+<img src="img/distributed-pervasive-systems-electronic-health-care-systems-n.jpg" alt="Distributed Pervasive System - Electronic Health Care Systems">
+
+<h3>Tham khảo</h3>
+<ul class="reference">
+    <li>
+        Andrew S.Tanenbaum, Maarten Van Steen, <a itemprop="url" href="https://www.amazon.com/Distributed-Systems-Principles-Paradigms-Tanenbaum/dp/B00BSZVOYC">Distributed Systems: Principles and Paradigms</a>
+    </li>
+    <li>
+        California State University, San Bernardio, CSE 660, <a itemprop="url" href="http://cse.csusb.edu/tongyu/courses/cs660/notes/chap1.php">An Introduction to Distributed Systems</a>
+    </li>
+    <li>
+        École polytechnique fédérale de Lausanne, <a itemprop="url" href="http://lsirwww.epfl.ch/courses/dis/2006ws/lecture/Overview.pdf">Introduction: Distributed Information Systems – An Overview</a>
+    </li>
+    <li>
+        University of Oslo, <a itemprop="url" href="https://www.uio.no/studier/emner/matnat/ifi/INF5040/h07/undervisningsmateriale/INF5040_WK35_IntroDS.pdf">Introduction to Distributed Systems (DS)</a>
+    </li>
+    <li>
+        Tedu, <a itemprop="url" href="https://tedu.com.vn/sql-server/thuoc-tinh-acid-trong-co-so-du-lieu-la-gi-27.html">Thuộc tính ACID trong cơ sở dữ liệu là gì?</a>
+    </li>
+    <li>
+        Kipalog, <a itemprop="url" href="https://kipalog.com/posts/Mot-so-giai-phap-de-xu-ly-distributed-transaction-trong-he-thong-phan-tan">Một số giải pháp để xử lý distributed transaction trong hệ thống phân tán</a>
+    </li>
+</ul>
+
+                    </div>
+
+                    <div class="content__footer">
+                        <div class="social-plugin">
+                            <div class="like-share">
+                                <!-- Facebook -->
+                                <div class="fb-like" data-href="http://vhnam.github.io/blog/not-quite-my-tempo" data-layout="standard" data-action="like" data-show-faces="true" data-share="true"></div>
+    
+                                <div>
+                                    <!-- Twitter -->
+                                    <a href="https://twitter.com/share" class="twitter-share-button"{count} data-url="http://vhnam.github.io/blog/not-quite-my-tempo" data-via="vhnam2504">Tweet</a>
+    
+                                    <!-- Google Plus -->
+                                    <div class="g-plusone" data-annotation="inline" data-width="300"></div>
+                                </div>
+                            </div>
+                            <div class="comments">
+                                <div class="fb-comments" data-href="http://vhnam.github.io/blog/not-quite-my-tempo" data-numposts="10"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col"></div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6 text-left">
+                    He who loves practice without theory is like the sailor who boards [a] ship without a rudder and compass and never knows where he may cast. — Leonardo da Vinci
+                </div>
+                <div class="col-md-6 text-right">
+                    Copyright &copy; 2018 Nam Vo
+                </div>
+            </div>
+        </div>
+        <nav class="privacy-policy navbar navbar-dark bg-dark" itemscope="itemscope" itemtype="https://schema.org/SiteNavigationElement">
+            <div class="container">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" itemprop="url" href="https://vhnam.github.io/privacy-policy.html">Chính sách bảo mật</a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    </footer>
+
+    <script src="https://vhnam.github.io/public/js/bootstrap.js"></script>
+
+    <script>
+        (function(d, s, id) {
+            var js, fjs = d.getElementsByTagName(s)[0];
+            if (d.getElementById(id)) return;
+            js = d.createElement(s); js.id = id;
+            js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.5";
+            fjs.parentNode.insertBefore(js, fjs);
+        }(document, 'script', 'facebook-jssdk'));
+    </script>
+
+    <script>
+        (function() {
+            var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
+            po.src = 'https://apis.google.com/js/platform.js';
+            var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
+        })();
+    </script>
+
+    <script>
+        !function(d,s,id){
+            var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';
+            if(!d.getElementById(id)){js=d.createElement(s);
+                js.id=id;js.src=p+'://platform.twitter.com/widgets.js';
+                fjs.parentNode.insertBefore(js,fjs);
+            }
+        }(document, 'script', 'twitter-wjs');
+    </script>
+
+    <!-- Facebook Analytics -->
+    <script>
+        window.fbAsyncInit = function() {
+            FB.init({
+                appId      : '2064203853819553',
+                xfbml      : true,
+                version    : 'v3.0'
+            });
+            
+            FB.AppEvents.logPageView();   
+        };
+
+        (function(d, s, id){
+            var js, fjs = d.getElementsByTagName(s)[0];
+            if (d.getElementById(id)) {return;}
+            js = d.createElement(s); js.id = id;
+            js.src = "https://connect.facebook.net/en_US/sdk.js";
+            fjs.parentNode.insertBefore(js, fjs);
+        }(document, 'script', 'facebook-jssdk'));
+    </script>
+
+    <!-- Google Analytics -->
+    <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-66016963-1', 'auto');
+        ga('require', 'linkid', 'linkid.js');
+        ga('require', 'displayfeatures');
+        ga('send', 'pageview');
+    </script>
+</body>
+</html>
