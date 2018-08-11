@@ -46,7 +46,7 @@ def readConfig(title, mode):
 
 
 def createContent(title, config, mode):
-    templateFile = "src/template/matt-falrey.html"
+    templateFile = "src/template/matt-falrey__blog.html"
     fromFile = "src/content/%s/%s/index.html" % (mode, title)
     toFile = "%s/%s/index.html" % (mode, title)
 
