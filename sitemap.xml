@@ -1,6 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="https://www.sitemaps.org/schemas/sitemap/0.9">
     <url>
+        <loc>https://vhnam.github.io/blog/chuyen-nhan-su/</loc>
+        <lastmod>2018-08-14</lastmod>
+    </url>
+    <url>
         <loc>https://vhnam.github.io/tutorials/distributed-system-cac-kieu-con-da-dieu/</loc>
         <lastmod>2018-08-11</lastmod>
     </url>

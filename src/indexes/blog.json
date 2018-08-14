@@ -1,6 +1,13 @@
 {
     "blog": [
         {
+            "name" : "Chuyện nhân sự",
+            "link" : "https://vhnam.github.io/blog/chuyen-nhan-su/",
+            "datetime": "2018-08-14",
+            "time" : "Ngày 14 tháng 8 năm 2018",
+            "description" : "Trong lúc dọn máy tính, mình muốn lưu lại một chút về bài viết \"HR Du Hý\" của một bạn HR đã chia sẻ chuyện nhân sự"
+        },
+        {
             "name" : "Not quite my tempo",
             "link" : "https://vhnam.github.io/blog/not-quite-my-tempo/",
             "datetime": "2018-06-02",
