@@ -72,10 +72,12 @@ def createContent(title, config, mode):
 
 
 def main():
-    directories = os.listdir('src/content/blog')
+    # directories = os.listdir('src/content/blog')
 
-    for directory in directories:
-        build(directory, 'blog')
+    # for directory in directories:
+    #     build(directory, 'blog')
+
+    build('chuyen-nhan-su', 'blog')
 
 
 
