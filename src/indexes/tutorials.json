@@ -1,6 +1,13 @@
 {
     "tutorials": [
         {
+            "name": "Karayolo (Phần 1): Karayolo là gì?",
+            "link" : "https://vhnam.github.io/tutorials/karayolo-phan-1/",
+            "datetime": "2018-08-24",
+            "time": "Ngày 24 tháng 8 năm 2018",
+            "description": "Đây là đồ án môn Thiết Kế Giao Diện. Mục đích chia sẻ phương pháp thiết kế sao cho hiệu quả."
+        },
+        {
             "name": "Distributed System: Các kiểu con đà điểu",
             "link" : "https://vhnam.github.io/tutorials/distributed-system-cac-kieu-con-da-dieu/",
             "datetime": "2018-08-11",
