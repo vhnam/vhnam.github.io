@@ -1,6 +1,13 @@
 {
     "tutorials": [
         {
+            "name": "Karayolo (Phần 3): Thực hiện",
+            "link" : "https://vhnam.github.io/tutorials/karayolo-phan-3/",
+            "datetime": "2018-08-24",
+            "time": "Ngày 24 tháng 8 năm 2018",
+            "description": "Nội dung phần này chỉ là trưng bày sản phẩm."
+        },
+        {
             "name": "Karayolo (Phần 2): Phân tích",
             "link" : "https://vhnam.github.io/tutorials/karayolo-phan-2/",
             "datetime": "2018-08-24",
