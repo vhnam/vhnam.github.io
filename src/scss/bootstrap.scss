@@ -36,6 +36,17 @@ h6 {
     }
 }
 
+figure {
+    & > img {
+        margin-bottom: 1rem;
+    }
+
+    & > figcaption {
+        font-weight: 700;
+        margin-bottom: 2rem;
+    }
+}
+
 .navbar-collapse {
     &__header {
         background-color: #F44336;
