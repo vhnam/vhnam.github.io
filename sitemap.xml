@@ -1,6 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="https://www.sitemaps.org/schemas/sitemap/0.9">
     <url>
+        <loc>https://vhnam.github.io/tutorials/ui-101/</loc>
+        <lastmod>2018-09-06</lastmod>
+    </url>
+    <url>
         <loc>https://vhnam.github.io/tutorials/karayolo-phan-3/</loc>
         <lastmod>2018-08-24</lastmod>
     </url>
