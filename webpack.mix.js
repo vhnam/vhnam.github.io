@@ -23,4 +23,10 @@ mix
     .sass('src/scss/about.scss', 'public/css')
     .sass('src/scss/post.scss', 'public/css')
     .sass('src/scss/list.scss', 'public/css')
+
+    .options({
+        postCss: [
+            require('postcss-css-variables')()
+        ]
+    })
 ;
