@@ -1,6 +1,13 @@
 {
     "tutorials": [
         {
+            "name": "Tớ đã ăn hành với Redux như thế nào?",
+            "link" : "https://vhnam.github.io/tutorials/to-da-an-hanh-voi-redux-nhu-the-nao/",
+            "datetime": "2018-09-07",
+            "time": "Ngày 7 tháng 9 năm 2018",
+            "description": "Chia sẻ cách tiếp cận Redux cho người mới bắt đầu"
+        },
+        {
             "name": "UI 101",
             "link" : "https://vhnam.github.io/tutorials/ui-101/",
             "datetime": "2018-09-06",

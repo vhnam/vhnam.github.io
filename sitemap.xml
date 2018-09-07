@@ -1,6 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="https://www.sitemaps.org/schemas/sitemap/0.9">
     <url>
+        <loc>https://vhnam.github.io/tutorials/to-da-an-hanh-voi-redux-nhu-the-nao/</loc>
+        <lastmod>2018-09-07</lastmod>
+    </url>
+    <url>
         <loc>https://vhnam.github.io/tutorials/ui-101/</loc>
         <lastmod>2018-09-06</lastmod>
     </url>
