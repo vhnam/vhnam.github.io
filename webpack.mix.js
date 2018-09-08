@@ -18,6 +18,8 @@ mix
     .js('src/js/tutorial.js', 'public/js')
 
     .sass('src/scss/bootstrap.scss', 'public/css')
+    .sass('src/scss/vakhtang/styles.scss', 'public/css/vakhtang.css')
+
     .sass('src/scss/index.scss', 'public/css')
     .sass('src/scss/contact.scss', 'public/css')
     .sass('src/scss/about.scss', 'public/css')
