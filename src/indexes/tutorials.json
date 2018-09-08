@@ -1,6 +1,13 @@
 {
     "tutorials": [
         {
+            "name": "Flexbox",
+            "link" : "https://vhnam.github.io/tutorials/flexbox/",
+            "datetime": "2018-09-08",
+            "time": "Ngày 8 tháng 9 năm 2018",
+            "description": "Chia sẻ với mọi người về Flexbox khi dựng layout"
+        },
+        {
             "name": "Tớ đã ăn hành với Redux như thế nào?",
             "link" : "https://vhnam.github.io/tutorials/to-da-an-hanh-voi-redux-nhu-the-nao/",
             "datetime": "2018-09-07",
