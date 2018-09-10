@@ -1,0 +1,546 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="robots" content="noodp,index,follow">
+    <meta name="revisit-after" content="1 days">
+    <meta name="google-site-verification" content="ZFrkEu3QMFl9Kz0JyK2SfzdIZ84lDgm9gLQ6J6FmAvg">
+    <meta name="p:domain_verify" content="faa7b25edce176988fb8171e9457554a">
+
+    <!-- Facebook Webmasters -->
+    <meta property="og:url" content="https://vhnam.github.io/projects/vakhtang">
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="vakhtang">
+    <meta property="og:description" content="Design system cho blog cá nhân">
+    <meta property="og:image" content="https://vhnam.github.io/projects/vakhtang/img/thumbnails.jpg">
+    <meta property="og:locale" content="vi_VN">
+    <meta property="fb:app_id" content="2064203853819553">
+
+    <title>Vakhtang | Nam Vo</title>
+
+    <link rel="shortcut icon" href="/public/favicon.ico" type="image/x-icon">
+    <link rel="canonical" href="http://vhnam.github.io/">
+    <link rel="publisher" href="https://plus.google.com/116570296349523695729">
+
+    <link rel="stylesheet" href="/public/css/bootstrap.css">
+    <link rel="stylesheet" href="/public/css/vakhtang.css">
+    <link rel="stylesheet" href="/public/css/projects.css">
+
+    <!--[if lt IE 9]>
+        <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+</head>
+<body itemscope="itemscope" itemtype="https://schema.org/BlogPosting">
+    <nav class="navbar navbar-expand-lg navbar-light">
+        <div class="container">
+            <a class="navbar-brand" href="/" itemprop="url">
+                <img src="https://vhnam.github.io/public/img/favicon.png" alt="Nam Vo" height="48" width="48">
+            </a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNavDropdown">
+                <header class="navbar-collapse__header">
+                    <button class="navbar-toggler float-right" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+                        &times;
+                    </button>
+                    <div class="clear-both"></div>
+                </header>
+                <ul class="navbar-nav ml-md-auto navbar-collapse__content" itemscope="itemscope" itemtype="https://schema.org/SiteNavigationElement">
+                    <li class="nav-item">
+                        <a class="nav-link" itemprop="url" href="/">Trang chủ</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" itemprop="url" href="/blog">Nhật Ký</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" itemprop="url" href="/tutorials">Chuyện Lập Trình</a>
+                    </li>
+                    <li class="nav-item active">
+                        <a class="nav-link" itemprop="url" href="/projects">Dự án</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" itemprop="url" href="/about.html">Giới Thiệu</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" itemprop="url" href="/contact.html">Liên Hệ</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <section class="hero">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <h1 class="hero__title" itemprop="headline">Vakhtang</h1>
+                    <h2 class="hero__subtitle">Design system cho blog</h2>
+                    <meta itemprop="author" content="Nam Vo">
+                </div>
+            </div>
+        </div>
+        <div itemprop="publisher" itemscope itemtype="https://schema.org/Organization">
+            <meta itemprop="name" content="GitHub">
+            <span hidden itemprop="logo" itemscope itemtype="https://schema.org/ImageObject">
+                <img itemprop="url" src="https://vhnam.github.io/public/img/github.png" alt="GitHub">
+                <meta itemprop="width" content="48">
+                <meta itemprop="height" content="48">
+             </span>
+        </div>
+    </section>
+
+    <section class="content">
+        <div class="container">
+            <h2 hidden>Nội dung</h2>
+            <div class="row">
+                <div class="col-12">
+                    <div class="content__body">
+                        <div class="row">
+                            <div class="col-md-4">
+                                <ul class="list-index">
+                                    <li>
+                                        <a href="#overview">Tổng quan</a>
+                                    </li>
+                                    <li>
+                                        <a href="#typography">Con chữ</a>
+                                    </li>
+                                    <li>
+                                        <a href="#colors">Màu sắc</a>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="col-md-8">
+                                <h2 id="overview" class="text-blue">Tổng quan</h2>
+                                <p>
+                                    Nhằm thống nhất trong cách thiết kế, mình dựng một design system riêng cho web để dễ dàng cập nhật lại giao diện.
+                                    <blockquote>
+                                        A design system is a set of interconnected patterns and shared practices coherently organized to achieve the purpose of digital products. Patterns are the repeating elements that we combine to create an interface: things like user flows, interactions, buttons, text fields, icons, colors, typography, microcopy. Practices are how we choose to create, capture, share and use those patterns, par- ticularly when working in a team.
+                                        <footer class="mt-3">
+                                            <em><strong>Alla Kholmatova</strong>, "Design systems: a practical guide to creating design languages for digital products"</em>
+                                        </footer>
+                                    </blockquote>
+                                </p>
+
+                                <h2 id="typography" class="text-blue">Con chữ</h2>
+                                <hr>
+
+                                <h1>Heading 1</h1>
+
+                                <h2>Heading 2</h2>
+                                <p>
+                                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatibus perspiciatis labore quis, qui, animi hic autem est aut beatae sit!
+                                </p>
+
+                                <h3>Heading 3</h3>
+                                <p>
+                                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Perspiciatis modi a numquam commodi provident amet.
+                                </p>
+
+                                <h4>Heading 4</h4>
+                                <p>
+                                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ut error voluptates optio dolores vel libero. Odit hic nostrum a tempora, facere aut, quia.
+                                </p>
+
+                                <h5>Heading 5</h5>
+                                <p>
+                                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Veritatis, reiciendis.
+                                </p>
+
+                                <h6>Heading 6</h6>
+                                <p>
+                                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quidem, repellendus illum ad.
+                                </p>
+
+                                <h2 id="colors" class="text-blue">Màu sắc</h2>
+                                <hr>
+                                <div class="row">
+                                    <div class="col-md-4">
+                                        <table class="table">
+                                            <tbody>
+                                                <tr class="bg-sky--lighter">
+                                                    <td>Lighter</td>
+                                                    <td>#F9FAFB</td>
+                                                </tr>
+                                                <tr class="bg-sky--light">
+                                                    <td>Light</td>
+                                                    <td>#F4F6F8</td>
+                                                </tr>
+                                                <tr class="bg-sky">
+                                                    <td>Sky</td>
+                                                    <td>#DFE3E8</td>
+                                                </tr>
+                                                <tr class="bg-sky--dark">
+                                                    <td>Dark</td>
+                                                    <td>#C4CDD5</td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <table class="table">
+                                            <tbody>
+                                                <tr class="bg-ink--lightest">
+                                                    <td>Lightest</td>
+                                                    <td>#919EAB</td>
+                                                </tr>
+                                                <tr class="bg-ink--lighter text-white">
+                                                    <td>Lighter</td>
+                                                    <td>#637381</td>
+                                                </tr>
+                                                <tr class="bg-ink--light text-white">
+                                                    <td>Light</td>
+                                                    <td>#454F5B</td>
+                                                </tr>
+                                                <tr class="bg-ink text-white">
+                                                    <td>Ink</td>
+                                                    <td>#212B36</td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                    <div class="col-md-4"></div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-4">
+                                        <table class="table">
+                                            <tbody>
+                                                <tr class="bg-purple--lighter">
+                                                    <td>Lighter</td>
+                                                    <td>#F6F0FD</td>
+                                                </tr>
+                                                <tr class="bg-purple--light">
+                                                    <td>Light</td>
+                                                    <td>#E3D0FF</td>
+                                                </tr>
+                                                <tr class="bg-purple text-white">
+                                                    <td>Purple</td>
+                                                    <td>#9C6ADE</td>
+                                                </tr>
+                                                <tr class="bg-purple--dark text-white">
+                                                    <td>Dark</td>
+                                                    <td>#50248F</td>
+                                                </tr>
+                                                <tr class="bg-purple--darker text-white">
+                                                    <td>Darker</td>
+                                                    <td>#230051</td>
+                                                </tr>
+                                                <tr class="bg-sky--light text-purple--text">
+                                                    <td>Text</td>
+                                                    <td>#50495A</td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <table class="table">
+                                            <tbody>
+                                                <tr class="bg-indigo--lighter">
+                                                    <td>Lighter</td>
+                                                    <td>#F4F5FA</td>
+                                                </tr>
+                                                <tr class="bg-indigo--light">
+                                                    <td>Light</td>
+                                                    <td>#B3BCF5</td>
+                                                </tr>
+                                                <tr class="bg-indigo text-white">
+                                                    <td>Indigo</td>
+                                                    <td>#5C6AC4</td>
+                                                </tr>
+                                                <tr class="bg-indigo--dark text-white">
+                                                    <td>Dark</td>
+                                                    <td>#202E78</td>
+                                                </tr>
+                                                <tr class="bg-indigo--darker text-white">
+                                                    <td>Darker</td>
+                                                    <td>#000639</td>
+                                                </tr>
+                                                <tr class="bg-sky--light text-indigo--text">
+                                                    <td>Text</td>
+                                                    <td>#3E4155</td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <table class="table">
+                                            <tbody>
+                                                <tr class="bg-blue--lighter">
+                                                    <td>Lighter</td>
+                                                    <td>#EBF5FA</td>
+                                                </tr>
+                                                <tr class="bg-blue--light">
+                                                    <td>Light</td>
+                                                    <td>#B4E1FA</td>
+                                                </tr>
+                                                <tr class="bg-blue text-white">
+                                                    <td>Blue</td>
+                                                    <td>#007ACE</td>
+                                                </tr>
+                                                <tr class="bg-blue--dark text-white">
+                                                    <td>Dark</td>
+                                                    <td>#084E8A</td>
+                                                </tr>
+                                                <tr class="bg-blue--darker text-white">
+                                                    <td>Darker</td>
+                                                    <td>#001429</td>
+                                                </tr>
+                                                <tr class="bg-sky--light text-blue--text">
+                                                    <td>Text</td>
+                                                    <td>#3E4E57</td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-4">
+                                        <table class="table">
+                                            <tbody>
+                                                <tr class="bg-teal--lighter">
+                                                    <td>Lighter</td>
+                                                    <td>#E0F5F5</td>
+                                                </tr>
+                                                <tr class="bg-teal--light">
+                                                    <td>Light</td>
+                                                    <td>#B7ECEC</td>
+                                                </tr>
+                                                <tr class="bg-teal">
+                                                    <td>Teal</td>
+                                                    <td>#47C1BF</td>
+                                                </tr>
+                                                <tr class="bg-teal--dark text-white">
+                                                    <td>Dark</td>
+                                                    <td>#00848E</td>
+                                                </tr>
+                                                <tr class="bg-teal--darker text-white">
+                                                    <td>Darker</td>
+                                                    <td>#003135</td>
+                                                </tr>
+                                                <tr class="bg-sky--light text-teal--text">
+                                                    <td>Text</td>
+                                                    <td>#405352</td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <table class="table">
+                                            <tbody>
+                                                <tr class="bg-green--lighter">
+                                                    <td>Lighter</td>
+                                                    <td>#E3F1DF</td>
+                                                </tr>
+                                                <tr class="bg-green--light">
+                                                    <td>Light</td>
+                                                    <td>#BBE5B3</td>
+                                                </tr>
+                                                <tr class="bg-green">
+                                                    <td>Green</td>
+                                                    <td>#50B83C</td>
+                                                </tr>
+                                                <tr class="bg-green--dark text-white">
+                                                    <td>Dark</td>
+                                                    <td>#108043</td>
+                                                </tr>
+                                                <tr class="bg-green--darker text-white">
+                                                    <td>Darker</td>
+                                                    <td>#173630</td>
+                                                </tr>
+                                                <tr class="bg-sky--light text-green--text">
+                                                    <td>Text</td>
+                                                    <td>#414F3E</td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <table class="table">
+                                            <tbody>
+                                                <tr class="bg-yellow--lighter">
+                                                    <td>Lighter</td>
+                                                    <td>#FCF1CD</td>
+                                                </tr>
+                                                <tr class="bg-yellow--light">
+                                                    <td>Light</td>
+                                                    <td>#FFEA8A</td>
+                                                </tr>
+                                                <tr class="bg-yellow">
+                                                    <td>Yellow</td>
+                                                    <td>#EEC200</td>
+                                                </tr>
+                                                <tr class="bg-yellow--dark text-white">
+                                                    <td>Dark</td>
+                                                    <td>#9C6F19</td>
+                                                </tr>
+                                                <tr class="bg-yellow--darker text-white">
+                                                    <td>Darker</td>
+                                                    <td>#573B00</td>
+                                                </tr>
+                                                <tr class="bg-sky--light text-yellow--text">
+                                                    <td>Text</td>
+                                                    <td>#595130</td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-4">
+                                        <table class="table">
+                                            <tbody>
+                                                <tr class="bg-orange--lighter">
+                                                    <td>Lighter</td>
+                                                    <td>#FCEBDB</td>
+                                                </tr>
+                                                <tr class="bg-orange--light">
+                                                    <td>Light</td>
+                                                    <td>#FFC58B</td>
+                                                </tr>
+                                                <tr class="bg-orange">
+                                                    <td>Orange</td>
+                                                    <td>#F49342</td>
+                                                </tr>
+                                                <tr class="bg-orange--dark text-white">
+                                                    <td>Dark</td>
+                                                    <td>#C05717</td>
+                                                </tr>
+                                                <tr class="bg-orange--darker text-white">
+                                                    <td>Darker</td>
+                                                    <td>#4A1504</td>
+                                                </tr>
+                                                <tr class="bg-sky--light text-orange--text">
+                                                    <td>Text</td>
+                                                    <td>#594430</td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <table class="table">
+                                            <tbody>
+                                                <tr class="bg-red--lighter">
+                                                    <td>Lighter</td>
+                                                    <td>#FBEAE5</td>
+                                                </tr>
+                                                <tr class="bg-red--light">
+                                                    <td>Light</td>
+                                                    <td>#FEAD9A</td>
+                                                </tr>
+                                                <tr class="bg-red text-white">
+                                                    <td>Red</td>
+                                                    <td>#DE3618</td>
+                                                </tr>
+                                                <tr class="bg-red--dark text-white">
+                                                    <td>Dark</td>
+                                                    <td>#BF0711</td>
+                                                </tr>
+                                                <tr class="bg-red--darker text-white">
+                                                    <td>Darker</td>
+                                                    <td>#330101</td>
+                                                </tr>
+                                                <tr class="bg-sky--light text-red--text">
+                                                    <td>Text</td>
+                                                    <td>#583C35</td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                    <div class="col-md-4"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6 text-left">
+                    He who loves practice without theory is like the sailor who boards [a] ship without a rudder and compass and never knows where he may cast. — Leonardo da Vinci
+                </div>
+                <div class="col-md-6 text-right">
+                    Copyright &copy; 2018 Nam Vo
+                </div>
+            </div>
+        </div>
+        <nav class="privacy-policy navbar navbar-dark bg-dark" itemscope="itemscope" itemtype="https://schema.org/SiteNavigationElement">
+            <div class="container">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" itemprop="url" href="https://vhnam.github.io/privacy-policy.html">Chính sách bảo mật</a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    </footer>
+
+    <script src="https://vhnam.github.io/public/js/bootstrap.js"></script>
+
+    <script>
+        (function(d, s, id) {
+            var js, fjs = d.getElementsByTagName(s)[0];
+            if (d.getElementById(id)) return;
+            js = d.createElement(s); js.id = id;
+            js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.5";
+            fjs.parentNode.insertBefore(js, fjs);
+        }(document, 'script', 'facebook-jssdk'));
+    </script>
+
+    <script>
+        (function() {
+            var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
+            po.src = 'https://apis.google.com/js/platform.js';
+            var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
+        })();
+    </script>
+
+    <script>
+        !function(d,s,id){
+            var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';
+            if(!d.getElementById(id)){js=d.createElement(s);
+                js.id=id;js.src=p+'://platform.twitter.com/widgets.js';
+                fjs.parentNode.insertBefore(js,fjs);
+            }
+        }(document, 'script', 'twitter-wjs');
+    </script>
+
+    <!-- Facebook Analytics -->
+    <script>
+        window.fbAsyncInit = function() {
+            FB.init({
+                appId      : '2064203853819553',
+                xfbml      : true,
+                version    : 'v3.0'
+            });
+            
+            FB.AppEvents.logPageView();   
+        };
+
+        (function(d, s, id){
+            var js, fjs = d.getElementsByTagName(s)[0];
+            if (d.getElementById(id)) {return;}
+            js = d.createElement(s); js.id = id;
+            js.src = "https://connect.facebook.net/en_US/sdk.js";
+            fjs.parentNode.insertBefore(js, fjs);
+        }(document, 'script', 'facebook-jssdk'));
+    </script>
+
+    <!-- Google Analytics -->
+    <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-66016963-1', 'auto');
+        ga('require', 'linkid', 'linkid.js');
+        ga('require', 'displayfeatures');
+        ga('send', 'pageview');
+    </script>
+</body>
+</html>

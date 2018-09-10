@@ -25,6 +25,7 @@ mix
     .sass('src/scss/about.scss', 'public/css')
     .sass('src/scss/post.scss', 'public/css')
     .sass('src/scss/list.scss', 'public/css')
+    .sass('src/scss/projects.scss', 'public/css')
     .sass('src/scss/404.scss', 'public/css')
 
     .options({
