@@ -1,6 +1,8 @@
+@import './vakhtang/styles.scss';
+
 .hero {
     height: 3rem;
-    background-color: #F44336;
+    @extend .bg-red;
 }
 
 .contact {

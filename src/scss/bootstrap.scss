@@ -4,6 +4,9 @@
 // Bootstrap
 @import '~bootstrap/scss/bootstrap';
 
+// Design system
+@import './vakhtang/styles.scss';
+
 body {
     font-family: 'Roboto', Helvetica, sans-serif;
     color: #212121;
@@ -49,7 +52,7 @@ figure {
 
 .navbar-collapse {
     &__header {
-        background-color: #F44336;
+        @extend .bg-red;
 
         .navbar-toggler {
             padding: .5rem 1rem;
@@ -66,15 +69,11 @@ figure {
     }
 }
 
-// .content img {
-//     border: 1px solid #e0e0e0;
-// }
-
 .footer {
     padding: 1rem 0 0;
     font-weight: 300;
     color: #fff;
-    background-color: #F44336;
+    @extend .bg-red;
 
     .privacy-policy {
         margin-top: 3rem;

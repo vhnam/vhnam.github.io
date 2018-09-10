@@ -1,10 +1,12 @@
+@import './vakhtang/styles.scss';
+
 .hero {
     padding: 7rem 0;
 
     &__name {
         margin-top: 2rem;
         font-size: 3rem;
-        color: #F44336;
+        @extend .text-red;
     }
 
     &__title {
@@ -19,7 +21,7 @@
     font-size: 1.2rem;
     font-weight: 300;
     line-height: 1.5;
-    background-color: #F44336;
+    @extend .bg-red;
 }
 
 .blog {
@@ -64,7 +66,8 @@
     .item {
         &__title {
             margin-bottom: .25rem;
-            color: #F44336;
+            font-size: 1.5rem;
+            @extend .text-red;
         }
 
         &__time {

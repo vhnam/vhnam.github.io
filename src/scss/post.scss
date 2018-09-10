@@ -1,7 +1,9 @@
+@import './vakhtang/styles.scss';
+
 .hero {
     padding: 3rem 0 8rem;
     color: #fff;
-    background-color: #F44336;
+    @extend .bg-red;
 
     &__title,
     &__subtitle {
@@ -38,7 +40,7 @@
     blockquote {
         padding: 0 0 0 2rem;
         margin-bottom: 2rem;
-        border-left: .5rem solid #F44336;
+        border-left: .5rem solid #DE3618;
     }
 }
 

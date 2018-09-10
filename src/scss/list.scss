@@ -1,7 +1,9 @@
+@import './vakhtang/styles.scss';
+
 .hero {
     padding: 3rem 0 8rem;
     color: #fff;
-    background-color: #F44336;
+    @extend .bg-red;
 
     &__title {
         font-size: 2rem;
@@ -37,7 +39,7 @@
     .item {
         &__title {
             margin-bottom: .25rem;
-            color: #F44336;
+            @extend .text-red;
         }
 
         &__time {
