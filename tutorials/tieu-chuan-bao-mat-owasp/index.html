@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="robots" content="noodp,index,follow">
+    <meta name="revisit-after" content="1 days">
+    <meta name="google-site-verification" content="ZFrkEu3QMFl9Kz0JyK2SfzdIZ84lDgm9gLQ6J6FmAvg">
+    <meta name="p:domain_verify" content="faa7b25edce176988fb8171e9457554a">
+
+    <!-- Facebook Webmasters -->
+    <meta property="og:url" content="https://vhnam.github.io/tutorials/tieu-chuan-bao-mat-owasp">
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="Tiêu chuẩn bảo mật OWASP">
+    <meta property="og:description" content="Ngày đầu đi làm, được sếp giao task làm lại phần giao diện theo tiêu chuẩn của OWASP. Bài này nhằm tóm tất lại quá trình tìm hiểu của mình">
+    <meta property="og:image" content="https://vhnam.github.io/tutorials/tieu-chuan-bao-mat-owasp/img/thumbnails.jpg">
+    <meta property="og:locale" content="vi_VN">
+    <meta property="fb:app_id" content="2064203853819553">
+
+    <title>Tiêu chuẩn bảo mật OWASP | Nam Vo</title>
+
+    <link rel="shortcut icon" href="https://vhnam.github.io/public/favicon.ico" type="image/x-icon">
+    <link rel="canonical" href="http://vhnam.github.io/">
+    <link rel="publisher" href="https://plus.google.com/116570296349523695729">
+
+    <link rel="stylesheet" href="https://vhnam.github.io/public/css/bootstrap.css">
+    <link rel="stylesheet" href="https://vhnam.github.io/public/css/vakhtang.css">
+    <link rel="stylesheet" href="https://vhnam.github.io/public/css/post.css">
+
+    <!--[if lt IE 9]>
+        <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+</head>
+<body itemscope="itemscope" itemtype="https://schema.org/BlogPosting">
+    <nav class="navbar navbar-expand-lg navbar-light">
+        <div class="container">
+            <a class="navbar-brand" href="/" itemprop="url">
+                <img src="https://vhnam.github.io/public/img/favicon.png" alt="Nam Vo" height="48" width="48">
+            </a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNavDropdown">
+                <header class="navbar-collapse__header">
+                    <button class="navbar-toggler float-right" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+                        &times;
+                    </button>
+                    <div class="clear-both"></div>
+                </header>
+                <ul class="navbar-nav ml-md-auto navbar-collapse__content" itemscope="itemscope" itemtype="https://schema.org/SiteNavigationElement">
+                    <li class="nav-item">
+                        <a class="nav-link" itemprop="url" href="/">Trang chủ</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" itemprop="url" href="/blog">Nhật Ký</a>
+                    </li>
+                    <li class="nav-item active">
+                        <a class="nav-link" itemprop="url" href="/tutorials">Chuyện Lập Trình</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" itemprop="url" href="/projects">Dự án</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" itemprop="url" href="/about.html">Giới Thiệu</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" itemprop="url" href="/contact.html">Liên Hệ</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <section class="hero">
+        <div class="container">
+            <div class="row">
+                <div class="col"></div>
+                <div class="col-md-8">
+                    <h1 class="hero__title" itemprop="headline">Tiêu chuẩn bảo mật OWASP</h1>
+                    <h2 class="hero__subtitle">Ngày 15 tháng 9 năm 2018</h2>
+                    <meta itemprop="author" content="Nam Vo">
+                    <meta itemprop="datePublished" content="2018-09-15">
+                    <meta itemprop="dateModified" content="2018-09-15">
+                    <meta itemprop="mainEntityOfPage" content="Ngày đầu đi làm, được sếp giao task làm lại phần giao diện theo tiêu chuẩn của OWASP. Bài này nhằm tóm tất lại quá trình tìm hiểu của mình">
+                </div>
+                <div class="col"></div>
+            </div>
+        </div>
+        <div itemprop="publisher" itemscope itemtype="https://schema.org/Organization">
+            <meta itemprop="name" content="GitHub">
+            <span hidden itemprop="logo" itemscope itemtype="https://schema.org/ImageObject">
+                <img itemprop="url" src="https://vhnam.github.io/public/img/github.png" alt="GitHub">
+                <meta itemprop="width" content="48">
+                <meta itemprop="height" content="48">
+             </span>
+        </div>
+    </section>
+
+    <section class="content">
+        <div class="container">
+            <h2 hidden>Nội dung</h2>
+            <div class="row">
+                <div class="col"></div>
+                <div class="col-md-8">
+                    <div class="content__body">
+                        <p>
+    Số là ngày đầu tiên đi làm, COO (Chief Operating Officer) xếp mình vào một dự án nội bộ của công ty. Trước đây đã có source code, tuy nhiên để kịp demo hay sao ấy, họ chỉ có mainflow và không tuân thủ theo tiêu chuẩn của OWASP. Họ mong muốn mình làm lại giao diện cho gọn gàng hơn và áp dụng tiêu chuẩn OWASP. Trong quá trình tìm hiểu, mình chia sẻ với mọi người luôn.
+</p>
+<img src="img/thumbnails.jpg" alt="OWASP" itemprop="image">
+
+<h3>Giới thiệu về OWASP</h3>
+<p>
+    <a itemprop="url" href="https://www.owasp.org/index.php/Main_Page">OWASP</a> là một tiêu chuẩn để phục vụ việc kiểm thử của Penetration Testing (Pentest) do tổ chức Open Web Application Security Project(OWASP) đề xuất. OWASP là tổ chức phi lợi nhuận và đưa ra chuẩn OWASP phục vụ cho công việc pentest hiệu quả và chi tiết. Tuy nhiên, để rõ hơn, mình xin giới thiệu sơ qua Pentest là gì.
+</p>
+<blockquote>
+    <h4>Pentest là gì?</h4>
+    <strong>Penetration Testing</strong> hay thường gọi là "pentest" hoặc “security testing" có thể hiểu đơn giản là đánh giá độ an toàn bằng cách tấn công vào hệ thống (gọi là đánh trận giả). Người thực hiện một thử nghiệm xâm nhập được gọi là kiểm tra xâm nhập hoặc pentester.<br>
+    Có một khái niệm khác mà đôi khi ta thường nhầm lẫn với Penetration Testing (PT) đó là <strong>Vulnerability Assessment (VA)</strong>. Vậy VA là gì và nó khác gì so với PT? Thực chất VA là quá trình rà soát lại các dịch vụ và hệ thống để tìm ra các vấn đề an ninh tiềm tàng hoặc dò tìm các dấu vết khi hệ thống bị tổn thương. Ngược lại PT thực hiện khai thác và tấn công thử nghiệm (POC attack) nhằm để tìm ra vấn đề an ninh tồn tại. Do đó PT đi xa hơn VA một bước bằng cách dựa theo các hoạt động thực sự của một hacker.<br>
+    Thâm nhập thử nghiệm có một yêu cầu là bạn phải nhận được sự cho phép của người sở hữu hệ thống. Nếu không, bạn sẽ được coi như là đang hack hệ thống, đó là bất hợp pháp ở hầu hết các quốc gia. Nói cách khác: Sự khác biệt giữa thử nghiệm thâm nhập và hack là bạn có sự cho phép của chủ sở hữu hệ thống.
+</blockquote>
+<p>
+    OWASP là 1 trong một số tiêu chuẩn để đánh giá bảo mật. Ngoài ra, còn có các tiêu chuẩn khác như:
+</p>
+<ul>
+    <li>
+        OSSTMM - <a itemprop="url" href="http://www.isecom.org/research/">Open Source Security Testing Methodology Manual</a>
+    </li>
+    <li>
+        ISSAF - <a itemprop="url" href="http://www.oissg.org/issaf">Information Systems Security Assessment Framework</a>
+    </li>
+    <li>
+        WASC-TC - <a temprop="url" href="http://projects.webappsec.org/w/page/13246978/Threat%20Classification">WASC Threat Classification</a>
+    </li>
+</ul>
+
+<h3>Nội dung</h3>
+<p>
+    Bạn có thể tham khảo nhanh <a temprop="url" href="https://www.owasp.org/images/0/08/OWASP_SCP_Quick_Reference_Guide_v2.pdf">OWASP Secure Coding Practices - Quick Reference Guide</a>. Ở đây, mình xin liệt kê một số thành phần trong tiêu chuẩn này.
+</p>
+<ul>
+    <li>
+        <p>
+            <strong>Input Validation</strong><br>
+            Bạn phải kiểm tra format, min, max, độ dài cho phép của các ô nhập liệu. Ngoài ra, bạn nhớ mã hoá các ký tự đặc biệt. Không bao giờ tin tưởng hoàn toàn người dùng, đó là một phương châm rất quan trọng đối với lập trình viên. Việc kiểm tra dữ liệu được nhập vào từ người dùng là công việc vô cùng quan trọng. Mục đích để tránh những sai sót không đáng có và các kiểu tấn công XSS, CSRF.
+        </p>
+    </li>
+    <li>
+        <p>
+            <strong>Output Encoding</strong><br>
+            Mã hoá các giá trị được nhận từ các nguồn đến trang web. Đôi khi, ở client được nhận những giá trị không đáng có như đoạn mã liên quan đến XSS, nếu không có những biện pháp xử lý trước khi hiển thị sẽ vô tình kích hoạt bẫy của hacker.
+        </p>
+    </li>
+    <li>
+        <p>
+            <strong>Authentication and Password Management</strong><br>
+            Kiểm tra bảo mật với chức năng đăng nhập là vấn đề cực kỳ quan trọng, bạn phải đảm bảo việc đăng nhập cần sự an toàn và đúng với ý định của nhà phát hành ứng dụng.
+        </p>
+    </li>
+    <li>
+        <p>
+            <strong>Session Management</strong><br>
+            Kiếm tra phiên đăng nhập để tránh các lỗi tấn công như Session Hijacking, Man in the Middle,... Bạn có thể tìm đọc qua bài viết sau
+        </p>
+        <ul>
+            <li>
+                Cyber Security Community, <a temprop="url" href="https://securitycommunity.tcs.com/infosecsoapbox/articles/2017/02/20/web-session-management-requisites-and-best-practices">Web Session Management : Requisites And Best Practices</a>
+            </li>
+        </ul>
+    </li>
+    <li>
+        <p>
+            <strong>Access Control</strong><br>
+            Khi người dùng bị hạn chế kiểm soát truy cập, hacker có thể khai thác và truy cập các chức năng hoặc dữ liệu trái phép. Kiểm soát truy cập nhằm mục đích kiểm soát người dùng được ủy quyền được phép hay không được phép làm gì trong một ứng dụng và để thiết lập quyền kiểm soát truy cập một cách hợp lí, ứng dụng phải đảm bảo rằng nó đang nghiêm túc thực hiện kiểm tra ủy quyền và xác thực hợp lệ để xác định người dùng được đặc quyền, thực tế là những người dùng Internet ngẫu nhiên.
+        </p>
+    </li>
+    <li>
+        <p>
+            <strong>Cryptographic Practices</strong><br>
+            Kiểm tra mã hóa thông tin trên đường truyền. Đối với đối thượng là những website thương mại điện tử hay giao dịch thì việc kiểm tra, mã hóa đường truyền là một vấn đề hết sức quan trọng. Phần này sẽ gợi ý bạn một số lời khuyên hữu ích.
+        </p>
+    </li>
+    <li>
+        <p>
+            <strong>Error Handling and Logging</strong><br>
+            Kiểm tra cách xử lý lỗi của ứng dụng thông tin về lỗi cũng là một nguồn thu thập dữ liệu cho hacker có thể tấn công vào website. Những lúc đó ứng dụng cần có cơ chế xử lý để không gặp phải hiện tượng tự nhiên lăn đùng ra chết mà quản trị chẳng hay chết khi nào và vì sao lại chết. Để biết điều, đó ta phải ghi Log các hoạt động của hệ thống. Tuy nhiên, hacker có thể khai thác log để đánh hệ thống.
+        </p>
+    </li>
+    <li>
+        <p>
+            <strong>Data Protection</strong><br>
+            Thu thập thông tin về đối tượng,thông tin về server. Bước này rất quan trọng bởi khi đã xác định được chính xác thông tin liên quan sẽ hình thành nên kịch bản để các Pentester có thể tấn công khai thác những lỗi liên quan đến websever mà không cần quan tâm tới ứng dụng đang chạy có an toàn hay không, từ đó có cách nhìn tổng quát về sản phầm cần pentest.
+        </p>
+    </li>
+    <li>
+        <p>
+            <strong>Communication Security</strong><br>
+            Bạn nên kiểm soát chặt chẽ quá trình giao tiếp với các thành phần khác như API, server khác thông qua giao thức kết nối, VPN,... Chẳng hạn như HTTPS không được thực hiện chính xác và để lại lỗ hổng, giúp tin tặc có thể ăn cắp thông tin tài khoản, mật khẩu, địa chỉ hay bất cứ thông tin có giá trị nào khác. 
+        </p>
+    </li>
+    <li>
+        <p>
+            <strong>System Configuration</strong>
+            Cần đánh giá về hệ thống máy chủ, không chỉ dừng ở bước đánh giá ứng dụng, bạn cần phải đánh giá cả nền tảng mà các ứng dụng chạy trên đó bởi nó có thể gây nguy hại không chỉ đến web mà còn đến cả hệ thống server. Hình thức kiểm tra được sử dụng là whitebox và graybox. Ngoài ra, do cấu hình an ninh lỏng lẻo tại các tầng kiến trúc của web như nền tảng, framework, máy chủ, cơ sở dữ liệu và mã tùy chỉnh nên tin tặc có thể khai thác tấn công và có quyền truy cập dữ liệu. Vì thế, tất cả các tầng kiến trúc của web phải được cập nhật thường xuyên.
+        </p>
+    </li>
+</ul>
+
+<h3>Tài liệu liên quan</h3>
+<p>
+    Khoảng vài năm, OWASP có công bố các lỗi bảo mật thường hay gặp. Bạn có thể tham khảo tại <a itemprop="url" href="https://github.com/OWASP/Top10">Official OWASP Top 10 Document Repository</a>.
+</p>
+
+<h3>Tham khảo</h3>
+<ul class="reference">
+    <li>
+        SecurityDaily, <a itemprop="url" href="https://securitydaily.net/cac-quy-trinh-chuan-kiem-tra-mot-ung-dung-website/">4 quy trình chuẩn kiểm tra bảo mật một ứng dụng website</a>
+    </li>
+    <li>
+        SecurityBox, <a itemprop="url" href="https://securitybox.vn/3873/pentest-theo-tieu-chuan-owasp/">PENTEST THEO TIÊU CHUẨN OWASP</a>
+    </li>
+    <li>
+        WhiteHat.vn, <a itemprop="url" href="https://whitehat.vn/threads/tong-quan-ve-penetration-testing.3515/">Tổng quan về Penetration Testing</a>
+    </li>
+</ul>
+
+                    </div>
+
+                    <div class="content__footer">
+                        <div class="social-plugin">
+                            <div class="like-share">
+                                <!-- Facebook -->
+                                <div class="fb-like" data-href="http://vhnam.github.io/blog/not-quite-my-tempo" data-layout="standard" data-action="like" data-show-faces="true" data-share="true"></div>
+    
+                                <div>
+                                    <!-- Twitter -->
+                                    <a href="https://twitter.com/share" class="twitter-share-button"{count} data-url="http://vhnam.github.io/blog/not-quite-my-tempo" data-via="vhnam2504">Tweet</a>
+    
+                                    <!-- Google Plus -->
+                                    <div class="g-plusone" data-annotation="inline" data-width="300"></div>
+                                </div>
+                            </div>
+                            <div class="comments">
+                                <div class="fb-comments" data-href="http://vhnam.github.io/blog/not-quite-my-tempo" data-numposts="10"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col"></div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6 text-left">
+                    He who loves practice without theory is like the sailor who boards [a] ship without a rudder and compass and never knows where he may cast. — Leonardo da Vinci
+                </div>
+                <div class="col-md-6 text-right">
+                    Copyright &copy; 2018 Nam Vo
+                </div>
+            </div>
+        </div>
+        <nav class="privacy-policy navbar navbar-dark bg-dark" itemscope="itemscope" itemtype="https://schema.org/SiteNavigationElement">
+            <div class="container">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" itemprop="url" href="https://vhnam.github.io/privacy-policy.html">Chính sách bảo mật</a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    </footer>
+
+    <script src="https://vhnam.github.io/public/js/bootstrap.js"></script>
+
+    <script>
+        (function(d, s, id) {
+            var js, fjs = d.getElementsByTagName(s)[0];
+            if (d.getElementById(id)) return;
+            js = d.createElement(s); js.id = id;
+            js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.5";
+            fjs.parentNode.insertBefore(js, fjs);
+        }(document, 'script', 'facebook-jssdk'));
+    </script>
+
+    <script>
+        (function() {
+            var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
+            po.src = 'https://apis.google.com/js/platform.js';
+            var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
+        })();
+    </script>
+
+    <script>
+        !function(d,s,id){
+            var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';
+            if(!d.getElementById(id)){js=d.createElement(s);
+                js.id=id;js.src=p+'://platform.twitter.com/widgets.js';
+                fjs.parentNode.insertBefore(js,fjs);
+            }
+        }(document, 'script', 'twitter-wjs');
+    </script>
+
+    <!-- Facebook Analytics -->
+    <script>
+        window.fbAsyncInit = function() {
+            FB.init({
+                appId      : '2064203853819553',
+                xfbml      : true,
+                version    : 'v3.0'
+            });
+            
+            FB.AppEvents.logPageView();   
+        };
+
+        (function(d, s, id){
+            var js, fjs = d.getElementsByTagName(s)[0];
+            if (d.getElementById(id)) {return;}
+            js = d.createElement(s); js.id = id;
+            js.src = "https://connect.facebook.net/en_US/sdk.js";
+            fjs.parentNode.insertBefore(js, fjs);
+        }(document, 'script', 'facebook-jssdk'));
+    </script>
+
+    <!-- Google Analytics -->
+    <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-66016963-1', 'auto');
+        ga('require', 'linkid', 'linkid.js');
+        ga('require', 'displayfeatures');
+        ga('send', 'pageview');
+    </script>
+</body>
+</html>
