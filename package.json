@@ -16,5 +16,6 @@
     "sass:build": "sass --update src/assets/scss:src/assets/css",
     "predeploy": "npm run build",
     "deploy": "gh-pages -d build"
-  }
+  },
+  "homepage": "https://github.com/vhnam/vhnam.github.io"
 }
