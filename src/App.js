@@ -1,10 +1,15 @@
 import React, { Component } from 'react';
+import { BrowserRouter as Router, Route, Link } from "react-router-dom";
+
+import Homepage from './pages/homepage';
 
 export default class App extends Component
 {
     render() {
         return (
-            <h1>Welcome to Nam Vo's blog</h1>
+            <Router>
+                <Route exact path="/" component={Homepage} />
+            </Router>
         )
     }
 }
