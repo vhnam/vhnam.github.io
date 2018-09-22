@@ -1,36 +1,20 @@
 {
   "name": "vhnam.github.io",
-  "version": "3.0.0",
-  "description": "Nam Vo | Software Developer, Product Manager, UX/UI Designer",
-  "main": "index.js",
-  "scripts": {
-    "dev": "NODE_ENV=development node_modules/webpack/bin/webpack.js --progress --hide-modules --config=node_modules/laravel-mix/setup/webpack.config.js",
-    "watch": "NODE_ENV=development node_modules/webpack/bin/webpack.js --watch --progress --hide-modules --config=node_modules/laravel-mix/setup/webpack.config.js",
-    "hot": "NODE_ENV=development webpack-dev-server --inline --hot --config=node_modules/laravel-mix/setup/webpack.config.js",
-    "production": "NODE_ENV=production node_modules/webpack/bin/webpack.js --progress --hide-modules --config=node_modules/laravel-mix/setup/webpack.config.js",
-    "prod": "npm run production"
-  },
-  "keywords": [
-    "blog",
-    "CV",
-    "diary",
-    "software",
-    "developer",
-    "product manager",
-    "ux",
-    "ui",
-    "designer"
-  ],
-  "author": "Nam Vo",
-  "license": "ISC",
-  "devDependencies": {
-    "axios": "^0.18.0",
-    "jquery": "^3.3.1",
-    "laravel-mix": "^2.1.14",
-    "popper.js": "^1.14.3",
-    "postcss-css-variables": "^0.9.0"
-  },
+  "version": "4.0.0",
+  "private": true,
   "dependencies": {
-    "bootstrap": "^4.1.1"
+    "react": "^16.5.2",
+    "react-dom": "^16.5.2",
+    "react-scripts": "1.1.5"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "yarn sass:build && react-scripts build",
+    "test": "react-scripts test --env=jsdom",
+    "eject": "react-scripts eject",
+    "sass:watch" : "sass --watch src/assets/scss:src/assets/css",
+    "sass:build": "sass --update src/assets/scss:src/assets/css",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build"
   }
 }

@@ -1,1 +1,0 @@
-.gallery{position:relative;margin:5rem 0 0}.gallery .gallery__item{position:absolute;display:none;padding:1rem;background-color:#fff;text-align:center;box-shadow:0 1px 3px rgba(0,0,0,.12),0 1px 2px rgba(0,0,0,.24)}.gallery .gallery__item--active{display:block}.gallery .gallery__item-image{width:100%}.gallery .gallery__item-text{margin-top:1rem;font-weight:500;font-size:1.25rem}

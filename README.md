@@ -1,6 +1,1 @@
-# Nam Vo Blog
-
-## Template Engine
-```
-python src/scripts/blog.py
-```
+# Nam Vo's blog
