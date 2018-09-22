@@ -12,10 +12,13 @@
     "build": "yarn sass:build && react-scripts build",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject",
-    "sass:watch" : "sass --watch src/assets/scss:src/assets/css",
+    "sass:watch": "sass --watch src/assets/scss:src/assets/css",
     "sass:build": "sass --update src/assets/scss:src/assets/css",
     "predeploy": "npm run build",
     "deploy": "gh-pages -d build"
   },
-  "homepage": "https://github.com/vhnam/vhnam.github.io"
+  "homepage": "https://github.com/vhnam/vhnam.github.io",
+  "devDependencies": {
+    "gh-pages": "^2.0.0"
+  }
 }
