@@ -1,0 +1,62 @@
+@import 'variables';
+
+.homepage {
+    &__cover {
+        padding: 5rem 0;
+        background-image: url('./../../img/trumpet.jpg');
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: cover;
+
+        .jumbotron {
+            background-color: rgba(67, 82, 86, .7) !important;
+            color: #fff;
+        }
+    }
+
+    &__overview {
+        padding: 3rem 0;
+    }
+
+    &__title {
+        color: $color-5;
+    }
+
+    &__blog {
+        padding: 3rem 0;
+        background-color: $color-1;
+    }
+
+    &__tutorials {
+        padding: 3rem 0;
+        background-color: $color-6;
+    }
+
+    .list {
+        padding: 0;
+        margin: 0;
+        list-style-type: none;
+
+        .item {
+            margin-bottom: 1rem;
+
+            &__title {
+                font-size: 1.25rem;
+                color: $color-3;
+            }
+
+            &__time {
+                display: block;
+                font-size: .75rem;
+            }
+
+            &__description {
+                color: #616161;
+            }
+        }
+    }
+
+    .more {
+        color: $color-4;
+    }
+}
