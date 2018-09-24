@@ -32,6 +32,9 @@
 .content__footer {
   margin-top: 3rem; }
 
+.fb_iframe_widget, .fb_iframe_widget span, .fb_iframe_widget span iframe[style] {
+  width: 100% !important; }
+
 @media (max-width: 960px) {
   .content__index {
     display: none; } }
