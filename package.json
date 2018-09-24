@@ -1,22 +1,24 @@
 {
-  "name": "blog",
-  "version": "0.1.0",
-  "private": true,
+  "name": "nam-vo-blog",
+  "version": "4.0.0",
+  "description": "Nam Vo | Software Developer, Product Manager, UX/UI Designer",
+  "main": "index.js",
+  "scripts": {
+    "sass:watch": "sass --watch src/assets/scss:src/assets/css"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/vhnam/vhnam.github.io.git"
+  },
+  "author": "Nam Vo <vhnam2504@gmail.com>",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/vhnam/vhnam.github.io/issues"
+  },
+  "homepage": "https://github.com/vhnam/vhnam.github.io#readme",
   "dependencies": {
     "bootstrap": "^4.1.3",
     "jquery": "^3.3.1",
-    "popper.js": "^1.14.4",
-    "react": "^16.5.2",
-    "react-dom": "^16.5.2",
-    "react-router-dom": "^4.3.1",
-    "react-scripts": "1.1.5"
-  },
-  "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build && rm -rf ./static && mv build/* ./ && rm -rf ./build",
-    "test": "react-scripts test --env=jsdom",
-    "eject": "react-scripts eject",
-    "sass:build": "sass --update src/assets/scss:src/assets/css",
-    "sass:watch": "sass --watch src/assets/scss:src/assets/css"
+    "popper.js": "^1.14.4"
   }
 }

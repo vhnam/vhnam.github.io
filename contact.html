@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <title>Nam Vo | Software Developer, Product Manager, UX/UI Designer</title>
+
+    <link rel="shortcut icon" href="/src/assets/favicon.ico" type="image/x-icon">
+
+    <link rel="stylesheet" href="/src/assets/css//bootstrap.css">
+    <link rel="stylesheet" href="/src/assets/css//theme.css">
+    <link rel="stylesheet" href="/src/assets/css//pages/contact.css">
+</head>
+<body class="homepage">
+    <nav class="navbar navbar-expand-lg navbar-light shadow">
+        <div class="container">
+            <a class="navbar-brand text-river-bed font-weight-light" href="/">Nam Vo</a>
+            <button class="navbar-toggler" type="button" 
+                    data-toggle="collapse" data-target="#navbarNavDropdown" 
+                    aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNavDropdown">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Nhật ký</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Chuyện ngành</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Portfolio</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Thông tin</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Liên lạc</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="contact">
+        <div class="contact__cover">
+            <div class="container">
+                <div class="display-3 text-center text-white">
+                    Liên lạc
+                </div>
+            </div>
+        </div>
+
+        <div class="contact__info">
+            <div class="container">
+                <h1 class="display-5 contact__title">Thông tin liên lạc và mạng xã hội</h1>
+                <ul class="contact__list list">
+                    <li>
+                        <a class="link" href="https://github.com/vhnam">GitHub</a>
+                    </li>
+                    <li>
+                        <a class="link" href="https://vn.linkedin.com/in/namvh">LinkedIn</a>
+                    </li>
+                    <li>
+                        <a class="link" href="https://www.pinterest.com/vhnam2504">Pinterest</a>
+                    </li>
+                    <li>
+                        <a class="link" href="https://plus.google.com/+NamVoHoai2504">Google+</a>
+                    </li>
+                    <li>
+                        <a class="link" href="https://soundcloud.com/namvh">SoundCloud</a>
+                    </li>
+                    <li>
+                        <a class="link" href="https://medium.com/@namvh">Medium</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="contact__map">&nbsp;</div>
+    </div>
+
+    <footer class="footer">
+        <div class="container d-flex justify-content-between">
+            <ul class="nav">
+                <li class="nav-item">
+                    <a class="nav-link text-white" href="#">Điều khoản bảo mật</a>
+                </li>
+            </ul>
+            <div class="d-flex align-items-center text-white">
+                &copy; <span class="mx-1" id="footer-year"></span> Nam Vo's blog
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        const year = new Date().getFullYear();
+        const yearElement = document.getElementById('footer-year');
+        yearElement.innerText = year;
+    </script>
+</body>
+</html>

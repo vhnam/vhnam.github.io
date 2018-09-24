@@ -1,6 +1,6 @@
 .homepage__cover {
   padding: 5rem 0;
-  background-image: url("./../../img/trumpet.jpg");
+  background-image: url("/src/assets/img/trumpet.jpg");
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover; }

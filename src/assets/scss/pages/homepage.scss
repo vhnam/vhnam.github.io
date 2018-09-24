@@ -3,7 +3,7 @@
 .homepage {
     &__cover {
         padding: 5rem 0;
-        background-image: url('./../../img/trumpet.jpg');
+        background-image: url('/src/assets/img/trumpet.jpg');
         background-repeat: no-repeat;
         background-position: center;
         background-size: cover;
@@ -19,17 +19,17 @@
     }
 
     &__title {
-        color: $color-5;
+        color: $coral-tree-color;
     }
 
     &__blog {
         padding: 3rem 0;
-        background-color: $color-1;
+        background-color: $porcelain-color;
     }
 
     &__tutorials {
         padding: 3rem 0;
-        background-color: $color-6;
+        background-color: $spring-wood-color;
     }
 
     .list {
@@ -42,7 +42,7 @@
 
             &__title {
                 font-size: 1.25rem;
-                color: $color-3;
+                color: $smalt-blue-color;
             }
 
             &__time {
@@ -57,6 +57,6 @@
     }
 
     .more {
-        color: $color-4;
+        color: $river-bed-color;
     }
 }

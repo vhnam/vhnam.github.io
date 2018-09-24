@@ -1,7 +1,0 @@
-{
-"version": 3,
-"mappings": "AAEA,OAAQ;EACJ,gBAAgB,ECCV,OAAO",
-"sources": ["../../scss/components/Footer.scss","../../scss/_variables.scss"],
-"names": [],
-"file": "Footer.css"
-}
