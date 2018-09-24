@@ -1,0 +1,7 @@
+{
+"version": 3,
+"mappings": "AAEA,QAAS;EACL,aAAa,EAAE,IAAI;EAEnB,eAAS;IACL,OAAO,EAAE,YAAY;IACrB,gBAAgB,EAAE,oCAAoC;IACtD,iBAAiB,EAAE,SAAS;IAC5B,mBAAmB,EAAE,MAAM;IAC3B,eAAe,EAAE,KAAK;IACtB,aAAa,EAAE,qBAA6B;EAGhD,eAAS;IACL,KAAK,ECVM,OAAO",
+"sources": ["../../scss/pages/privacy.scss","../../scss/_variables.scss"],
+"names": [],
+"file": "privacy.css"
+}
