@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <title>Nam Vo | Software Developer, Product Manager, UX/UI Designer</title>
+
+    <link rel="shortcut icon" href="/src/assets/favicon.ico" type="image/x-icon">
+
+    <link rel="stylesheet" href="/src/assets/css//bootstrap.css">
+    <link rel="stylesheet" href="/src/assets/css//theme.css">
+    <link rel="stylesheet" href="/src/assets/css//pages/homepage.css">
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light shadow">
+        <div class="container">
+            <a class="navbar-brand text-river-bed font-weight-light" href="/">Nam Vo</a>
+            <button class="navbar-toggler" type="button" 
+                    data-toggle="collapse" data-target="#navbarNavDropdown" 
+                    aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNavDropdown">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="/">Nhật ký</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Chuyện ngành</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Portfolio</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/about.html">Thông tin</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/contact.html">Liên lạc</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="homepage">
+        <div class="homepage__cover">
+            <div class="container">
+                <div class="jumbotron shadow">
+                    <h1 class="display-4">Nam Vo's Blog</h1>
+                    <p class="lead">Nhật ký cá nhân và chia sẻ chuyện nghề nghiệp</p>
+                </div>
+            </div>
+        </div>
+    
+        <div class="homepage__overview">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-6 py-4">
+                        <h2 class="homepage__title">Xin chào</h2>
+                        <p>
+                            Kể từ khi bắt đầu cuộc hành trình với vai trò một front-end developer, tôi đã được tiếp xúc với nhiều khách hàng, hợp tác với nhiều bạn trẻ tài năng phối hợp với các cơ quan nhà nước để làm ra sản phẩm phục vụ người dân tại Saigon, Việt Nam.
+                        </p>
+                        <p>
+                            Hãy liên hệ tôi nếu bạn có bất kỳ điều chi cần trao đổi!
+                        </p>
+                    </div>
+                    <div class="col-lg-6 text-center">
+                        <img src="/src/assets/img/namvh.jpg" alt="Nam Vo" />
+                    </div>
+                </div>
+            </div>
+        </div>
+    
+        <div class="homepage__blog">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-6">
+                        <img class="img-fluid" src="/src/assets/img/startup_life.svg" alt="Startup Life" />
+                    </div>
+                    <div class="col-lg-6">
+                        <h2 class="homepage__title mt-4">Nhật ký</h2>
+                        <ul class="homepage__list list" id="blog-list">
+                            <!-- EMPTY -->
+                        </ul>
+                        <div class="text-right">
+                            <a class="more" href="#">&raquo; Xem thêm</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    
+        <div class="homepage__tutorials">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-6">
+                        <h2 class="homepage__title">Chuyện ngành</h2>
+                        <ul class="homepage__list list" id="tutorial-list">
+                            <!-- EMPTY -->
+                        </ul>
+                        <div class="text-right">
+                            <a class="more" href="#">&raquo; Xem thêm</a>
+                        </div>
+                    </div>
+                    <div class="col-lg-6 mt-4">
+                        <img class="img-fluid" src="/src/assets//img/taking_notes.svg" alt="Taking Notes" />
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer class="footer">
+        <div class="container d-flex justify-content-between">
+            <ul class="nav">
+                <li class="nav-item">
+                    <a class="nav-link text-white" href="#">Điều khoản bảo mật</a>
+                </li>
+            </ul>
+            <div class="d-flex align-items-center text-white">
+                &copy; <span class="mx-1" id="footer-year"></span> Nam Vo's blog
+            </div>
+        </div>
+    </footer>
+
+    <script src="/src/assets/js/dist/bundle.js"></script>
+    <script src="/src/assets/js/index.js"></script>
+</body>
+</html>
