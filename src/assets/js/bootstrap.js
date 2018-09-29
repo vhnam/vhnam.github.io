@@ -22,6 +22,7 @@ $.fn.isInViewport = function() {
 };
 
 
+
 var index = $("#index");
 var position = index.position();
 
@@ -33,7 +34,6 @@ $(window).on('resize scroll', function() {
             $(`#prefix-${id}`).addClass('index--highlight');
         }
     });
-
     
     const windowPosition = $(window).scrollTop();
 

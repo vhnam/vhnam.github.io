@@ -1,0 +1,20 @@
+gallery-text li {
+    display: none;
+}
+
+gallery-text div {
+    max-width: 400px;
+    text-align: center;
+    min-height: 100px;
+    position: absolute;
+    top: 0;
+    padding: 16px;
+    display: inline-block;
+    background-color: #fff;
+    font-size: 16px;
+    font-weight: 600;
+    line-height: 24px;
+    -webkit-box-shadow: 0 1px 5px rgba(0,0,0,0.3);
+    -moz-box-shadow: 0 1px 5px rgba(0,0,0,0.3);
+    box-shadow: 0 1px 5px rgba(0,0,0,0.3);
+}
