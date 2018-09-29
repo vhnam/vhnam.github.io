@@ -6,7 +6,7 @@ import json
 import re
 from distutils.dir_util import copy_tree
 from bs4 import BeautifulSoup
-
+from xml.sax.saxutils import escape
 
 
 # Usage:
@@ -18,8 +18,8 @@ from bs4 import BeautifulSoup
 def build(title, mode):
     makeDirectory(title, mode)
     copyResources(title, mode)
+
     config = readConfig(title, mode)
-    createIndex(title, mode)
     index = createIndex(title, mode)
     createContent(title, index, config, mode)
 
