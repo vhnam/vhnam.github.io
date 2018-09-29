@@ -1,0 +1,125 @@
+<p>
+    Các bạn có bao giờ muốn biết trang web của mình có bao nhiêu lượt truy cập theo thời gian không? Có muốn biến người dùng đến từ đâu, độ tuổi, giới tính chứ nè? Tớ cũng vậy. Để làm được điều đó, tớ sử dụng <a itemprop="url" href="https://marketingplatform.google.com/about/analytics/">Google Analytics</a>. Gần đây mới biết <a itemprop="url" href="https://developers.facebook.com/docs/sharing/webmasters/">Facebook Webmaster</a>, <a itemprop="url" href="https://analytics.facebook.com/">Facebook Analytics</a> nên xài thử như thế nào.
+</p>
+
+<ul>
+    <li>
+        <a itemprop="url" href="https://vhnam.github.io/tutorials/lam-lai-blog-ca-nhan-1/">Phần 1: Khởi động</a>
+    </li>
+    <li>
+        <a itemprop="url" href="https://vhnam.github.io/tutorials/lam-lai-blog-ca-nhan-2/">Phần 2: Thiết kế giao diện</a>
+    </li>
+    <li>
+        <a itemprop="url" href="https://vhnam.github.io/tutorials/lam-lai-blog-ca-nhan-3/">Phần 3: Quản lý cấu hình</a>
+    </li>
+    <li>
+        <a itemprop="url" href="https://vhnam.github.io/tutorials/lam-lai-blog-ca-nhan-4/">Phần 4: Bắt đầu với giao diện</a>
+    </li>
+    <li>
+        <a itemprop="url" href="https://vhnam.github.io/tutorials/lam-lai-blog-ca-nhan-5/">Phần 5: Schema.org du hý</a>
+    </li>
+    <li>
+        >Phần 6: Metadata và các công cụ theo dõi hoạt động người dùng
+    </li>
+    <li>
+        <a itemprop="url" href="https://vhnam.github.io/tutorials/lam-lai-blog-ca-nhan-7/">Phần 7: Template Engine</a>
+    </li>
+    <li>
+        <a itemprop="url" href="https://vhnam.github.io/tutorials/lam-lai-blog-ca-nhan-8/">Phần 8: Deployment</a>
+    </li>
+</ul>
+
+<img src="img/thumbnails.jpg" alt="Thumbnails" itemprop="image">
+
+<h2>Tại sao metadata lại xuất hiện ở đây?</h2>
+<p>
+    <strong>Metadata</strong> là một phần của tiêu chuẩn HTML do WHATWG đề xuất và được sử dụng để lồng siêu dữ liệu trong nội dung hiện có của các trang web. Search Engine, Web Crawler và trình duyệt có thể trích xuất, xử lý dữ liệu nhằm đem lại trải nghiệm phong phú, thông tin hữu ích hơn cho người dùng.
+</p>
+<p>
+    Metadata của một trang web xuất hiện ở 2 dạng.
+</p>
+<ul>
+    <li>
+        Một nhóm các cặp <strong>key-value</strong> được định nghĩa trong một <strong>itemscope</strong>. Có thể được nhúng trực tiếp trong code HTML như ở phần 5 tớ đã trình bày hoặc RDFa, JSON-LD.
+    </li>
+    <li>
+        Metadata được khai báo trong thẻ <code>&lt;meta&gt;</code> được khai báo trong cặp thẻ <code>&lt;head&gt;</code>.
+    </li>
+</ul>
+<p>
+    Ở phần này, tớ sẽ nói về loại thứ 2. Để kích hoạt Google Analytics và Facebook Webmaster đều dùng thông tin metadata trong thẻ <code>&lt;meta&gt;</code>.
+</p>
+
+<h2>Google Analytics</h2>
+<p>
+    Hiện nay, Google Analytics được tích hợp vào <a href="https://marketingplatform.google.com/about/">Google Markerting Platform</a> thay vì <strong>Google Analytics 360 Suite</strong>. Đây là công cụ theo dõi hoạt động của người dùng phổ biến, đơn giản và trực quan.
+</p>
+<p>
+    Google Analytics cho phép chúng ta biết được một số thông tin cơ bản như:
+</p>
+<ul>
+    <li>
+        Lượng người dùng theo thời gian thực, theo khoảng thời gian
+    </li>
+    <li>
+        Thông tin người dùng như giởi tính, độ tuổi, hệ điều hành, thiết bị, nơi ở, thời gian sử dụng trung bình,...
+    </li>
+    <li>
+        Hành vi của người dùng như sự kiện, luồng tương tác,...
+    </li>
+</ul>
+<img src="img/google-analytics.jpg" alt="Google Analytics" itemprop="image">
+<p>
+    Trước tiên, bạn đăng ký sử dụng Google Analytics và cấu hình như hướng dẫn tại <a itemprop="url" href="https://support.google.com/analytics/answer/1008015">https://support.google.com/analytics/answer/1008015</a>. Đoạn code cấu hình trên web, tớ đặt ở trước khi đóng thẻ <code>&lt;body&gt;</code>.
+</p>
+<img src="img/ga-config.jpg" alt="Google Analytics - Config" itemprop="image">
+
+<h2>Facebook Analytics</h2>
+<p>
+    Facebook Analytics cũng tương tự Google Analytics, cho phép chúng ta biết được lượng người dùng, hành vi của họ trên trang web của ta. Theo như quảng cáo thì Facebook Analytics tập trung vào theo dõi hành vi người dung hơn là các thông số về thiết bị mà người dùng sử dụng. Bạn có thể biết thêm chi tiết ở một link sau.
+</p>
+<ul>
+    <li>
+        Adstage, <a itemprop="url" href="https://blog.adstage.io/2018/03/01/facebook-analytics-beats-google-analytics">5 Ways Facebook Analytics Beats Google Analytics</a>
+    </li>
+    <li>
+        Smartly, <a itemprop="url" href="https://www.smartly.io/blog/facebook-vs-google-analytics-deep-dive-into-conversion-tracking-and-attribution-models">Facebook vs. Google Analytics - Conversion Tracking and Attribution Models</a>
+    </li>
+</ul>
+<img src="img/fb-analytics.jpg" alt="Facebook Analytics" itemprop="image">
+<p>
+    Để sử dụng, bạn làm theo hướng dẫn tại <a itemprop="url" href="https://adespresso.com/blog/facebook-analytics/">https://adespresso.com/blog/facebook-analytics/</a>. Đoạn code cấu hình, tớ đặt ở trước khi đóng thẻ <code>&lt;body&gt;</code>.
+</p>
+<img src="img/fb-analytics__config.jpg" alt="Facebook Analytics - Config" itemprop="image">
+<p>
+    Có lưu ý cho các bạn một tí, để kích hoạt được dashboard của Facebook Analytics. Các bạn phải có trang <strong>Chính Sách Bảo Mật</strong> thì Facebook mới cho phép cho chúng ta sử dụng. Do đó, nếu bạn bạn xem trong thiết kế ban đầu của tớ, sẽ không thấy thanh màu đen ở phía dưới foooter.
+</p>
+
+<h2>Facebook Webmaster</h2>
+<p>
+    Khi tở chia sẻ link bài viết lên Facebook, tớ muốn ẩn link, chỉ hiện mô tả và hình đại diện đã cấu hình cho bài viết như hình phía dưới. Để làm được như vậy, bạn chỉ cần cấu hình Facebook Webmaster là được.
+</p>
+<img src="img/fb-webmaster.jpg" alt="Facebook Webmaster" itemprop="image">
+<p>
+    Phần cấu hình của Facebook Webmaster nằm ở phần metadata trong phần thể <code>&lt;head&gt;</code>.Bạn có thể làm theo hướng dẫn tại <a itemprop="url" href="https://developers.facebook.com/docs/sharing/webmasters/">https://developers.facebook.com/docs/sharing/webmasters/</a>.
+</p>
+<img src="img/fb-webmaster__config.jpg" alt="Facebook Webmaster - Config" itemprop="image">
+
+<h2>Tổng kết</h2>
+<p>
+    Tớ đã giới thiệu đến các bạn những công cụ theo dõi đang được gắn tại blog. Còn việc khai thác chúng như thế nào, tớ xin hẹn một chủ đề khác nhé. Phần tiếp theo sẽ là phần hay ho nhất trong công việc làm lại blog lần này của tớ.
+</p>
+<img src="img/quote.jpg" alt="Write the book you want to read" itemprop="image">
+
+<h2>Tham khảo</h2>
+<ul class="reference">
+    <li>
+        Mozilla, <a itemprop="url" href="https://developer.mozilla.org/en-US/docs/Web/HTML/Microdata">Microdata</a>
+    </li>
+    <li>
+        Google Analytics Solutions, <a itemprop="url" href="https://analytics.googleblog.com/2018/07/new-brand-new-home-mktg.html">New brand, new home: Where to find Google Marketing Platform online</a>
+    </li>
+    <li>
+        Facebook Developer, <a itemprop="url" href="https://developers.facebook.com/docs/sharing/webmasters/">A Guide to Sharing for Webmasters</a>
+    </li>
+</ul>

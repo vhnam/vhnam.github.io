@@ -3,6 +3,7 @@
 import sys
 import os
 import json
+import re
 from distutils.dir_util import copy_tree
 from bs4 import BeautifulSoup
 
@@ -16,8 +17,9 @@ from bs4 import BeautifulSoup
 
 def build(title, mode):
     makeDirectory(title, mode)
-    copyImages(title, mode)
+    copyResources(title, mode)
     config = readConfig(title, mode)
+    createIndex(title, mode)
     index = createIndex(title, mode)
     createContent(title, index, config, mode)
 
@@ -31,10 +33,15 @@ def makeDirectory(title, mode):
 
 
 
-def copyImages(title, mode):
-    fromDirectory = "src/content/%s/%s/img" % (mode, title)
-    toDirectory = "%s/%s/img" % (mode, title)
-    copy_tree(fromDirectory, toDirectory)
+def copyResources(title, mode):
+    resouces = ["img", "css", "js"]
+
+    for item in resouces:
+        fromDirectory = "src/content/%s/%s/%s" % (mode, title, item)
+
+        if os.path.exists(fromDirectory):
+            toDirectory = "%s/%s/%s" % (mode, title, item)
+            copy_tree(fromDirectory, toDirectory)
 
 
 
@@ -48,6 +55,28 @@ def readConfig(title, mode):
 
 
 
+def encodeHeading(heading):
+    encodedHeading = heading.encode("ascii", "ignore").decode("utf-8")
+    newHeading = encodedHeading.replace(" ", "-")
+    newHeading = newHeading.replace(",", "")
+    newHeading = newHeading.replace("?", "")
+    newHeading = newHeading.replace(".", "")
+    newHeading = newHeading.replace("!", "")
+    newHeading = newHeading.lower()
+    return newHeading
+
+
+
+def isGreater(currentHeading, prevHeading):
+    currentIndex = re.findall(r'\d+', currentHeading)
+    prevIndex = re.findall(r'\d+', prevHeading)
+
+    if (int(currentIndex[0]) > int(prevIndex[0])):
+        return False
+    return True
+
+
+
 def createIndex(title, mode):
     fromFile = "src/content/%s/%s/index.html" % (mode, title)
     toFile = "src/content/%s/%s/index.tmp.html" % (mode, title)
@@ -57,38 +86,37 @@ def createIndex(title, mode):
     soup = BeautifulSoup(content, "html.parser")
     f.close()
 
-    h2Items = soup.find_all("h2")
-    index = ''
+    index = "<ul>"
+    prevHeading = "h2"
     isFirst = True
+    headingItems = soup.find_all(["h2", "h3", "h4"])
+    
+    for heading in headingItems:
+        title = encodeHeading(heading.text)
 
-    for item in h2Items:
-        content = item.text
-        encodedTitle = content.encode("ascii","ignore").decode("utf-8")
-        newTitle = encodedTitle.replace(" ", "-")
-        newTitle = newTitle.replace(",", "")
-        newTitle = newTitle.replace("?", "")
-        newTitle = newTitle.replace(".", "")
-        newTitle = newTitle.replace("!", "")
-        newTitle = newTitle.lower()
+        newTag = soup.new_tag("span", id=title, **{"class": "heading"})
+        heading.insert_before(newTag)
 
-        newTag = soup.new_tag("span", id=newTitle, **{"class": "heading"})
-        item.insert_after(newTag)
+        if (heading.name != prevHeading):
+            if (isGreater(heading.name, prevHeading)):
+                index = index + "</ul>"
+            else:
+                index = index + "<ul>"
 
-        newIndexItem = soup.new_tag("li")
-        if (isFirst):            
-            newLink = soup.new_tag("a", id="prefix-%s" % newTitle, href="#%s" % newTitle, **{"class": "index__item index--highlight"})
+        className = "index__item"
+        if isFirst:
+            className = "index__item index--highlight"
             isFirst = False
-        else:
-            newLink = soup.new_tag("a", id="prefix-%s" % newTitle, href="#%s" % newTitle, **{"class": "index__item"})  
-        newLink.string = content
-        newIndexItem.append(newLink)
-        index = index + str(newIndexItem)
+        index = index + '<li><a id="prefix-%s" href="#%s" class="%s">%s</a></li>' % (title, title, className, heading.text)
+
+        prevHeading = heading.name
+
+    index = index + "</ul>"
 
     with open(toFile, "w") as file:
         file.write(str(soup))
 
     return index
-
 
 
 
@@ -106,7 +134,7 @@ def createContent(title, index, config, mode):
     f.close()
 
     newContent = template.replace("{{content}}", content)
-    newContent = newContent.replace("{{index}}", index)
+    newContent = newContent.replace("{{index}}", index.encode("utf-8"))
     newContent = newContent.replace("{{title}}", title)
     newContent = newContent.replace("{{headline}}", config["headline"].encode("utf-8"))
     newContent = newContent.replace("{{description}}", config["description"].encode("utf-8"))

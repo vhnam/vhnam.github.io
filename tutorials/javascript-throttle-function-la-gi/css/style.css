@@ -1,0 +1,10 @@
+.block-blue {
+	width: 100%;
+	background-color: #2196f3;
+	font-size: 32px;
+	text-align: center;
+	display: block;
+	padding: 16px 0;
+	color: #fff;
+	margin-bottom: 16px;
+}

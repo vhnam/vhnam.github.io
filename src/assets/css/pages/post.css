@@ -23,8 +23,9 @@
     color: #212121;
     font-weight: 300; }
   .content .index--highlight {
+    font-size: 1rem;
     font-weight: 700;
-    color: #435256;
+    color: #212121;
     border-bottom: 1px dotted #435256; }
   .content .index--sticked {
     position: fixed;

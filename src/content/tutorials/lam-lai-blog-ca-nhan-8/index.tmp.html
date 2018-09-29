@@ -1,0 +1,76 @@
+<p>
+    Sẽ có nhiều cách để bạn đẩy code lên server. Trong phạm vi bài viết này, tớ sẽ chia sẻ cách làm trên blog của mình.
+</p>
+<ul>
+<li>
+<a href="https://vhnam.github.io/tutorials/lam-lai-blog-ca-nhan-1/" itemprop="url">Phần 1: Khởi động</a>
+</li>
+<li>
+<a href="https://vhnam.github.io/tutorials/lam-lai-blog-ca-nhan-2/" itemprop="url">Phần 2: Thiết kế giao diện</a>
+</li>
+<li>
+<a href="https://vhnam.github.io/tutorials/lam-lai-blog-ca-nhan-3/" itemprop="url">Phần 3: Quản lý cấu hình</a>
+</li>
+<li>
+<a href="https://vhnam.github.io/tutorials/lam-lai-blog-ca-nhan-4/" itemprop="url">Phần 4: Bắt đầu với giao diện</a>
+</li>
+<li>
+<a href="https://vhnam.github.io/tutorials/lam-lai-blog-ca-nhan-5/" itemprop="url">Phần 5: Schema.org du hý</a>
+</li>
+<li>
+<a href="https://vhnam.github.io/tutorials/lam-lai-blog-ca-nhan-6/" itemprop="url">Phần 6: Metadata và các công cụ theo dõi hoạt động người dùng</a>
+</li>
+<li>
+<a href="https://vhnam.github.io/tutorials/lam-lai-blog-ca-nhan-7/" itemprop="url">Phần 7: Template Engine</a>
+</li>
+<li>
+        Phần 8: Deployment
+    </li>
+</ul>
+<img alt="Thumbnails" itemprop="image" src="img/thumbnails.jpg"/>
+<span class="heading" id="chn-ni--lm-server"></span><h2>Chọn nơi để làm server</h2>
+<p>
+    Hiện tại có nhiều dịch vụ để bạn lưu trữ code và host static web của mình.
+</p>
+<ul>
+<li>
+<strong>Host trả tiền</strong>. Trả tiền để có server riêng, nhưng thường là một phần vùng được quản lý bằng CPanel.
+    </li>
+<li>
+<strong>Free host</strong>. Cách này cũng kinh tế, nhưng khổ nỗi domain khá xấu xí và có thời hạn sử dụng. Phải mua thêm tên miền trỏ vào.
+    </li>
+<li>
+<strong>Thuê VPS</strong>. Cách này hơi tốn kém nhưng ngoài static web, bạn tha hồ vọc.
+    </li>
+</ul>
+<p>
+    Cách của mình thì dùng GitHub Pages. Chỉ tạo repository trên GitHub với tên repo tương ứng với cấu trúc <code>&lt;tên tài khoản&gt;.github.io</code> là được.
+</p>
+<img alt="Cloud Hosting vs VPS Hosting" itemprop="image" src="img/cloud_vps_hosting.jpg"/>
+<span class="heading" id="cch-publish-m-ngun"></span><h2>Cách publish mã nguồn</h2>
+<p>
+    Nếu bạn dùng VPS, host thuê thì phải giao tiếp với server bằng giao thức FTP (port 21). Nếu muốn bảo mật hơn thì dùng giao thức SSH/SFTP (port 22). Tớ gợi ý là bạn dùng <a href="https://filezilla-project.org/" itemprop="url">FileZilla</a>. 
+</p>
+<p>
+    Còn một cách khác, cũng là cách tớ đang làm là dùng <strong>Git</strong> để chuyển file lên server. Bạn có thể xem chi tiết tại <a href="https://www.arresteddevops.com/git-101/" itemprop="url">Git 101 With Emma Jane Westby (ADO24)</a>.
+</p>
+<span class="heading" id="potential-security-vulnerability-defined-in-package-lockjson"></span><h2>Potential security vulnerability defined in package-lock.json</h2>
+<p>
+    Ở blog của tớ phát sinh một lỗi phiên bản cũ với dependency của một số package.
+</p>
+<img alt="Potential security vulnerability" itemprop="image" src="img/Potential-security-vulnerability.jpg"/>
+<p>
+    Để sửa lỗi này, bạn chỉ cần gõ lệnh <code>npm audit fix</code> là xong.
+</p>
+<img alt="npm audit fix" itemprop="image" src="img/npm-audit-fix.jpg"/>
+<span class="heading" id="tng-kt"></span><h2>Tổng kết</h2>
+<p>
+    Seri <strong>"Làm lại blog cá nhân"</strong> của tớ đến đây là kết thúc. Nội dung là để tóm tắt lại quá trình tớ đã làm blog như thế nào để mọi người hình dung được công việc. Để đi sâu vào chi tiết, các bạn có thể dựa vào từng đầu mục, tìm trên Internet thông tin chi tiết để làm từng bước. Nếu cảm thấy khó quá, các bạn có thể tải mã nguồn tại <a href="https://github.com/vhnam/vhnam.github.io" itemprop="url">https://github.com/vhnam/vhnam.github.io</a> để tham khảo nhé. Chúc các bạn thành công.
+</p>
+<img alt="Dream Big, Work Hard" itemprop="image" src="img/dream-big-word-hard.jpg"/>
+<span class="heading" id="tham-kho"></span><h2>Tham khảo</h2>
+<ul class="reference">
+<li>
+        StackOverflow, <a href="https://stackoverflow.com/questions/49582891/proper-way-to-fix-potential-security-vulnerability-in-a-dependency-defined-in-pa" itemprop="url">Proper way to fix potential security vulnerability in a dependency defined in package-lock.json</a>
+</li>
+</ul>

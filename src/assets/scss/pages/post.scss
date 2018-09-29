@@ -43,8 +43,9 @@
         }
 
         &--highlight {
+            font-size: 1rem;
             font-weight: 700;
-            color: $river-bed-color;
+            color: #212121;
             border-bottom: 1px dotted $river-bed-color;
         }
 

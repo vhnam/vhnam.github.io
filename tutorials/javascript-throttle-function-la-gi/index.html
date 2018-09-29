@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <meta name="robots" content="noodp,index,follow">
+    <meta name="revisit-after" content="1 days">
+    <meta name="google-site-verification" content="ZFrkEu3QMFl9Kz0JyK2SfzdIZ84lDgm9gLQ6J6FmAvg">
+    <meta name="p:domain_verify" content="faa7b25edce176988fb8171e9457554a">
+
+    <!-- Facebook Webmasters -->
+    <meta property="og:url" content="https://vhnam.github.io/blog/javascript-throttle-function-la-gi">
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="JavaScript - Throttle Function là gì?">
+    <meta property="og:description" content="Lần trước, mình đã viết bài giới thiệu về kỹ thuật dùng hàm Debounce. Nếu bạn có đọc các link trong phần tham khảo, hẵn sẽ thấy có nhắc đến hàm throttle. Hôm nay, mình sẽ giới thiệu về hàm này.">
+    <meta property="og:image" content="https://vhnam.github.io/blog/javascript-throttle-function-la-gi/img/thumbnails.jpg">
+    <meta property="og:locale" content="vi_VN">
+    <meta property="fb:app_id" content="2064203853819553">
+
+    <title>JavaScript - Throttle Function là gì? | Nam Vo</title>
+
+    <link rel="shortcut icon" href="/src/assets/favicon.ico" type="image/x-icon">
+    <link rel="canonical" href="http://vhnam.github.io/">
+    <link rel="publisher" href="https://plus.google.com/116570296349523695729">
+
+    <link rel="stylesheet" href="/src/assets/css//bootstrap.css">
+    <link rel="stylesheet" href="/src/assets/css//theme.css">
+    <link rel="stylesheet" href="/src/assets/css//pages/post.css">
+
+    <!--[if lt IE 9]>
+        <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+</head>
+<body itemscope="itemscope" itemtype="https://schema.org/BlogPosting">
+    <nav class="navbar navbar-expand-lg navbar-light bg-jungle-mist shadow">
+        <div class="container">
+            <a class="navbar-brand text-river-bed font-weight-light" href="/">Nam Vo</a>
+            <button class="navbar-toggler" type="button" 
+                    data-toggle="collapse" data-target="#navbarNavDropdown" 
+                    aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNavDropdown">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Nhật ký</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Chuyện ngành</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Portfolio</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Thông tin</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Liên lạc</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <section class="content">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8">
+                    <div class="content__heading">
+                        <h1 class="content__title" itemprop="headline">JavaScript - Throttle Function là gì?</h1>
+                        <p class="content__time">Ngày 5 tháng 11 năm 2015</p>
+                        <meta itemprop="author" content="Nam Vo">
+                        <meta itemprop="datePublished" content="2015-11-05">
+                        <meta itemprop="dateModified" content="2015-11-05">
+                        <meta itemprop="mainEntityOfPage" content="Lần trước, mình đã viết bài giới thiệu về kỹ thuật dùng hàm Debounce. Nếu bạn có đọc các link trong phần tham khảo, hẵn sẽ thấy có nhắc đến hàm throttle. Hôm nay, mình sẽ giới thiệu về hàm này.">
+                    </div>
+                    
+                    <p>
+    Lần trước, mình đã viết bài giới thiệu về kỹ thuật dùng hàm <a href="http://vhnam.github.io/blog/javascript-debounce-function-la-gi/" itemprop="url">Debounce</a>. Nếu bạn có đọc các link trong phần tham khảo, hẵn sẽ thấy có nhắc đến hàm <strong>throttle</strong>. Hôm nay, mình sẽ giới thiệu về hàm này.
+</p>
+<img alt="throttle()" itemprop="image" src="img/pendulum.png"/>
+<span class="heading" id="bi-ton-t-ra"></span><h2>Bài toán đặt ra</h2>
+<script src="https://gist.github.com/vhnam/c9c49d22580ea27a8ba5.js"></script>
+<p>
+    Mình xin dùng một ví dụ đơn giản, khi bạn rê chuột trong vùng màu xanh dưới đây, sẽ hiện thị số lần gọi sự kiện <code>hover()</code> được gọi.
+</p>
+<div class="block-blue" id="block-non-throttle">0</div>
+<p>
+    Bạn có thấy số lần gọi sự kiện <code>hover()</code> rất lớn không? Giả sử, bạn khi gọi hàm <code>resize()</code> để resize kích thước trình duyệt khi đang sử dụng trên mobile (có một số trường hợp thẻ <code><a href="http://www.w3.org/TR/css3-mediaqueries/" itemprop="url">@media</a></code> trong CSS3 không khả thi). Bạn nên nhớ rằng, để render giao diện thì cần trải qua 2 bước là xây dựng thông số và xử lý. Nếu bạn gọi hàm <code>resize()</code> với số lần như bạn đã làm ở ví dụ trên. Tự hỏi điện thoại nào chịu cho nổi?
+</p>
+<p>
+    Lúc này, bạn nên sử dụng hàm <code>throttle()</code> để giải quyết vấn đề này.
+</p>
+<span class="heading" id="throttle-function"></span><h2>Throttle Function</h2>
+<p>
+    Cách sử dụng hàm <code>throttle()</code> cũng tương tự như hàm <code>debounce()</code> gồm có 2 tham số là hàm cần thực thi và thời gian delay. Và hàm này cũng cần trả về một hàm.
+</p>
+<script src="https://gist.github.com/vhnam/18fffc9976ed9587ada4.js"></script>
+<p>
+    Nếu hàm này không có đang chờ đợi gì thì cho nó chạy.
+</p>
+<script src="https://gist.github.com/vhnam/b960eb6920a083a4c32c.js"></script>
+<p>
+    Hình như có gì đó không ổn. Nó chỉ chạy được có mỗi một lần đầu thì phải? Ta phải chờ trong một khoảng thời gian <strong>time</strong> thôi. Chờ xong, nó sẽ thực thi tiếp. Ta phải sửa lại.
+</p>
+<script src="https://gist.github.com/vhnam/caa6cf5a6b12544a60cd.js"></script>
+<p>
+    Bây giờ, bạn thử rê chuột trong vùng màu xanh dưới đây. Phần xử lý đã sử dụng hàm <code>throttle()</code>.
+</p>
+<div class="block-blue" id="block-throttle">0</div>
+<span class="heading" id="li-kt"></span><h2>Lời kết</h2>
+<p>
+    Để hiểu rõ về hàm này hơn, bạn có thể đọc mã nguồn của <a href="http://underscorejs.org/#debounce" itemprop="url">Underscore.js</a>, <a href="https://lodash.com/docs#debounce" itemprop="url">Lodash</a>. Bạn có thể tham khảo bài viết <a href="http://drupalmotion.com/article/debounce-and-throttle-visual-explanation" itemprop="url">Debounce and Throttle: a visual explanation</a> để hiểu rõ hơn. Vì họ có so sánh rõ ràng chức năng của hàm <code>debounce</code> và <code>throttle()</code>.
+</p>
+<span class="heading" id="tham-kho"></span><h2>Tham khảo</h2>
+<ul class="reference">
+<li>
+<a href="http://sampsonblog.com/749/simple-throttle-function" itemprop="url">Simple Throttle Function</a>
+</li>
+<li>
+<a href="https://remysharp.com/2010/07/21/throttling-function-calls" itemprop="url">Throttling function calls</a>
+</li>
+<li>
+<a href="http://drupalmotion.com/article/debounce-and-throttle-visual-explanation" itemprop="url">Debounce and Throttle: a visual explanation</a>
+</li>
+</ul>
+
+                </div>
+                <div class="col-lg-4 pl-5">
+                    <ul class="content__index index" id="index">
+                        <ul><li><a id="prefix-bi-ton-t-ra" href="#bi-ton-t-ra" class="index__item index--highlight">Bài toán đặt ra</a></li><li><a id="prefix-throttle-function" href="#throttle-function" class="index__item">Throttle Function</a></li><li><a id="prefix-li-kt" href="#li-kt" class="index__item">Lời kết</a></li><li><a id="prefix-tham-kho" href="#tham-kho" class="index__item">Tham khảo</a></li></ul>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="content__footer">
+                <div class="social-plugin">
+                    <div class="like-share">
+                        <!-- Facebook -->
+                        <div class="fb-like" data-href="http://vhnam.github.io/blog/javascript-throttle-function-la-gi" data-layout="standard" data-action="like" data-show-faces="true" data-share="true"></div>
+
+                        <div class="mt-3">
+                            <!-- Twitter -->
+                            <a href="https://twitter.com/share" class="twitter-share-button"{count} data-url="http://vhnam.github.io/blog/javascript-throttle-function-la-gi" data-via="vhnam2504">Tweet</a>
+
+                            <!-- Google Plus -->
+                            <div class="g-plusone" data-annotation="inline" data-width="300"></div>
+                        </div>
+                    </div>
+                    <div class="comments">
+                        <div class="fb-comments" data-href="http://vhnam.github.io/blog/javascript-throttle-function-la-gi" data-numposts="10"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container d-flex justify-content-between">
+            <ul class="nav">
+                <li class="nav-item">
+                    <a class="nav-link text-white" href="#">Điều khoản bảo mật</a>
+                </li>
+            </ul>
+            <div class="d-flex align-items-center text-white">
+                &copy; <span class="mx-1" id="footer-year"></span> Nam Vo's blog
+            </div>
+        </div>
+    </footer>
+
+    <script src="/src/assets/js/dist/bundle.js"></script>
+
+    <script>
+        (function(d, s, id) {
+            var js, fjs = d.getElementsByTagName(s)[0];
+            if (d.getElementById(id)) return;
+            js = d.createElement(s); js.id = id;
+            js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.5";
+            fjs.parentNode.insertBefore(js, fjs);
+        }(document, 'script', 'facebook-jssdk'));
+    </script>
+
+    <script>
+        (function() {
+            var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
+            po.src = 'https://apis.google.com/js/platform.js';
+            var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
+        })();
+    </script>
+
+    <script>
+        !function(d,s,id){
+            var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';
+            if(!d.getElementById(id)){js=d.createElement(s);
+                js.id=id;js.src=p+'://platform.twitter.com/widgets.js';
+                fjs.parentNode.insertBefore(js,fjs);
+            }
+        }(document, 'script', 'twitter-wjs');
+    </script>
+
+    <!-- Facebook Analytics -->
+    <script>
+        window.fbAsyncInit = function() {
+            FB.init({
+                appId      : '2064203853819553',
+                xfbml      : true,
+                version    : 'v3.0'
+            });
+            
+            FB.AppEvents.logPageView();   
+        };
+
+        (function(d, s, id){
+            var js, fjs = d.getElementsByTagName(s)[0];
+            if (d.getElementById(id)) {return;}
+            js = d.createElement(s); js.id = id;
+            js.src = "https://connect.facebook.net/en_US/sdk.js";
+            fjs.parentNode.insertBefore(js, fjs);
+        }(document, 'script', 'facebook-jssdk'));
+    </script>
+
+    <!-- Google Analytics -->
+    <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-66016963-1', 'auto');
+        ga('require', 'linkid', 'linkid.js');
+        ga('require', 'displayfeatures');
+        ga('send', 'pageview');
+    </script>
+</body>
+</html>

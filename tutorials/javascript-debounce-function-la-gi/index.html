@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <meta name="robots" content="noodp,index,follow">
+    <meta name="revisit-after" content="1 days">
+    <meta name="google-site-verification" content="ZFrkEu3QMFl9Kz0JyK2SfzdIZ84lDgm9gLQ6J6FmAvg">
+    <meta name="p:domain_verify" content="faa7b25edce176988fb8171e9457554a">
+
+    <!-- Facebook Webmasters -->
+    <meta property="og:url" content="https://vhnam.github.io/blog/javascript-debounce-function-la-gi">
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="JavaScript - Debounce Function là gì?">
+    <meta property="og:description" content="Việc xử lý sự kiện gởi dữ liệu với một tần suất nhanh ở các khung search, đôi khi sẽ sai lệch thông tin và ảnh hưởng tới UX. Để giải quyết bài toán này, ta có thể tham khảo kỹ thuật Debounce.">
+    <meta property="og:image" content="https://vhnam.github.io/blog/javascript-debounce-function-la-gi/img/thumbnails.jpg">
+    <meta property="og:locale" content="vi_VN">
+    <meta property="fb:app_id" content="2064203853819553">
+
+    <title>JavaScript - Debounce Function là gì? | Nam Vo</title>
+
+    <link rel="shortcut icon" href="/src/assets/favicon.ico" type="image/x-icon">
+    <link rel="canonical" href="http://vhnam.github.io/">
+    <link rel="publisher" href="https://plus.google.com/116570296349523695729">
+
+    <link rel="stylesheet" href="/src/assets/css//bootstrap.css">
+    <link rel="stylesheet" href="/src/assets/css//theme.css">
+    <link rel="stylesheet" href="/src/assets/css//pages/post.css">
+
+    <!--[if lt IE 9]>
+        <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+</head>
+<body itemscope="itemscope" itemtype="https://schema.org/BlogPosting">
+    <nav class="navbar navbar-expand-lg navbar-light bg-jungle-mist shadow">
+        <div class="container">
+            <a class="navbar-brand text-river-bed font-weight-light" href="/">Nam Vo</a>
+            <button class="navbar-toggler" type="button" 
+                    data-toggle="collapse" data-target="#navbarNavDropdown" 
+                    aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNavDropdown">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Nhật ký</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Chuyện ngành</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Portfolio</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Thông tin</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Liên lạc</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <section class="content">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8">
+                    <div class="content__heading">
+                        <h1 class="content__title" itemprop="headline">JavaScript - Debounce Function là gì?</h1>
+                        <p class="content__time">Ngày 3 tháng 11 năm 2015</p>
+                        <meta itemprop="author" content="Nam Vo">
+                        <meta itemprop="datePublished" content="2015-11-03">
+                        <meta itemprop="dateModified" content="2015-11-03">
+                        <meta itemprop="mainEntityOfPage" content="Việc xử lý sự kiện gởi dữ liệu với một tần suất nhanh ở các khung search, đôi khi sẽ sai lệch thông tin và ảnh hưởng tới UX. Để giải quyết bài toán này, ta có thể tham khảo kỹ thuật Debounce.">
+                    </div>
+                    
+                    <p>
+    Trong một bài test của mình, có một câu là hãy thực hiện <a href="https://en.wikipedia.org/wiki/Google_Search#Instant_Search" itemprop="url">Instant Search</a> giống của <a href="https://twitter.com/search-home" itemprop="url">Twitter</a>. Cách sử dụng là khi bạn nhập một ký tự thì sẽ gởi một request lên Server để lấy dữ liệu.
+</p>
+<img alt="Instant Search" src="img/global-search.gif"/>
+<span class="heading" id="vn--t-ra"></span><h2>Vấn đề đặt ra</h2>
+<script src="https://gist.github.com/vhnam/5074780573f99a29ee87.js"></script>
+<p>
+    Bạn viết đoạn code như trên. Khi bạn nhập <strong>"abc"</strong> thì sẽ có 3 request được gởi đi lần lượt cho <strong>"a"</strong>, <strong>"ab"</strong> và <strong>"abc"</strong>. Giả sử, thứ tự dữ liệu được trả về lần lượt là <strong>"a"</strong>, <strong>"abc"</strong> và <strong>"ab"</strong>. Có gì đó sai sai ở đây?
+</p>
+<img alt="Example" src="img/example.png"/>
+<p>
+    Trong khi đó, kết quả bạn cần là <strong>"abc"</strong> chứ không phải là <strong>"ab"</strong>. Như vậy, lỗi này sẽ ảnh hưởng tới <a href="https://en.wikipedia.org/wiki/User_experience" itemprop="url">UX (User Experience)</a>. Để giải quyết vấn đề đó sẽ có rất nhiều cách. Mình tin là có bác sẽ nghĩ tới chuyện chờ người dùng nhập xong khoảng độ 1 giây, rồi lấy kết quả cuối cùng đem đi gởi. Vậy làm sao để biết nó khi nào nhập xong ta? Lúc đó thì ta sẽ sử dụng một kỹ thuật có tên là <strong>Debounce</strong>.
+</p>
+<img alt="debounce()" src="img/debounce.png"/>
+<span class="heading" id="demo"></span><h2>Demo</h2>
+<p>
+    Ở demo này, mình sẽ sử dụng một hàm <code>getRandomNumber()</code> để phát sinh thời gian delay để giả lập việc gởi request đến server có độ trễ (delay). Do đó, với ví dụ không sử dụng hàm <code>debounce()</code> thì sẽ chờ một khoảng thời gian mới hiện kết quả. TƯơng tự với ví dụ có sử dụng hàm <code>debounce()</code>, nhưng nó sẽ hiện thị kết quả khác.
+</p>
+<div class="demo-block">
+<span class="heading" id="khng-c-s-dng-hm-debounce"></span><h3>Không có sử dụng hàm <code>debounce</code></h3>
+<input id="input-without-debounce" placeholder="Write something..." type="text"/>
+<div class="btn-clear" id="clear-without-debounce">CLEAR</div>
+<div class="demo-results" id="result-without-debounce"></div>
+</div>
+<div class="demo-block">
+<span class="heading" id="c-s-dng-hm-debounce"></span><h3>Có sử dụng hàm <code>debounce</code></h3>
+<input id="input-with-debounce" placeholder="Write something..." type="text"/>
+<div class="btn-clear" id="clear-with-debounce">CLEAR</div>
+<div class="demo-results" id="result-with-debounce"></div>
+</div>
+<span class="heading" id="debounce-function"></span><h2>Debounce Function</h2>
+<p>
+    Đầu tiên, bạn sẽ muốn gọi hàm <code>debounce(func, wait)</code>, truyền vào hàm cần thực thi và thời gian delay. Do đó, bạn sẽ viết hàm <code>debounce</code> sẽ trả về một hàm anonymous.
+</p>
+<script src="https://gist.github.com/vhnam/8585a258da7b8a048b6d.js"></script>
+<p>
+    Sau đó, bạn sẽ cần lấy giá trị của các tham số truyền vào.
+</p>
+<script src="https://gist.github.com/vhnam/3359aed87b9353517e91.js"></script>
+<p>
+    Tiếp theo là bạn tạo một hàm tên là <code>executeFunction</code> để khi gọi hàm này, thì hàm được truyền vào sẽ thực thi.
+</p>
+<script src="https://gist.github.com/vhnam/df5f2f80761a0ca98858.js"></script>
+<p>
+    Bây giờ, ta gọi hàm <code>setTimeout</code> để delay việc thực thi mỗi khi gọi hàm <code>debounce</code> tương ứng với <code>wait</code> giây.
+</p>
+<script src="https://gist.github.com/vhnam/e2a2974085c7a977869b.js"></script>
+<p>
+    Quay lại với giải pháp đã đưa ra, đoạn code tới đây đã giải quyết được vấn đề mỗi khi người dùng nhập thì delay một khoảng thời gian mới thực thi hàm. Nhưng có gì đó sai sai! Hình như là nó chưa lấy được giá trị cuối cùng của người dùng sau khi nhập rồi mới gởi request. Ta chỉ cần xóa đi các lần gọi hàm trước đó là được chứ gì, dùng hàm <code>clearTimeout</code>.
+</p>
+<script src="https://gist.github.com/vhnam/283853bc456ad9cd34d1.js"></script>
+<p>
+    Như vậy là đã viết xong hàm <code>debounce</code>. Để sử dụng thì ta viết như sau.
+</p>
+<script src="https://gist.github.com/vhnam/1e819412dedd1fa3209d.js"></script>
+<span class="heading" id="chuyn-bn-l"></span><h2>Chuyện bên lề</h2>
+<p>
+    Trên blog của <a href="https://yinyangit.wordpress.com/2015/06/24/javascript-gioi-thieu-ve-debounce-function/" itemprop="url">YinYangIT</a> có đề cập tới một chiêu thức khác đó là <a href="https://yinyangit.wordpress.com/2012/03/15/javascript-tao-chuyen-dong-voi-windowanimationtiming-api/" itemprop="url">requestAnimationFrame()</a> thay thế cho <code>setTimeout()</code>. Bạn thậm chí có thể không cần đến tham số <strong>wait</strong> khi sử dụng phương pháp này. Nếu bạn nào có thời gian nghiên cứu thì tìm hiểu thêm.
+</p>
+<p>
+    Hàm <code>debounce</code> đã được một số thư viện hỗ trợ như là <a href="http://underscorejs.org/#debounce" itemprop="url">Underscore.js</a>, <a href="https://lodash.com/docs#debounce" itemprop="url">Lodash</a>. Thực ra, đoạn code được dùng demo là của Underscore phiên bản cũ. Cá nhân thì thấy nếu bạn có nhu cầu tìm hiểu các kỹ thuật khi làm việc với JavaScript, nên đọc mã nguồn của <a href="https://github.com/jashkenas/underscore" itemprop="url">Underscore.js</a> và nên đọc toàn bộ mã nguồn đã release để hiểu được rõ ràng vấn đề hơn.
+</p>
+<span class="heading" id="tham-kho"></span><h2>Tham khảo</h2>
+<ul class="reference">
+<li>
+<a href="https://yinyangit.wordpress.com/2015/06/24/javascript-gioi-thieu-ve-debounce-function/" itemprop="url">Javascript – Giới thiệu về Debounce Function</a>
+</li>
+<li>
+<a href="http://drupalmotion.com/article/debounce-and-throttle-visual-explanation" itemprop="url">Debounce and Throttle: a visual explanation</a>
+</li>
+</ul>
+                </div>
+                <div class="col-lg-4 pl-5">
+                    <ul class="content__index index" id="index">
+                        <ul><li><a id="prefix-vn--t-ra" href="#vn--t-ra" class="index__item index--highlight">Vấn đề đặt ra</a></li><li><a id="prefix-demo" href="#demo" class="index__item">Demo</a></li><ul><li><a id="prefix-khng-c-s-dng-hm-debounce" href="#khng-c-s-dng-hm-debounce" class="index__item">Không có sử dụng hàm debounce</a></li><li><a id="prefix-c-s-dng-hm-debounce" href="#c-s-dng-hm-debounce" class="index__item">Có sử dụng hàm debounce</a></li></ul><li><a id="prefix-debounce-function" href="#debounce-function" class="index__item">Debounce Function</a></li><li><a id="prefix-chuyn-bn-l" href="#chuyn-bn-l" class="index__item">Chuyện bên lề</a></li><li><a id="prefix-tham-kho" href="#tham-kho" class="index__item">Tham khảo</a></li></ul>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="content__footer">
+                <div class="social-plugin">
+                    <div class="like-share">
+                        <!-- Facebook -->
+                        <div class="fb-like" data-href="http://vhnam.github.io/blog/javascript-debounce-function-la-gi" data-layout="standard" data-action="like" data-show-faces="true" data-share="true"></div>
+
+                        <div class="mt-3">
+                            <!-- Twitter -->
+                            <a href="https://twitter.com/share" class="twitter-share-button"{count} data-url="http://vhnam.github.io/blog/javascript-debounce-function-la-gi" data-via="vhnam2504">Tweet</a>
+
+                            <!-- Google Plus -->
+                            <div class="g-plusone" data-annotation="inline" data-width="300"></div>
+                        </div>
+                    </div>
+                    <div class="comments">
+                        <div class="fb-comments" data-href="http://vhnam.github.io/blog/javascript-debounce-function-la-gi" data-numposts="10"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container d-flex justify-content-between">
+            <ul class="nav">
+                <li class="nav-item">
+                    <a class="nav-link text-white" href="#">Điều khoản bảo mật</a>
+                </li>
+            </ul>
+            <div class="d-flex align-items-center text-white">
+                &copy; <span class="mx-1" id="footer-year"></span> Nam Vo's blog
+            </div>
+        </div>
+    </footer>
+
+    <script src="/src/assets/js/dist/bundle.js"></script>
+
+    <script>
+        (function(d, s, id) {
+            var js, fjs = d.getElementsByTagName(s)[0];
+            if (d.getElementById(id)) return;
+            js = d.createElement(s); js.id = id;
+            js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.5";
+            fjs.parentNode.insertBefore(js, fjs);
+        }(document, 'script', 'facebook-jssdk'));
+    </script>
+
+    <script>
+        (function() {
+            var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
+            po.src = 'https://apis.google.com/js/platform.js';
+            var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
+        })();
+    </script>
+
+    <script>
+        !function(d,s,id){
+            var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';
+            if(!d.getElementById(id)){js=d.createElement(s);
+                js.id=id;js.src=p+'://platform.twitter.com/widgets.js';
+                fjs.parentNode.insertBefore(js,fjs);
+            }
+        }(document, 'script', 'twitter-wjs');
+    </script>
+
+    <!-- Facebook Analytics -->
+    <script>
+        window.fbAsyncInit = function() {
+            FB.init({
+                appId      : '2064203853819553',
+                xfbml      : true,
+                version    : 'v3.0'
+            });
+            
+            FB.AppEvents.logPageView();   
+        };
+
+        (function(d, s, id){
+            var js, fjs = d.getElementsByTagName(s)[0];
+            if (d.getElementById(id)) {return;}
+            js = d.createElement(s); js.id = id;
+            js.src = "https://connect.facebook.net/en_US/sdk.js";
+            fjs.parentNode.insertBefore(js, fjs);
+        }(document, 'script', 'facebook-jssdk'));
+    </script>
+
+    <!-- Google Analytics -->
+    <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-66016963-1', 'auto');
+        ga('require', 'linkid', 'linkid.js');
+        ga('require', 'displayfeatures');
+        ga('send', 'pageview');
+    </script>
+</body>
+</html>

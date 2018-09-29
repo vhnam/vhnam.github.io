@@ -1,0 +1,94 @@
+<p>
+    Để chuẩn bị cho công cuộc phỏng vấn vì miếng ăn, tớ phải tranh thủ tìm hiểu React và các công nghệ liên quan, trong đó có Redux. Đường cách mạng còn lắm gian truân, đọc document của nó éo hiểu gì hết. Hôm nay chia sẻ với mọi người cách tiếp cận Redux.
+</p>
+<img alt="thumbnails" itemprop="image" src="img/thumbnails.jpg"/>
+<span class="heading" id="t-vn-"></span><h2>Đặt vấn đề</h2>
+<p>
+    Khi lập trình React, điều đầu tiên bực bội nhất là việc quản lý State. Như hình phía trên, để truyền dữ liệu giữa các component khá là lằng nhằng do chỉ truyền được cho component kề nhau. Do đó, cần có một cơ chế để quản lý state riêng biệt.
+</p>
+<span class="heading" id="gii-php"></span><h2>Giải pháp</h2>
+<p>
+    Ok, dễ nhất thì ta cứ xem state như biến toàn cục, khi cần thì viết Get/Set bình thường. Tớ có nghĩ đến <code>localStorage</code>. Tuy nhiên cách này khá bưởi, bạn có thể xem thêm tại đây.<br/><a href="https://dev.to/rdegges/please-stop-using-local-storage-1i04" itemprop="url">Please Stop Using Local Storage</a>
+</p>
+<p>
+    Thử cách khác, ta hỏi chị Google. Kết quả là ta được 2 giải pháp đó là <a href="https://facebook.github.io/flux/" itemprop="url">Flux</a> và <a href="https://redux.js.org/" itemprop="url">Redux</a>. Về phần Flux, ta có thể xem bài tutorial sau đây là hình dung được tư tưởng. Còn Redux, nó khá là hại não.<br/>
+    Xem bài <a href="https://kipalog.com/posts/Huong-dan-va-giai-thich-Flux-bang-hinh-ve" itemprop="url">Hướng dẫn và giải thích Flux bằng hình vẽ</a>
+</p>
+<span class="heading" id="redux"></span><h2>Redux</h2>
+<p>
+    Giờ mới là phần chính. Ta thử vào xem trang chủ của Redux tại <a href="https://redux.js.org" itemprop="url">https://redux.js.org</a> xem có hiểu gì không nhé. Chắc cú là không dành cho beginner rồi. Tớ phải xem bài viết <a href="https://www.valentinog.com/blog/react-redux-tutorial-beginners/" itemprop="url">React Redux Tutorial for Beginners: The Definitive Guide (2018)</a> mới hình dung được Redux như thế nào.
+</p>
+<p>
+    Về cơ bản, Redux là một thư viện quản lý state, nó độc lập với React. Do đó, Redux có thể sử dụng chung với các thư viện khác vẫn được.
+</p>
+<p>
+    Các thành phần cơ bản của Redux bao gồm:
+</p>
+<ul>
+<li>
+<strong>Store</strong> - Nơi lưu trữ state
+    </li>
+<li>
+<strong>Actions</strong> - Các hành động truyền dữ liệu được gởi từ ứng dụng đến Store
+    </li>
+<li>
+<strong>Reducer</strong> - Xác định cách thay đổi State
+    </li>
+</ul>
+<img alt="Redux flow" itemprop="image" src="img/redux-flow.png"/>
+<span class="heading" id="n-hnh"></span><h2>Ăn hành</h2>
+<p>
+    Bây giờ tớ sẽ minh hoạ cho các bạn hiểu cách chạy bình thường của Redux nhé. Lúc này, ta chỉ đụng mỗi Redux thôi.
+</p>
+<img alt="Initial" itemprop="image" src="img/init.png"/>
+<p>
+    Đầu tiên, Reducer sẽ khởi tạo State và cách xác định thay đổi State. Sau đó, khởi tạo Store bằng Reducer đã khởi tạo trước đó. Lúc này, ta khai báo tiếp hành động.
+</p>
+<script src="https://gist.github.com/vhnam/b56f6661bc95057961a233f5b38dd2b4.js"></script>
+<script src="https://gist.github.com/vhnam/b695f7082778fe63fb6a4f9f7074c939.js"></script>
+<script src="https://gist.github.com/vhnam/b29b7c49d20c44a28f4287a8c9841dd5.js"></script>
+<p>
+    Quá trình khởi tạo đã hoàn tất, ta khởi tạo tiếp một chút để bắt đầu test.
+</p>
+<script src="https://gist.github.com/vhnam/3905ccb9f99e5fd97f9785ede7d5fb4a.js"></script>
+<p>
+    Bây giờ, bạn thử chạy đoạn code dưới đây ở Developer Tool.
+</p>
+<script src="https://gist.github.com/vhnam/69c90b4df305f2fcf7406066a6e43e0b.js"></script>
+<img alt="Running Redux" itemprop="image" src="img/run.png"/>
+<p>
+    Như bạn đã thấy, phía Store sẽ dispatch thằng ku Actions là State được thay đổi rồi. Như thế, ta có thể cho State tách biệt khỏi mớ Components. 
+</p>
+<span class="heading" id="n-hnh-cng-vi-react"></span><h2>Ăn hành cùng với React</h2>
+<p>
+    Ban đầu tớ nghĩ chúng ta có thể import Store vào nơi cần gọi là được. Nhưng giang hồ dùng chiêu thức khác, họ mapping State của Components với State của Store. Thặc vi diệu!!!
+</p>
+<p>
+    Để triển được chiêu thức đó, ta cần cài thêm package <code>react-redux</code>. Ghi nhớ khẩu quyết của chiêu thức này.
+</p>
+<ul>
+<li>
+<strong>mapStateToProps</strong> - dùng để map State của Component với State trong Store của Redux
+    </li>
+<li>
+<strong>mapDispatchToProps</strong> - dùng để map method của Component với lời gọi action từ Store tới Actions của Redux
+    </li>
+</ul>
+<p>
+    Sau đây là cách sử dụng.
+</p>
+<script src="https://gist.github.com/vhnam/0abecd5aedb2e050f836805e93a8e609.js"></script>
+<script src="https://gist.github.com/vhnam/b7567ba6bc8e557c5b5a1651e9de51f2.js"></script>
+<span class="heading" id="cht-h"></span><h2>Chốt hạ</h2>
+<p>
+    Hy vọng với cách trình bày của mình, các bạn hình dung được tư tưởng của Redux, cách dùng Redux với React như thế nào.
+</p>
+<span class="heading" id="tham-kho"></span><h2>Tham khảo</h2>
+<ul class="reference">
+<li>
+        Kipalog, <a href="https://kipalog.com/posts/Huong-dan-va-giai-thich-Flux-bang-hinh-ve" itemprop="url">Hướng dẫn và giải thích Flux bằng hình vẽ</a>
+</li>
+<li>
+        Valentinog, <a href="https://www.valentinog.com/blog/react-redux-tutorial-beginners/" itemprop="url">React Redux Tutorial for Beginners: The Definitive Guide (2018)</a>
+</li>
+</ul>
