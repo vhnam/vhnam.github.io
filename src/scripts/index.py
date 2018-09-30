@@ -58,7 +58,7 @@ def main():
         json_string = """{ "%s": [%s] }""" % (category, data)
         json_object = json.loads(json_string)
         list_by_category = json_object[category]
-        sorted_list = sorted(list_by_category, key=sort_by_datetime)
+        sorted_list = sorted(list_by_category, key=sort_by_datetime, reverse=True)
         json_object[category] = sorted_list
 
         with codecs.open("src/index/%s.json" % category, "w", encoding="utf-8") as file:

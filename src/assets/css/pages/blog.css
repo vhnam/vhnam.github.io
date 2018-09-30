@@ -1,0 +1,23 @@
+.list__cover {
+  padding: 15rem 0 5rem;
+  background-image: url("/src/assets/img/blog.jpg");
+  background-repeat: no-repeat;
+  background-position: top;
+  background-size: cover;
+  border-bottom: 0.25rem solid #435256; }
+.list__index {
+  padding: 0;
+  margin: 5rem 0;
+  list-style-type: none; }
+  .list__index .item {
+    margin-bottom: 1rem; }
+    .list__index .item__title {
+      font-size: 1.25rem;
+      color: #597484; }
+    .list__index .item__time {
+      display: block;
+      font-size: .75rem; }
+    .list__index .item__description {
+      color: #616161; }
+
+/*# sourceMappingURL=blog.css.map */

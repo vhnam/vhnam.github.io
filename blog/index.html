@@ -5,13 +5,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
 
-    <title>Nam Vo | Software Developer, Product Manager, UX/UI Designer</title>
+    <title>Nhật ký | Nam Vo</title>
 
     <link rel="shortcut icon" href="/src/assets/favicon.ico" type="image/x-icon">
 
     <link rel="stylesheet" href="/src/assets/css//bootstrap.css">
     <link rel="stylesheet" href="/src/assets/css//theme.css">
-    <link rel="stylesheet" href="/src/assets/css//pages/contact.css">
+    <link rel="stylesheet" href="/src/assets/css//pages/blog.css">
 </head>
 <body class="homepage">
     <nav class="navbar navbar-expand-lg navbar-light shadow">
@@ -44,42 +44,23 @@
         </div>
     </nav>
 
-    <div class="contact">
-        <div class="contact__cover">
+    <div class="list">
+        <div class="list__cover">
             <div class="container">
                 <div class="display-3 text-center text-white">
-                    Liên lạc
+                    Nhật ký
                 </div>
             </div>
         </div>
 
-        <div class="contact__info">
+        <div class="list__content">
             <div class="container">
-                <h1 class="display-5 contact__title">Thông tin liên lạc và mạng xã hội</h1>
-                <ul class="contact__list list">
-                    <li>
-                        <a class="link" href="https://github.com/vhnam">GitHub</a>
-                    </li>
-                    <li>
-                        <a class="link" href="https://vn.linkedin.com/in/namvh">LinkedIn</a>
-                    </li>
-                    <li>
-                        <a class="link" href="https://www.pinterest.com/vhnam2504">Pinterest</a>
-                    </li>
-                    <li>
-                        <a class="link" href="https://plus.google.com/+NamVoHoai2504">Google+</a>
-                    </li>
-                    <li>
-                        <a class="link" href="https://soundcloud.com/namvh">SoundCloud</a>
-                    </li>
-                    <li>
-                        <a class="link" href="https://medium.com/@namvh">Medium</a>
-                    </li>
+                <ul id="blog-list" class="list__index" itemprop="breadcrumb">
+                    <!-- EMPTY LIST -->
                 </ul>
             </div>
         </div>
 
-        <div class="contact__map">&nbsp;</div>
     </div>
 
     <footer class="footer">
@@ -96,5 +77,6 @@
     </footer>
 
     <script src="/src/assets/js/dist/bundle.js"></script>
+    <script src="/src/assets/js/blog.js"></script>
 </body>
 </html>
