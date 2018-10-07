@@ -30,7 +30,6 @@ def createSitemapItem(title, mode):
 
 def make_datetime(lst):
     date_str = lst[1]
-    print dt.strptime(date_str, '%Y-%m-%d')
     return dt.strptime(date_str, '%Y-%m-%d')
 
 
