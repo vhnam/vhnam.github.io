@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
         <urlset xmlns="https://www.sitemaps.org/schemas/sitemap/0.9">
-            <url><loc>https://vhnam.github.io/tutorials/nhap-mon-deploy-ung-dung-viet-bang-react</loc><lastmod>2018-10-07</lastmod></url>
+            <url><loc>https://vhnam.github.io/tutorials/cau-hinh-aws-cloudfront-va-s3</loc><lastmod>2018-10-09</lastmod></url>
+    <url><loc>https://vhnam.github.io/tutorials/nhap-mon-deploy-ung-dung-viet-bang-react</loc><lastmod>2018-10-07</lastmod></url>
     <url><loc>https://vhnam.github.io/tutorials/tieu-chuan-bao-mat-owasp</loc><lastmod>2018-09-15</lastmod></url>
     <url><loc>https://vhnam.github.io/tutorials/flexbox</loc><lastmod>2018-09-08</lastmod></url>
     <url><loc>https://vhnam.github.io/tutorials/to-da-an-hanh-voi-redux-nhu-the-nao</loc><lastmod>2018-09-07</lastmod></url>

@@ -1,0 +1,72 @@
+<p>
+    Công việc hiện tại, mình dùng AWS S3 để host static web. Do có việc phải gắn header vào response mỗi khi tải view, nhưng không thành công khi nhúng vào thẻ <code>meta</code>. Sau một hồi nhờ vả và Google đã tìm ra giải pháp gắn header vào CloudFront rồi kết nối tới S3. Nhân tiện ghi chú lại cho người sau luôn.
+</p>
+<img alt="Config AWS CloudFront with AWS S3" itemprop="image" src="img/thumbnails.jpg"/>
+<span class="heading" id="vn-"></span><h2>Vấn đề</h2>
+<p>
+    Cụ thể, mình cần gắn header <a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Content-Security-Policy" itemprop="url">Content-Security-Policy</a> ở trong thẻ <code>meta</code>. Tuy nhiên, kết quả không chạy.
+</p>
+<img alt="Set header on metadata" itemprop="image" src="img/failed-set-header.jpg"/>
+<img alt="Failed in Response" itemprop="image" src="img/failed-network.jpg"/>
+<span class="heading" id="gii-php"></span><h2>Giải pháp</h2>
+<p>
+    Với vấn đề của mình, có tất cả 3 giải pháp.
+</p>
+<span class="heading" id="gii-php-1"></span><h3>Giải pháp 1</h3>
+<p>
+    Giải pháp 1 đó là dựng một server bằng Express (Node.js), Spring (Java), Laravel (PHP),... và gắn middleware để xử lý việc response trả về sẽ tự động gắn header. Ở đây, mình dùng AWS S3, chỉ hỗ trợ static web nên giải pháp này thất bại.
+</p>
+<span class="heading" id="gii-php-2"></span><h3>Giải pháp 2</h3>
+<p>
+    Giải pháp này là can thiệp vào Web Server như Apache, Nginx, IIS,... để gắn header. Về phía AWS không có vụ này nên coi như tạch.
+</p>
+<span class="heading" id="gii-php-3"></span><h3>Giải pháp 3</h3>
+<p>
+    Dùng CloudFront đón tất cả request/response đến server rồi can thiệp vào header. Mình chọn cách này.
+</p>
+<img alt="Solutions" itemprop="image" src="img/solutions.jpg"/>
+<span class="heading" id="cu-hnh"></span><h2>Cấu hình</h2>
+<p>
+    Các bạn có thể tìm hiểu một số khái niệm liên quan đến giải pháp này gồm:
+</p>
+<ul>
+<li><a href="https://aws.amazon.com/cloudfront/" itemprop="url">AWS CloudFront</a></li>
+<li><a href="https://aws.amazon.com/lambda/" itemprop="url">AWS Lambda</a></li>
+</ul>
+<span class="heading" id="cu-hnh-aws-lambda"></span><h3>Cấu hình AWS Lambda</h3>
+<p>
+    Tại sao có Lambda ở đây? Vì CloudFront giống như một người gác cổng nhưng không có vũ khí. Khi đụng chuyện sẽ cần gọi một API nào đó để nó xử lý, cụ thể ở đây là một hàm bất kỳ theo mô hình Serverless.
+</p>
+<p>
+    Trước tiên, sau khi vào AWS Lambda, bạn <strong>BẮT BUỘC</strong> chọn <strong>Region</strong> là <code>N. Virginia (us-east-1)</code>. Chọn <strong>Create Function</strong> » <strong>Blueprints</strong> » <strong>cloudfront-modify-response-header</strong> và nhập thông tin theo hình sau.
+</p>
+<img alt="Config on AWS Lambda" itemprop="image" src="img/aws-lambda.jpg"/>
+<p>
+    Kéo xuống phía dưới, chọn <strong>Create Function</strong>. Tiếp theo bạn nhìn sang góc phải, chọn <strong>Actions</strong> » <strong>Publish new version</strong> và lưu ý dòng <code>ARN</code>. Sau đó nhấn <strong>Publish</strong>.
+</p>
+<p>
+    Sau khi bạn tạo được Lambda Function, bạn sẽ chỉnh sửa lại code như sau.
+</p>
+<script src="https://gist.github.com/vhnam/1aa962c19ce992011133023a4b0f4de9.js"></script>
+<span class="heading" id="cu-hnh-aws-cloudfront"></span><h3>Cấu hình AWS CloudFront</h3>
+<p>
+    Vào CloudFront chọn <strong>Create Distribution</strong> » <strong>Web</strong> » <strong>Get Stared</strong>.
+</p>
+<p>
+    Mục <strong>Origin Settings</strong>, ở phần <strong>Origin Domain Name</strong> trỏ tới bucket cần deploy bên AWS S3 của bạn. À mà lưu ý nhé, đừng có chọn mặc định của nó. Nên nhập thẳng domain name theo cấu trúc <code>&lt;s3-bucket&gt;.s3-website&lt;region&gt;.amazonaws.com</code>. Ví dụ: <code>demo-s3.s3-website-ap-southeast-1.amazonaws.com</code>.
+</p>
+<p>
+    Mục <strong>Default Cache Behavior Settings</strong>, ở <strong>Viewer Protocol Policy</strong> chọn <strong>Redirect HTTP to HTTPS</strong>. Ở phần <strong>Lambda Function Associations</strong>, <strong>CloudFront Event</strong> chọn <strong>Viewer Response</strong>, nhập ARN của Lambda Function đã tạo lúc nãy vào. Lưu ý một tí, nó chỉ nhận Lambda Function được tạo ở region là <code>N. Virginia (us-east-1)</code>.
+</p>
+<p>
+    Xong rồi đó, bạn nhấn <strong>Create Distribution</strong> là được. À quên, bạn chờ <strong>Status</strong> trở thành <strong>Deployed</strong> mới được nhé. Chờ cũng khoảng hơn 10 phút lận.
+</p>
+<img alt="Config on AWS Lambda" itemprop="image" src="img/aws-cloudfront.jpg"/>
+<span class="heading" id="kt-qu"></span><h2>Kết quả</h2>
+<p>
+    Bạn quay trở lại CloudFront Console, vào mục <strong>Domain Name</strong>, dán địa chỉ ấy vào trình duyệt sẽ kết quả sau khi đã cấu hình nãy giờ.
+</p>
+<img alt="Result" itemprop="image" src="img/result.jpg"/>
+<p>
+    Mình sẽ không nói tại sao mình phải làm cái này đâu. Dự án của công ty mà.
+</p>
