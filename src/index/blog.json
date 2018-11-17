@@ -1,1 +1,60 @@
-{"blog": [{"description": "Trong lúc dọn máy tính, mình muốn lưu lại một chút về bài viết HR DU HÝ của một bạn HR đã chia sẻ chuyện nhân sự", "time": "Ngày 14 tháng 8 năm 2018", "link": "https://vhnam.github.io/blog/chuyen-nhan-su/", "name": "Chuyện nhân sự", "datetime": "2018-08-14"}, {"description": "Suy nghĩ sau khi xem bộ phim WHIPLASH, ngẫm về vị trí của người lãnh đạo.", "time": "Ngày 2 tháng 6 năm 2018", "link": "https://vhnam.github.io/blog/not-quite-my-tempo/", "name": "Not quite my tempo", "datetime": "2018-06-02"}, {"description": "Đang chán nản và nghĩ về sự đời dưới góc nhìn của một thằng developer nửa mùa.", "time": "Ngày 16 tháng 6 năm 2016", "link": "https://vhnam.github.io/blog/that-bai-la-di-ghe-cua-thanh-cong/", "name": "Thất bại là... dì ghẻ của thành công", "datetime": "2016-06-16"}, {"description": "Trong một lúc chả muốn làm cái vẹo gì hết, nổi hứng viết cái này.", "time": "Ngày 16 tháng 4 năm 2016", "link": "https://vhnam.github.io/blog/viet-linh-tinh/", "name": "Viết linh tinh", "datetime": "2016-04-16"}, {"description": "Lảm nhảm tí về chuyện viết gì, bình luận ở trên mạng.", "time": "Ngày 14 tháng 2 năm 2016", "link": "https://vhnam.github.io/blog/nen-viet-gi-nen-noi-gi/", "name": "Nên viết gì, nên nói gì", "datetime": "2016-02-14"}, {"description": "Cảm nhận về một năm 2015 với nhiều trải ngiệm.", "time": "Ngày 7 tháng 2 năm 2016", "link": "https://vhnam.github.io/blog/mot-nam-nhieu-trai-nghiem/", "name": "Một năm nhiều trải nghiệm", "datetime": "2016-02-07"}, {"description": "Lâu rồi mới có dịp đạp xe đi mua sách vào buổi tối. Một số kỷ niệm về Saigon trên chiếc xe đạp ùa về. Thế là một bài viết linh tinh ra đời.", "time": "Ngày 17 tháng 12 năm 2015", "link": "https://vhnam.github.io/blog/dap-xe-giua-saigon/", "name": "Đạp xe giữa Saigon", "datetime": "2015-12-17"}]}
+{
+  "blog": [
+    {
+      "description": "Dạo này mới sắm tai nghe xịn và DAC để nghe nhạc. Ngẫm lại một tí về câu nói của nghệ sĩ Nguyễn Đình Quang Anh.",
+      "time": "Ngày 17 tháng 11 năm 2018",
+      "link": "https://vhnam.github.io/blog/lam-chu-am-thanh/",
+      "name": "Làm chủ âm thanh",
+      "datetime": "2018-11-17"
+    },
+    {
+      "description": "Trong lúc dọn máy tính, mình muốn lưu lại một chút về bài viết HR DU HÝ của một bạn HR đã chia sẻ chuyện nhân sự",
+      "time": "Ngày 14 tháng 8 năm 2018",
+      "link": "https://vhnam.github.io/blog/chuyen-nhan-su/",
+      "name": "Chuyện nhân sự",
+      "datetime": "2018-08-14"
+    },
+    {
+      "description": "Suy nghĩ sau khi xem bộ phim WHIPLASH, ngẫm về vị trí của người lãnh đạo.",
+      "time": "Ngày 2 tháng 6 năm 2018",
+      "link": "https://vhnam.github.io/blog/not-quite-my-tempo/",
+      "name": "Not quite my tempo",
+      "datetime": "2018-06-02"
+    },
+    {
+      "description": "Đang chán nản và nghĩ về sự đời dưới góc nhìn của một thằng developer nửa mùa.",
+      "time": "Ngày 16 tháng 6 năm 2016",
+      "link": "https://vhnam.github.io/blog/that-bai-la-di-ghe-cua-thanh-cong/",
+      "name": "Thất bại là... dì ghẻ của thành công",
+      "datetime": "2016-06-16"
+    },
+    {
+      "description": "Trong một lúc chả muốn làm cái vẹo gì hết, nổi hứng viết cái này.",
+      "time": "Ngày 16 tháng 4 năm 2016",
+      "link": "https://vhnam.github.io/blog/viet-linh-tinh/",
+      "name": "Viết linh tinh",
+      "datetime": "2016-04-16"
+    },
+    {
+      "description": "Lảm nhảm tí về chuyện viết gì, bình luận ở trên mạng.",
+      "time": "Ngày 14 tháng 2 năm 2016",
+      "link": "https://vhnam.github.io/blog/nen-viet-gi-nen-noi-gi/",
+      "name": "Nên viết gì, nên nói gì",
+      "datetime": "2016-02-14"
+    },
+    {
+      "description": "Cảm nhận về một năm 2015 với nhiều trải ngiệm.",
+      "time": "Ngày 7 tháng 2 năm 2016",
+      "link": "https://vhnam.github.io/blog/mot-nam-nhieu-trai-nghiem/",
+      "name": "Một năm nhiều trải nghiệm",
+      "datetime": "2016-02-07"
+    },
+    {
+      "description": "Lâu rồi mới có dịp đạp xe đi mua sách vào buổi tối. Một số kỷ niệm về Saigon trên chiếc xe đạp ùa về. Thế là một bài viết linh tinh ra đời.",
+      "time": "Ngày 17 tháng 12 năm 2015",
+      "link": "https://vhnam.github.io/blog/dap-xe-giua-saigon/",
+      "name": "Đạp xe giữa Saigon",
+      "datetime": "2015-12-17"
+    }
+  ]
+}
