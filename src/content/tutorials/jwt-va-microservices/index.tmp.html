@@ -1,0 +1,169 @@
+<p>
+    Dự án mình đang làm trên công ty có liên quan đến microservices, tức là thay vì kiến trúc một khối như MVC thì tách ra mỗi service là một REST APIs để xử lý một đối tượng. Trong đó, việc xác thực thông tin người dùng là một việc quan trọng để đảm bảo tính bảo mật cho các service.
+</p>
+<img alt="Monotothic - Microservices" src="img/microservice.png"/>
+<span class="heading" id="tng-quan"></span><h2>Tổng quan</h2>
+<p>
+    Có 2 điều bảo mật cơ bản của một dịch vụ web đó là:
+    <ul>
+<li>
+<strong>Authentication</strong> - Who are you? Bạn là ai?
+        </li>
+<li>
+<strong>Authorization</strong> - What is your permission? Bạn được phép làm gì?
+        </li>
+</ul>
+</p>
+<p>
+<strong>Authentication</strong> thì chắc hẳn các bạn đều biết. Để giải quyết vấn đề này thì bạn bắt buộc người dùng phải đăng nhập. Thế là xong. Còn <strong>Authorization</strong> có khá nhiều cách để triển khai. Có thể các bạn đã từng đùng kỹ thuật <strong>role-based access control</strong>, tức là với mỗi <code>role</code> (vai trò) sẽ có <code>permission</code> (quyền hạn) nhất định.
+</p>
+<img alt="role-based-access-control-neo4j-enterprise-edition" src="img/role-based-access-control-neo4j-enterprise-edition.png"/>
+<p>
+    Theo tài liệu của OWASP, để đảm báo tính bảo mật liên quan đến Authorization, cụ thể là <strong>Access Control</strong>.
+</p>
+<blockquote>
+<ul>
+<li>
+            Use only trusted system objects, e.g. server side session objects, for making access authorization decisions
+        </li>
+<li>
+            Enforce authorization controls on every request, including those made by server side scripts, "includes" and requests from rich client-side technologies like AJAX and Flash
+        </li>
+<li>
+            If long authenticated sessions are allowed, periodically re-validate a user’s authorization to ensure that their privileges have not changed and if they have, log the user out and force them to re-authenticate
+        </li>
+<li>
+            The application must support disabling of accounts and terminating sessions when authorization ceases (e.g., Changes to role, employment status, business process, etc.)
+        </li>
+</ul>
+</blockquote>
+<p>
+    Theo cách thông thường, các bạn có thể lưu permission vào <code>session</code> và có thể tái sử dụng và nó có vẻ chỉ xài được trong ứng dụng một khối (monolothic). Mình dùng cách khác, đó là sử dụng <a href="https://tools.ietf.org/html/rfc7519">JSON Web Token (JWT)</a> để làm điều này.
+</p>
+<span class="heading" id="s-lc-v-jwt"></span><h2>Sơ lược về JWT</h2>
+<p>
+  Nội dung của JWT gồm 3 thành phần chính như sau:
+  <ul>
+<li>
+<strong>Header</strong> - Mô tả thuật toán được sử dụng để mã hoá phần signature.
+    </li>
+<li>
+<strong>Payload</strong> - Nội dung của Token. Các bạn có thể lưu thông tin của user tại đây dưới dạng JSON.
+    </li>
+<li>
+<strong>Signature</strong> - Phần nhận diện cho biết đây có phải là token của bản hay không.
+    </li>
+</ul>
+</p>
+<img alt="JWT" src="img/jwt.jpg"/>
+<p>
+  Các bạn có thể đọc chi tiết về JWT tại <a href="https://tools.ietf.org/html/rfc7519">RFC 7519</a>.
+</p>
+<span class="heading" id="ng-dng-jwt-vo-microservice"></span><h2>Ứng dụng JWT vào Microservice</h2>
+<p>
+  Công dụng JWT trong microservice có thể hiểu như giấy thông hành, chìa khoá, dấu hiệu nhận biết,... để biết đây là request có nguồn gốc xuất xử hợp lệ. Thế nào là hợp lệ? Hợp lệ ở đây là phải đảm bảo một số tính chất sau. À mà thể hiện của JWT cho trường hợp này, ta có thể gọi tắt là Token.
+  <ul>
+<li>
+      Token này phải còn thời hạn sử dụng. Thường thì mọi người sẽ gán thuộc tính <code>expire</code> là một khoảng thời gian trong phần <code>payload</code>.
+    </li>
+<li>
+      Xác thực đây là token hợp lệ đến cho hệ thống của bạn. Các bạn để ý phần <code>signature</code> trong 3 thành phần của token. Bạn phải nhập <strong>Secret Key</strong> vào trong đó và mã hoá lại, ta được chữ kí bảo mật của hệ thống. Nếu token gửi lên, phần này không khớp coi như token không hợp lệ.
+    </li>
+</ul>
+  Và mỗi khi bạn muốn gửi request đến service nào trong hệ thống đều phải đính kèm token để xác thực bạn có quyền đối với service đó hay không và bạn có được phép thao tác với tài nguyên hay không.
+</p>
+<img alt="JWT in Microservice" src="img/jwt-in-microservice.png"/>
+<span class="heading" id="mi-ngi-ni-v-jwt-nh-th-no"></span><h2>Mọi người nói về JWT như thế nào?</h2>
+<p>
+<ul>
+<li>Easier to (horizontally) scale</li>
+<li>Easier to use</li>
+<li>More flexible</li>
+<li>More secure</li>
+<li>Built-in expiration functionality</li>
+<li>No need to ask users for 'cookie consent'</li>
+<li>Prevents CSRF</li>
+<li>Works better on mobile</li>
+<li>Works for users that block cookies</li>
+</ul>
+  Thực sự thì mình thấy mọi người đánh giá cao JWT ở 2 điểm chính đó là <strong>"more secure"</strong> và <strong>"stateless"</strong>.
+  <ul>
+<li>
+<strong>More secure</strong> -  Chắc là có yếu tố mã hoã, so sánh ở phần <code>signature</code>
+</li>
+<li>
+<strong>Stateless</strong> - Ngược với Stateful. Từ này hiểu theo nghĩa không có bất cứ dữ liệu nào được lưu trên Server. Đúng mà, chỉ cần so khớp <code>signature</code>, kiểm tra thời hạn sử dụng, không cần đụng gì cơ sở dữ liệu hết. Mọi permission đều nằm trong <code>payload</code>.
+    </li>
+</ul>
+</p>
+<img alt="JWT - Get resources in microservice" src="img/wI6XW.png"/>
+<span class="heading" id="jwt-trong-mt-tui"></span><h2>JWT trong mắt tui</h2>
+<p>
+  Có người cho rằng dùng JWT có thể thay thế được <code>session</code> và tiết kiệm được việc truy vấn để xác thực. Cũng hợp lý theo chiều hướng tích cực. Về mặt tiêu cực thì việc <code>decode</code> phần <strong>payload</strong> của JWT thì sẽ thấy hết toàn bộ nội dung. Lấy một token mới ráp với phần <code>signature</code>, chỉnh sửa tiếp thời hạn sử dụng coi như đã qua mặt được hệ thống bảo mật.
+</p>
+<p>
+  Như nãy giờ các bạn đều thấy JWT có một thời hạn nhất định. Vậy để gia hạn thì ta làm thế nào? Đó là dùng một <code>Refresh Token</code> đính kèm chung lên server để gia hạn. Câu chuyện bắt đầu rối ren từ đây.
+</p>
+<img alt="Fuck you" src="img/fuck-you.jpg"/>
+<p>
+  Thường thì <code>Refresh Token</code> được gán thời hạn lâu hơn token kia để dễ dàng gia hạn. Tuy nhiên về mặt triển khai, ta phải giấu nó ở đâu đó để khi user gửi lên để còn xác định <code>Refresh Token</code> có hợp lệ hay không. Trường hợp này khá thú vị, do lâu lâu mới xài nên chúng ta phải lưu trữ lại. Và lưu ở đâu? Cookie, cơ sở dữ liệu (RDBMS, Redis),...? Stateless nơi đâu?
+</p>
+<p>
+  Tiếp theo, khi chúng ta đăng xuất hệ thống thì phải phi tang 2 cái token này chứ nhỉ? Nhưng không may, một tên nào đó đã chộp được cặp token này trước khi bạn đăng xuất rồi. Vậy hắn tha hồ gia hạn token để truy cập tài nguyên của bạn. Do đó một số tài liệu sẽ khuyên các bạn cho token đó vào <code>blacklist</code>. Nhưng khoan, không xài nữa thì cho vào blacklist. Như thế chả khác nào bạn đang tạo một đống dữ liệu không có khả năng tái sử dụng và vô nghĩa? Theo ngu ý của mình thì bạn nên tạo <code>whitelist</code>. Tức là các token của bạn còn trong thời gian sử dụng thì làm ơn hãy lưu chúng lại đâu đó, khi nào đăng xuất thì xoá chúng theo luôn. Giải pháp này có thể dùng <code>Redis</code> do hắn có thể gắn thời hạn cho từng cặp key-value.
+</p>
+<span class="heading" id="mt-s-li-khuyn-lm-lt"></span><h2>Một số lời khuyên lượm lặt</h2>
+<p>
+  JWT có một số khuyết điểm như mình vừa nói nhưng không hẳn là không xài được. Nếu không thì nó đã không ai xài rồi. Có một ý trong định nghĩa của JWT thế này.
+</p>
+<blockquote>
+    JSON Web Token (JWT) is a compact, URL-safe means of representing claims to be transferred between two parties. [...] enabling the claims to be digitally signed or integrity protected with a Message Authentication Code (MAC) and/or encrypted.
+</blockquote>
+<p>
+  Như mô tả trên, các bạn có thể dùng trong trường hợp giao tiếp server-server. Vì có một ông anh của mình bảo rằng, có một số ứng dụng lớn cần bảo mật đến mức giao tiếp giữa các service cũng phải cần đến token.
+</p>
+<p>
+  Ngoài ra, khi dùng JWT, bạn nên tham khảo ý này. Mình thấy nó cũng khá hợp lý.
+  <ul>
+<li>
+      Đặt thời gian sử dụng ngắn
+    </li>
+<li>
+      Token chỉ được dùng một lần
+    </li>
+</ul>
+</p>
+<span class="heading" id="trin-khai-nh-th-no"></span><h2>Triển khai như thế nào?</h2>
+<p>
+  Để tìm hiểu những điểm chưa được ở JWT, mình có làm một demo, các bạn có thể tham khảo ở <a href="https://github.com/vhnam/research-jwt-restapi">đây</a>. Ở Tiki, họ có cách triển khai khác nữa, các bạn có thể tham khảo bài <a href="https://engineering.tiki.vn/x%C3%A1c-th%E1%BB%B1c-v%C3%A0-ph%C3%A2n-quy%E1%BB%81n-trong-microservices-37689e53c082">Xác thực và phân quyền trong Microservices</a>.
+</p>
+<span class="heading" id="cht"></span><h2>Chốt</h2>
+<p>
+  Trong tiếng Anh có câu "<a href="https://en.wikipedia.org/wiki/No_Silver_Bullet">No Silver Bullet</a>" để ám chỉ rằng không có giải pháp nào là tối ưu nhất cho mọi trường hợp. Nó chỉ thích hợp với một số trường hợp nào đó. Các bạn cứ cân nhắc kỹ trước khi triển khai.
+</p>
+<span class="heading" id="tham-kho"></span><h2>Tham khảo</h2>
+<ul class="reference">
+<li>
+    OWASP, <a href="https://www.owasp.org/images/0/08/OWASP_SCP_Quick_Reference_Guide_v2.pdf" itemprop="url">OWASP Secure Coding Practices Quick Reference Guide</a>
+</li>
+<li>
+    joepie91, <a href="http://cryto.net/~joepie91/blog/2016/06/13/stop-using-jwt-for-sessions/" itemprop="url">Stop using JWT for sessions</a>
+</li>
+<li>
+    Dzone, <a href="https://dzone.com/articles/stateless-authentication-with-json-web-tokens">Stateless Authentication With JSON Web Tokens</a>
+</li>
+<li>
+    Dzone, <a href="https://dzone.com/articles/stateless-sessions-for-stateful-minds-jwts-explain">Stateless Sessions for Stateful Minds: JWTs Explained and How You Can Make the Switch</a>
+</li>
+<li>
+    Sebastián Peyrott, <a href="https://auth0.com/resources/ebooks/jwt-handbook?utm_source=jwtio&amp;utm_medium=sc&amp;utm_campaign=rotating_banner">JWT Handbook</a>
+</li>
+<li>
+    Tiki Engineering, <a href="https://engineering.tiki.vn/x%C3%A1c-th%E1%BB%B1c-v%C3%A0-ph%C3%A2n-quy%E1%BB%81n-trong-microservices-37689e53c082">Xác thực và phân quyền trong Microservices</a>
+</li>
+<li>
+    Scotch, <a href="https://scotch.io/bar-talk/why-jwts-suck-as-session-tokens">Why JWTs Suck as Session Tokens</a>
+</li>
+<li>
+    Viblo, <a href="https://viblo.asia/p/json-web-tokens-jwt-vs-sessions-4dbZN0Mg5YM">JSON Web Tokens (JWT) vs Sessions</a>
+</li>
+</ul>
