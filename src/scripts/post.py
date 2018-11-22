@@ -140,6 +140,7 @@ def createContent(title, index, config, mode):
     newContent = newContent.replace("{{description}}", config["description"].encode("utf-8"))
     newContent = newContent.replace("{{dateTime}}", config["dateTime"].encode("utf-8"))
     newContent = newContent.replace("{{time}}", config["time"].encode("utf-8"))
+    newContent = newContent.replace("{{mode}}", mode.encode("utf-8"))
 
     f = open(toFile, "w+")
     f.write(newContent)
