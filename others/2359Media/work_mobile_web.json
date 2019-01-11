@@ -1,0 +1,19 @@
+{
+  "data": [
+    {
+      "title": "FOX+",
+      "subTitle": "An OTT Product for FOX Networks Group",
+      "description": "2359 partnered with FOX to provide a dedicated engineering and QA team. Together we’ve built out a world class OTT product across web, mobile (iPhones and Android Phones), tablet (iPads and Android Tablets) and leanback devices (Apple TVs and Android TVs)."
+    },
+    {
+      "title": "MeClub",
+      "subTitle": "A full revamp of Mediacorp's loyalty reward programme",
+      "description": "2359 Media was tasked for a full revamp in 2015 as MeClub positioned itself to be MeClub 2.0 - a more comprehensive lifestyle loyalty programme to serve its wide members. MeClub is an award-winning loyalty reward programme in Mediacorp, which owns and operates multiple media properties including TV and Radio broadcasting, interactive media and print media."
+    },
+    {
+      "title": "Virsagi",
+      "subTitle": "Making hiring skilled construction workers easier.",
+      "description": "Virsagi had a bold plan, to create and maintain the largest database of skilled foreign workers in the construction industry, solving a pressing issue of the very fragmented labour market. To help them get there, we designed and built a multi platform system that included a marketing website, call centre, mobile job app, job and request management and worker database, allowing interested workers to sign up to the database to access jobs more jobs, and potential employers to create and find workers with the required skillsets for jobs in Singapore.<br/>The road there was not an easy one: we had to deal with poor network coverage in rural villages, multiple language limitations, multiple levels of access control, as well as limitations in mobile literacy. Thankfully, our research and user tests paid off, and coupled with a strong and dedicated development team, we managed to launch the entire system in a little less than 3 months."
+    }
+  ]
+}
