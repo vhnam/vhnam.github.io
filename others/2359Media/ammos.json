@@ -33,8 +33,16 @@
       "link": "https://vhnam.github.io/others/2359Media/logo_react.svg"
     },
     {
+      "name": "Swift",
+      "link": "https://vhnam.github.io/others/2359Media/logo_swift.svg"
+    },
+    {
       "name": "React Native",
       "link": "https://vhnam.github.io/others/2359Media/logo_react_native.svg"
-    }
+    },
+    {
+      "name": "Something",
+      "link": "https://vhnam.github.io/others/2359Media/logo_aws.svg"
+    },
   ]
 }
