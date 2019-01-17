@@ -1,0 +1,40 @@
+{
+  "data": [
+    {
+      "name": "Apple",
+      "link": "https://vhnam.github.io/others/2359Media/logo_apple.svg"
+    },
+    {
+      "name": "Azure",
+      "link": "https://vhnam.github.io/others/2359Media/logo_azure.svg"
+    },
+    {
+      "name": "Amazon Web Services",
+      "link": "https://vhnam.github.io/others/2359Media/logo_aws.svg"
+    },
+    {
+      "name": "Google Partner",
+      "link": "https://vhnam.github.io/others/2359Media/logo_google.svg"
+    },
+    {
+      "name": "Java",
+      "link": "https://vhnam.github.io/others/2359Media/logo_java.svg"
+    },
+    {
+      "name": "Microsoft .NET",
+      "link": "https://vhnam.github.io/others/2359Media/logo_dotnet.svg"
+    },
+    {
+      "name": "Node JS",
+      "link": "https://vhnam.github.io/others/2359Media/logo_nodejs.svg"
+    },
+    {
+      "name": "React JS",
+      "link": "https://vhnam.github.io/others/2359Media/logo_react.svg"
+    },
+    {
+      "name": "React Native",
+      "link": "https://vhnam.github.io/others/2359Media/logo_react_native.svg"
+    }
+  ]
+}
