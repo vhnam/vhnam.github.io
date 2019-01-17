@@ -43,6 +43,10 @@
     {
       "name": "Something",
       "link": "https://vhnam.github.io/others/2359Media/logo_aws.svg"
+    },
+    {
+      "name": "Something Else",
+      "link": "https://vhnam.github.io/others/2359Media/logo_dotnet.svg"
     }
   ]
 }
