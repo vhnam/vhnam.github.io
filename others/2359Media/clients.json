@@ -1,0 +1,55 @@
+{
+  "data": [
+    {
+      "name": "Singtel",
+      "link": "http://two359media.staging.wpengine.com/wp-content/uploads/2016/07/1-singtel.png"
+    },
+    {
+      "name": "DBS",
+      "link": "http://two359media.staging.wpengine.com/wp-content/uploads/2016/07/2-dbs.png"
+    },
+    {
+      "name": "Microsoft",
+      "link": "http://two359media.staging.wpengine.com/wp-content/uploads/2016/07/3-microsoft.png"
+    },
+
+    {
+      "name": "Fox",
+      "link": "http://two359media.staging.wpengine.com/wp-content/uploads/2016/07/4-fox.png"
+    },
+    {
+      "name": "Samsung",
+      "link": "http://two359media.staging.wpengine.com/wp-content/uploads/2016/07/5-samsung.png"
+    },
+    {
+      "name": "CapitaLand",
+      "link": "http://two359media.staging.wpengine.com/wp-content/uploads/2016/07/7-capland.png"
+    },
+    {
+      "name": "Mediacrop",
+      "link": "http://two359media.staging.wpengine.com/wp-content/uploads/2016/07/6-mediacorp.png"
+    },
+
+    {
+      "name": "Changi",
+      "link": "http://two359media.staging.wpengine.com/wp-content/uploads/2016/07/8-changi.png"
+    },
+    {
+      "name": "Disney",
+      "link": "http://2359media.com/wp-content/uploads/2018/06/disney-logo.png"
+    },
+
+    {
+      "name": "Standard Chartered",
+      "link": "http://2359media.com/wp-content/uploads/2018/06/sc-logo.png"
+    },
+    {
+      "name": "Sentosa",
+      "link": "http://2359media.com/wp-content/uploads/2018/06/sentosa-logo.png"
+    },
+    {
+      "name": "Singhealth",
+      "link": "http://2359media.com/wp-content/uploads/2018/06/singhealth-logo.png"
+    }
+  ]
+}
