@@ -7,6 +7,8 @@ import re
 from distutils.dir_util import copy_tree
 from bs4 import BeautifulSoup
 from xml.sax.saxutils import escape
+from slimmer import html_slimmer
+
 
 
 # Usage:
@@ -175,8 +177,10 @@ def createContent(title, index, config, mode):
     newContent = newContent.replace("{{stylesheets}}", stylesheets.encode("utf-8"))
     newContent = newContent.replace("{{scripts}}", scripts.encode("utf-8"))
 
+    minified = html_slimmer(newContent.replace('\n', '').replace('\t', '').replace('\r', '')).strip()
+
     f = open(toFile, "w+")
-    f.write(newContent)
+    f.write(minified)
     f.close()
 
 
