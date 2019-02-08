@@ -1,7 +1,1 @@
-{
-"version": 3,
-"mappings": "AAII,eAAS;EACL,OAAO,EAAE,YAAY;EACrB,gBAAgB,EAAE,kCAAkC;EACpD,iBAAiB,EAAE,SAAS;EAC5B,mBAAmB,EAAE,GAAG;EACxB,eAAe,EAAE,KAAK;EACtB,aAAa,EAAE,qBAA6B;AAGhD,cAAQ;EACJ,OAAO,EAAE,MAAM;AAGnB,eAAS;EACL,KAAK,ECbM,OAAO;ADgBtB,cAAM;EACF,UAAU,EAAE,IAAI;EAEhB,oBAAM;IACF,WAAW,EAAE,IAAI;AAIzB,aAAO;EACH,MAAM,EAAE,KAAK;EACb,gBAAgB,EAAE,8BAA8B;EAChD,iBAAiB,EAAE,SAAS;EAC5B,mBAAmB,EAAE,GAAG;EACxB,eAAe,EAAE,KAAK;EACtB,UAAU,EAAE,qBAA+B",
-"sources": ["../../scss/pages/contact.scss","../../scss/_variables.scss"],
-"names": [],
-"file": "contact.css"
-}
+{"version":3,"sourceRoot":"","sources":["../../scss/pages/contact.scss","../../scss/_variables.scss"],"names":[],"mappings":"AAII;EACI;EACA;EACA;EACA;EACA;EACA;;AAGJ;EACI;;AAGJ;EACI,OCbW;;ADgBf;EACI;;AAEA;EACI;;AAIR;EACI;EACA;EACA;EACA;EACA;EACA","file":"contact.css"}
