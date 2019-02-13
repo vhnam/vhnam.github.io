@@ -1,28 +1,43 @@
-@import 'variables';
+@import "_variables";
 
 iframe {
-    margin-bottom: 1rem !important;
+  margin-bottom: 1rem !important;
+}
+
+.videoWrapper {
+  position: relative;
+  padding-bottom: 56.25%; /* 16:9 */
+  padding-top: 25px;
+  height: 0;
+}
+
+.videoWrapper iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
 }
 
 .text-river-bed {
-    color: $river-bed-color !important;
+  color: $river-bed-color !important;
 }
 
 .bg-jungle-mist {
-    background-color: $jungle-mist-color !important;
+  background-color: $jungle-mist-color !important;
 }
 
 .display-5 {
-    font-size: 1rem;
-    font-weight: 700;
+  font-size: 1rem;
+  font-weight: 700;
 }
 
 .link {
-    color: #2980B9;
-    text-decoration: none;
-    border-bottom: 1px dotted #2980B9;
+  color: #2980b9;
+  text-decoration: none;
+  border-bottom: 1px dotted #2980b9;
 }
 
 .footer {
-    background-color: $river-bed-color;
+  background-color: $river-bed-color;
 }

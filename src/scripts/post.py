@@ -7,6 +7,8 @@ import re
 from distutils.dir_util import copy_tree
 from bs4 import BeautifulSoup
 from xml.sax.saxutils import escape
+from slimmer import html_slimmer
+
 
 
 # Usage:
@@ -120,6 +122,34 @@ def createIndex(title, mode):
 
 
 
+def importStylesheets(mode, title):
+    stylesheets = ''
+    path = "src/content/%s/%s/css" % (mode, title)
+
+    if os.path.isdir(path):
+        files = os.listdir(path)
+
+        for file in files:
+            stylesheets = stylesheets + '<link rel="stylesheet" href="css/%s">' % (file)
+
+    return stylesheets
+
+
+
+def importScripts(mode, title):
+    scripts = ''
+    path = "src/content/%s/%s/js" % (mode, title)
+
+    if os.path.isdir(path):
+        files = os.listdir(path)
+
+        for file in files:
+            scripts = scripts + '<script src="js/%s"></script>' % (file)
+
+    return scripts
+
+
+
 def createContent(title, index, config, mode):
     templateFile = "src/template/winter-wonder.html"
     fromFile = "src/content/%s/%s/index.tmp.html" % (mode, title)
@@ -133,6 +163,9 @@ def createContent(title, index, config, mode):
     content = f.read()
     f.close()
 
+    stylesheets = importStylesheets(mode, title)
+    scripts = importScripts(mode, title)
+
     newContent = template.replace("{{content}}", content)
     newContent = newContent.replace("{{index}}", index.encode("utf-8"))
     newContent = newContent.replace("{{title}}", title)
@@ -141,9 +174,13 @@ def createContent(title, index, config, mode):
     newContent = newContent.replace("{{dateTime}}", config["dateTime"].encode("utf-8"))
     newContent = newContent.replace("{{time}}", config["time"].encode("utf-8"))
     newContent = newContent.replace("{{mode}}", mode.encode("utf-8"))
+    newContent = newContent.replace("{{stylesheets}}", stylesheets.encode("utf-8"))
+    newContent = newContent.replace("{{scripts}}", scripts.encode("utf-8"))
+
+    minified = html_slimmer(newContent.replace('\n', '').replace('\t', '').replace('\r', '')).strip()
 
     f = open(toFile, "w+")
-    f.write(newContent)
+    f.write(minified)
     f.close()
 
 

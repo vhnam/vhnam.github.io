@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
         <urlset xmlns="https://www.sitemaps.org/schemas/sitemap/0.9">
-            <url><loc>https://vhnam.github.io/tutorials/jwt-va-microservices</loc><lastmod>2018-11-22</lastmod></url>
+            <url><loc>https://vhnam.github.io/tutorials/mot-so-coding-guideline</loc><lastmod>2019-02-07</lastmod></url>
+    <url><loc>https://vhnam.github.io/tutorials/jwt-va-microservices</loc><lastmod>2018-11-22</lastmod></url>
     <url><loc>https://vhnam.github.io/blog/lam-chu-am-thanh</loc><lastmod>2018-11-17</lastmod></url>
     <url><loc>https://vhnam.github.io/tutorials/dang-nhap-voi-aws-cognito-su-dung-otp</loc><lastmod>2018-10-13</lastmod></url>
     <url><loc>https://vhnam.github.io/tutorials/cau-hinh-aws-cloudfront-va-s3</loc><lastmod>2018-10-09</lastmod></url>

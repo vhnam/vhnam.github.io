@@ -1,13 +1,16 @@
 .privacy {
-  margin-bottom: 5rem; }
-  .privacy__cover {
-    padding: 15rem 0 5rem;
-    background-image: url("/src/assets/img/lone-wolf.jpg");
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: cover;
-    border-bottom: 0.25rem solid #435256; }
-  .privacy__title {
-    color: #A46260; }
+  margin-bottom: 5rem;
+}
+.privacy__cover {
+  padding: 15rem 0 5rem;
+  background-image: url("/src/assets/img/lone-wolf.jpg");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  border-bottom: 0.25rem solid #435256;
+}
+.privacy__title {
+  color: #A46260;
+}
 
 /*# sourceMappingURL=privacy.css.map */

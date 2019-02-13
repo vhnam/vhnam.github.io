@@ -3,35 +3,47 @@
   background-image: url("/src/assets/img/trumpet.jpg");
   background-repeat: no-repeat;
   background-position: center;
-  background-size: cover; }
-  .homepage__cover .jumbotron {
-    background-color: rgba(67, 82, 86, 0.7) !important;
-    color: #fff; }
+  background-size: cover;
+}
+.homepage__cover .jumbotron {
+  background-color: rgba(67, 82, 86, 0.7) !important;
+  color: #fff;
+}
 .homepage__overview {
-  padding: 3rem 0; }
+  padding: 3rem 0;
+}
 .homepage__title {
-  color: #A46260; }
+  color: #A46260;
+}
 .homepage__blog {
   padding: 3rem 0;
-  background-color: #E3EAEA; }
+  background-color: #E3EAEA;
+}
 .homepage__tutorials {
   padding: 3rem 0;
-  background-color: #F5F2ED; }
+  background-color: #F5F2ED;
+}
 .homepage .list {
   padding: 0;
   margin: 0;
-  list-style-type: none; }
-  .homepage .list .item {
-    margin-bottom: 1rem; }
-    .homepage .list .item__title {
-      font-size: 1.25rem;
-      color: #597484; }
-    .homepage .list .item__time {
-      display: block;
-      font-size: .75rem; }
-    .homepage .list .item__description {
-      color: #616161; }
+  list-style-type: none;
+}
+.homepage .list .item {
+  margin-bottom: 1rem;
+}
+.homepage .list .item__title {
+  font-size: 1.25rem;
+  color: #597484;
+}
+.homepage .list .item__time {
+  display: block;
+  font-size: 0.75rem;
+}
+.homepage .list .item__description {
+  color: #616161;
+}
 .homepage .more {
-  color: #435256; }
+  color: #435256;
+}
 
 /*# sourceMappingURL=homepage.css.map */
