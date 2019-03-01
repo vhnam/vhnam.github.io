@@ -5,14 +5,16 @@
       "title": "Singtel Prepaid hi!App",
       "hashtag": "iOS|Android|onsite",
       "content": "2359 partnered with Singtel to provide a dedicated frontend and backend engineering team, focusing on building the next phase of the iOS and Android applications based on the revamped visuals from Singtel and including a brand new set of features to enhance the user experience.",
-      "image": "product-2.png"
+      "image": "product-2.png",
+      "link": "/work/app"
     },
     {
       "id": 2,
       "title": "TMC - MDConnect",
       "hashtag": "Heath|Management",
       "content": "TMC recognised the importance of providing actionable information to doctors in a seamless way, in order to increase employee productivity, increase doctors retention and request ratio and increase clientele communications and satisfaction levels.<br />2359 was engaged to solution, design and develop mobile application for both iPhones and Android phones as well as a Content Management System to manage the information in the mobile application.",
-      "image": "product-1.png"
+      "image": "product-1.png",
+      "link": "/work/web"
     }
   ]
 }
