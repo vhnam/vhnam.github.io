@@ -190,7 +190,7 @@ def main():
 
     print "Processing..."
 
-    if ("--blog" == category or "--tutorials" == category):
+    if ("--blog" == category or "--tutorials" == category or "--music" == category):
         category = category.replace("--", "")
         directories = os.listdir("src/content/%s" % category)
 
