@@ -11,9 +11,9 @@
   },
   "homepage": "https://github.com/vhnam/vhnam.github.io#readme",
   "dependencies": {
-    "axios": "^0.18.0",
+    "axios": "^0.18.1",
     "bootstrap": "^4.3.1",
-    "jquery": "^3.3.1",
-    "popper.js": "^1.14.4"
+    "jquery": "^3.4.1",
+    "popper.js": "^1.15.0"
   }
 }
