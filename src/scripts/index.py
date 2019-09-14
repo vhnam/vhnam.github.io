@@ -1,11 +1,10 @@
-#-*- coding: UTF-8 -*-
+# -*- coding: UTF-8 -*-
 
 import sys
 import json
 import os
 import codecs
 from datetime import datetime as dt
-
 
 
 def readConfig(title, mode):
@@ -17,6 +16,14 @@ def readConfig(title, mode):
     return config
 
 
+def checkTypo(str):
+    length = len(str)
+
+    if "." != str[length - 1]:
+        str = str + "."
+
+    return str
+
 
 def getIndexItem(title, mode):
     config = readConfig(title, mode)
@@ -27,19 +34,17 @@ def getIndexItem(title, mode):
             "time": "%s",
             "description": "%s"
         },""" % (
-            config["headline"].encode("utf-8"), 
-            mode, title, 
-            config["dateTime"].encode("utf-8"), 
-            config["time"].encode("utf-8"), 
-            config["description"].encode("utf-8")
+        config["headline"].encode("utf-8"),
+        mode, title,
+        config["dateTime"].encode("utf-8"),
+        config["time"].encode("utf-8"),
+        checkTypo(config["description"].encode("utf-8"))
     )
-
 
 
 def sort_by_datetime(item):
     date_str = item["datetime"]
     return dt.strptime(date_str, '%Y-%m-%d')
-
 
 
 def main():
@@ -58,7 +63,8 @@ def main():
         json_string = """{ "%s": [%s] }""" % (category, data)
         json_object = json.loads(json_string)
         list_by_category = json_object[category]
-        sorted_list = sorted(list_by_category, key=sort_by_datetime, reverse=True)
+        sorted_list = sorted(
+            list_by_category, key=sort_by_datetime, reverse=True)
         json_object[category] = sorted_list
 
         with codecs.open("src/index/%s.json" % category, "w", encoding="utf-8") as file:
@@ -69,6 +75,5 @@ def main():
     print "Build complete!"
 
 
-
-if __name__== "__main__":
+if __name__ == "__main__":
     main()

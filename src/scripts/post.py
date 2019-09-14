@@ -1,4 +1,4 @@
-#-*- coding: UTF-8 -*-
+# -*- coding: UTF-8 -*-
 
 import sys
 import os
@@ -10,11 +10,9 @@ from xml.sax.saxutils import escape
 from slimmer import html_slimmer
 
 
-
 # Usage:
 # > python post.py --blog
 # > python post.py --turorials
-
 
 
 def build(title, mode):
@@ -26,13 +24,11 @@ def build(title, mode):
     createContent(title, index, config, mode)
 
 
-
 def makeDirectory(title, mode):
     directory = "%s/%s" % (mode, title)
 
     if not os.path.exists(directory):
         os.makedirs(directory)
-
 
 
 def copyResources(title, mode):
@@ -46,7 +42,6 @@ def copyResources(title, mode):
             copy_tree(fromDirectory, toDirectory)
 
 
-
 def readConfig(title, mode):
     jsonFile = "src/content/%s/%s/config.json" % (mode, title)
 
@@ -54,7 +49,6 @@ def readConfig(title, mode):
         config = json.load(f)
 
     return config
-
 
 
 def encodeHeading(heading):
@@ -68,7 +62,6 @@ def encodeHeading(heading):
     return newHeading
 
 
-
 def isGreater(currentHeading, prevHeading):
     currentIndex = re.findall(r'\d+', currentHeading)
     prevIndex = re.findall(r'\d+', prevHeading)
@@ -76,7 +69,6 @@ def isGreater(currentHeading, prevHeading):
     if (int(currentIndex[0]) > int(prevIndex[0])):
         return False
     return True
-
 
 
 def createIndex(title, mode):
@@ -92,7 +84,7 @@ def createIndex(title, mode):
     prevHeading = "h2"
     isFirst = True
     headingItems = soup.find_all(["h2", "h3", "h4"])
-    
+
     for heading in headingItems:
         title = encodeHeading(heading.text)
 
@@ -109,7 +101,8 @@ def createIndex(title, mode):
         if isFirst:
             className = "index__item index--highlight"
             isFirst = False
-        index = index + '<li><a id="prefix-%s" href="#%s" class="%s">%s</a></li>' % (title, title, className, heading.text)
+        index = index + '<li><a id="prefix-%s" href="#%s" class="%s">%s</a></li>' % (
+            title, title, className, heading.text)
 
         prevHeading = heading.name
 
@@ -121,7 +114,6 @@ def createIndex(title, mode):
     return index
 
 
-
 def importStylesheets(mode, title):
     stylesheets = ''
     path = "src/content/%s/%s/css" % (mode, title)
@@ -130,10 +122,10 @@ def importStylesheets(mode, title):
         files = os.listdir(path)
 
         for file in files:
-            stylesheets = stylesheets + '<link rel="stylesheet" href="css/%s">' % (file)
+            stylesheets = stylesheets + \
+                '<link rel="stylesheet" href="css/%s">' % (file)
 
     return stylesheets
-
 
 
 def importScripts(mode, title):
@@ -147,7 +139,6 @@ def importScripts(mode, title):
             scripts = scripts + '<script src="js/%s"></script>' % (file)
 
     return scripts
-
 
 
 def createContent(title, index, config, mode):
@@ -169,20 +160,24 @@ def createContent(title, index, config, mode):
     newContent = template.replace("{{content}}", content)
     newContent = newContent.replace("{{index}}", index.encode("utf-8"))
     newContent = newContent.replace("{{title}}", title)
-    newContent = newContent.replace("{{headline}}", config["headline"].encode("utf-8"))
-    newContent = newContent.replace("{{description}}", config["description"].encode("utf-8"))
-    newContent = newContent.replace("{{dateTime}}", config["dateTime"].encode("utf-8"))
+    newContent = newContent.replace(
+        "{{headline}}", config["headline"].encode("utf-8"))
+    newContent = newContent.replace(
+        "{{description}}", config["description"].encode("utf-8"))
+    newContent = newContent.replace(
+        "{{dateTime}}", config["dateTime"].encode("utf-8"))
     newContent = newContent.replace("{{time}}", config["time"].encode("utf-8"))
     newContent = newContent.replace("{{mode}}", mode.encode("utf-8"))
-    newContent = newContent.replace("{{stylesheets}}", stylesheets.encode("utf-8"))
+    newContent = newContent.replace(
+        "{{stylesheets}}", stylesheets.encode("utf-8"))
     newContent = newContent.replace("{{scripts}}", scripts.encode("utf-8"))
 
-    minified = html_slimmer(newContent.replace('\n', '').replace('\t', '').replace('\r', '')).strip()
+    minified = html_slimmer(newContent.replace(
+        '\n', '').replace('\t', '').replace('\r', '')).strip()
 
     f = open(toFile, "w+")
     f.write(minified)
     f.close()
-
 
 
 def main():
@@ -202,6 +197,5 @@ def main():
         print "Invalid params"
 
 
-
-if __name__== "__main__":
+if __name__ == "__main__":
     main()
