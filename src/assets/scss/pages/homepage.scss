@@ -1,62 +1,62 @@
 @import '../variables';
 
 .homepage {
-    &__cover {
-        padding: 5rem 0;
-        background-image: url('/src/assets/img/trumpet.jpg');
-        background-repeat: no-repeat;
-        background-position: center;
-        background-size: cover;
+  &__cover {
+    padding: 5rem 0;
+    background-image: url('/src/assets/img/trumpet.jpg');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
 
-        .jumbotron {
-            background-color: rgba(67, 82, 86, .7) !important;
-            color: #fff;
-        }
+    .jumbotron {
+      background-color: rgba(67, 82, 86, 0.7) !important;
+      color: #fff;
     }
+  }
 
-    &__overview {
-        padding: 3rem 0;
+  &__overview {
+    padding: 3rem 0;
+  }
+
+  &__title {
+    color: $coral-tree-color;
+  }
+
+  &__blog {
+    padding: 3rem 0;
+    background-color: $porcelain-color;
+  }
+
+  &__tutorials {
+    padding: 3rem 0;
+    background-color: $spring-wood-color;
+  }
+
+  .list {
+    padding: 0;
+    margin: 0;
+    list-style-type: none;
+
+    .item {
+      margin-bottom: 1rem;
+
+      &__title {
+        font-size: 1.25rem;
+        color: $smalt-blue-color;
+      }
+
+      &__time {
+        display: block;
+        font-size: 0.75rem;
+      }
+
+      &__description {
+        color: #616161;
+      }
     }
+  }
 
-    &__title {
-        color: $coral-tree-color;
-    }
-
-    &__blog {
-        padding: 3rem 0;
-        background-color: $porcelain-color;
-    }
-
-    &__tutorials {
-        padding: 3rem 0;
-        background-color: $spring-wood-color;
-    }
-
-    .list {
-        padding: 0;
-        margin: 0;
-        list-style-type: none;
-
-        .item {
-            margin-bottom: 1rem;
-
-            &__title {
-                font-size: 1.25rem;
-                color: $smalt-blue-color;
-            }
-
-            &__time {
-                display: block;
-                font-size: .75rem;
-            }
-
-            &__description {
-                color: #616161;
-            }
-        }
-    }
-
-    .more {
-        color: $river-bed-color;
-    }
+  .more {
+    color: $river-bed-color;
+  }
 }

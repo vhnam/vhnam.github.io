@@ -1,18 +1,18 @@
 @import '../variables';
 
 .privacy {
-    margin-bottom: 5rem;
+  margin-bottom: 5rem;
 
-    &__cover {
-        padding: 15rem 0 5rem;
-        background-image: url('/src/assets/img/lone-wolf.jpg');
-        background-repeat: no-repeat;
-        background-position: center;
-        background-size: cover;
-        border-bottom: .25rem solid $river-bed-color;
-    }
+  &__cover {
+    padding: 15rem 0 5rem;
+    background-image: url('/src/assets/img/lone-wolf.jpg');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    border-bottom: 0.25rem solid $river-bed-color;
+  }
 
-    &__title {
-        color: $coral-tree-color;
-    }
+  &__title {
+    color: $coral-tree-color;
+  }
 }

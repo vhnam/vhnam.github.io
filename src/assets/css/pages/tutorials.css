@@ -12,7 +12,7 @@
   list-style-type: none;
 }
 .list__index .item {
-  margin-bottom: 1rem;
+  margin-bottom: 1.5rem;
 }
 .list__index .item__title {
   font-size: 1.25rem;

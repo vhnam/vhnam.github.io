@@ -1,26 +1,26 @@
 @import '../variables';
 
 .about {
-    margin-bottom: 5rem;
+  margin-bottom: 5rem;
 
-    &__cover {
-        height: 30rem;
-        background-image: url('/src/assets/img/tao-dan-band.jpeg');
-        background-repeat: no-repeat;
-        background-position: center;
-        background-size: cover;
-        border-bottom: .25rem solid $river-bed-color;
-    }
+  &__cover {
+    height: 30rem;
+    background-image: url('/src/assets/img/tao-dan-band.jpeg');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    border-bottom: 0.25rem solid $river-bed-color;
+  }
 
-    &__heading {
-        margin-top: 2rem;
-        margin-bottom: 1.5rem;
-        font-size: 1.5rem;
-        color: $coral-tree-color;
-    }
+  &__heading {
+    margin-top: 2rem;
+    margin-bottom: 1.5rem;
+    font-size: 1.5rem;
+    color: $coral-tree-color;
+  }
 
-    &__description {
-        font-size: .875rem;
-        color: #666;
-    }
+  &__description {
+    font-size: 0.875rem;
+    color: #666;
+  }
 }

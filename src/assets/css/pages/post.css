@@ -7,17 +7,21 @@
   margin-bottom: 2rem;
   border-left: 0.5rem solid #435256;
 }
-.content h1, .content h2, .content h3 {
-  color: #A46260;
+.content h1,
+.content h2,
+.content h3 {
+  color: #a46260;
 }
-.content h4, .content h5, .content h6 {
+.content h4,
+.content h5,
+.content h6 {
   color: #435256;
 }
 .content__heading {
   margin: 3rem 0 2rem;
 }
 .content__title {
-  color: #A46260;
+  color: #a46260;
 }
 .content__time {
   color: #597484;
@@ -45,7 +49,9 @@
   margin-top: 3rem;
 }
 
-.fb_iframe_widget, .fb_iframe_widget span, .fb_iframe_widget span iframe[style] {
+.fb_iframe_widget,
+.fb_iframe_widget span,
+.fb_iframe_widget span iframe[style] {
   width: 100% !important;
 }
 

@@ -1,73 +1,79 @@
 @import '../variables';
 
 .content {
-    img {
-        width: 100%;
-        margin-bottom: 1rem;
+  img {
+    width: 100%;
+    margin-bottom: 1rem;
+  }
+
+  blockquote {
+    padding: 0 0 0 1rem;
+    margin-bottom: 2rem;
+    border-left: 0.5rem solid $river-bed-color;
+  }
+
+  h1,
+  h2,
+  h3 {
+    color: $coral-tree-color;
+  }
+
+  h4,
+  h5,
+  h6 {
+    color: $river-bed-color;
+  }
+
+  &__heading {
+    margin: 3rem 0 2rem;
+  }
+
+  &__title {
+    color: $coral-tree-color;
+  }
+
+  &__time {
+    color: $smalt-blue-color;
+  }
+
+  .index {
+    margin-top: 10rem;
+    padding: 0;
+    list-style-type: none;
+
+    &__item {
+      color: #212121;
+      font-weight: 300;
     }
 
-    blockquote {
-        padding: 0 0 0 1rem;
-        margin-bottom: 2rem;
-        border-left: .5rem solid $river-bed-color;
+    &--highlight {
+      font-size: 1rem;
+      font-weight: 700;
+      color: #212121;
+      border-bottom: 1px dotted $river-bed-color;
     }
 
-    h1, h2, h3 {
-        color: $coral-tree-color;
+    &--sticked {
+      position: fixed;
+      top: 0;
     }
+  }
 
-    h4, h5, h6 {
-        color: $river-bed-color;
-    }
-
-    &__heading {
-        margin: 3rem 0 2rem;
-    }
-
-    &__title {
-        color: $coral-tree-color;
-    }
-
-    &__time {
-        color: $smalt-blue-color;
-    }
-
-    .index {
-        margin-top: 10rem;
-        padding: 0;
-        list-style-type: none;
-
-        &__item {
-            color: #212121;
-            font-weight: 300;
-        }
-
-        &--highlight {
-            font-size: 1rem;
-            font-weight: 700;
-            color: #212121;
-            border-bottom: 1px dotted $river-bed-color;
-        }
-
-        &--sticked {
-            position: fixed;
-            top: 0;
-        }
-    }
-
-    &__footer {
-        margin-top: 3rem;
-    }
+  &__footer {
+    margin-top: 3rem;
+  }
 }
 
-.fb_iframe_widget, .fb_iframe_widget span, .fb_iframe_widget span iframe[style] {
-    width: 100% !important;
+.fb_iframe_widget,
+.fb_iframe_widget span,
+.fb_iframe_widget span iframe[style] {
+  width: 100% !important;
 }
 
-@media(max-width: 960px) {
-    .content {
-        &__index {
-            display: none;
-        }
+@media (max-width: 960px) {
+  .content {
+    &__index {
+      display: none;
     }
+  }
 }
