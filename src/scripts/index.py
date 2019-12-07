@@ -8,9 +8,11 @@ from datetime import datetime as dt
 
 
 def readConfig(title, mode):
-    jsonFile = "src/content/%s/%s/config.json" % (mode, title)
+    jsonFile = "/content/%s/%s/config.json" % (mode, title)
+    abspath = os.path.abspath('.')
+    path = abspath.replace("/scripts", jsonFile)
 
-    with open(jsonFile, "r") as f:
+    with open(path, "r") as f:
         config = json.load(f)
 
     return config
@@ -51,10 +53,12 @@ def main():
     print "Processing..."
 
     categories = ["blog", "tutorials"]
+    abspath = os.path.abspath('.')
 
     for category in categories:
         data = ""
-        directories = os.listdir("src/content/%s" % category)
+        directories = os.listdir(os.path.join(
+            abspath, "../content/%s" % category))
 
         for directory in directories:
             data = data + getIndexItem(directory, category)
@@ -67,7 +71,9 @@ def main():
             list_by_category, key=sort_by_datetime, reverse=True)
         json_object[category] = sorted_list
 
-        with codecs.open("src/index/%s.json" % category, "w", encoding="utf-8") as file:
+        path = abspath.replace("/scripts", "/index/%s.json" % category)
+
+        with codecs.open(path, "w", encoding="utf-8") as file:
             file.write(json.dumps(json_object, ensure_ascii=False))
 
         print "Wrote %s.json" % category

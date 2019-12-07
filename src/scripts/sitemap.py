@@ -9,9 +9,11 @@ from datetime import datetime as dt
 
 
 def readConfig(title, mode):
-    jsonFile = "src/content/%s/%s/config.json" % (mode, title)
+    jsonFile = "/content/%s/%s/config.json" % (mode, title)
+    abspath = os.path.abspath('.')
+    path = abspath.replace("/scripts", jsonFile)
 
-    with open(jsonFile, "r") as f:
+    with open(path, "r") as f:
         config = json.load(f)
 
     return config
@@ -35,9 +37,11 @@ def main():
 
     categories = ["blog", "tutorials"]
     data = []
+    abspath = os.path.abspath('.')
 
     for category in categories:
-        directories = os.listdir("src/content/%s" % category)
+        directories = os.listdir(os.path.join(
+            abspath, "../content/%s" % category))
 
         inner_template = string.Template(
             '    <url><loc>${link}</loc><lastmod>${time}</lastmod></url>')
@@ -56,7 +60,9 @@ def main():
     sitemap = outer_template.substitute(
         document_list='\n'.join(inner_contents))
 
-    with open("sitemap.xml", "w") as file:
+    path = abspath.replace("/src/scripts", "/sitemap.xml")
+
+    with open(path, "w") as file:
         file.write(sitemap)
 
     print "Build complete!"
