@@ -25,27 +25,34 @@ def build(title, mode):
 
 
 def makeDirectory(title, mode):
-    directory = "%s/%s" % (mode, title)
+    directory = "/%s/%s" % (mode, title)
+    abspath = os.path.abspath('.')
+    path = abspath.replace("/src/scripts", directory)
 
-    if not os.path.exists(directory):
-        os.makedirs(directory)
+    if not os.path.exists(path):
+        os.makedirs(path)
 
 
 def copyResources(title, mode):
     resouces = ["img", "css", "js"]
+    abspath = os.path.abspath('.')
 
     for item in resouces:
-        fromDirectory = "src/content/%s/%s/%s" % (mode, title, item)
+        fromDirectory = abspath.replace(
+            "/scripts", "/content/%s/%s/%s" % (mode, title, item))
 
         if os.path.exists(fromDirectory):
-            toDirectory = "%s/%s/%s" % (mode, title, item)
+            toDirectory = abspath.replace(
+                "/src/scripts", "/%s/%s/%s" % (mode, title, item))
             copy_tree(fromDirectory, toDirectory)
 
 
 def readConfig(title, mode):
-    jsonFile = "src/content/%s/%s/config.json" % (mode, title)
+    jsonFile = "/content/%s/%s/config.json" % (mode, title)
+    abspath = os.path.abspath('.')
+    path = abspath.replace("/scripts", jsonFile)
 
-    with open(jsonFile, "r") as f:
+    with open(path, "r") as f:
         config = json.load(f)
 
     return config
@@ -72,8 +79,11 @@ def isGreater(currentHeading, prevHeading):
 
 
 def createIndex(title, mode):
-    fromFile = "src/content/%s/%s/index.html" % (mode, title)
-    toFile = "src/content/%s/%s/index.tmp.html" % (mode, title)
+    abspath = os.path.abspath('.')
+    fromFile = abspath.replace(
+        "/scripts", "/content/%s/%s/index.html" % (mode, title))
+    toFile = abspath.replace(
+        "/scripts", "/content/%s/%s/index.tmp.html" % (mode, title))
 
     f = open(fromFile, "r")
     content = f.read()
@@ -116,7 +126,9 @@ def createIndex(title, mode):
 
 def importStylesheets(mode, title):
     stylesheets = ''
-    path = "src/content/%s/%s/css" % (mode, title)
+    abspath = os.path.abspath('.')
+    path = abspath.replace(
+        "/scripts", "/content/%s/%s/css" % (mode, title))
 
     if os.path.isdir(path):
         files = os.listdir(path)
@@ -130,7 +142,9 @@ def importStylesheets(mode, title):
 
 def importScripts(mode, title):
     scripts = ''
-    path = "src/content/%s/%s/js" % (mode, title)
+    abspath = os.path.abspath('.')
+    path = abspath.replace(
+        "/scripts", "/content/%s/%s/js" % (mode, title))
 
     if os.path.isdir(path):
         files = os.listdir(path)
@@ -142,9 +156,12 @@ def importScripts(mode, title):
 
 
 def createContent(title, index, config, mode):
-    templateFile = "src/template/winter-wonder.html"
-    fromFile = "src/content/%s/%s/index.tmp.html" % (mode, title)
-    toFile = "%s/%s/index.html" % (mode, title)
+    abspath = os.path.abspath('.')
+    templateFile = abspath.replace("/scripts", "/template/winter-wonder.html")
+    fromFile = abspath.replace(
+        "/scripts", "/content/%s/%s/index.tmp.html" % (mode, title))
+    toFile = abspath.replace(
+        "/src/scripts", "/%s/%s/index.html" % (mode, title))
 
     f = open(templateFile, "r")
     template = f.read()
@@ -187,7 +204,9 @@ def main():
 
     if ("--blog" == category or "--tutorials" == category or "--music" == category):
         category = category.replace("--", "")
-        directories = os.listdir("src/content/%s" % category)
+        path = os.path.abspath('.')
+        directories = os.listdir(os.path.join(
+            path, "../content/%s" % category))
 
         for directory in directories:
             build(directory, category)
