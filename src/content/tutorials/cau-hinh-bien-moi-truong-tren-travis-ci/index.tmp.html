@@ -1,0 +1,64 @@
+<p>
+  Có một dự án mình có nhu cầu dùng Travis CI để build tự động qua bên Amazon
+  Web Services. Trong lúc build, cần dùng
+  <code>Environment Variables</code> (biến môi trường) và mình viết bài này để
+  ghi chú lại các thao tác.
+</p>
+<img alt="CI-CD" itemprop="image" src="img/ci-cd.png"/>
+<span class="heading" id="to-bin-mi-trng-trn-travis-ci"></span><h2>Tạo biến môi trường trên Travis CI</h2>
+<p>
+  Đầu tiên, bạn vào project cần cấu hình, chọn <code>Settings</code>, kéo xuống
+  phần <code>Environment Variables</code>.
+</p>
+<img alt="Environment Variables" itemprop="image" src="img/environment-variables.png"/>
+<p>
+  Tiếp theo, bạn điền tên biến vào <code>NAME</code> và giá trị vào
+  <code>VALUE</code>. Nếu bạn chỉ muốn biến đó chỉ sử dụng cho một nhánh nào đó
+  thì chọn tên nhánh ở phần <code>BRANCH</code>, không thì chọn
+  <strong>All branches</strong>. Và nhấn <code>ADD</code>.
+</p>
+<p>
+  Lưu ý một chút, nếu bạn tạo tên biến bằng cách này thì bạn vẫn thấy được giá
+  trị khi vào Travis Settings.
+</p>
+<span class="heading" id="m-ho-bin-mi-trng"></span><h2>Mã hoá biến môi trường</h2>
+<p>
+  Với cách này, không ai đọc được value và có thể tạo/xoá/sửa biến ở local,
+  không nhất thiết phải vào web.
+</p>
+<p>
+  Đầu tiên là bạn phải tạo fle <code>.travis.yml</code> đặt ở thư mục root của
+  project.
+</p>
+<img alt="Structure" itemprop="image" src="img/structure-folder.png" style="width: 15rem;"/>
+<p>
+  Tiếp theo, bạn cần cài đặt Travis CLI tại máy thông qua lệnh sau:
+</p>
+<script src="https://gist.github.com/vhnam/b1c04d3746e9fe5966477efe2692d286.js"></script>
+<p>
+  Sau đó cần phải đăng nhập để có thể sử dụng, bạn gõ
+  <code>travis login</code> (dành cho
+  <a href="https://travis-ci.org">travis-ci.org</a>) hoặc
+  <code>travis login --pro</code> (dành cho
+  <a href="https://travis-ci.com">travis-ci.com</a>). Mình dùng tài khoản GitHub
+  (username + mất khẩu) và nhập GitHub Token (nếu có cài đặt) là đăng nhập được.
+</p>
+<p>
+  Với cách này, mình sẽ mã hoá từng biến, tức là có 5 biến thì nhập 5 lần nhé.
+</p>
+<script src="https://gist.github.com/vhnam/e11ed810294185c722f2050eb46e9683.js"></script>
+<p>
+  Và đây là kết quả.
+</p>
+<img alt="Encrypted keys" itemprop="image" src="img/encrypted-keys.png" style="width: 15rem;"/>
+<span class="heading" id="tham-kho"></span><h2>Tham khảo</h2>
+<ul class="reference">
+<li>
+    Travis CI,
+    <a href="https://docs.travis-ci.com/user/environment-variables" itemprop="url">Environment Variables</a>
+</li>
+<li>
+    Travis CI,
+    <a href="https://docs.travis-ci.com/user/encryption-keys#usage" itemprop="url">Encryption keys</a>
+</li>
+</ul>
