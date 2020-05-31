@@ -1,64 +1,49 @@
 .content img {
   width: 100%;
-  margin-bottom: 1rem;
-}
+  margin-bottom: 1rem; }
 .content blockquote {
   padding: 0 0 0 1rem;
   margin-bottom: 2rem;
-  border-left: 0.5rem solid #435256;
-}
+  border-left: 0.5rem solid #435256; }
 .content h1,
 .content h2,
 .content h3 {
-  color: #a46260;
-}
+  color: #a46260; }
 .content h4,
 .content h5,
 .content h6 {
-  color: #435256;
-}
+  color: #435256; }
 .content__heading {
-  margin: 3rem 0 2rem;
-}
+  margin: 3rem 0 2rem; }
 .content__title {
-  color: #a46260;
-}
+  color: #a46260; }
 .content__time {
-  color: #597484;
-}
+  color: #597484; }
 .content .index {
   margin-top: 10rem;
   padding: 0;
-  list-style-type: none;
-}
-.content .index__item {
-  color: #212121;
-  font-weight: 300;
-}
-.content .index--highlight {
-  font-size: 1rem;
-  font-weight: 700;
-  color: #212121;
-  border-bottom: 1px dotted #435256;
-}
-.content .index--sticked {
-  position: fixed;
-  top: 0;
-}
+  list-style-type: none; }
+  .content .index__item {
+    color: #212121;
+    font-weight: 300; }
+  .content .index--highlight {
+    font-size: 1rem;
+    font-weight: 700;
+    color: #212121;
+    border-bottom: 1px dotted #435256; }
+  .content .index--sticked {
+    position: fixed;
+    top: 0; }
 .content__footer {
-  margin-top: 3rem;
-}
+  margin-top: 3rem; }
 
 .fb_iframe_widget,
 .fb_iframe_widget span,
 .fb_iframe_widget span iframe[style] {
-  width: 100% !important;
-}
+  width: 100% !important; }
 
 @media (max-width: 960px) {
   .content__index {
-    display: none;
-  }
-}
+    display: none; } }
 
 /*# sourceMappingURL=post.css.map */

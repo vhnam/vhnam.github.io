@@ -1,1 +1,7 @@
-{"version":3,"sourceRoot":"","sources":["../../scss/pages/privacy.scss","../../scss/_variables.scss"],"names":[],"mappings":"AAEA;EACE;;AAEA;EACE;EACA;EACA;EACA;EACA;EACA;;AAGF;EACE,OCVe","file":"privacy.css"}
+{
+"version": 3,
+"mappings": "AAEA,QAAS;EACP,aAAa,EAAE,IAAI;EAEnB,eAAS;IACP,OAAO,EAAE,YAAY;IACrB,gBAAgB,EAAE,oCAAoC;IACtD,iBAAiB,EAAE,SAAS;IAC5B,mBAAmB,EAAE,MAAM;IAC3B,eAAe,EAAE,KAAK;IACtB,aAAa,EAAE,qBAA8B;EAG/C,eAAS;IACP,KAAK,ECVU,OAAO",
+"sources": ["../../scss/pages/privacy.scss","../../scss/_variables.scss"],
+"names": [],
+"file": "privacy.css"
+}

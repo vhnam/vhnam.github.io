@@ -4,27 +4,21 @@
   background-repeat: no-repeat;
   background-position: top;
   background-size: cover;
-  border-bottom: 0.25rem solid #435256;
-}
+  border-bottom: 0.25rem solid #435256; }
 .contact__info {
-  padding: 5rem 0;
-}
+  padding: 5rem 0; }
 .contact__title {
-  color: #a46260;
-}
+  color: #a46260; }
 .contact .list {
-  margin-top: 2rem;
-}
-.contact .list .link {
-  line-height: 2rem;
-}
+  margin-top: 2rem; }
+  .contact .list .link {
+    line-height: 2rem; }
 .contact__map {
   height: 30rem;
   background-image: url("/src/assets/img/map.jpg");
   background-repeat: no-repeat;
   background-position: top;
   background-size: cover;
-  border-top: 0.25rem solid #b5ccd4;
-}
+  border-top: 0.25rem solid #b5ccd4; }
 
 /*# sourceMappingURL=contact.css.map */

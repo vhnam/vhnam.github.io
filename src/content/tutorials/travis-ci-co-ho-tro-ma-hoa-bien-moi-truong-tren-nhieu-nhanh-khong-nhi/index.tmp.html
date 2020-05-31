@@ -1,0 +1,42 @@
+<p>
+  Số là một ngày đẹp trời, mạng ở VN quá chậm để kéo file lên
+  <a href="https://aws.amazon.com/s3/" itemprop="url">Amazon S3</a>. Kéo tầm
+  22.5MB lên, được tầm 30% là nó rớt. Và thế là phải cấu hình thêm CI/CD cho
+  nhánh này.
+</p>
+<p>
+  Nói sơ một xíu, lúc trước mình đã cấu hình cho nhánh <code>develop</code> rồi
+  nhưng nhánh <code>staging</code> thỉnh thoảng mới deploy nên cho chạy bằng
+  cơm. Và thế là mình tìm hiểu xem có cách nào để 2 nhánh dùng chung tên biến
+  môi trường đã được mã hoá nhưng khác giá trị không?
+</p>
+<img alt="Travis CI" itemprop="image" src="img/travis-ci.png"/>
+<span class="heading" id="cch-cu-hnh-trn-web"></span><h2>Cách cấu hình trên web</h2>
+<p>
+  Bạn chỉ cần vào <code>Settings</code> của repository trên Travis và làm như
+  hình.
+</p>
+<img alt="Settings Environment Variables" itemprop="image" src="img/settings-env-vars.png"/>
+<p>
+  Bạn kéo xuống phần <code>Environment Variables</code>, điền tên biến, giá trị
+  và chọn nhánh. Công việc hết sức dễ dàng.
+</p>
+<span class="heading" id="c-cch-no-chnh-trong-file-travisyml-khng-nh"></span><h2>Có cách nào chỉnh trong file .travis.yml không nhỉ?</h2>
+<span class="heading" id="phng-n-1"></span><h3>Phương án 1</h3>
+<p>
+  Suy nghĩ xem có cách nào để cấu hình biến môi trường theo từng nhánh không?
+  Tức là biến <code>NODE_ENV</code> ở nhánh <code>develop</code> thì nó sẽ mang
+  giá trị là <strong>develop</strong>, còn ở nhánh <code>staging</code> thì giá
+  trị là <strong>uat</strong>. Với điều kiện là phải mã hoá biến được.
+</p>
+<p>
+  Sau một hồi tìm hiểu thì thấy viết kiểu này có vẻ chạy được, thử xem nào.
+</p>
+<img alt="Solution 1" itemprop="image" src="img/solution-1.png"/>
+<span class="heading" id="tham-kho"></span><h2>Tham khảo</h2>
+<ul class="reference">
+<li>
+    Travis CI,
+    <a href="https://docs.travis-ci.com/user/environment-variables/" itemprop="url">Environment Variables</a>
+</li>
+</ul>

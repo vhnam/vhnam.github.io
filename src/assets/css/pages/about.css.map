@@ -1,1 +1,7 @@
-{"version":3,"sourceRoot":"","sources":["../../scss/pages/about.scss","../../scss/_variables.scss"],"names":[],"mappings":"AAEA;EACE;;AAEA;EACE;EACA;EACA;EACA;EACA;EACA;;AAGF;EACE;EACA;EACA;EACA,OCbe;;ADgBjB;EACE;EACA","file":"about.css"}
+{
+"version": 3,
+"mappings": "AAEA,MAAO;EACL,aAAa,EAAE,IAAI;EAEnB,aAAS;IACP,MAAM,EAAE,KAAK;IACb,gBAAgB,EAAE,wCAAwC;IAC1D,iBAAiB,EAAE,SAAS;IAC5B,mBAAmB,EAAE,MAAM;IAC3B,eAAe,EAAE,KAAK;IACtB,aAAa,EAAE,qBAA8B;EAG/C,eAAW;IACT,UAAU,EAAE,IAAI;IAChB,aAAa,EAAE,MAAM;IACrB,SAAS,EAAE,MAAM;IACjB,KAAK,ECbU,OAAO;EDgBxB,mBAAe;IACb,SAAS,EAAE,QAAQ;IACnB,KAAK,EAAE,IAAI",
+"sources": ["../../scss/pages/about.scss","../../scss/_variables.scss"],
+"names": [],
+"file": "about.css"
+}

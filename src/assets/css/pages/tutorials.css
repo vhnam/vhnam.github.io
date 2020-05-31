@@ -4,26 +4,20 @@
   background-repeat: no-repeat;
   background-position: top;
   background-size: cover;
-  border-bottom: 0.25rem solid #435256;
-}
+  border-bottom: 0.25rem solid #435256; }
 .list__index {
   padding: 0;
   margin: 5rem 0;
-  list-style-type: none;
-}
-.list__index .item {
-  margin-bottom: 1.5rem;
-}
-.list__index .item__title {
-  font-size: 1.25rem;
-  color: #597484;
-}
-.list__index .item__time {
-  display: block;
-  font-size: 0.75rem;
-}
-.list__index .item__description {
-  color: #616161;
-}
+  list-style-type: none; }
+  .list__index .item {
+    margin-bottom: 1.5rem; }
+    .list__index .item__title {
+      font-size: 1.25rem;
+      color: #597484; }
+    .list__index .item__time {
+      display: block;
+      font-size: 0.75rem; }
+    .list__index .item__description {
+      color: #616161; }
 
 /*# sourceMappingURL=tutorials.css.map */
