@@ -32,11 +32,251 @@
 <p>
   Sau một hồi tìm hiểu thì thấy viết kiểu này có vẻ chạy được, thử xem nào.
 </p>
-<img alt="Solution 1" itemprop="image" src="img/solution-1.png"/>
+<script src="https://gist.github.com/vhnam/39f33d729b4495b02774f942741b9726.js"></script>
+<p>
+  Ngon! Không lỗi ở bước đọc từ biến môi trường và kết quả của lần build này là
+  <strong>success</strong>.
+</p>
+<img alt="Solution 1 - 01" itemprop="image" src="img/logging--solution-1--01.jpg"/>
+<p>
+  Vậy thử cách này cho luôn cả 2 nhánh <strong>develop</strong> và
+  <strong>uat</strong> coi sao.
+</p>
+<script src="https://gist.github.com/vhnam/5a33964dc6b5b31cadca6de353735f01.js"></script>
+<p>
+  Lúc này thì chạy ở nhánh <strong>develop</strong> trước và nó thành công. Thử
+  tiếp với nhánh <strong>staging</strong> vẫn thành công tiếpÏ. Tuy nhiên, nó sẽ
+  chạy cùng lúc 2 jobs. Nếu như CI/CD của bạn tính tiền theo thời gian chạy thì
+  cách này không khả thi cho lắm.
+</p>
+<img alt="Solution 1 - 02" itemprop="image" src="img/logging-solution-1--02.png"/>
+<p>
+  Như hình trên, nó sẽ tính là bạn chạy 17 phút 43 giây. Thử suy nghĩ cách nào
+  khác có thể chạy được trong 1 job nhưng tự detect chọn biến môi trường theo
+  từng nhánh.
+</p>
+<span class="heading" id="phng-n-2"></span><h3>Phương án 2</h3>
+<p>
+  Như đã nói ở trên, làm sao chỉ dùng 1 job? Travis có một khái niệm khác là
+  <code>stage</code>, có thể hiểu là từng chặng trong một job. Ở đây mình khai
+  báo 2 stages, 1 cái để kiểm tra <strong>develop</strong> và một cái
+  <strong>staging</strong>. Kiểu như trong một function, viết 2 cái
+  <code>if</code> tuần tự, trúng cái nào chạy cái đó.
+</p>
+<script src="https://gist.github.com/vhnam/ef3aab894c435c3a491683c7864d2732.js"></script>
+<p>
+  Và kết quả là...
+</p>
+<img alt="Solution 2 - 01" itemprop="image" src="img/logging-solution-2--01.png"/>
+<p>
+  Lỗi cú pháp, không đọc được biến môi trường. Dẹp dẹp, qua phương án khác.
+</p>
+<span class="heading" id="phng-n-3"></span><h3>Phương án 3</h3>
+<p>
+  Quay về với <code>job</code>. À mà lúc nãy ở phương án 1, nó vẫn bị sai cú
+  pháp (mình sẽ nói về vụ này ở phần dưới). Đổi cú pháp khác xem sao. Ở trong cú
+  pháp của <code>job</code> có một từ khoá đó là <code>include</code> và
+  <code>exclude</code>. Ở đây, mình chọn <code>exclude</code> để mong nó kiểm
+  tra không phải môi trường thì ngừng cái job ấy lại giùm.
+</p>
+<script src="https://gist.github.com/vhnam/132ec44b710b9460ed3bbd091254f149.js"></script>
+<p>
+  Ơ... có gì đó sai trái ở đây. Cấu hình biến môi trường mà không đặt bọn nó
+  trong
+  <code>env</code>. Nếu viết như vậy là bạn đang định nghĩa <code>job</code>.
+  Nước đó mình đi nhầm, cho mình đi lại nha!
+</p>
+<script src="https://gist.github.com/vhnam/a0cbcfa8827dda6714cfd6c42c7750fc.js"></script>
+<p>Vẫn sai cú pháp và dẫn đến build bị <code>failed</code>.</p>
+<span class="heading" id="phng-n-n"></span><h3>Phương án N</h3>
+<p>
+  Mình đã thử thêm 3 phương án khác để sửa lỗi cú pháp tuy nhiên vẫn thất bại.
+  Và quyết định quay về phương án thứ 1 cho an toàn.
+</p>
+<p>
+  Và một chuyện không mong muốn đã xảy đến, khi mình build cho nhánh
+  <code>staging</code> thì nó lại đọc giá trị của nhánh <code>develop</code>.
+  Không hiểu sao lúc nãy lại chạy được.
+</p>
+<p>
+  Hôm đó cũng đã 3h30 sáng rồi, tắt máy đi ngủ, sáng chuyển về cách cấu hình
+  bằng web cho lành.
+</p>
+<img alt="Sleeping" itemprop="image" src="img/sleeping.gif"/>
+<span class="heading" id="bi-hc-rt-ra"></span><h2>Bài học rút ra</h2>
+<p>
+  Anh Simon Võ, founder của <strong>Matebe</strong>, sau này là
+  <strong>meetdev.com</strong> và đã đóng cửa. Trong một lần đi ăn, ảnh chia sẻ
+  với cả đám rằng anh không thích nghe những bài học thành công mà chỉ thích
+  nghe những bài học thất bại của người khác. Vì họ đã bỏ ra khá nhiều tiền,
+  công sức, thời gian,... để trải qua thất bại và có được thành công. Đồng ý với
+  anh ở điểm đó, nên đa phần mình viết ở đây đều là sự thất bại trong việc tìm
+  hiểu để rút ra được cái sai để sau này né.
+</p>
+<p>
+  Tương tự như vậy, trong bài viết này, lẽ ra mình có thể áp dụng cách cấu hình
+  trên web nhưng vẫn cố tìm cách khác để coi có học được gì không? Mà thật ra là
+  tụi trên
+  <a href="https://stackoverflow.com/questions/58300724/travis-ci-enviroment-variables-per-branch-in-travis-yml">Stack Overflow</a>
+  đã bảo là không được ngay từ đầu rồi.
+</p>
+<span class="heading" id="job"></span><h3>Job</h3>
+<p>
+<code>Job</code> được hiểu là một chuối các bước để thực hiện quá trình build.
+  Mặc định, nếu bạn không có cấu hình gì liên quan đến job thì bạn đã chạy 1 job
+  rồi đó.
+</p>
+<img alt="Job Life-cycle" itemprop="image" src="img/job-lifecycle.jpg" style="width: 20rem;"/>
+<p>
+  Trong đó, 2 bước chính đó là:
+</p>
+<ul>
+<li><code>install</code> - cài đặt các dependencies bắt buộc</li>
+<li><code>script</code> - các dòng lệnh để chạy job đó</li>
+</ul>
+<p>
+  Và thường thì mình thấy chúng ta có thể dùng <code>job</code> để build trên
+  nhiều môi trường.
+</p>
+<img alt="Multiple Jobs" itemprop="image" src="img/travis-multiple-jobs.png"/>
+<p>
+  À, còn một lưu ý khi dùng Job là phải để ý từ khoá <code>include</code> hay là
+  <code>exclude</code>.
+</p>
+<ul>
+<li><code>include</code> - chạy tất cả</li>
+<li><code>exclude</code> - chạy một trong số nếu thoả điều kiện</li>
+</ul>
+<img alt="Building Matrix" itemprop="image" src="img/build-matrix.png"/>
+<span class="heading" id="stage"></span><h3>Stage</h3>
+<p>
+<code>Stage</code> là một nhóm các <code>Job</code>. Như hình dưới đây, ta có
+  3 stages đó là <code>Compile</code>, <code>Test</code> và <code>Deploy</code>.
+</p>
+<script src="https://gist.github.com/vhnam/279aecb9156fba75191334c46812a441.js"></script>
+<p>
+  Và đây là kết quả.
+</p>
+<img alt="Stages" itemprop="image" src="img/stages.png"/>
+<span class="heading" id="matrix"></span><h3>Matrix</h3>
+<p>
+  Khái niệm này sẽ làm bạn khá hại não đây. Theo như định nghĩa của Travis CI:
+</p>
+<blockquote cite="https://docs.travis-ci.com/user/build-matrix">
+  A build matrix is made up by several multiple jobs that run in parallel.
+</blockquote>
+<p>
+  Cho dễ hình dung, bạn xem ví dụ dưới đây, cặp <code>rvm</code> và
+  <code>env</code> sẽ tạo thành một ma trận 2x2. Nó sẽ tương tự như việc chạy 4
+  jobs. Bạn xem trong stage <code>Test</code>. Ngoài ra, cũng demo thêm một job
+  khác là <code>Deploy</code> để bạn dễ phân biệt với đám job của matrix ở trên.
+</p>
+<script src="https://gist.github.com/vhnam/7eb15c70d63ee1f45920824a739b8805.js"></script>
+<p>
+  Jobs tương tự của nó như sau.
+</p>
+<img alt="Matrix Expansion" itemprop="image" src="img/matrix-expansion.png"/>
+<p>
+  Ngoài ra như đã nói ở phần <code>Job</code>, matrix cũng có cách viết tương tự
+  dành cho <code>include</code> và <code>exclude</code> của job. Bạn tham khảo ý
+  tưởng của đoạn tweet này nhé. Mình cũng không hiểu lắm về phần matrix nếu đi
+  sâu hơn.
+</p>
+<blockquote class="twitter-tweet">
+<p dir="ltr" lang="en">
+    Huh. I finally realized something about the Travis-CI "matrix"
+    concept. WITHOUT using the matrix keyword, several keywords (e.g. env, rvm)
+    combine to create a matrix. The matrix keyword is used to indicate
+    *exceptions* and *additions*.
+    <a href="https://t.co/3eFHHe51Wq">https://t.co/3eFHHe51Wq</a>
+</p>
+  — Guido van Rossum (@gvanrossum)
+  <a href="https://twitter.com/gvanrossum/status/1086290711266287616?ref_src=twsrc%5Etfw">January 18, 2019</a>
+</blockquote>
+<script async="" charset="utf-8" src="https://platform.twitter.com/widgets.js"></script>
+<span class="heading" id="environment-variables"></span><h3>Environment Variables</h3>
+<p>
+  Nói dài dòng thì cuối cùng cũng đã tới nó. Mình đã viết một bài về cách
+  encrypt biến môi trường rồi. Bạn có thể đọc ở
+  <a href="/tutorials/cau-hinh-bien-moi-truong-tren-travis-ci/" itemprop="url">Cấu hình biến môi trường trên Travis CI</a>
+</p>
+<p>
+  Phần mình muốn lưu ý ở bài viết này đó là:
+</p>
+<ul>
+<li>
+    Nếu chả có thông tin gì nhạy cảm và không cần mã hoá thì bạn cứ đặt nó vào
+    trong file <code>.travis.yml</code>.
+  </li>
+<li>
+    Nếu chả có thông tin gì nhạy cảm, không cần mã hoá và giá trị khác nhau ở
+    từng nhánh, bạn có thể đặt nó vào trong <code>.travis.yml</code>.
+  </li>
+<li>
+    Nếu nó là thông tin nhạy cảm và tất cả cách nhánh của nó đều cần, bạn có thể
+    mã hoá nó và đặt trong file <code>.travis.yml</code>.
+  </li>
+<li>
+    Nếu nó là thông tin nhạy cảm và giá trị sẽ khác nhau ở từng nhánh thì bắt
+    buộc phải cấu hình ở trên Repository Settings trên web của Travis.
+  </li>
+</ul>
+<span class="heading" id="validation"></span><h3>Validation</h3>
+<p>
+  Ở phía mô tả các giải pháp, mình hay nhắc tới lỗi cú pháp. Các bạn vào trang
+  <a href="https://config.travis-ci.com/explore" itemprop="url">https://config.travis-ci.com/explore</a>. Tuy nhiên, tại thời điểm viết bài này thì nó vẫn đang là beta. Bị lỗi giao
+  diện nếu như bạn chép nội dung file <code>.travis.yml</code> từ Visual Studio
+  Code vào. Nhớ kéo hết qua phải để coi được nội dung còn lại nhé.
+</p>
+<p>
+  Với lại nó vẫn là ngôn ngữ báo lỗi của người ngoài hành tinh, nhân loại vào
+  link này để đọc hiểu tiếng người Trái Đất.
+  <a href="https://docs.travis-ci.com/user/build-config-validation/" itemprop="url">https://docs.travis-ci.com/user/build-config-validation/</a>
+</p>
+<p>
+  Và điều cuối cùng, hiện Travis CI đang cập nhật phiên bản mới, nên khi chuyển
+  sang cú pháp của <code>dpl2</code> vẫn chưa ổn định. Bạn vào đây để xem chi
+  tiết
+  <a href="https://docs.travis-ci.com/user/deployment-v2" itemprop="url">Deployment v2</a>
+</p>
+<img alt="Deployment v2" itemprop="image" src="img/deployment-v2.png"/>
 <span class="heading" id="tham-kho"></span><h2>Tham khảo</h2>
 <ul class="reference">
 <li>
+    Stack Overflow,
+    <a href="https://stackoverflow.com/questions/58300724/travis-ci-enviroment-variables-per-branch-in-travis-yml" itemprop="url">Travis-ci: enviroment variables per branch in .travis.yml</a>
+</li>
+<li>
     Travis CI,
     <a href="https://docs.travis-ci.com/user/environment-variables/" itemprop="url">Environment Variables</a>
+</li>
+<li>
+    Travis CI,
+    <a href="https://docs.travis-ci.com/user/job-lifecycle/" itemprop="url">Job Lifecycle</a>
+</li>
+<li>
+    Jameslahm's Blog,
+    <a href="https://jameslahm.github.io/2019/11/19/travis-ci-tutorial.html" itemprop="url">Travis CI Tutorial
+    </a>
+</li>
+<li>
+    PDFAnalytics,
+    <a href="https://pdf-analytics.com/2017/12/28/integration-with-hiptest-and-travis-ci/" itemprop="url">
+      Integration with HipTest and Travis CI
+    </a>
+</li>
+<li>
+    Blog Travis CI,
+    <a href="https://blog.travis-ci.com/2017-09-12-build-stages-order-and-conditions" itemprop="url">
+      Build Stages Part 2: Stages Order and Conditions
+    </a>
+</li>
+<li>
+    Travis CI,
+    <a href="https://docs.travis-ci.com/user/build-matrix" itemprop="url">Build Matrix</a>
+</li>
+<li>
+    Travis CI,
+    <a href="https://docs.travis-ci.com/user/build-stages/matrix-expansion/" itemprop="url">Build Stages: Matrix expansion</a>
 </li>
 </ul>
