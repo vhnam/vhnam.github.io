@@ -3,7 +3,8 @@
   "version": "4.0.0",
   "description": "Nam Vo | Software Developer, Product Manager, UX/UI Designer",
   "scripts": {
-    "sass:watch": "sass --watch src/assets/scss:src/assets/css"
+    "build": "webpack --mode=production",
+    "sass:watch": "sass --watch src/assets/scss:src/assets/css --style compressed"
   },
   "author": "Nam Vo <vhnam2504@gmail.com>",
   "bugs": {

@@ -19,14 +19,6 @@ iframe {
   height: 100%;
 }
 
-.text-river-bed {
-  color: $river-bed-color !important;
-}
-
-.bg-jungle-mist {
-  background-color: $jungle-mist-color !important;
-}
-
 .display-5 {
   font-size: 1rem;
   font-weight: 700;
@@ -36,6 +28,23 @@ iframe {
   color: #2980b9;
   text-decoration: none;
   border-bottom: 1px dotted #2980b9;
+}
+
+.logo {
+  padding: 0 0.75rem;
+  background-color: $coral-tree-color;
+  color: white !important;
+  font-weight: 400;
+  border-radius: 0.25rem;
+}
+
+.navbar__page--active {
+  font-weight: 600;
+  color: $coral-tree-color !important;
+}
+
+.navbar__page--active:hover {
+  filter: brightness(0.8);
 }
 
 .footer {

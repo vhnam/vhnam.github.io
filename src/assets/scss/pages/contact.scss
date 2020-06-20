@@ -1,9 +1,9 @@
-@import '../variables';
+@import "../variables";
 
 .contact {
   &__cover {
-    padding: 15rem 0 5rem;
-    background-image: url('/src/assets/img/paralax.jpg');
+    padding: 10rem 0 5rem;
+    background-image: url("/src/assets/img/paralax.jpg");
     background-repeat: no-repeat;
     background-position: top;
     background-size: cover;
@@ -28,7 +28,7 @@
 
   &__map {
     height: 30rem;
-    background-image: url('/src/assets/img/map.jpg');
+    background-image: url("/src/assets/img/map.jpg");
     background-repeat: no-repeat;
     background-position: top;
     background-size: cover;

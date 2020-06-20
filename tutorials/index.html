@@ -1,82 +1,135 @@
 <!DOCTYPE html>
 <html lang="vi">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <head>
+        <meta charset="utf-8" />
+        <meta
+            name="viewport"
+            content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no"
+        />
+        <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+        <meta name="theme-color" content="#597484" />
+        <meta name="revisit-after" content="1 days" />
+        <meta
+            name="google-site-verification"
+            content="ZFrkEu3QMFl9Kz0JyK2SfzdIZ84lDgm9gLQ6J6FmAvg"
+        />
+        <meta
+            name="p:domain_verify"
+            content="faa7b25edce176988fb8171e9457554a"
+        />
 
-    <title>Chuyện ngành | Nam Vo</title>
+        <title>Chuyện ngành | Nam Vo</title>
 
-    <link rel="shortcut icon" href="/src/assets/favicon.ico" type="image/x-icon">
+        <link
+            rel="shortcut icon"
+            href="/src/assets/favicon.ico"
+            type="image/x-icon"
+        />
+        <link rel="canonical" href="http://vhnam.github.io" />
 
-    <link rel="stylesheet" href="/src/assets/css//bootstrap.css">
-    <link rel="stylesheet" href="/src/assets/css//theme.css">
-    <link rel="stylesheet" href="/src/assets/css//pages/tutorials.css">
-</head>
-<body class="homepage">
-    <nav class="navbar navbar-expand-lg navbar-light shadow">
-        <div class="container">
-            <a class="navbar-brand text-river-bed font-weight-light" href="/">Nam Vo</a>
-            <button class="navbar-toggler" type="button" 
-                    data-toggle="collapse" data-target="#navbarNavDropdown" 
-                    aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNavDropdown">
-                <ul class="navbar-nav ml-auto">
-                    <li class="nav-item">
-                        <a class="nav-link" href="/blog">Nhật ký</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="/tutorials">Chuyện ngành</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Portfolio</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="/about.html">Thông tin</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="/contact.html">Liên lạc</a>
-                    </li>
-                </ul>
-            </div>
-        </div>
-    </nav>
+        <!-- PRELOAD -->
+        <link rel="preload" href="/src/assets/css/bootstrap.css" as="style" />
+        <link rel="preload" href="/src/assets/css/theme.css" as="style" />
+        <link
+            rel="preload"
+            href="/src/assets/css/pages/tutorials.css"
+            as="style"
+        />
+        <link rel="preload" href="/src/assets/js/dist/bundle.js" as="script" />
+        <link rel="preload" href="/src/assets/js/tutorials.js" as="script" />
 
-    <div class="list">
-        <div class="list__cover">
+        <!-- STYLESHEETS -->
+        <link rel="stylesheet" href="/src/assets/css//bootstrap.css" />
+        <link rel="stylesheet" href="/src/assets/css//theme.css" />
+        <link rel="stylesheet" href="/src/assets/css//pages/tutorials.css" />
+    </head>
+    <body class="homepage">
+        <nav
+            class="navbar navbar-expand-lg navbar-light sticky-top bg-light shadow"
+        >
             <div class="container">
-                <div class="display-3 text-center text-white">
-                    Chuyện ngành
+                <a class="navbar-brand logo" href="/">Nam Vo</a>
+                <button
+                    class="navbar-toggler"
+                    type="button"
+                    data-toggle="collapse"
+                    data-target="#navbarNavDropdown"
+                    aria-controls="navbarNavDropdown"
+                    aria-expanded="false"
+                    aria-label="Toggle navigation"
+                >
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNavDropdown">
+                    <ul class="navbar-nav ml-auto">
+                        <li class="nav-item">
+                            <a class="nav-link" id="blog" href="/blog"
+                                >Nhật ký</a
+                            >
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" id="tutorials" href="/tutorials"
+                                >Chuyện ngành</a
+                            >
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" id="portfolio" href="#"
+                                >Portfolio</a
+                            >
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" id="about" href="/about.html"
+                                >Thông tin</a
+                            >
+                        </li>
+                        <li class="nav-item">
+                            <a
+                                class="nav-link"
+                                id="contact"
+                                href="/contact.html"
+                                >Liên lạc</a
+                            >
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+
+        <div class="list">
+            <div class="list__cover">
+                <div class="container">
+                    <div class="display-4 text-center text-white">
+                        Chuyện ngành
+                    </div>
+                </div>
+            </div>
+
+            <div class="list__content">
+                <div class="container">
+                    <ul
+                        id="tutorials-list"
+                        class="list__index"
+                        itemprop="breadcrumb"
+                    >
+                        <!-- EMPTY LIST -->
+                    </ul>
                 </div>
             </div>
         </div>
 
-        <div class="list__content">
+        <footer class="footer">
             <div class="container">
-                <ul id="tutorials-list" class="list__index" itemprop="breadcrumb">
-                    <!-- EMPTY LIST -->
-                </ul>
+                <div
+                    class="d-flex justify-content-center align-items-center text-white py-3"
+                >
+                    &copy; <span class="mx-1" id="footer-year"></span> Nam Vo's
+                    blog
+                </div>
             </div>
-        </div>
+        </footer>
 
-    </div>
-
-    <footer class="footer">
-        <div class="container d-flex justify-content-between">
-            <ul class="nav">
-                <li class="nav-item">
-                    <a class="nav-link text-white" href="#">Điều khoản bảo mật</a>
-                </li>
-            </ul>
-            <div class="d-flex align-items-center text-white">
-                &copy; <span class="mx-1" id="footer-year"></span> Nam Vo's blog
-            </div>
-        </div>
-    </footer>
-
-    <script src="/src/assets/js/dist/bundle.js"></script>
-    <script src="/src/assets/js/tutorials.js"></script>
-</body>
+        <!-- SCRIPTS -->
+        <script defer src="/src/assets/js/dist/bundle.js"></script>
+        <script defer src="/src/assets/js/tutorials.js"></script>
+    </body>
 </html>

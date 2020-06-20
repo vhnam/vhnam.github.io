@@ -1,19 +1,2 @@
-.about {
-  margin-bottom: 5rem; }
-  .about__cover {
-    height: 30rem;
-    background-image: url("/src/assets/img/tao-dan-band.jpeg");
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: cover;
-    border-bottom: 0.25rem solid #435256; }
-  .about__heading {
-    margin-top: 2rem;
-    margin-bottom: 1.5rem;
-    font-size: 1.5rem;
-    color: #a46260; }
-  .about__description {
-    font-size: 0.875rem;
-    color: #666; }
-
+.about{margin-bottom:5rem}.about h1,.about h2,.about h3,.about h4,.about h5,.about h6{margin-bottom:0.75rem;font-family:"Source Sans Pro", sans-serif;line-height:1.125}.about__cover{height:20rem;background-image:url("/src/assets/img/tao-dan-band.jpeg");background-repeat:no-repeat;background-position:center;background-size:cover;border-bottom:0.25rem solid #435256}.about__heading{margin-top:2rem;margin-bottom:1.5rem;font-size:1.5rem;color:#a46260}.about__description{font-size:0.875rem;color:#666}
 /*# sourceMappingURL=about.css.map */

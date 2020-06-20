@@ -1,6 +1,6 @@
 document.addEventListener(
   'DOMContentLoaded',
-  function() {
+  function () {
     getDiaries();
   },
   false,
@@ -9,7 +9,7 @@ document.addEventListener(
 function getDiaries() {
   axios
     .get('https://vhnam.github.io/src/index/tutorials.json')
-    .then(function(res) {
+    .then(function (res) {
       if (200 === res.status) {
         const diaries = res.data.tutorials;
         const diaryNode = document.getElementById('tutorials-list');
@@ -31,6 +31,7 @@ function render(container, list) {
 
     time = document.createElement('span');
     time.className = 'item__time';
+    time.className = 'item__time my-1';
     time.innerText = element.time;
 
     description = document.createElement('p');
@@ -38,6 +39,7 @@ function render(container, list) {
     description.innerText = element.description.replace(/&quote;/g, '"');
 
     li = document.createElement('li');
+    li.className = 'mb-lg-4';
     li.appendChild(title);
     li.appendChild(time);
     li.appendChild(description);

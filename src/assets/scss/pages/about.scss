@@ -1,11 +1,22 @@
-@import '../variables';
+@import "../variables";
 
 .about {
   margin-bottom: 5rem;
 
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    margin-bottom: 0.75rem;
+    font-family: "Source Sans Pro", sans-serif;
+    line-height: 1.125;
+  }
+
   &__cover {
-    height: 30rem;
-    background-image: url('/src/assets/img/tao-dan-band.jpeg');
+    height: 20rem;
+    background-image: url("/src/assets/img/tao-dan-band.jpeg");
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;

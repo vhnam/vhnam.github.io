@@ -1,6 +1,19 @@
 {
-  "arrowParens": "always",
-  "singleQuote": true,
-  "trailingComma": "all",
-  "bracketSpacing": false
+  "overrides": [
+    {
+      "files": "*.js",
+      "options": {
+        "arrowParens": "always",
+        "singleQuote": true,
+        "trailingComma": "all",
+        "bracketSpacing": false
+      }
+    },
+    {
+      "files": "*.html",
+      "options": {
+        "tabWidth": 4
+      }
+    }
+  ]
 }

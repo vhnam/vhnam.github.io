@@ -1,31 +1,28 @@
+@import "../variables";
+
 .not-found {
   width: 100vw;
-  height: 100vh;
-  background-image: url('/src/assets/img/husky.jpg');
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-position: center;
+  height: 90vh;
 
-  &__overlay {
-    height: 100%;
-    padding-top: 25rem;
-    background-color: rgba(33, 33, 33, 0.5);
+  &__image {
+    width: 100%;
+    max-width: 30rem;
   }
 
   &__text {
-    color: #e0e0e0;
-
-    .link {
-      color: #fff;
-      border-bottom-color: #fff;
-    }
+    margin-top: -5rem;
+    font-size: 1.125rem;
+    color: $coral-tree-color;
   }
-}
 
-@media (max-width: 768px) {
-  .not-found {
-    &__overlay {
-      padding-top: 7.5rem;
+  &__link {
+    font-weight: 600;
+    color: $coral-tree-color;
+
+    &:focus,
+    &:hover,
+    &:active {
+      color: initial;
     }
   }
 }

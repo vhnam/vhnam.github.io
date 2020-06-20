@@ -1,9 +1,9 @@
-@import '../variables';
+@import "../variables";
 
 .list {
   &__cover {
-    padding: 15rem 0 5rem;
-    background-image: url('/src/assets/img/tutorials.jpg');
+    padding: 10rem 0 5rem;
+    background-image: url("/src/assets/img/tutorials.jpg");
     background-repeat: no-repeat;
     background-position: top;
     background-size: cover;
@@ -19,8 +19,12 @@
       margin-bottom: 1.5rem;
 
       &__title {
-        font-size: 1.25rem;
-        color: $smalt-blue-color;
+        font-family: "Source Sans Pro", sans-serif;
+        font-size: 1.125rem;
+        font-weight: 400;
+        color: $coral-tree-color;
+        letter-spacing: 0.0125rem;
+        line-height: 1.125;
       }
 
       &__time {
@@ -30,6 +34,7 @@
 
       &__description {
         color: #616161;
+        line-height: 1.5;
       }
     }
   }

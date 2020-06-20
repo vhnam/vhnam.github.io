@@ -1,24 +1,2 @@
-.contact__cover {
-  padding: 15rem 0 5rem;
-  background-image: url("/src/assets/img/paralax.jpg");
-  background-repeat: no-repeat;
-  background-position: top;
-  background-size: cover;
-  border-bottom: 0.25rem solid #435256; }
-.contact__info {
-  padding: 5rem 0; }
-.contact__title {
-  color: #a46260; }
-.contact .list {
-  margin-top: 2rem; }
-  .contact .list .link {
-    line-height: 2rem; }
-.contact__map {
-  height: 30rem;
-  background-image: url("/src/assets/img/map.jpg");
-  background-repeat: no-repeat;
-  background-position: top;
-  background-size: cover;
-  border-top: 0.25rem solid #b5ccd4; }
-
+.contact__cover{padding:10rem 0 5rem;background-image:url("/src/assets/img/paralax.jpg");background-repeat:no-repeat;background-position:top;background-size:cover;border-bottom:0.25rem solid #435256}.contact__info{padding:5rem 0}.contact__title{color:#a46260}.contact .list{margin-top:2rem}.contact .list .link{line-height:2rem}.contact__map{height:30rem;background-image:url("/src/assets/img/map.jpg");background-repeat:no-repeat;background-position:top;background-size:cover;border-top:0.25rem solid #b5ccd4}
 /*# sourceMappingURL=contact.css.map */
