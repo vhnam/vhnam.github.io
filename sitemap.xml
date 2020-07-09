@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
         <urlset xmlns="https://www.sitemaps.org/schemas/sitemap/0.9">
-            <url><loc>https://vhnam.github.io/tutorials/format-code-voi-prettier</loc><lastmod>2020-06-22</lastmod></url>
+            <url><loc>https://vhnam.github.io/tutorials/cau-chuyen-ve-source-maps</loc><lastmod>2020-07-09</lastmod></url>
+    <url><loc>https://vhnam.github.io/tutorials/format-code-voi-prettier</loc><lastmod>2020-06-22</lastmod></url>
     <url><loc>https://vhnam.github.io/tutorials/dia-chi-email-that-thu-vi</loc><lastmod>2020-06-21</lastmod></url>
     <url><loc>https://vhnam.github.io/tutorials/travis-ci-co-ho-tro-ma-hoa-bien-moi-truong-tren-nhieu-nhanh-khong-nhi</loc><lastmod>2020-05-31</lastmod></url>
     <url><loc>https://vhnam.github.io/tutorials/cau-hinh-bien-moi-truong-tren-travis-ci</loc><lastmod>2020-05-24</lastmod></url>
