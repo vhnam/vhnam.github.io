@@ -6,11 +6,18 @@ document.addEventListener(
   false,
 );
 
+function hideLoading() {
+  const loading = document.getElementById(`loading`);
+  loading.remove();
+}
+
 function getDiaries() {
   axios
-    .get('https://vhnam.github.io/src/index/blog.json')
+    .get('/src/index/blog.json')
     .then(function (res) {
       if (200 === res.status) {
+        hideLoading();
+
         const diaries = res.data.blog;
         const diaryNode = document.getElementById('blog-list');
 

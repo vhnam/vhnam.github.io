@@ -1,7 +1,1 @@
-{
-"version": 3,
-"mappings": "AAEA,UAAW,CACT,KAAK,CAAE,KAAK,CACZ,MAAM,CAAE,IAAI,CAEZ,iBAAS,CACP,KAAK,CAAE,IAAI,CACX,SAAS,CAAE,KAAK,CAGlB,gBAAQ,CACN,UAAU,CAAE,KAAK,CACjB,SAAS,CAAE,QAAQ,CACnB,KAAK,CCRU,OAAO,CDWxB,gBAAQ,CACN,WAAW,CAAE,GAAG,CAChB,KAAK,CCbU,OAAO,CDetB,qEAES,CACP,KAAK,CAAE,OAAO",
-"sources": ["../../scss/pages/404.scss","../../scss/_variables.scss"],
-"names": [],
-"file": "404.css"
-}
+{"version":3,"sourceRoot":"","sources":["../../scss/pages/404.scss","../../scss/_variables.scss"],"names":[],"mappings":"AAEA,WACE,YACA,YAEA,kBACE,WACA,gBAGF,iBACE,iBACA,mBACA,MCRe,QDWjB,iBACE,gBACA,MCbe,QDef,sEAGE","file":"404.css"}

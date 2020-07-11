@@ -69,6 +69,10 @@
     color: $coral-tree-color;
   }
 
+  &__loading {
+    text-align: center;
+  }
+
   &__blog {
     padding: 3rem 0;
     background-color: $porcelain-color;
@@ -79,6 +83,14 @@
     padding: 3rem 0;
     background-color: $spring-wood-color;
     border-top: 0.0625rem solid $river-bed-color;
+  }
+
+  &__more {
+    display: none;
+
+    &--show {
+      display: block;
+    }
   }
 
   .list {

@@ -1,7 +1,1 @@
-{
-"version": 3,
-"mappings": "AAGE,eAAS,CACP,OAAO,CAAE,YAAY,CACrB,gBAAgB,CAAE,kCAAkC,CACpD,iBAAiB,CAAE,SAAS,CAC5B,mBAAmB,CAAE,GAAG,CACxB,eAAe,CAAE,KAAK,CACtB,aAAa,CAAE,qBAA8B,CAG/C,cAAQ,CACN,OAAO,CAAE,MAAM,CAGjB,eAAS,CACP,KAAK,CCXU,OAAO,CDcxB,cAAM,CACJ,UAAU,CAAE,IAAI,CAEhB,oBAAM,CACJ,WAAW,CAAE,IAAI,CAIrB,aAAO,CACL,MAAM,CAAE,KAAK,CACb,gBAAgB,CAAE,8BAA8B,CAChD,iBAAiB,CAAE,SAAS,CAC5B,mBAAmB,CAAE,GAAG,CACxB,eAAe,CAAE,KAAK,CACtB,UAAU,CAAE,qBAAgC",
-"sources": ["../../scss/pages/contact.scss","../../scss/_variables.scss"],
-"names": [],
-"file": "contact.css"
-}
+{"version":3,"sourceRoot":"","sources":["../../scss/pages/contact.scss","../../scss/_variables.scss"],"names":[],"mappings":"AAGE,gBACE,qBACA,oDACA,4BACA,wBACA,sBACA,mCAGF,eACE,eAGF,gBACE,MCXe,QDcjB,eACE,gBAEA,qBACE,iBAIJ,cACE,aACA,gDACA,4BACA,wBACA,sBACA","file":"contact.css"}

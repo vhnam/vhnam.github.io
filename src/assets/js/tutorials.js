@@ -1,16 +1,23 @@
 document.addEventListener(
   'DOMContentLoaded',
   function () {
-    getDiaries();
+    getTutorials();
   },
   false,
 );
 
-function getDiaries() {
+function hideLoading() {
+  const loading = document.getElementById(`loading`);
+  loading.remove();
+}
+
+function getTutorials() {
   axios
-    .get('https://vhnam.github.io/src/index/tutorials.json')
+    .get('/src/index/tutorials.json')
     .then(function (res) {
       if (200 === res.status) {
+        hideLoading();
+
         const diaries = res.data.tutorials;
         const diaryNode = document.getElementById('tutorials-list');
 

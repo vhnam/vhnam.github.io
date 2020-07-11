@@ -10,6 +10,11 @@
     border-bottom: 0.25rem solid $river-bed-color;
   }
 
+  &__loading {
+    margin-top: 3rem;
+    text-align: center;
+  }
+
   &__index {
     padding: 0;
     margin: 5rem 0;

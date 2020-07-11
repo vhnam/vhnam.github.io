@@ -31,7 +31,7 @@ def getIndexItem(title, mode):
     config = readConfig(title, mode)
     return """{
             "name": "%s",
-            "link": "https://vhnam.github.io/%s/%s/",
+            "link": "/%s/%s/",
             "datetime": "%s",
             "time": "%s",
             "description": "%s"

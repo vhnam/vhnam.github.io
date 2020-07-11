@@ -48,6 +48,7 @@
         <link rel="stylesheet" href="/src/assets/css//theme.css" />
         <link rel="stylesheet" href="/src/assets/css//pages/tutorials.css" />
     </head>
+
     <body class="homepage">
         <nav
             class="navbar navbar-expand-lg navbar-light sticky-top bg-light shadow"
@@ -109,6 +110,10 @@
                 </div>
             </div>
 
+            <div class="list__loading" id="loading">
+                <img src="/src/assets/img/loading.svg" alt="Loading" />
+            </div>
+
             <div class="list__content">
                 <div class="container">
                     <ul
@@ -136,5 +141,45 @@
         <!-- SCRIPTS -->
         <script defer src="/src/assets/js/dist/bundle.js"></script>
         <script defer src="/src/assets/js/tutorials.js"></script>
+
+        <!-- Facebook Analytics -->
+        <script>
+            window.fbAsyncInit = function () {
+                FB.init({
+                    appId: "2064203853819553",
+                    xfbml: true,
+                    version: "v7.0",
+                });
+
+                FB.AppEvents.logPageView();
+            };
+
+            (function (d, s, id) {
+                var js,
+                    fjs = d.getElementsByTagName(s)[0];
+                if (d.getElementById(id)) {
+                    return;
+                }
+                js = d.createElement(s);
+                js.id = id;
+                js.src = "https://connect.facebook.net/en_US/sdk.js";
+                fjs.parentNode.insertBefore(js, fjs);
+            })(document, "script", "facebook-jssdk");
+        </script>
+
+        <!-- Global Site Tag (gtag.js) - Google Analytics -->
+        <script
+            async
+            src="https://www.googletagmanager.com/gtag/js?id=UA-66016963-1"
+        ></script>
+        <script>
+            window.dataLayer = window.dataLayer || [];
+            function gtag() {
+                dataLayer.push(arguments);
+            }
+            gtag("js", new Date());
+
+            gtag("config", "UA-66016963-1");
+        </script>
     </body>
 </html>

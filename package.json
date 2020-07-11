@@ -3,6 +3,7 @@
   "version": "4.0.0",
   "description": "Nam Vo | Software Developer, Product Manager, UX/UI Designer",
   "scripts": {
+    "start": "http-server",
     "build": "webpack --mode=production",
     "sass:watch": "sass --watch src/assets/scss:src/assets/css --style compressed"
   },
@@ -18,6 +19,7 @@
     "popper.js": "^1.15.0"
   },
   "devDependencies": {
+    "http-server": "^0.12.3",
     "husky": "^4.2.5",
     "prettier": "^2.0.5",
     "pretty-quick": "^2.0.1"
