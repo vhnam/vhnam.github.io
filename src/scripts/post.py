@@ -65,6 +65,8 @@ def encodeHeading(heading):
     newHeading = newHeading.replace("?", "")
     newHeading = newHeading.replace(".", "")
     newHeading = newHeading.replace("!", "")
+    newHeading = newHeading.replace("(", "")
+    newHeading = newHeading.replace(")", "")
     newHeading = newHeading.lower()
     return newHeading
 
