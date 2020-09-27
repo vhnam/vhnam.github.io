@@ -1,520 +1,611 @@
 <!DOCTYPE html>
 <html lang="vi">
+    <head>
+        <meta charset="utf-8" />
+        <meta
+            name="viewport"
+            content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no"
+        />
+        <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+        <meta name="theme-color" content="#597484" />
+        <meta name="revisit-after" content="1 days" />
+        <meta
+            name="google-site-verification"
+            content="ZFrkEu3QMFl9Kz0JyK2SfzdIZ84lDgm9gLQ6J6FmAvg"
+        />
+        <meta
+            name="p:domain_verify"
+            content="faa7b25edce176988fb8171e9457554a"
+        />
+        <meta property="description" content="About | Nam Vo" />
 
-<head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
-    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <meta name="theme-color" content="#597484" />
-    <meta name="revisit-after" content="1 days" />
-    <meta name="google-site-verification" content="ZFrkEu3QMFl9Kz0JyK2SfzdIZ84lDgm9gLQ6J6FmAvg" />
-    <meta name="p:domain_verify" content="faa7b25edce176988fb8171e9457554a" />
+        <!-- Facebook Webmasters -->
+        <meta property="og:url" content="https://vhnam.github.io" />
+        <meta property="og:type" content="article" />
+        <meta
+            property="og:title"
+            content="Nam Vo | Software Developer, Product Manager, UX/UI Designer"
+        />
+        <meta
+            property="og:description"
+            content="Nam Vo | Software Developer, Product Manager, UX/UI Designer"
+        />
+        <meta
+            property="og:image"
+            content="https://vhnam.github.io/src/assets/img/favicon.png"
+        />
+        <meta property="og:locale" content="vi_VN" />
+        <meta property="fb:app_id" content="2064203853819553" />
 
-    <!-- Facebook Webmasters -->
-    <meta property="og:url" content="https://vhnam.github.io" />
-    <meta property="og:type" content="article" />
-    <meta property="og:title" content="Nam Vo | Software Developer, Product Manager, UX/UI Designer" />
-    <meta property="og:description" content="Nam Vo | Software Developer, Product Manager, UX/UI Designer" />
-    <meta property="og:image" content="https://vhnam.github.io/src/assets/img/favicon.png" />
-    <meta property="og:locale" content="vi_VN" />
-    <meta property="fb:app_id" content="2064203853819553" />
+        <title>
+            Nam Vo | Software Developer, Product Manager, UX/UI Designer
+        </title>
 
-    <title>
-        Nam Vo | Software Developer, Product Manager, UX/UI Designer
-    </title>
+        <link
+            rel="shortcut icon"
+            href="/src/assets/favicon.ico"
+            type="image/x-icon"
+        />
+        <link rel="canonical" href="https://vhnam.github.io" />
 
-    <link rel="shortcut icon" href="/src/assets/favicon.ico" type="image/x-icon" />
-    <link rel="canonical" href="https://vhnam.github.io" />
+        <!-- PRELOAD -->
+        <link
+            rel="preconnect"
+            href="https://fonts.googleapis.com/"
+            crossorigin
+        />
 
-    <!-- PRELOAD -->
-    <link rel="preconnect" href="https://fonts.googleapis.com/" crossorigin />
-    <link rel="preload" href="/src/assets/css/bootstrap.css" as="style" />
-    <link rel="preload" href="/src/assets/css/theme.css" as="style" />
-    <link rel="preload" href="/src/assets/css/pages/about.css" as="style" />
+        <!-- STYLESHEETS -->
+        <link
+            as="style"
+            crossorigin
+            rel="stylesheet preload prefetch"
+            href="/src/assets/css/bootstrap.css"
+        />
+        <link
+            as="style"
+            crossorigin
+            rel="stylesheet preload prefetch"
+            href="/src/assets/css/theme.css"
+        />
+        <link
+            as="style"
+            crossorigin
+            rel="stylesheet preload prefetch"
+            href="/src/assets/css/pages/about.css"
+        />
+    </head>
 
-    <!-- STYLESHEETS -->
-    <link rel="stylesheet" href="/src/assets/css/bootstrap.css" />
-    <link rel="stylesheet" href="/src/assets/css/theme.css" />
-    <link rel="stylesheet" href="/src/assets/css/pages/about.css" />
-</head>
+    <body>
+        <nav
+            class="navbar navbar-expand-lg navbar-light sticky-top bg-light shadow"
+        >
+            <div class="container">
+                <a class="navbar-brand logo" href="/">Nam Vo</a>
+                <button
+                    class="navbar-toggler"
+                    type="button"
+                    data-toggle="collapse"
+                    data-target="#navbarNavDropdown"
+                    aria-controls="navbarNavDropdown"
+                    aria-expanded="false"
+                    aria-label="Toggle navigation"
+                >
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNavDropdown">
+                    <ul class="navbar-nav ml-auto">
+                        <li class="nav-item">
+                            <a class="nav-link" id="blog" href="/blog"
+                                >Nhật ký</a
+                            >
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" id="tutorials" href="/tutorials"
+                                >Chuyện ngành</a
+                            >
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" id="portfolio" href="#"
+                                >Portfolio</a
+                            >
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" id="about" href="/about.html"
+                                >Thông tin</a
+                            >
+                        </li>
+                        <li class="nav-item">
+                            <a
+                                class="nav-link"
+                                id="contact"
+                                href="/contact.html"
+                                >Liên lạc</a
+                            >
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
 
-<body>
-    <nav class="navbar navbar-expand-lg navbar-light sticky-top bg-light shadow">
-        <div class="container">
-            <a class="navbar-brand logo" href="/">Nam Vo</a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown"
-                aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNavDropdown">
-                <ul class="navbar-nav ml-auto">
-                    <li class="nav-item">
-                        <a class="nav-link" id="blog" href="/blog">Nhật ký</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" id="tutorials" href="/tutorials">Chuyện ngành</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" id="portfolio" href="#">Portfolio</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" id="about" href="/about.html">Thông tin</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" id="contact" href="/contact.html">Liên lạc</a>
-                    </li>
-                </ul>
+        <div class="about">
+            <div class="about__cover">&nbsp;</div>
+
+            <div class="container">
+                <h1 class="my-4">Thông tin cá nhân</h1>
+
+                <article>
+                    <h2 class="about__heading">Kinh nghiệm làm việc</h2>
+                    <div class="row">
+                        <div class="col-md-4">
+                            <h3 class="display-5">Front-End Developer</h3>
+                            <p class="about__description">
+                                <span class="font-italic">2359 Media</span
+                                ><br />
+                                09/2018
+                            </p>
+                        </div>
+                        <div class="col-md-8">
+                            <ul>
+                                <li>
+                                    <strong>Trách nhiệm:</strong> Tham gia phát
+                                    triển sản phẩm với ReactJS
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-4">
+                            <h3 class="display-5">
+                                Trưởng phòng CNTT &amp; Truyền thông
+                            </h3>
+                            <p class="about__description">
+                                <span class="font-italic">VLAB Co., LTD</span
+                                ><br />
+                                11/2016 - 06/2018
+                            </p>
+                        </div>
+                        <div class="col-md-8">
+                            <ul>
+                                <li>
+                                    <strong>Sứ mệnh:</strong> Công khai thông
+                                    tin quy hoạch cho người dân tại TP.HCM
+                                </li>
+                                <li>
+                                    <strong>Lĩnh vực:</strong> GIS, công nghệ,
+                                    quản lý đô thị, thông tin quy hoạch
+                                </li>
+                                <li>
+                                    <strong>Trách nhiệm:</strong>
+                                    <ul>
+                                        <li>
+                                            Quản lý bộ phận Công nghệ Thông tin,
+                                            điều phối công việc và phối hợp với
+                                            các phòng ban khác.
+                                        </li>
+                                        <li>
+                                            Phối hợp với khách hàng (UBND/phòng
+                                            Quản lý Đô thị các quận/huyện,
+                                            <a
+                                                class="link"
+                                                itemprop="url"
+                                                href="http://www.qhkt.hochiminhcity.gov.vn/default.aspx"
+                                                >Sở Quy hoạch - Kiến trúc
+                                                TP.HCM</a
+                                            >) và lãnh đạo công ty để đưa ra mô
+                                            hình, chức năng, thiết kế sản phẩm,
+                                            quy trình nghiệp vụ.
+                                        </li>
+                                        <li>
+                                            Phối hợp với
+                                            <a
+                                                class="link"
+                                                itemprop="url"
+                                                href="http://ict-hcm.gov.vn/"
+                                                >Sở Thông tin - Truyền thông
+                                                TP.HCM</a
+                                            >
+                                            để triển khai sản phẩm.
+                                        </li>
+                                        <li>
+                                            Thiết kế UI (thao tác quy trình
+                                            nghiệp vụ) và cải thiện UX cho tất
+                                            cả sản phẩm của công ty với
+                                            Sketch/Figma/Balsamiq.
+                                        </li>
+                                        <li>
+                                            Quản lý hạ tầng, triển khai và quyết
+                                            định giải pháp kỹ thuật.
+                                        </li>
+                                        <li>
+                                            Phỏng vấn nhân sự và hướng dẫn giải
+                                            pháp cho các thành viên.
+                                        </li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-4">
+                            <h3 class="display-5">Freelance Web Developer</h3>
+                            <p class="about__description">10/2015 - 09/2016</p>
+                        </div>
+                        <div class="col-md-8">
+                            <ul>
+                                <li>
+                                    Bảo trì, phát triển chức năng mới, cải thiện
+                                    giao diện cho trang
+                                    <a
+                                        class="link"
+                                        itemprop="url"
+                                        href="http://cailuongso.com/"
+                                        >Cải Lương Số</a
+                                    >
+                                    với PHP, MySQL.
+                                </li>
+                                <li>
+                                    Phát triển hệ thống quản lý kho dành cho phụ
+                                    kiện điện thoại di động với Laravel.
+                                </li>
+                                <li>
+                                    Phát triển chức năng cho ứng dụng hybrid
+                                    viết bằng PhoneGap - Angular 1.
+                                </li>
+                                <li>
+                                    Phát triển RESTful Web Services với
+                                    Node.js/Express, MySQL.
+                                </li>
+                                <li>Thiết kế giao diện cho web và mobile.</li>
+                                <li>
+                                    Phát triển thư viện JavaScript tương tự
+                                    <a
+                                        class="link"
+                                        itemprop="url"
+                                        href="https://github.com/ichord/At.js/"
+                                        >At.js</a
+                                    >.
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-4">
+                            <h3 class="display-5">
+                                Thực tập Front-End Developer
+                            </h3>
+                            <p class="about__description">
+                                <span class="font-italic">ZenithTek</span><br />
+                                01/2015 - 06/2015
+                            </p>
+                        </div>
+                        <div class="col-md-8">
+                            <ul>
+                                <li>
+                                    Nghiên cứu ngôn ngữ thiết kế Material
+                                    Design, áp dụng và phát triển chức năng hiển
+                                    thị kết quả check-in/check-out trong phần
+                                    Dashboard.
+                                </li>
+                                <li>
+                                    Xây dựng Single Page Application với Angular
+                                    1, elasticsearch.js, Auth0.
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </article>
+
+                <article>
+                    <h2 class="about__heading">Học tập</h2>
+                    <div class="row">
+                        <div class="col-12">
+                            <h3 class="display-5">
+                                Cử nhân Công nghệ phần mềm
+                            </h3>
+                            <p class="about__description">
+                                <span class="font-italic"
+                                    >ĐH Khoa học Tự nhiên - ĐHQG TP.HCM</span
+                                ><br />
+                                2012 - 2018
+                            </p>
+                        </div>
+                    </div>
+                </article>
+
+                <article>
+                    <h2 class="about__heading">Kỹ năng</h2>
+                    Phát triển phần mềm
+                    <ul>
+                        <li>
+                            Kinh nghiệm làm việc với công ty Startup/Product
+                            theo phương pháp Agile (mô hình Scrum).
+                        </li>
+                        <li>
+                            Cấu trúc dữ liệu và giải thuật, Design Pattern, kiến
+                            trúc phần mềm (micro-services, MVC/3-Tier, Web
+                            Components).
+                        </li>
+                        <li>Quản lý phiên bản với Git.</li>
+                        <li>Quản lý dự án/sản phẩm.</li>
+                        <li>Phân tích và Quản lý yêu cầu</li>
+                        <li>
+                            Thiết kế giao diện với Sketch, Figma, Balsamiq,
+                            Axure RP.
+                        </li>
+                    </ul>
+                    Phát triển web
+                    <ul>
+                        <li>
+                            Client-side
+                            <ul>
+                                <li>
+                                    HTML, CSS/LESS/SASS, JavaScript, TypeScript
+                                </li>
+                                <li>jQuery, Bootstrap, Lodash</li>
+                                <li>React, Vue, Angular</li>
+                            </ul>
+                        </li>
+                        <li>
+                            Server-side
+                            <ul>
+                                <li>PHP (Zend Framework 2, Laravel 5)</li>
+                                <li>Node.js (Express, Socket.io, Strapi)</li>
+                                <li>Python (Flask, Django)</li>
+                                <li>RESTful APIs theo chuẩn RFC</li>
+                                <li>
+                                    Cấu hình và cài đặt VPN sử dụng Linux
+                                    (Ubuntu, CentOS 6/7)
+                                </li>
+                            </ul>
+                        </li>
+                        <li>
+                            Hệ quản trị cơ sở dữ liệu
+                            <ul>
+                                <li>RDBMS (MySQL, PostgreSQL)</li>
+                                <li>No-SQL (MongoDB, Redis)</li>
+                            </ul>
+                        </li>
+                        <li>
+                            Khác
+                            <ul>
+                                <li>Ansible</li>
+                                <li>Amazon Web Services</li>
+                                <li>Webpack</li>
+                            </ul>
+                        </li>
+                    </ul>
+                    Phát triển ứng dụng di động
+                    <ul>
+                        <li>Ionic</li>
+                        <li>PhoneGap</li>
+                    </ul>
+                </article>
+
+                <article>
+                    <h2 class="about__heading">Giải thưởng</h2>
+                    <div class="row">
+                        <div class="col-md-4">
+                            <h3 class="display-5">TOP 10 Nhân Tài Đất Việt</h3>
+                            <p class="about__description">
+                                <span class="font-italic"
+                                    >VNPT phối hợp với báo Dân Trí</span
+                                ><br />
+                                2017
+                            </p>
+                        </div>
+                        <div class="col-md-8">
+                            <ul>
+                                <li>
+                                    Sản phẩm
+                                    <strong
+                                        >"Ứng dụng khai thông tin quy hoạch trực
+                                        tuyến - Bản đồ quy hoạch trực
+                                        tuyến"</strong
+                                    >
+                                    (bảng Khởi Nghiệp).
+                                </li>
+                                <li>
+                                    Truyền thông:
+                                    <ul>
+                                        <li>
+                                            Dân Trí,
+                                            <a
+                                                class="link"
+                                                itemprop="url"
+                                                href="http://dantri.com.vn/suc-manh-so/cong-cu-giup-tra-cuu-thong-tin-quy-hoach-va-hien-trang-dat-dai-nhanh-chong-20171111073337558.htm"
+                                                >Công cụ giúp tra cứu thông tin
+                                                quy hoạch và hiện trạng đất đai
+                                                nhanh chóng</a
+                                            >
+                                        </li>
+                                        <li>
+                                            Nhân Tài Đất Việt,
+                                            <a
+                                                class="link"
+                                                itemprop="url"
+                                                href="http://nhantaidatviet.vnpt.vn/san-pham-ung-dung-cong-khai-thong-tin-quy-hoach-truc-tuyen-ban-do-quy-hoach-truc-tuyen.html"
+                                                >Sản phẩm: Ứng dụng công khai
+                                                thông tin quy hoạch trực tuyến –
+                                                Bản đồ quy hoạch trực tuyến</a
+                                            >
+                                        </li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-12">
+                            <h3 class="display-5">
+                                Giải Khuyến khích - Olympic Tin học
+                            </h3>
+                            <p class="about__description">
+                                <span class="font-italic"
+                                    >Khoa CNTT - ĐH Khoa học Tự Nhiên - ĐHQG
+                                    TP.HCM</span
+                                ><br />
+                                2013
+                            </p>
+                        </div>
+                    </div>
+                </article>
+
+                <article>
+                    <h2 class="about__heading">Hoạt động</h2>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <h3 class="display-5">Trumpet</h3>
+                            <p class="about__description">
+                                <span class="font-italic"
+                                    >Nhóm nhạc Tao Đàn tại công viên Tao Đàn -
+                                    TP.HCM</span
+                                ><br />
+                                2016
+                            </p>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-4">
+                            <h3 class="display-5">Trumpet 1 &amp; 3</h3>
+                            <p class="about__description">
+                                <span class="font-italic"
+                                    >Đội nghi lễ trường THCS Hoàng Văn Thụ - Nhà
+                                    thiếu nhi Quận 10</span
+                                ><br />
+                                09/2007 - 09/2015
+                            </p>
+                        </div>
+                        <div class="col-md-8">
+                            <ul>
+                                <li>
+                                    Liên hoan "Tiếng Kèn Đội Ta" khu vưc phía
+                                    Nam lần IV năm 2010 tại Cà Mau.
+                                    <ul>
+                                        <li>
+                                            <a
+                                                class="link"
+                                                itemprop="url"
+                                                href="https://youtu.be/GlJReiCd9EE"
+                                                >NTNQ10 - Chương trình biểu
+                                                diễn</a
+                                            >
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    Liên hoan "Tiếng Kèn Đội Ta" mở rộng tỉnh
+                                    Kiên Giang lần XI năm 2011.
+                                    <ul>
+                                        <li>
+                                            <a
+                                                class="link"
+                                                itemprop="url"
+                                                href="https://www.youtube.com/watch?v=0SpdqzSVhNY"
+                                                >Liên Hoan "Tiếng kèn Đội ta" mở
+                                                rộng tỉnh Kiên Giang Lần thứ
+                                                XI</a
+                                            >
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    Liên hoan "Tiếng Kèn Đội Ta" mở rộng tỉnh
+                                    Kiên Giang lần XII năm 2013.
+                                    <ul>
+                                        <li>
+                                            <a
+                                                class="link"
+                                                itemprop="url"
+                                                href="https://www.youtube.com/watch?v=-GfMhzQCINk"
+                                                >Phần thi diễn của ntn quận
+                                                10</a
+                                            >
+                                        </li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-4">
+                            <h3 class="display-5">Trưởng nhóm</h3>
+                            <p class="about__description">
+                                <span class="font-italic"
+                                    >Câu lạc bộ Harmonica trường THPT Nguyễn Du
+                                    - Quận 10</span
+                                ><br />
+                                09/2010 - 06/2011
+                            </p>
+                        </div>
+                        <div class="col-md-8">
+                            <ul>
+                                <li>Hướng dẫn các bạn trong câu lạc bộ</li>
+                                <li>
+                                    Tổ chức giao lưu với các câu lạc bộ khác
+                                    trong thành phố như THPT Trần Phú, THPT
+                                    Chuyên Lê Hồng Phong, THPT Nguyễn Thị Minh
+                                    Khai, Phổ Thông Năng Khiếu.
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </article>
             </div>
         </div>
-    </nav>
 
-    <div class="about">
-        <div class="about__cover">&nbsp;</div>
-
-        <div class="container">
-            <h1 class="my-4">Thông tin cá nhân</h1>
-
-            <article>
-                <h2 class="about__heading">Kinh nghiệm làm việc</h2>
-                <div class="row">
-                    <div class="col-md-4">
-                        <h3 class="display-5">Front-End Developer</h3>
-                        <p class="about__description">
-                            <span class="font-italic">2359 Media</span><br />
-                            09/2018
-                        </p>
-                    </div>
-                    <div class="col-md-8">
-                        <ul>
-                            <li>
-                                <strong>Trách nhiệm:</strong> Tham gia phát
-                                triển sản phẩm với ReactJS
-                            </li>
-                        </ul>
-                    </div>
+        <footer class="footer">
+            <div class="container">
+                <div
+                    class="d-flex justify-content-center align-items-center text-white py-3"
+                >
+                    &copy; <span class="mx-1" id="footer-year"></span> Nam Vo's
+                    blog
                 </div>
-                <div class="row">
-                    <div class="col-md-4">
-                        <h3 class="display-5">
-                            Trưởng phòng CNTT &amp; Truyền thông
-                        </h3>
-                        <p class="about__description">
-                            <span class="font-italic">VLAB Co., LTD</span><br />
-                            11/2016 - 06/2018
-                        </p>
-                    </div>
-                    <div class="col-md-8">
-                        <ul>
-                            <li>
-                                <strong>Sứ mệnh:</strong> Công khai thông
-                                tin quy hoạch cho người dân tại TP.HCM
-                            </li>
-                            <li>
-                                <strong>Lĩnh vực:</strong> GIS, công nghệ,
-                                quản lý đô thị, thông tin quy hoạch
-                            </li>
-                            <li>
-                                <strong>Trách nhiệm:</strong>
-                                <ul>
-                                    <li>
-                                        Quản lý bộ phận Công nghệ Thông tin,
-                                        điều phối công việc và phối hợp với
-                                        các phòng ban khác.
-                                    </li>
-                                    <li>
-                                        Phối hợp với khách hàng (UBND/phòng
-                                        Quản lý Đô thị các quận/huyện,
-                                        <a class="link" itemprop="url"
-                                            href="http://www.qhkt.hochiminhcity.gov.vn/default.aspx">Sở Quy hoạch - Kiến
-                                            trúc
-                                            TP.HCM</a>) và lãnh đạo công ty để đưa ra mô
-                                        hình, chức năng, thiết kế sản phẩm,
-                                        quy trình nghiệp vụ.
-                                    </li>
-                                    <li>
-                                        Phối hợp với
-                                        <a class="link" itemprop="url" href="http://ict-hcm.gov.vn/">Sở Thông tin -
-                                            Truyền thông
-                                            TP.HCM</a>
-                                        để triển khai sản phẩm.
-                                    </li>
-                                    <li>
-                                        Thiết kế UI (thao tác quy trình
-                                        nghiệp vụ) và cải thiện UX cho tất
-                                        cả sản phẩm của công ty với
-                                        Sketch/Figma/Balsamiq.
-                                    </li>
-                                    <li>
-                                        Quản lý hạ tầng, triển khai và quyết
-                                        định giải pháp kỹ thuật.
-                                    </li>
-                                    <li>
-                                        Phỏng vấn nhân sự và hướng dẫn giải
-                                        pháp cho các thành viên.
-                                    </li>
-                                </ul>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-md-4">
-                        <h3 class="display-5">Freelance Web Developer</h3>
-                        <p class="about__description">
-                            10/2015 - 09/2016
-                        </p>
-                    </div>
-                    <div class="col-md-8">
-                        <ul>
-                            <li>
-                                Bảo trì, phát triển chức năng mới, cải thiện
-                                giao diện cho trang
-                                <a class="link" itemprop="url" href="http://cailuongso.com/">Cải Lương Số</a>
-                                với PHP, MySQL.
-                            </li>
-                            <li>
-                                Phát triển hệ thống quản lý kho dành cho phụ
-                                kiện điện thoại di động với Laravel.
-                            </li>
-                            <li>
-                                Phát triển chức năng cho ứng dụng hybrid
-                                viết bằng PhoneGap - Angular 1.
-                            </li>
-                            <li>
-                                Phát triển RESTful Web Services với
-                                Node.js/Express, MySQL.
-                            </li>
-                            <li>
-                                Thiết kế giao diện cho web và mobile.
-                            </li>
-                            <li>
-                                Phát triển thư viện JavaScript tương tự
-                                <a class="link" itemprop="url" href="https://github.com/ichord/At.js/">At.js</a>.
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-md-4">
-                        <h3 class="display-5">
-                            Thực tập Front-End Developer
-                        </h3>
-                        <p class="about__description">
-                            <span class="font-italic">ZenithTek</span><br />
-                            01/2015 - 06/2015
-                        </p>
-                    </div>
-                    <div class="col-md-8">
-                        <ul>
-                            <li>
-                                Nghiên cứu ngôn ngữ thiết kế Material
-                                Design, áp dụng và phát triển chức năng hiển
-                                thị kết quả check-in/check-out trong phần
-                                Dashboard.
-                            </li>
-                            <li>
-                                Xây dựng Single Page Application với Angular
-                                1, elasticsearch.js, Auth0.
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-            </article>
-
-            <article>
-                <h2 class="about__heading">Học tập</h2>
-                <div class="row">
-                    <div class="col-12">
-                        <h3 class="display-5">
-                            Cử nhân Công nghệ phần mềm
-                        </h3>
-                        <p class="about__description">
-                            <span class="font-italic">ĐH Khoa học Tự nhiên - ĐHQG TP.HCM</span><br />
-                            2012 - 2018
-                        </p>
-                    </div>
-                </div>
-            </article>
-
-            <article>
-                <h2 class="about__heading">Kỹ năng</h2>
-                Phát triển phần mềm
-                <ul>
-                    <li>
-                        Kinh nghiệm làm việc với công ty Startup/Product
-                        theo phương pháp Agile (mô hình Scrum).
-                    </li>
-                    <li>
-                        Cấu trúc dữ liệu và giải thuật, Design Pattern, kiến
-                        trúc phần mềm (micro-services, MVC/3-Tier, Web
-                        Components).
-                    </li>
-                    <li>Quản lý phiên bản với Git.</li>
-                    <li>Quản lý dự án/sản phẩm.</li>
-                    <li>Phân tích và Quản lý yêu cầu</li>
-                    <li>
-                        Thiết kế giao diện với Sketch, Figma, Balsamiq,
-                        Axure RP.
-                    </li>
-                </ul>
-                Phát triển web
-                <ul>
-                    <li>
-                        Client-side
-                        <ul>
-                            <li>
-                                HTML, CSS/LESS/SASS, JavaScript, TypeScript
-                            </li>
-                            <li>
-                                jQuery, Bootstrap, Lodash
-                            </li>
-                            <li>
-                                React, Vue, Angular
-                            </li>
-                        </ul>
-                    </li>
-                    <li>
-                        Server-side
-                        <ul>
-                            <li>
-                                PHP (Zend Framework 2, Laravel 5)
-                            </li>
-                            <li>
-                                Node.js (Express, Socket.io, Strapi)
-                            </li>
-                            <li>
-                                Python (Flask, Django)
-                            </li>
-                            <li>
-                                RESTful APIs theo chuẩn RFC
-                            </li>
-                            <li>
-                                Cấu hình và cài đặt VPN sử dụng Linux
-                                (Ubuntu, CentOS 6/7)
-                            </li>
-                        </ul>
-                    </li>
-                    <li>
-                        Hệ quản trị cơ sở dữ liệu
-                        <ul>
-                            <li>
-                                RDBMS (MySQL, PostgreSQL)
-                            </li>
-                            <li>
-                                No-SQL (MongoDB, Redis)
-                            </li>
-                        </ul>
-                    </li>
-                    <li>
-                        Khác
-                        <ul>
-                            <li>Ansible</li>
-                            <li>Amazon Web Services</li>
-                            <li>Webpack</li>
-                        </ul>
-                    </li>
-                </ul>
-                Phát triển ứng dụng di động
-                <ul>
-                    <li>
-                        Ionic
-                    </li>
-                    <li>
-                        PhoneGap
-                    </li>
-                </ul>
-            </article>
-
-            <article>
-                <h2 class="about__heading">Giải thưởng</h2>
-                <div class="row">
-                    <div class="col-md-4">
-                        <h3 class="display-5">TOP 10 Nhân Tài Đất Việt</h3>
-                        <p class="about__description">
-                            <span class="font-italic">VNPT phối hợp với báo Dân Trí</span><br />
-                            2017
-                        </p>
-                    </div>
-                    <div class="col-md-8">
-                        <ul>
-                            <li>
-                                Sản phẩm
-                                <strong>"Ứng dụng khai thông tin quy hoạch trực
-                                    tuyến - Bản đồ quy hoạch trực
-                                    tuyến"</strong>
-                                (bảng Khởi Nghiệp).
-                            </li>
-                            <li>
-                                Truyền thông:
-                                <ul>
-                                    <li>
-                                        Dân Trí,
-                                        <a class="link" itemprop="url"
-                                            href="http://dantri.com.vn/suc-manh-so/cong-cu-giup-tra-cuu-thong-tin-quy-hoach-va-hien-trang-dat-dai-nhanh-chong-20171111073337558.htm">Công
-                                            cụ giúp tra cứu thông tin
-                                            quy hoạch và hiện trạng đất đai
-                                            nhanh chóng</a>
-                                    </li>
-                                    <li>
-                                        Nhân Tài Đất Việt,
-                                        <a class="link" itemprop="url"
-                                            href="http://nhantaidatviet.vnpt.vn/san-pham-ung-dung-cong-khai-thong-tin-quy-hoach-truc-tuyen-ban-do-quy-hoach-truc-tuyen.html">Sản
-                                            phẩm: Ứng dụng công khai
-                                            thông tin quy hoạch trực tuyến –
-                                            Bản đồ quy hoạch trực tuyến</a>
-                                    </li>
-                                </ul>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-12">
-                        <h3 class="display-5">
-                            Giải Khuyến khích - Olympic Tin học
-                        </h3>
-                        <p class="about__description">
-                            <span class="font-italic">Khoa CNTT - ĐH Khoa học Tự Nhiên - ĐHQG
-                                TP.HCM</span><br />
-                            2013
-                        </p>
-                    </div>
-                </div>
-            </article>
-
-            <article>
-                <h2 class="about__heading">Hoạt động</h2>
-                <div class="row">
-                    <div class="col-md-12">
-                        <h3 class="display-5">Trumpet</h3>
-                        <p class="about__description">
-                            <span class="font-italic">Nhóm nhạc Tao Đàn tại công viên Tao Đàn -
-                                TP.HCM</span><br />
-                            2016
-                        </p>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-md-4">
-                        <h3 class="display-5">Trumpet 1 &amp; 3</h3>
-                        <p class="about__description">
-                            <span class="font-italic">Đội nghi lễ trường THCS Hoàng Văn Thụ - Nhà
-                                thiếu nhi Quận 10</span><br />
-                            09/2007 - 09/2015
-                        </p>
-                    </div>
-                    <div class="col-md-8">
-                        <ul>
-                            <li>
-                                Liên hoan "Tiếng Kèn Đội Ta" khu vưc phía
-                                Nam lần IV năm 2010 tại Cà Mau.
-                                <ul>
-                                    <li>
-                                        <a class="link" itemprop="url" href="https://youtu.be/GlJReiCd9EE">NTNQ10 -
-                                            Chương trình biểu
-                                            diễn</a>
-                                    </li>
-                                </ul>
-                            </li>
-                            <li>
-                                Liên hoan "Tiếng Kèn Đội Ta" mở rộng tỉnh
-                                Kiên Giang lần XI năm 2011.
-                                <ul>
-                                    <li>
-                                        <a class="link" itemprop="url"
-                                            href="https://www.youtube.com/watch?v=0SpdqzSVhNY">Liên Hoan "Tiếng kèn Đội
-                                            ta" mở
-                                            rộng tỉnh Kiên Giang Lần thứ
-                                            XI</a>
-                                    </li>
-                                </ul>
-                            </li>
-                            <li>
-                                Liên hoan "Tiếng Kèn Đội Ta" mở rộng tỉnh
-                                Kiên Giang lần XII năm 2013.
-                                <ul>
-                                    <li>
-                                        <a class="link" itemprop="url"
-                                            href="https://www.youtube.com/watch?v=-GfMhzQCINk">Phần thi diễn của ntn
-                                            quận
-                                            10</a>
-                                    </li>
-                                </ul>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-md-4">
-                        <h3 class="display-5">Trưởng nhóm</h3>
-                        <p class="about__description">
-                            <span class="font-italic">Câu lạc bộ Harmonica trường THPT Nguyễn Du
-                                - Quận 10</span><br />
-                            09/2010 - 06/2011
-                        </p>
-                    </div>
-                    <div class="col-md-8">
-                        <ul>
-                            <li>
-                                Hướng dẫn các bạn trong câu lạc bộ
-                            </li>
-                            <li>
-                                Tổ chức giao lưu với các câu lạc bộ khác
-                                trong thành phố như THPT Trần Phú, THPT
-                                Chuyên Lê Hồng Phong, THPT Nguyễn Thị Minh
-                                Khai, Phổ Thông Năng Khiếu.
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-            </article>
-        </div>
-    </div>
-
-    <footer class="footer">
-        <div class="container">
-            <div class="d-flex justify-content-center align-items-center text-white py-3">
-                &copy; <span class="mx-1" id="footer-year"></span> Nam Vo's
-                blog
             </div>
-        </div>
-    </footer>
+        </footer>
 
-    <!-- SCRIPTS -->
-    <script src="/src/assets/js/dist/bundle.js"></script>
+        <!-- SCRIPTS -->
+        <script src="/src/assets/js/dist/bundle.js"></script>
 
-    <!-- Facebook Analytics -->
-    <script>
-        window.fbAsyncInit = function () {
-            FB.init({
-                appId: "2064203853819553",
-                xfbml: true,
-                version: "v7.0",
-            });
+        <!-- Facebook Analytics -->
+        <script>
+            window.fbAsyncInit = function () {
+                FB.init({
+                    appId: "2064203853819553",
+                    xfbml: true,
+                    version: "v7.0",
+                });
 
-            FB.AppEvents.logPageView();
-        };
+                FB.AppEvents.logPageView();
+            };
 
-        (function (d, s, id) {
-            var js, fjs = d.getElementsByTagName(s)[0];
-            if (d.getElementById(id)) { return; }
-            js = d.createElement(s); js.id = id;
-            js.src = "https://connect.facebook.net/en_US/sdk.js";
-            fjs.parentNode.insertBefore(js, fjs);
-        }(document, 'script', 'facebook-jssdk'));
-    </script>
+            (function (d, s, id) {
+                var js,
+                    fjs = d.getElementsByTagName(s)[0];
+                if (d.getElementById(id)) {
+                    return;
+                }
+                js = d.createElement(s);
+                js.id = id;
+                js.src = "https://connect.facebook.net/en_US/sdk.js";
+                fjs.parentNode.insertBefore(js, fjs);
+            })(document, "script", "facebook-jssdk");
+        </script>
 
-    <!-- Global Site Tag (gtag.js) - Google Analytics -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-66016963-1"></script>
-    <script>
-        window.dataLayer = window.dataLayer || [];
-        function gtag() {
-            dataLayer.push(arguments);
-        }
-        gtag("js", new Date());
+        <!-- Global Site Tag (gtag.js) - Google Analytics -->
+        <script
+            async
+            src="https://www.googletagmanager.com/gtag/js?id=UA-66016963-1"
+        ></script>
+        <script>
+            window.dataLayer = window.dataLayer || [];
+            function gtag() {
+                dataLayer.push(arguments);
+            }
+            gtag("js", new Date());
 
-        gtag("config", "UA-66016963-1");
-    </script>
-</body>
-
+            gtag("config", "UA-66016963-1");
+        </script>
+    </body>
 </html>

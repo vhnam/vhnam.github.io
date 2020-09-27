@@ -1,11 +1,5 @@
 window.axios = require('axios');
-window.Popper = require('popper.js').default;
-
-try {
-  window.$ = window.jQuery = require('jquery');
-
-  require('bootstrap');
-} catch (e) {}
+window.$ = window.jQuery = require('jquery');
 
 $.fn.isInViewport = function () {
   var elementTop = $(this).offset().top;
