@@ -1,0 +1,63 @@
+<p>
+    Chủ đề này có thể khá là không có gì để bàn đối với các bạn học về bản đồ có
+    liên quan đến công nghệ GIS. Nhưng đối với mấy đứa học thuần về lập trình
+    như mình thì nó rất ư là mới lạ.
+</p>
+
+<h2>Đặt vấn đề</h2>
+<p>
+    Lần trước, mình có viết bài về cấu trúc của
+    <a itemprop="url" href="/tutorials/geojson-la-gi/">GeoJSON</a>. Trong đó,
+    phần <code>coordinates</code> mình có nói các bạn là nó dùng hệ toạ độ
+    <a
+        href="https://support.virtual-surveyor.com/en/support/solutions/articles/1000261351-what-is-wgs84-"
+        >WGS84</a
+    >
+    (World Geodetic System 1984). Tuy nhiên, khi bạn hiển thị bản đồ với Google,
+    MapBox, Leaflet thì tụi nó sẽ cho ra kết quả khác nhau.
+</p>
+<p>
+    Giả sử bây giờ ta sẽ hiển thị một điểm có <code>kinh độ 107.174377</code> và
+    <code>vĩ độ 10.57186</code>. Kết quả hiển thị trên MapBox như hình dưới đây.
+</p>
+<img src="img/mapbox.png" alt="MapBox" itemprop="image" />
+<p>
+    Và giờ mình thử với nó trên Leaflet.
+</p>
+<img src="img/leaflet-01.png" alt="Leaflet" itemprop="image" />
+<p>
+    Tại sao với MapBox thì nó ở trên đất liền, còn với Leaflet thì nó ở tận
+    ngoài bản đồ nhỉ?
+</p>
+
+<h2>Giải thich</h2>
+<p>
+    Số là trên thế giới này, mấy bạn học về địa lý thì có thói quen đọc theo cấu
+    trúc <code>[kinh độ, vĩ độ]</code>. Nhưng theo quan điểm của toán học và
+    phần mềm thì họ lại đọc <code>[vĩ độ, kinh độ]</code>.
+</p>
+<p>
+    Từ quan điểm trên, nó dẫn đến mấy ông làm bản đồ, kiểu dữ liệu liên quan đến
+    hệ toạ độ cũng sân si theo. Do đó, các bạn nên tham khảo bảng dưới đây để
+    biết cấu trúc của nó khi làm việc.
+</p>
+<ul>
+    <li><strong>Kinh độ</strong>: longtitude (lon, lng)</li>
+    <li><strong>Vĩ độ</strong>: latitude (lat)</li>
+</ul>
+<img src="img/lon-lat-lon-lat.png" alt="Lon - Lat" itemprop="image" />
+<p>
+    Như bảng trên, cấu trúc của GeoJSON theo <code>[kinh độ, vĩ độ]</code>, còn
+    Leaflet thì <code>[vĩ độ, kinh độ]</code>. Ta biết đường sửa lỗi rồi nhé.
+</p>
+<img src="img/leaflet-02.png" alt="Leaflet" itemprop="image" />
+
+<h2>Tham khảo</h2>
+<ul>
+    <li>
+        Tom MacWright,
+        <a itemprop="url" href="https://macwright.com/lonlat/"
+            >lon lat lon lat</a
+        >
+    </li>
+</ul>

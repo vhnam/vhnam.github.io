@@ -1,259 +1,339 @@
 <p>
-  Tại sự kiện WWDC 2019, nhân dịp ra mắt iOS 13, Apple đã giới thệu một tính
-  năng mới đó là cho phép người dùng đăng nhập bằng Apple ID (dễ hiểu hơn là tài
-  khoản iCloud) thay vì bằng tài khoản Facebook, Google. Các bạn có thể tham
-  khảo tại đây:
+    Tại sự kiện WWDC 2019, nhân dịp ra mắt iOS 13, Apple đã giới thệu một tính
+    năng mới đó là cho phép người dùng đăng nhập bằng Apple ID (dễ hiểu hơn là
+    tài khoản iCloud) thay vì bằng tài khoản Facebook, Google. Các bạn có thể
+    tham khảo tại đây:
 </p>
 <ul>
-<li>
-    Apple Developer,
-    <a href="https://developer.apple.com/videos/play/wwdc2019/706/" itemprop="url">Introducing Sign In with Apple</a>
-</li>
-<li>
-    Tinh Tế,
-    <a href="https://tinhte.vn/thread/sign-in-with-apple-tren-ios-13-dang-nhap-ung-dung-voi-apple-id-cho-phep-an-email-ca-nhan.2969700/" itemprop="url">"Sign in with Apple" trên iOS 13: đăng nhập ứng dụng với Apple
-      ID, cho phép ẩn email cá nhân</a>
-</li>
+    <li>
+        Apple Developer,
+        <a
+            href="https://developer.apple.com/videos/play/wwdc2019/706/"
+            itemprop="url"
+            >Introducing Sign In with Apple</a
+        >
+    </li>
+    <li>
+        Tinh Tế,
+        <a
+            href="https://tinhte.vn/thread/sign-in-with-apple-tren-ios-13-dang-nhap-ung-dung-voi-apple-id-cho-phep-an-email-ca-nhan.2969700/"
+            itemprop="url"
+            >"Sign in with Apple" trên iOS 13: đăng nhập ứng dụng với Apple ID,
+            cho phép ẩn email cá nhân</a
+        >
+    </li>
 </ul>
 <p>
-  Theo như quảng cáo thì Apple hỗ trợ tính năng này trên nền tảng khác là Web,
-  Android, Windows. Còn thực tế thế nào thì các bạn tìm hiểu. Ở đây, mình chỉ
-  bàn đến việc hỗ trợ trên web thôi nhé.
+    Theo như quảng cáo thì Apple hỗ trợ tính năng này trên nền tảng khác là Web,
+    Android, Windows. Còn thực tế thế nào thì các bạn tìm hiểu. Ở đây, mình chỉ
+    bàn đến việc hỗ trợ trên web thôi nhé.
 </p>
-<span class="heading" id="cch-hot-ng"></span><h2>Cách hoạt động</h2>
-<span class="heading" id="-pha-ngi-dng"></span><h3>Ở phía người dùng</h3>
+<span class="heading" id="cch-hot-ng"></span>
+<h2>Cách hoạt động</h2>
+<span class="heading" id="-pha-ngi-dng"></span>
+<h3>Ở phía người dùng</h3>
 <p>
-  Đầu tiên, bạn sẽ nhấn vào nút <strong>Sign in with Apple</strong> như hình bên
-  dưới.
+    Đầu tiên, bạn sẽ nhấn vào nút <strong>Sign in with Apple</strong> như hình
+    bên dưới.
 </p>
-<img alt="Sign In with Apple ID" itemprop="image" src="img/button-sign-in-with-apple.png"/>
+<img
+    alt="Sign In with Apple ID"
+    itemprop="image"
+    src="img/button-sign-in-with-apple.png"
+/>
 <p>
-  Tiếp theo, màn hình đăng nhập sẽ hiện ra. Có trường hợp khác là bạn sẽ thấy
-  một hộp thoại (dialog/modal).
+    Tiếp theo, màn hình đăng nhập sẽ hiện ra. Có trường hợp khác là bạn sẽ thấy
+    một hộp thoại (dialog/modal).
 </p>
-<img alt="Apple Sign In screen" itemprop="image" src="img/apple-sign-in-screen.png"/>
+<img
+    alt="Apple Sign In screen"
+    itemprop="image"
+    src="img/apple-sign-in-screen.png"
+/>
 <p>
-  Nếu thiết bị bạn đang sử dụng là lần đầu tiên với các dịch vụ của Apple sẽ
-  phải xác thực hai bước. Sau đó, ta sẽ thấy màn hình xác nhận thông tin và muốn
-  hỏi bạn muốn bên phía nhà phát triển thấy được email hay không?
+    Nếu thiết bị bạn đang sử dụng là lần đầu tiên với các dịch vụ của Apple sẽ
+    phải xác thực hai bước. Sau đó, ta sẽ thấy màn hình xác nhận thông tin và
+    muốn hỏi bạn muốn bên phía nhà phát triển thấy được email hay không?
 </p>
-<img alt="Apple Permission Prompt" itemprop="image" src="img/apple-permission-prompt.png"/>
+<img
+    alt="Apple Permission Prompt"
+    itemprop="image"
+    src="img/apple-permission-prompt.png"
+/>
 <p>Và đây là kết quả nếu bạn chọn <strong>Hide my email</strong>.</p>
-<img alt="Hide my email" itemprop="image" src="img/hide-my-email.png"/>
-<span class="heading" id="-pha-developer"></span><h3>Ở phía developer</h3>
-<img alt="Workflow" itemprop="image" src="img/workflow.png"/>
-<span class="heading" id="cc-bc-thc-hin"></span><h2>Các bước thực hiện</h2>
+<img alt="Hide my email" itemprop="image" src="img/hide-my-email.png" />
+<span class="heading" id="-pha-developer"></span>
+<h3>Ở phía developer</h3>
+<img alt="Workflow" itemprop="image" src="img/workflow.png" />
+<span class="heading" id="cc-bc-thc-hin"></span>
+<h2>Các bước thực hiện</h2>
 <p>
-  Bây giờ ta sẽ vào phần viết code. Phần này sẽ có 3 bước, gồm cấu hình tại
-  Apple's Developer Central Portal, xác thực tại phía Back-End và gắn nút
-  đăng nhập tại Front-End.
+    Bây giờ ta sẽ vào phần viết code. Phần này sẽ có 3 bước, gồm cấu hình tại
+    Apple&amp;aposs Developer Central Portal, xác thực tại phía Back-End và gắn
+    nút đăng nhập tại Front-End.
 </p>
-<span class="heading" id="cu-hnh-ti-apple's-developer-central-portal"></span><h3>Cấu hình tại Apple's Developer Central Portal</h3>
+<span
+    class="heading"
+    id="cu-hnh-ti-apple&amp;aposs-developer-central-portal"
+></span>
+<h3>Cấu hình tại Apple&amp;aposs Developer Central Portal</h3>
 <p>
-  Sau khi đăng nhập vào Portal, bạn chọn mục
-  <strong>Certificates, IDs &amp; Profiles</strong>.
+    Sau khi đăng nhập vào Portal, bạn chọn mục
+    <strong>Certificates, IDs &amp; Profiles</strong>.
 </p>
-<img alt="Certificates" itemprop="image" src="img/certificates.png"/>
+<img alt="Certificates" itemprop="image" src="img/certificates.png" />
 <p>Chọn tiếp <strong>Identifiers</strong> và nhấn vào dấu cộng màu xanh.</p>
-<img alt="Identifier" itemprop="image" src="img/create-identifier.png"/>
-<span class="heading" id="to-app-ids"></span><h4>Tạo App IDs</h4>
+<img alt="Identifier" itemprop="image" src="img/create-identifier.png" />
+<span class="heading" id="to-app-ids"></span>
+<h4>Tạo App IDs</h4>
 <p>
-  Trước tiên, bạn tạo <strong>App IDs</strong> để định danh app trước đã. Thông
-  tin này sẽ dùng cho phần <code>Services ID</code> phía sau.
+    Trước tiên, bạn tạo <strong>App IDs</strong> để định danh app trước đã.
+    Thông tin này sẽ dùng cho phần <code>Services ID</code> phía sau.
 </p>
-<img alt="App Ids" itemprop="image" src="img/app-ids.png"/>
+<img alt="App Ids" itemprop="image" src="img/app-ids.png" />
 <p>
-  Bạn chọn nền tảng, điền mô tả. Ở phần <strong>Bundle Id</strong> chọn là
-  <code>Explicit</code>. Giả sử tên web của bạn là <code>example.com</code> thì
-  tên của bundle nên là <code>com.example</code>. Sau đó thì nhấn nút
-  <strong>Continue</strong> và làm theo hướng dẫn.
+    Bạn chọn nền tảng, điền mô tả. Ở phần <strong>Bundle Id</strong> chọn là
+    <code>Explicit</code>. Giả sử tên web của bạn là
+    <code>example.com</code> thì tên của bundle nên là <code>com.example</code>.
+    Sau đó thì nhấn nút <strong>Continue</strong> và làm theo hướng dẫn.
 </p>
-<img alt="App Ids information" itemprop="image" src="img/app-id-information.png"/>
+<img
+    alt="App Ids information"
+    itemprop="image"
+    src="img/app-id-information.png"
+/>
 <p>
-  Phần này bạn sẽ cần <strong>Apple ID Prefix</strong> sẽ là
-  <code>team_id</code>.
+    Phần này bạn sẽ cần <strong>Apple ID Prefix</strong> sẽ là
+    <code>team_id</code>.
 </p>
-<span class="heading" id="to-services-id"></span><h4>Tạo Services ID</h4>
+<span class="heading" id="to-services-id"></span>
+<h4>Tạo Services ID</h4>
 <p>
-  Đối với việc hỗ trợ đăng nhập trên web, bạn chọn Services ID ở trang trước.
+    Đối với việc hỗ trợ đăng nhập trên web, bạn chọn Services ID ở trang trước.
 </p>
-<img alt="Services Id" itemprop="image" src="img/create-services-id.png"/>
+<img alt="Services Id" itemprop="image" src="img/create-services-id.png" />
 <p>
-  Ở bước này, bạn sẽ điền tên của app và tên của <strong>identifier</strong>.
-  <strong>identifier</strong> sẽ là OAuth <code>client_id</code>. Nhớ đánh dấu
-  vào ô <strong>Sign in with Apple</strong>.
+    Ở bước này, bạn sẽ điền tên của app và tên của <strong>identifier</strong>.
+    <strong>identifier</strong> sẽ là OAuth <code>client_id</code>. Nhớ đánh dấu
+    vào ô <strong>Sign in with Apple</strong>.
 </p>
-<img alt="Services Id information" itemprop="image" src="img/services-id-information.png"/>
+<img
+    alt="Services Id information"
+    itemprop="image"
+    src="img/services-id-information.png"
+/>
 <p>Nhấn nút <strong>Configure</strong> để bắt đầu xác thực tên miền.</p>
-<span class="heading" id="xc-thc-tn-min"></span><h4>Xác thực tên miền</h4>
+<span class="heading" id="xc-thc-tn-min"></span>
+<h4>Xác thực tên miền</h4>
 <p>
-  Bây giờ đến phần khó chịu nhất trong việc cấu hình đó là xác thực tên miền. Nó
-  vẫn nằm trong bước tạo <code>Service ID</code> nhưng khá lằng nhằng nên mình
-  tách ra.
+    Bây giờ đến phần khó chịu nhất trong việc cấu hình đó là xác thực tên miền.
+    Nó vẫn nằm trong bước tạo <code>Service ID</code> nhưng khá lằng nhằng nên
+    mình tách ra.
 </p>
 <p>
-  Bạn chọn <strong>Primary App ID</strong> là tên của App ID vừa tạo lúc nãy.
-  Điền tên trang web của bạn vào phần <strong>Web Domain</strong> và không được
-  có dấu xẹt ở cuối nhé. Còn phần <strong>Return URLs</strong> sẽ là phần xử lý
-  callback sau khi Apple đã xác thực xong tài khoản, bên phía mình phải tự viết
-  phần callback này.
+    Bạn chọn <strong>Primary App ID</strong> là tên của App ID vừa tạo lúc nãy.
+    Điền tên trang web của bạn vào phần <strong>Web Domain</strong> và không
+    được có dấu xẹt ở cuối nhé. Còn phần <strong>Return URLs</strong> sẽ là phần
+    xử lý callback sau khi Apple đã xác thực xong tài khoản, bên phía mình phải
+    tự viết phần callback này.
 </p>
 <p>
-  Lưu ý chỗ này, Apple không hỗ trợ <code>localhost</code> lẫn địa chỉ IP. Nên
-  nhập tên miền đàng hoàng vào.
+    Lưu ý chỗ này, Apple không hỗ trợ <code>localhost</code> lẫn địa chỉ IP. Nên
+    nhập tên miền đàng hoàng vào.
 </p>
-<img alt="Web Authentication Configuration" itemprop="image" src="img/web-authentication-configuration.png"/>
+<img
+    alt="Web Authentication Configuration"
+    itemprop="image"
+    src="img/web-authentication-configuration.png"
+/>
 <p>
-  Nhập xong thì bạn khoan làm gì, hãy nhân nút <strong>Download</strong> để tải
-  file <code>.txt</code> về xác thực. Có thể lưu luôn ở bước này cũng được, miễn
-  là file <code>.txt</code> đó luôn là mới nhất và không được đổi lại tên.
-</p>
-<p>
-  Tiếp theo, bạn sẽ làm trò tà đạo gì đó tuỳ thuộc vào cách host trang web. Miễn
-  là upload file <code>txt</code> vừa tải về lên và truy cập được với cấu trúc
-  <code>DOMAIN_NAME/.well-known/apple-developer-domain-association.txt</code>
-</p>
-<img alt="Verify domain" itemprop="image" src="img/verify-domain.png"/>
-<p>
-  Sau khi thành công, bạn quay về màn hình <strong>Configuration</strong> lúc
-  nãy để nhấn nút <strong>Verify</strong>.
-</p>
-<span class="heading" id="to-private-key--xc-thc-ti-pha-ngi-dng"></span><h4>Tạo Private Key để xác thực tại phía người dùng</h4>
-<p>
-  Ở phần callback, Apple sẽ gửi cho bạn một token. Từ token này kết hợp với
-  private key và một số thông tin để ra token mới. Cuối cùng gửi lại Apple để
-  xác thực và lấy thông tin người dùng.
+    Nhập xong thì bạn khoan làm gì, hãy nhân nút <strong>Download</strong> để
+    tải file <code>.txt</code> về xác thực. Có thể lưu luôn ở bước này cũng
+    được, miễn là file <code>.txt</code> đó luôn là mới nhất và không được đổi
+    lại tên.
 </p>
 <p>
-  Để lấy được private key, bạn quay trở lại màn hình
-  <strong>Certificates, Identifiers &amp; Profiles</strong>, chọn mục
-  <strong>Keys</strong>.
+    Tiếp theo, bạn sẽ làm trò tà đạo gì đó tuỳ thuộc vào cách host trang web.
+    Miễn là upload file <code>txt</code> vừa tải về lên và truy cập được với cấu
+    trúc
+    <code>DOMAIN_NAME/.well-known/apple-developer-domain-association.txt</code>
 </p>
-<img alt="Keys" itemprop="image" src="img/keys.png"/>
+<img alt="Verify domain" itemprop="image" src="img/verify-domain.png" />
 <p>
-  Điền <strong>Key Name</strong> và chọn <strong>Sign In with Apple</strong>.
+    Sau khi thành công, bạn quay về màn hình <strong>Configuration</strong> lúc
+    nãy để nhấn nút <strong>Verify</strong>.
 </p>
-<img alt="Register a new key" itemprop="image" src="img/register-a-new-key.png"/>
+<span class="heading" id="to-private-key--xc-thc-ti-pha-ngi-dng"></span>
+<h4>Tạo Private Key để xác thực tại phía người dùng</h4>
+<p>
+    Ở phần callback, Apple sẽ gửi cho bạn một token. Từ token này kết hợp với
+    private key và một số thông tin để ra token mới. Cuối cùng gửi lại Apple để
+    xác thực và lấy thông tin người dùng.
+</p>
+<p>
+    Để lấy được private key, bạn quay trở lại màn hình
+    <strong>Certificates, Identifiers &amp; Profiles</strong>, chọn mục
+    <strong>Keys</strong>.
+</p>
+<img alt="Keys" itemprop="image" src="img/keys.png" />
+<p>
+    Điền <strong>Key Name</strong> và chọn <strong>Sign In with Apple</strong>.
+</p>
+<img
+    alt="Register a new key"
+    itemprop="image"
+    src="img/register-a-new-key.png"
+/>
 <p>Nhấn vào <strong>Configure</strong> và chọn <code>App ID</code> vừa tạo.</p>
-<img alt="Select App ID" itemprop="image" src="img/select-app-id.png"/>
+<img alt="Select App ID" itemprop="image" src="img/select-app-id.png" />
 <p>
-  Apple sẽ tạo cho bạn một file mới với đuôi là <code>p8</code>. Lưu ý, file này
-  chỉ tạo <strong>MỘT LẦN</strong>.
+    Apple sẽ tạo cho bạn một file mới với đuôi là <code>p8</code>. Lưu ý, file
+    này chỉ tạo <strong>MỘT LẦN</strong>.
 </p>
-<img alt="Download private key" itemprop="image" src="img/download-your-key.png"/>
+<img
+    alt="Download private key"
+    itemprop="image"
+    src="img/download-your-key.png"
+/>
 <p>
-  Bạn quay lại màn hình để xem thông tin chi tiết của key vừa tạo, bạn sẽ cần
-  mục <code>KEY ID</code> để tạo token phía dưới client.
+    Bạn quay lại màn hình để xem thông tin chi tiết của key vừa tạo, bạn sẽ cần
+    mục <code>KEY ID</code> để tạo token phía dưới client.
 </p>
-<img alt="Find your key id" itemprop="image" src="img/find-your-key-id.png"/>
-<span class="heading" id="tng-kt"></span><h4>Tổng kết</h4>
+<img alt="Find your key id" itemprop="image" src="img/find-your-key-id.png" />
+<span class="heading" id="tng-kt"></span>
+<h4>Tổng kết</h4>
 <p>
-  Ở phần cấu hình tại Apple Developer Portal, các bạn sẽ có những thứ sau:
+    Ở phần cấu hình tại Apple Developer Portal, các bạn sẽ có những thứ sau:
 </p>
 <ul>
-<li>
-<code>TEAM_ID</code>
-</li>
-<li>
-<code>CLIENT_ID</code>
-</li>
-<li>
-    File <code>p8</code> với tên file là <code>AuthKey_&lt;TEAM_ID&gt;.p8</code>
-</li>
-<li>
-<code>KEY_ID</code>
-</li>
+    <li>
+        <code>TEAM_ID</code>
+    </li>
+    <li>
+        <code>CLIENT_ID</code>
+    </li>
+    <li>
+        File <code>p8</code> với tên file là
+        <code>AuthKey_&lt;TEAM_ID&gt;.p8</code>
+    </li>
+    <li>
+        <code>KEY_ID</code>
+    </li>
 </ul>
 <p>
-  Quan trọng là nhớ verify domain với Apple nhé.
+    Quan trọng là nhớ verify domain với Apple nhé.
 </p>
-<span class="heading" id="vit-code-ti-pha-front-end"></span><h3>Viết code tại phía Front-End</h3>
+<span class="heading" id="vit-code-ti-pha-front-end"></span>
+<h3>Viết code tại phía Front-End</h3>
 <p>Phần này, công việc chỉ là gắn nút <code>Sign In with Apple</code></p>
-<span class="heading" id="theo-hng-dn-ca-apple"></span><h4>Theo hướng dẫn của Apple</h4>
+<span class="heading" id="theo-hng-dn-ca-apple"></span>
+<h4>Theo hướng dẫn của Apple</h4>
 <p>
-  Với cách làm này, bạn sẽ sử dụng style mặc định cho nút
-  <strong>Sign In with Apple</strong> theo như trong HIG (Human interface
-  guidelines). Sau khi bạn nhấn nút thì mặc định sẽ hiện lên một
-  popup/dialog/modal. Bạn sẽ cần viết một số sự kiện đễ xử lý. Cái này làm theo
-  bài viết
-  <a href="https://developer.apple.com/documentation/signinwithapplejs/configuring_your_webpage_for_sign_in_with_apple" itemprop="url">
-    Configuring Your Webpage for Sign in with Apple</a>
-  của họ.
+    Với cách làm này, bạn sẽ sử dụng style mặc định cho nút
+    <strong>Sign In with Apple</strong> theo như trong HIG (Human interface
+    guidelines). Sau khi bạn nhấn nút thì mặc định sẽ hiện lên một
+    popup/dialog/modal. Bạn sẽ cần viết một số sự kiện đễ xử lý. Cái này làm
+    theo bài viết
+    <a
+        href="https://developer.apple.com/documentation/signinwithapplejs/configuring_your_webpage_for_sign_in_with_apple"
+        itemprop="url"
+    >
+        Configuring Your Webpage for Sign in with Apple</a
+    >
+    của họ.
 </p>
 <p>
-  Mình sẽ giải thích các tham số ở đây một tí:
+    Mình sẽ giải thích các tham số ở đây một tí:
 </p>
 <ul>
-<li><code>CLIENT_ID</code> - Lấy từ Apple Developer Portal.</li>
-<li>
-<code>SCOPES</code> - Giá trị nên là <strong>name email</strong>.
-    <code>SCOPES=name email</code>
-</li>
-<li>
-<code>REDIRECT_URI</code> - Đường dẫn bạn đã khai báo ở phần
-    <strong>Return URLs</strong> ở bước <strong>Verify</strong>.
-  </li>
-<li>
-<code>STATE</code> - Cái này mình cũng không rõ ý nghĩa của nó lắm, có thể
-    hiểu như là một giá trị ngẫu nhiên mà chỉ session đó biết thôi.
-  </li>
+    <li><code>CLIENT_ID</code> - Lấy từ Apple Developer Portal.</li>
+    <li>
+        <code>SCOPES</code> - Giá trị nên là <strong>name email</strong>.
+        <code>SCOPES=name email</code>
+    </li>
+    <li>
+        <code>REDIRECT_URI</code> - Đường dẫn bạn đã khai báo ở phần
+        <strong>Return URLs</strong> ở bước <strong>Verify</strong>.
+    </li>
+    <li>
+        <code>STATE</code> - Cái này mình cũng không rõ ý nghĩa của nó lắm, có
+        thể hiểu như là một giá trị ngẫu nhiên mà chỉ session đó biết thôi.
+    </li>
 </ul>
-<span class="heading" id="t-vit"></span><h4>Tự viết</h4>
+<span class="heading" id="t-vit"></span>
+<h4>Tự viết</h4>
 <p>
-  Với cách này thì bạn thoải mái chỉnh sửa nút
-  <strong>Sign In with Apple</strong>. Khi nhấn vào sẽ redirect tới trang đăng
-  nhập.
+    Với cách này thì bạn thoải mái chỉnh sửa nút
+    <strong>Sign In with Apple</strong>. Khi nhấn vào sẽ redirect tới trang đăng
+    nhập.
 </p>
 <script src="https://gist.github.com/vhnam/e5c147038a3447074a2bed547f915c37.js"></script>
-<span class="heading" id="x-l-ti-pha-back-end"></span><h3>Xử lý tại phía Back-End</h3>
+<span class="heading" id="x-l-ti-pha-back-end"></span>
+<h3>Xử lý tại phía Back-End</h3>
 <p>
-  Apple sẽ gửi một request với method là <code>POST</code> đến callback URL mà
-  bạn đã khai báo trước đó. Token chỉ có thời hạn là 5 phút. Với nội dung như
-  sau:
+    Apple sẽ gửi một request với method là <code>POST</code> đến callback URL mà
+    bạn đã khai báo trước đó. Token chỉ có thời hạn là 5 phút. Với nội dung như
+    sau:
 </p>
 <script src="https://gist.github.com/vhnam/ca193ac218d40942c818828b8944e62e.js"></script>
 <p>
-  Lúc này, bạn sẽ cần tạo một JWT Token với các tham số đầu vào như sau. Lưu ý
-  là trường <code>exp</code> có thời hạn không được quá 6 tháng.
+    Lúc này, bạn sẽ cần tạo một JWT Token với các tham số đầu vào như sau. Lưu ý
+    là trường <code>exp</code> có thời hạn không được quá 6 tháng.
 </p>
 <script src="https://gist.github.com/vhnam/e12374d91ab0aabd874f9a11fb377fe8.js"></script>
 <p>
-  Sau đó, bạn sẽ dùng <code>code</code> từ Apple gửi về kèm với JWT token vừa
-  tạo, gửi một request method <code>POST</code> với <code>ContentType</code> là
-  <code>application/x-www-form-urlencoded</code> để xác thực token. Tham khảo
-  thêm tại
-  <a href="https://developer.apple.com/documentation/signinwithapplerestapi/generate_and_validate_tokens">Generate and validate tokens</a>.
+    Sau đó, bạn sẽ dùng <code>code</code> từ Apple gửi về kèm với JWT token vừa
+    tạo, gửi một request method <code>POST</code> với
+    <code>ContentType</code> là
+    <code>application/x-www-form-urlencoded</code> để xác thực token. Tham khảo
+    thêm tại
+    <a
+        href="https://developer.apple.com/documentation/signinwithapplerestapi/generate_and_validate_tokens"
+        >Generate and validate tokens</a
+    >.
 </p>
 <script src="https://gist.github.com/vhnam/fb2b2458e5555e713c190f8517dbf3b7.js"></script>
 <p>
-  Và đây là response trả vè của em nó. Bạn tha hồ làm gì làm nhé.
+    Và đây là response trả vè của em nó. Bạn tha hồ làm gì làm nhé.
 </p>
 <script src="https://gist.github.com/vhnam/dd8c253a6d0035d516a1c0e10b2376a5.js"></script>
-<span class="heading" id="tng-kt"></span><h2>Tổng kết</h2>
+<span class="heading" id="tng-kt"></span>
+<h2>Tổng kết</h2>
 <p>
-  Đây là kinh nghiệm khi mình làm chức năng này. Ở đây chỉ cần đăng nhập chứ
-  không cần cấp lại token mới. Nếu cần thì bạn làm y chang bước verify rồi thay
-  bằng <code>refresh_token</code> và sửa <code>grant_type</code> từ
-  <code>authorization_code</code> thành <code>refresh_token</code> là được.
+    Đây là kinh nghiệm khi mình làm chức năng này. Ở đây chỉ cần đăng nhập chứ
+    không cần cấp lại token mới. Nếu cần thì bạn làm y chang bước verify rồi
+    thay bằng <code>refresh_token</code> và sửa <code>grant_type</code> từ
+    <code>authorization_code</code> thành <code>refresh_token</code> là được.
 </p>
 <p>
-  Hình ảnh cho phần cấu hình tại Apple Developer Portal mình lấy từ bài viết của
-  Aaron Parecki do phần này đã được team iOS làm sẵn. Cảm ơn anh Tài Vương đã hõ
-  trợ phần này.
+    Hình ảnh cho phần cấu hình tại Apple Developer Portal mình lấy từ bài viết
+    của Aaron Parecki do phần này đã được team iOS làm sẵn. Cảm ơn anh Tài Vương
+    đã hõ trợ phần này.
 </p>
-<span class="heading" id="tham-kho"></span><h2>Tham khảo</h2>
+<span class="heading" id="tham-kho"></span>
+<h2>Tham khảo</h2>
 <ul>
-<li>
-    Aaron Parecki,
-    <a href="https://developer.okta.com/blog/2019/06/04/what-the-heck-is-sign-in-with-apple" itemprop="url">What the Heck is Sign In with Apple?</a>
-</li>
-<li>
-    Ananay Arora,
-    <a href="https://github.com/ananay/apple-auth" itemprop="url">Sign in with Apple for Node.js</a>
-</li>
-<li>
-    Apple,
-    <a href="https://developer.apple.com/documentation/signinwithapplejs/configuring_your_webpage_for_sign_in_with_apple" itemprop="url">
-      Configuring Your Webpage for Sign in with Apple</a>
-</li>
+    <li>
+        Aaron Parecki,
+        <a
+            href="https://developer.okta.com/blog/2019/06/04/what-the-heck-is-sign-in-with-apple"
+            itemprop="url"
+            >What the Heck is Sign In with Apple?</a
+        >
+    </li>
+    <li>
+        Ananay Arora,
+        <a href="https://github.com/ananay/apple-auth" itemprop="url"
+            >Sign in with Apple for Node.js</a
+        >
+    </li>
+    <li>
+        Apple,
+        <a
+            href="https://developer.apple.com/documentation/signinwithapplejs/configuring_your_webpage_for_sign_in_with_apple"
+            itemprop="url"
+        >
+            Configuring Your Webpage for Sign in with Apple</a
+        >
+    </li>
 </ul>

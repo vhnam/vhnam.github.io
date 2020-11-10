@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
         <urlset xmlns="https://www.sitemaps.org/schemas/sitemap/0.9">
             <url><loc>https://vhnam.github.io/tutorials/lam-the-nao-de-tro-duong-dan-tu-aws-cloudfront-den-aws-s3-bucket</loc><lastmod>2020-11-02</lastmod></url>
+    <url><loc>https://vhnam.github.io/tutorials/cau-chuyen-ve-he-toa-do</loc><lastmod>2020-10-10</lastmod></url>
     <url><loc>https://vhnam.github.io/tutorials/giai-phap-cua-ban-khong-danh-cho-van-de-cua-tui</loc><lastmod>2020-09-12</lastmod></url>
     <url><loc>https://vhnam.github.io/tutorials/geojson-la-gi</loc><lastmod>2020-07-11</lastmod></url>
     <url><loc>https://vhnam.github.io/tutorials/cau-chuyen-ve-source-maps</loc><lastmod>2020-07-09</lastmod></url>
