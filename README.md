@@ -3,15 +3,7 @@
 ## Development
 
 ```
-npm run sass:watch
-webpack -w
-```
-
-**Note:** If you have problem with SASS, please follow this steps
-
-```
-sudo gem install -n /usr/local/bin sass
-sudo gem install -n /usr/local/bin compass
+npm run scss
 ```
 
 ## Post a content

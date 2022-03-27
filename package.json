@@ -5,7 +5,7 @@
   "scripts": {
     "start": "http-server",
     "build": "webpack --mode=production",
-    "sass:watch": "sass --watch src/assets/scss:src/assets/css --style compressed"
+    "scss": "node-sass --watch src/assets/scss -o src/assets/css"
   },
   "author": "Nam Vo <vhnam2504@gmail.com>",
   "bugs": {
@@ -21,8 +21,11 @@
   "devDependencies": {
     "http-server": "^0.12.3",
     "husky": "^4.2.5",
+    "node-sass": "^7.0.1",
     "prettier": "^2.0.5",
-    "pretty-quick": "^3.0.2"
+    "pretty-quick": "^3.0.2",
+    "webpack": "^5.70.0",
+    "webpack-cli": "^4.9.2"
   },
   "husky": {
     "hooks": {
