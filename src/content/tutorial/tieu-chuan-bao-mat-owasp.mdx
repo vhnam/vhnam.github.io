@@ -1,0 +1,62 @@
+---
+title: Tiêu chuẩn bảo mật OWASP
+description: Ngày đầu đi làm, được sếp giao task làm lại phần giao diện theo tiêu chuẩn của OWASP. Bài này nhằm tóm tất lại quá trình tìm hiểu của mình.
+date: 2018-09-15
+---
+
+Số là ngày đầu tiên đi làm, CCO (Chief Consulting Officer) xếp mình vào một dự án nội bộ của công ty. Trước đây đã có source code, tuy nhiên để kịp demo hay sao ấy, họ chỉ có mainflow và không tuân thủ theo tiêu chuẩn của OWASP. Họ mong muốn mình làm lại giao diện cho gọn gàng hơn và áp dụng tiêu chuẩn OWASP. Trong quá trình tìm hiểu, mình chia sẻ với mọi người luôn.
+
+![OWASP](../../assets/tutorials/tieu-chuan-bao-mat-owasp/thumbnails.jpg)
+
+## Giới thiệu về OWASP
+
+[OWASP](https://www.owasp.org/index.php/Main_Page) là một tiêu chuẩn để phục vụ việc kiểm thử của Penetration Testing (Pentest) do tổ chức Open Web Application Security Project(OWASP) đề xuất. OWASP là tổ chức phi lợi nhuận và đưa ra chuẩn OWASP phục vụ cho công việc pentest hiệu quả và chi tiết. Tuy nhiên, để rõ hơn, mình xin giới thiệu sơ qua Pentest là gì.
+
+> ### Pentest là gì?
+>
+> **Penetration Testing** hay thường gọi là "pentest" hoặc “security testing" có thể hiểu đơn giản là đánh giá độ an toàn bằng cách tấn công vào hệ thống (gọi là đánh trận giả). Người thực hiện một thử nghiệm xâm nhập được gọi là kiểm tra xâm nhập hoặc pentester.  
+> Có một khái niệm khác mà đôi khi ta thường nhầm lẫn với Penetration Testing (PT) đó là **Vulnerability Assessment (VA)**. Vậy VA là gì và nó khác gì so với PT? Thực chất VA là quá trình rà soát lại các dịch vụ và hệ thống để tìm ra các vấn đề an ninh tiềm tàng hoặc dò tìm các dấu vết khi hệ thống bị tổn thương. Ngược lại PT thực hiện khai thác và tấn công thử nghiệm (POC attack) nhằm để tìm ra vấn đề an ninh tồn tại. Do đó PT đi xa hơn VA một bước bằng cách dựa theo các hoạt động thực sự của một hacker.  
+> Thâm nhập thử nghiệm có một yêu cầu là bạn phải nhận được sự cho phép của người sở hữu hệ thống. Nếu không, bạn sẽ được coi như là đang hack hệ thống, đó là bất hợp pháp ở hầu hết các quốc gia. Nói cách khác: Sự khác biệt giữa thử nghiệm thâm nhập và hack là bạn có sự cho phép của chủ sở hữu hệ thống.
+
+OWASP là 1 trong một số tiêu chuẩn để đánh giá bảo mật. Ngoài ra, còn có các tiêu chuẩn khác như:
+
+- OSSTMM - [Open Source Security Testing Methodology Manual](http://www.isecom.org/research/)
+- ISSAF - [Information Systems Security Assessment Framework](http://www.oissg.org/issaf)
+- WASC-TC - [WASC Threat Classification](http://projects.webappsec.org/w/page/13246978/Threat%20Classification)
+
+## Nội dung
+
+Bạn có thể tham khảo nhanh [OWASP Secure Coding Practices - Quick Reference Guide](https://www.owasp.org/img/0/08/OWASP_SCP_Quick_Reference_Guide_v2.pdf). Ở đây, mình xin liệt kê một số thành phần trong tiêu chuẩn này.
+
+- **Input Validation**  
+  Bạn phải kiểm tra format, min, max, độ dài cho phép của các ô nhập liệu. Ngoài ra, bạn nhớ mã hoá các ký tự đặc biệt. Không bao giờ tin tưởng hoàn toàn người dùng, đó là một phương châm rất quan trọng đối với lập trình viên. Việc kiểm tra dữ liệu được nhập vào từ người dùng là công việc vô cùng quan trọng. Mục đích để tránh những sai sót không đáng có và các kiểu tấn công XSS, CSRF.
+- **Output Encoding**  
+  Mã hoá các giá trị được nhận từ các nguồn đến trang web. Đôi khi, ở client được nhận những giá trị không đáng có như đoạn mã liên quan đến XSS, nếu không có những biện pháp xử lý trước khi hiển thị sẽ vô tình kích hoạt bẫy của hacker.
+- **Authentication and Password Management**  
+  Kiểm tra bảo mật với chức năng đăng nhập là vấn đề cực kỳ quan trọng, bạn phải đảm bảo việc đăng nhập cần sự an toàn và đúng với ý định của nhà phát hành ứng dụng.
+- **Session Management**  
+  Kiếm tra phiên đăng nhập để tránh các lỗi tấn công như Session Hijacking, Man in the Middle,... Bạn có thể tìm đọc qua bài viết sau
+
+  - Cyber Security Community, [Web Session Management : Requisites And Best Practices](https://securitycommunity.tcs.com/infosecsoapbox/articles/2017/02/20/web-session-management-requisites-and-best-practices)
+
+- **Access Control**  
+  Khi người dùng bị hạn chế kiểm soát truy cập, hacker có thể khai thác và truy cập các chức năng hoặc dữ liệu trái phép. Kiểm soát truy cập nhằm mục đích kiểm soát người dùng được ủy quyền được phép hay không được phép làm gì trong một ứng dụng và để thiết lập quyền kiểm soát truy cập một cách hợp lí, ứng dụng phải đảm bảo rằng nó đang nghiêm túc thực hiện kiểm tra ủy quyền và xác thực hợp lệ để xác định người dùng được đặc quyền, thực tế là những người dùng Internet ngẫu nhiên.
+- **Cryptographic Practices**  
+  Kiểm tra mã hóa thông tin trên đường truyền. Đối với đối thượng là những website thương mại điện tử hay giao dịch thì việc kiểm tra, mã hóa đường truyền là một vấn đề hết sức quan trọng. Phần này sẽ gợi ý bạn một số lời khuyên hữu ích.
+- **Error Handling and Logging**  
+  Kiểm tra cách xử lý lỗi của ứng dụng thông tin về lỗi cũng là một nguồn thu thập dữ liệu cho hacker có thể tấn công vào website. Những lúc đó ứng dụng cần có cơ chế xử lý để không gặp phải hiện tượng tự nhiên lăn đùng ra chết mà quản trị chẳng hay chết khi nào và vì sao lại chết. Để biết điều, đó ta phải ghi Log các hoạt động của hệ thống. Tuy nhiên, hacker có thể khai thác log để đánh hệ thống.
+- **Data Protection**  
+  Thu thập thông tin về đối tượng,thông tin về server. Bước này rất quan trọng bởi khi đã xác định được chính xác thông tin liên quan sẽ hình thành nên kịch bản để các Pentester có thể tấn công khai thác những lỗi liên quan đến websever mà không cần quan tâm tới ứng dụng đang chạy có an toàn hay không, từ đó có cách nhìn tổng quát về sản phầm cần pentest.
+- **Communication Security**  
+  Bạn nên kiểm soát chặt chẽ quá trình giao tiếp với các thành phần khác như API, server khác thông qua giao thức kết nối, VPN,... Chẳng hạn như HTTPS không được thực hiện chính xác và để lại lỗ hổng, giúp tin tặc có thể ăn cắp thông tin tài khoản, mật khẩu, địa chỉ hay bất cứ thông tin có giá trị nào khác.
+- **System Configuration** Cần đánh giá về hệ thống máy chủ, không chỉ dừng ở bước đánh giá ứng dụng, bạn cần phải đánh giá cả nền tảng mà các ứng dụng chạy trên đó bởi nó có thể gây nguy hại không chỉ đến web mà còn đến cả hệ thống server. Hình thức kiểm tra được sử dụng là whitebox và graybox. Ngoài ra, do cấu hình an ninh lỏng lẻo tại các tầng kiến trúc của web như nền tảng, framework, máy chủ, cơ sở dữ liệu và mã tùy chỉnh nên tin tặc có thể khai thác tấn công và có quyền truy cập dữ liệu. Vì thế, tất cả các tầng kiến trúc của web phải được cập nhật thường xuyên.
+
+## Tài liệu liên quan
+
+Khoảng vài năm, OWASP có công bố các lỗi bảo mật thường hay gặp. Bạn có thể tham khảo tại [Official OWASP Top 10 Document Repository](https://github.com/OWASP/Top10).
+
+## Tham khảo
+
+- SecurityDaily, [4 quy trình chuẩn kiểm tra bảo mật một ứng dụng website](https://securitydaily.net/cac-quy-trinh-chuan-kiem-tra-mot-ung-dung-website/)
+- SecurityBox, [PENTEST THEO TIÊU CHUẨN OWASP](https://securitybox.vn/3873/pentest-theo-tieu-chuan-owasp/)
+- WhiteHat.vn, [Tổng quan về Penetration Testing](https://whitehat.vn/threads/tong-quan-ve-penetration-testing.3515/)

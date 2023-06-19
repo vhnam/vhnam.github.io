@@ -1,0 +1,153 @@
+---
+title: Travis-CI có hỗ trợ mã hoá biến môi trường trên nhiều nhánh không nhỉ?
+description: Nhánh develop và staging cùng dùng chung tên biến môi trường nhưng giá trị khác nhau. Tìm hiểu cách cấu hình nào.
+date: 2020-05-31
+---
+
+Số là một ngày đẹp trời, mạng ở VN quá chậm để kéo file lên [Amazon S3](https://aws.amazon.com/s3/). Kéo tầm 22.5MB lên, được tầm 30% là nó rớt. Và thế là phải cấu hình thêm CI/CD cho nhánh này.
+
+Nói sơ một xíu, lúc trước mình đã cấu hình cho nhánh `develop` rồi nhưng nhánh `staging` thỉnh thoảng mới deploy nên cho chạy bằng cơm. Và thế là mình tìm hiểu xem có cách nào để 2 nhánh dùng chung tên biến môi trường đã được mã hoá nhưng khác giá trị không?
+
+![Travis CI](../../assets/tutorials/travis-ci-co-ho-tro-ma-hoa-bien-moi-truong-tren-nhieu-nhanh-khong-nhi/travis-ci.png)
+
+## Cách cấu hình trên web
+
+Bạn chỉ cần vào `Settings` của repository trên Travis và làm như hình.
+
+![Settings Environment Variables](../../assets/tutorials/travis-ci-co-ho-tro-ma-hoa-bien-moi-truong-tren-nhieu-nhanh-khong-nhi/settings-env-vars.png)
+
+Bạn kéo xuống phần `Environment Variables`, điền tên biến, giá trị và chọn nhánh. Công việc hết sức dễ dàng.
+
+## Có cách nào chỉnh trong file .travis.yml không nhỉ?
+
+### Phương án 1
+
+Suy nghĩ xem có cách nào để cấu hình biến môi trường theo từng nhánh không? Tức là biến `NODE_ENV` ở nhánh `develop` thì nó sẽ mang giá trị là **develop**, còn ở nhánh `staging` thì giá trị là **uat**. Với điều kiện là phải mã hoá biến được.
+
+Sau một hồi tìm hiểu thì thấy viết kiểu này có vẻ chạy được, thử xem nào.
+
+Ngon! Không lỗi ở bước đọc từ biến môi trường và kết quả của lần build này là **success**.
+
+![Solution 1 - 01](../../assets/tutorials/travis-ci-co-ho-tro-ma-hoa-bien-moi-truong-tren-nhieu-nhanh-khong-nhi/logging--solution-1--01.jpg)
+
+Vậy thử cách này cho luôn cả 2 nhánh **develop** và **uat** coi sao.
+
+Lúc này thì chạy ở nhánh **develop** trước và nó thành công. Thử tiếp với nhánh **staging** vẫn thành công tiếpÏ. Tuy nhiên, nó sẽ chạy cùng lúc 2 jobs. Nếu như CI/CD của bạn tính tiền theo thời gian chạy thì cách này không khả thi cho lắm.
+
+![Solution 1 - 02](../../assets/tutorials/travis-ci-co-ho-tro-ma-hoa-bien-moi-truong-tren-nhieu-nhanh-khong-nhi/logging-solution-1--02.png)
+
+Như hình trên, nó sẽ tính là bạn chạy 17 phút 43 giây. Thử suy nghĩ cách nào khác có thể chạy được trong 1 job nhưng tự detect chọn biến môi trường theo từng nhánh.
+
+### Phương án 2
+
+Như đã nói ở trên, làm sao chỉ dùng 1 job? Travis có một khái niệm khác là `stage`, có thể hiểu là từng chặng trong một job. Ở đây mình khai báo 2 stages, 1 cái để kiểm tra **develop** và một cái **staging**. Kiểu như trong một function, viết 2 cái `if` tuần tự, trúng cái nào chạy cái đó.
+
+Và kết quả là...
+
+![Solution 2 - 01](../../assets/tutorials/travis-ci-co-ho-tro-ma-hoa-bien-moi-truong-tren-nhieu-nhanh-khong-nhi/logging-solution-2--01.png)
+
+Lỗi cú pháp, không đọc được biến môi trường. Dẹp dẹp, qua phương án khác.
+
+### Phương án 3
+
+Quay về với `job`. À mà lúc nãy ở phương án 1, nó vẫn bị sai cú pháp (mình sẽ nói về vụ này ở phần dưới). Đổi cú pháp khác xem sao. Ở trong cú pháp của `job` có một từ khoá đó là `include` và `exclude`. Ở đây, mình chọn `exclude` để mong nó kiểm tra không phải môi trường thì ngừng cái job ấy lại giùm.
+
+Ơ... có gì đó sai trái ở đây. Cấu hình biến môi trường mà không đặt bọn nó trong `env`. Nếu viết như vậy là bạn đang định nghĩa `job`. Nước đó mình đi nhầm, cho mình đi lại nha!
+
+Vẫn sai cú pháp và dẫn đến build bị `failed`.
+
+### Phương án N
+
+Mình đã thử thêm 3 phương án khác để sửa lỗi cú pháp tuy nhiên vẫn thất bại. Và quyết định quay về phương án thứ 1 cho an toàn.
+
+Và một chuyện không mong muốn đã xảy đến, khi mình build cho nhánh `staging` thì nó lại đọc giá trị của nhánh `develop`. Không hiểu sao lúc nãy lại chạy được.
+
+Hôm đó cũng đã 3h30 sáng rồi, tắt máy đi ngủ, sáng chuyển về cách cấu hình bằng web cho lành.
+
+![Sleeping](../../assets/tutorials/travis-ci-co-ho-tro-ma-hoa-bien-moi-truong-tren-nhieu-nhanh-khong-nhi/sleeping.gif)
+
+## Bài học rút ra
+
+Anh Simon Võ, founder của **Matebe**, sau này là **meetdev.com** và đã đóng cửa. Trong một lần đi ăn, ảnh chia sẻ với cả đám rằng anh không thích nghe những bài học thành công mà chỉ thích nghe những bài học thất bại của người khác. Vì họ đã bỏ ra khá nhiều tiền, công sức, thời gian,... để trải qua thất bại và có được thành công. Đồng ý với anh ở điểm đó, nên đa phần mình viết ở đây đều là sự thất bại trong việc tìm hiểu để rút ra được cái sai để sau này né.
+
+Tương tự như vậy, trong bài viết này, lẽ ra mình có thể áp dụng cách cấu hình trên web nhưng vẫn cố tìm cách khác để coi có học được gì không? Mà thật ra là tụi trên [Stack Overflow](https://stackoverflow.com/questions/58300724/travis-ci-enviroment-variables-per-branch-in-travis-yml) đã bảo là không được ngay từ đầu rồi.
+
+### Job
+
+`Job` được hiểu là một chuối các bước để thực hiện quá trình build. Mặc định, nếu bạn không có cấu hình gì liên quan đến job thì bạn đã chạy 1 job rồi đó.
+
+![Job Life-cycle](../../assets/tutorials/travis-ci-co-ho-tro-ma-hoa-bien-moi-truong-tren-nhieu-nhanh-khong-nhi/job-lifecycle.jpg)
+
+Trong đó, 2 bước chính đó là:
+
+- `install` - cài đặt các dependencies bắt buộc
+- `script` - các dòng lệnh để chạy job đó
+
+Và thường thì mình thấy chúng ta có thể dùng `job` để build trên nhiều môi trường.
+
+![Multiple Jobs](../../assets/tutorials/travis-ci-co-ho-tro-ma-hoa-bien-moi-truong-tren-nhieu-nhanh-khong-nhi/travis-multiple-jobs.png)
+
+À, còn một lưu ý khi dùng Job là phải để ý từ khoá `include` hay là `exclude`.
+
+- `include` - chạy tất cả
+- `exclude` - chạy một trong số nếu thoả điều kiện
+
+![Building Matrix](../../assets/tutorials/travis-ci-co-ho-tro-ma-hoa-bien-moi-truong-tren-nhieu-nhanh-khong-nhi/build-matrix.png)
+
+### Stage
+
+`Stage` là một nhóm các `Job`. Như hình dưới đây, ta có 3 stages đó là `Compile`, `Test` và `Deploy`.
+
+Và đây là kết quả.
+
+![Stages](../../assets/tutorials/travis-ci-co-ho-tro-ma-hoa-bien-moi-truong-tren-nhieu-nhanh-khong-nhi/stages.png)
+
+### Matrix
+
+Khái niệm này sẽ làm bạn khá hại não đây. Theo như định nghĩa của Travis CI:
+
+> A build matrix is made up by several multiple jobs that run in parallel.
+
+Cho dễ hình dung, bạn xem ví dụ dưới đây, cặp `rvm` và `env` sẽ tạo thành một ma trận 2x2. Nó sẽ tương tự như việc chạy 4 jobs. Bạn xem trong stage `Test`. Ngoài ra, cũng demo thêm một job khác là `Deploy` để bạn dễ phân biệt với đám job của matrix ở trên.
+
+Jobs tương tự của nó như sau.
+
+![Matrix Expansion](../../assets/tutorials/travis-ci-co-ho-tro-ma-hoa-bien-moi-truong-tren-nhieu-nhanh-khong-nhi/matrix-expansion.png)
+
+Ngoài ra như đã nói ở phần `Job`, matrix cũng có cách viết tương tự dành cho `include` và `exclude` của job. Bạn tham khảo ý tưởng của đoạn tweet này nhé. Mình cũng không hiểu lắm về phần matrix nếu đi sâu hơn.
+
+> Huh. I finally realized something about the Travis-CI "matrix" concept. WITHOUT using the matrix keyword, several keywords (e.g. env, rvm) combine to create a matrix. The matrix keyword is used to indicate \*exceptions\* and \*additions\*. [https://t.co/3eFHHe51Wq](https://t.co/3eFHHe51Wq)
+>
+> — Guido van Rossum (@gvanrossum) [January 18, 2019](https://twitter.com/gvanrossum/status/1086290711266287616?ref_src=twsrc%5Etfw)
+
+### Environment Variables
+
+Nói dài dòng thì cuối cùng cũng đã tới nó. Mình đã viết một bài về cách encrypt biến môi trường rồi. Bạn có thể đọc ở [Cấu hình biến môi trường trên Travis CI](/tutorials/cau-hinh-bien-moi-truong-tren-travis-ci/)
+
+Phần mình muốn lưu ý ở bài viết này đó là:
+
+- Nếu chả có thông tin gì nhạy cảm và không cần mã hoá thì bạn cứ đặt nó vào trong file `.travis.yml`.
+- Nếu chả có thông tin gì nhạy cảm, không cần mã hoá và giá trị khác nhau ở từng nhánh, bạn có thể đặt nó vào trong `.travis.yml`.
+- Nếu nó là thông tin nhạy cảm và tất cả cách nhánh của nó đều cần, bạn có thể mã hoá nó và đặt trong file `.travis.yml`.
+- Nếu nó là thông tin nhạy cảm và giá trị sẽ khác nhau ở từng nhánh thì bắt buộc phải cấu hình ở trên Repository Settings trên web của Travis.
+
+### Validation
+
+Ở phía mô tả các giải pháp, mình hay nhắc tới lỗi cú pháp. Các bạn vào trang [https://config.travis-ci.com/explore](https://config.travis-ci.com/explore). Tuy nhiên, tại thời điểm viết bài này thì nó vẫn đang là beta. Bị lỗi giao diện nếu như bạn chép nội dung file `.travis.yml` từ Visual Studio Code vào. Nhớ kéo hết qua phải để coi được nội dung còn lại nhé.
+
+Với lại nó vẫn là ngôn ngữ báo lỗi của người ngoài hành tinh, nhân loại vào link này để đọc hiểu tiếng người Trái Đất. [https://docs.travis-ci.com/user/build-config-validation/](https://docs.travis-ci.com/user/build-config-validation/)
+
+Và điều cuối cùng, hiện Travis CI đang cập nhật phiên bản mới, nên khi chuyển sang cú pháp của `dpl2` vẫn chưa ổn định. Bạn vào đây để xem chi tiết [Deployment v2](https://docs.travis-ci.com/user/deployment-v2)
+
+![Deployment v2](../../assets/tutorials/travis-ci-co-ho-tro-ma-hoa-bien-moi-truong-tren-nhieu-nhanh-khong-nhi/deployment-v2.png)
+
+## Tham khảo
+
+- Stack Overflow, [Travis-ci: enviroment variables per branch in .travis.yml](https://stackoverflow.com/questions/58300724/travis-ci-enviroment-variables-per-branch-in-travis-yml)
+- Travis CI, [Environment Variables](https://docs.travis-ci.com/user/environment-variables/)
+- Travis CI, [Job Lifecycle](https://docs.travis-ci.com/user/job-lifecycle/)
+- Jameslahm's Blog, [Travis CI Tutorial](https://jameslahm.github.io/2019/11/19/travis-ci-tutorial.html)
+- PDFAnalytics, [Integration with HipTest and Travis CI](https://pdf-analytics.com/2017/12/28/integration-with-hiptest-and-travis-ci/)
+- Blog Travis CI, [Build Stages Part 2: Stages Order and Conditions](https://blog.travis-ci.com/2017-09-12-build-stages-order-and-conditions)
+- Travis CI, [Build Matrix](https://docs.travis-ci.com/user/build-matrix)
+- Travis CI, [Build Stages: Matrix expansion](https://docs.travis-ci.com/user/build-stages/matrix-expansion/)

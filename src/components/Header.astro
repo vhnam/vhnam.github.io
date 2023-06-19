@@ -1,0 +1,14 @@
+---
+import { SITE_TITLE } from "../consts";
+
+import ThemeToggle from "./ThemeToggle.astro";
+---
+
+<header class="max-w-2xl mx-auto px-4">
+	<div class="flex items-centers justify-between py-6">
+		<a href="/" class="text-heading text-2xl font-bold">
+			{SITE_TITLE}
+		</a>
+		<ThemeToggle />
+	</div>
+</header>
