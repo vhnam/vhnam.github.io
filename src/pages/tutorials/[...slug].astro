@@ -19,7 +19,10 @@ export async function getStaticPaths() {
 	}));
 }
 
-type Props = CollectionEntry<"tutorial">;
+type Props = CollectionEntry<"tutorial"> & {
+	nextPost: CollectionEntry<"tutorial">;
+	prevPost: CollectionEntry<"tutorial">;
+};
 
 const { nextPost, prevPost, ...props } = Astro.props;
 const { Content } = await props.render();
