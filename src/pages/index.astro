@@ -1,0 +1,84 @@
+---
+import { Image } from "astro:assets";
+import { getCollection } from "astro:content";
+
+import { SITE_TITLE, SITE_DESCRIPTION } from "../consts";
+import { sortByDate } from "../utils/sortByDate";
+
+import BaseHead from "../components/BaseHead.astro";
+import Footer from "../components/Footer.astro";
+import Header from "../components/Header.astro";
+import Nav from "../components/Nav.astro";
+import PostItem from "../components/PostItem.astro";
+
+import avatarImg from "../assets/images/namvh.jpeg";
+
+const allPosts = await getCollection("tutorial");
+const posts = allPosts.sort(sortByDate).slice(0, 4);
+---
+
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
+	</head>
+	<body>
+		<Header title={SITE_TITLE} />
+
+		<Nav />
+
+		<main class="max-w-2xl mx-auto px-4">
+			<section
+				class="mb-12 pt-10 border-t border-slate-200 dark:border-slate-700"
+			>
+				<h2 class="hidden">Giới thiệu bản thân</h2>
+				<div class="inline-flex items-center mb-4">
+					<Image
+						class="rounded-full"
+						src={avatarImg}
+						alt="Nam Vo"
+						width={56}
+						height={56}
+					/>
+					<p class="ml-4 text-heading">
+						<strong>Nam Vo</strong>
+						<br />
+						Software Engineer
+					</p>
+				</div>
+				<p>
+					Đây là website cá nhân để lưu lại những kiến thức đã tích lũy trong
+					thời gian qua. Và cũng như chia sẻ chúng với mọi người.
+				</p>
+			</section>
+
+			<section
+				class="mb-12 py-10 border-t border-slate-200 dark:border-slate-700"
+			>
+				<h2 class="mb-6 text-xl">Có gì mới?</h2>
+				<ul>
+					{posts.map((post) => <PostItem post={post} />)}
+				</ul>
+				<p class="text-right hover:underline">
+					<a href="/tutorials">» Xem thêm</a>
+				</p>
+			</section>
+		</main>
+		<Footer />
+
+		<script
+			async
+			type="text/partytown"
+			src="https://www.googletagmanager.com/gtag/js?id=G-NEXD10J18C"></script>
+
+		<script type="text/partytown">
+			window.dataLayer = window.dataLayer || [];
+
+			function gtag() {
+				window.dataLayer.push(arguments);
+			}
+			gtag("js", new Date());
+			gtag("config", "G-NEXD10J18C");
+		</script>
+	</body>
+</html>

@@ -1,0 +1,107 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+[data-mode="light"] {
+  body {
+    background-color: white;
+    color: #334155;
+  }
+
+  .text-heading {
+    color: #0f172a !important;
+  }
+}
+
+[data-mode="dark"] {
+  body {
+    background-color: #0f172a;
+    color: #94a3b8;
+  }
+
+  .text-heading {
+    color: #e2e8f0 !important;
+  }
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  @apply text-heading font-semibold;
+}
+
+.content {
+  @apply text-left;
+
+  h1,
+  h2 {
+    @apply my-5 text-2xl;
+  }
+  h3 {
+    @apply my-[1.125rem] text-lg;
+  }
+  h4 {
+    @apply my-5 text-base;
+  }
+  h5 {
+    @apply my-[1.375rem] text-sm;
+  }
+  h6 {
+    @apply my-6 text-xs;
+  }
+  p {
+    @apply my-4 text-base;
+  }
+  a {
+    @apply text-primary-500 underline;
+    &:hover,
+    &:focus {
+      @apply text-primary-600;
+    }
+    &:active {
+      @apply text-primary-700;
+    }
+  }
+  img {
+    @apply max-w-full h-auto mx-auto;
+  }
+  code {
+    @apply px-2 py-1 font-mono text-xs text-pink-400;
+  }
+  blockquote {
+    @apply py-1 pe-1 ps-5 border-l-2 border-primary-500 border-solid;
+  }
+  cite {
+    @apply italic;
+  }
+  table {
+    @apply w-full;
+  }
+  pre {
+    @apply relative p-4 rounded-lg;
+
+    & > code {
+      all: unset;
+    }
+  }
+  ol,
+  ul {
+    @apply pl-10;
+  }
+  ol {
+    @apply list-decimal;
+  }
+  ul {
+    @apply list-disc;
+  }
+  kbd {
+    @apply text-[0.875em];
+  }
+  .sr-only {
+    @apply absolute w-px h-px p-0 m-[-px] overflow-hidden border-0 whitespace-nowrap;
+    clip: rect(0, 0, 0, 0);
+  }
+}

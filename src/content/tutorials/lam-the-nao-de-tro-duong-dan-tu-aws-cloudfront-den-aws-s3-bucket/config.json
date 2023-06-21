@@ -1,6 +1,0 @@
-{
-  "headline": "Làm thế nào để trỏ đường dẫn từ AWS CloudFront đến AWS S3 Bucket",
-  "description": "Hôm nay, mình mới biết có thể cấu hình để truy cập AWS S3 từ CloudFront mà không cần phải cấp quyền đọc public khi deploy ứng dụng bằng ReactJS",
-  "time": "Ngày 2 tháng 11 năm 2020",
-  "dateTime": "2020-11-02"
-}

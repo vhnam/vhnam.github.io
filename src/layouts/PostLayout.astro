@@ -1,0 +1,63 @@
+---
+import { GA_MEASUREMENT_ID } from "../consts";
+
+import BaseHead from "../components/BaseHead.astro";
+import CopyCodeButton from "../components/CopyCodeButton.astro";
+import Footer from "../components/Footer.astro";
+import FormattedDate from "../components/FormattedDate.astro";
+import Header from "../components/Header.astro";
+import Nav from "../components/Nav.astro";
+import Navigate from "../components/Navigate.astro";
+
+const { title, description, date, prevPost, nextPost } = Astro.props;
+---
+
+<html lang="en">
+	<head>
+		<BaseHead title={title} description={description} />
+	</head>
+
+	<body>
+		<Header />
+
+		<Nav />
+
+		<main class="max-w-2xl mx-auto px-4">
+			<article
+				class="mb-12 pt-10 border-t border-slate-200 dark:border-slate-700"
+			>
+				<h1 class="pb-2 text-3xl font-semibold !text-primary-500">{title}</h1>
+				<div class="mb-10 text-sm">
+					Ngày đăng <FormattedDate date={date} />
+				</div>
+				<div class="content">
+					<slot />
+				</div>
+			</article>
+
+			<div class="pt-20 pb-12">
+				<Navigate {prevPost} {nextPost} />
+			</div>
+		</main>
+
+		<Footer />
+
+		<CopyCodeButton />
+
+		<script
+			async
+			type="text/partytown"
+			src={`https://www.googletagmanager.com/gtag/js?id=${GA_MEASUREMENT_ID}`}
+		></script>
+
+		<script type="text/partytown" define:vars={{ GA_MEASUREMENT_ID }}>
+			window.dataLayer = window.dataLayer || [];
+
+			function gtag() {
+				window.dataLayer.push(arguments);
+			}
+			gtag("js", new Date());
+			gtag("config", GA_MEASUREMENT_ID);
+		</script>
+	</body>
+</html>

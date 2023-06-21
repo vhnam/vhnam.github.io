@@ -1,4 +1,0 @@
-User-agent: *
-Disallow:
-
-Sitemap: http://vhnam.github.io/sitemap.xml
