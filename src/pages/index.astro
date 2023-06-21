@@ -65,5 +65,20 @@ const posts = allPosts.sort(sortByDate).slice(0, 4);
 			</section>
 		</main>
 		<Footer />
+
+		<script
+			async
+			type="text/partytown"
+			src="https://www.googletagmanager.com/gtag/js?id=G-NEXD10J18C"></script>
+
+		<script type="text/partytown">
+			window.dataLayer = window.dataLayer || [];
+
+			function gtag() {
+				window.dataLayer.push(arguments);
+			}
+			gtag("js", new Date());
+			gtag("config", "G-NEXD10J18C");
+		</script>
 	</body>
 </html>

@@ -1,4 +1,6 @@
 ---
+import { GA_MEASUREMENT_ID } from "../consts";
+
 import BaseHead from "../components/BaseHead.astro";
 import CopyCodeButton from "../components/CopyCodeButton.astro";
 import Footer from "../components/Footer.astro";
@@ -41,5 +43,21 @@ const { title, description, date, prevPost, nextPost } = Astro.props;
 		<Footer />
 
 		<CopyCodeButton />
+
+		<script
+			async
+			type="text/partytown"
+			src={`https://www.googletagmanager.com/gtag/js?id=${GA_MEASUREMENT_ID}`}
+		></script>
+
+		<script type="text/partytown" define:vars={{ GA_MEASUREMENT_ID }}>
+			window.dataLayer = window.dataLayer || [];
+
+			function gtag() {
+				window.dataLayer.push(arguments);
+			}
+			gtag("js", new Date());
+			gtag("config", GA_MEASUREMENT_ID);
+		</script>
 	</body>
 </html>
