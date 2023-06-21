@@ -1,5 +1,5 @@
 ---
-import { GA_MEASUREMENT_ID } from "../consts";
+import { FB_APP_ID, GA_MEASUREMENT_ID } from "../consts";
 
 import BaseHead from "../components/BaseHead.astro";
 import CopyCodeButton from "../components/CopyCodeButton.astro";
@@ -44,6 +44,26 @@ const { title, description, date, prevPost, nextPost } = Astro.props;
 
 		<CopyCodeButton />
 
+		<!-- Facebook SDK -->
+		<script
+			async
+			defer
+			crossorigin="anonymous"
+			type="text/partytown"
+			src="https://connect.facebook.net/en_US/sdk.js"></script>
+
+		<script type="text/partytown" define:vars={{ FB_APP_ID }}>
+			window.fbAsyncInit = function () {
+				window.FB.init({
+					appId: FB_APP_ID,
+					autoLogAppEvents: true,
+					xfbml: true,
+					version: "v17.0",
+				});
+			};
+		</script>
+
+		<!-- Google Analytics 4 -->
 		<script
 			async
 			type="text/partytown"

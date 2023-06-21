@@ -2,7 +2,12 @@
 import { Image } from "astro:assets";
 import { getCollection } from "astro:content";
 
-import { SITE_TITLE, SITE_DESCRIPTION } from "../consts";
+import {
+	FB_APP_ID,
+	GA_MEASUREMENT_ID,
+	SITE_TITLE,
+	SITE_DESCRIPTION,
+} from "../consts";
 import { sortByDate } from "../utils/sortByDate";
 
 import BaseHead from "../components/BaseHead.astro";
@@ -66,19 +71,40 @@ const posts = allPosts.sort(sortByDate).slice(0, 4);
 		</main>
 		<Footer />
 
+		<!-- Facebook SDK -->
+		<script
+			async
+			defer
+			crossorigin="anonymous"
+			type="text/partytown"
+			src="https://connect.facebook.net/en_US/sdk.js"></script>
+
+		<script type="text/partytown" define:vars={{ FB_APP_ID }}>
+			window.fbAsyncInit = function () {
+				FB.init({
+					appId: FB_APP_ID,
+					autoLogAppEvents: true,
+					xfbml: true,
+					version: "v17.0",
+				});
+			};
+		</script>
+
+		<!-- Google Analytics 4 -->
 		<script
 			async
 			type="text/partytown"
-			src="https://www.googletagmanager.com/gtag/js?id=G-NEXD10J18C"></script>
+			src={`https://www.googletagmanager.com/gtag/js?id=${GA_MEASUREMENT_ID}`}
+		></script>
 
-		<script type="text/partytown">
+		<script type="text/partytown" define:vars={{ GA_MEASUREMENT_ID }}>
 			window.dataLayer = window.dataLayer || [];
 
 			function gtag() {
 				window.dataLayer.push(arguments);
 			}
 			gtag("js", new Date());
-			gtag("config", "G-NEXD10J18C");
+			gtag("config", GA_MEASUREMENT_ID);
 		</script>
 	</body>
 </html>
