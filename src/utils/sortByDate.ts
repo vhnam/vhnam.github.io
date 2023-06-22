@@ -4,5 +4,5 @@ export function sortByDate(
   a: CollectionEntry<"tutorial">,
   b: CollectionEntry<"tutorial">
 ) {
-  return b.data.date.valueOf() - a.data.date.valueOf();
+  return b.data.pubDate.valueOf() - a.data.pubDate.valueOf();
 }

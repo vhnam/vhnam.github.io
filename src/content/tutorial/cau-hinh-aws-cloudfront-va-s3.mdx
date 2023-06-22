@@ -1,7 +1,7 @@
 ---
 title: Cấu hình AWS CloudFront và S3
 description: Bài toán đặt ra là cấu hình header cho ứng dụng được lưu trên S3. Giải pháp là dùng CloudFront để cấu hình header của response.
-date: 2018-10-09
+pubDate: 2018-10-09
 ---
 
 Công việc hiện tại, mình dùng AWS S3 để host static web. Do có việc phải gắn header vào response mỗi khi tải view, nhưng không thành công khi nhúng vào thẻ `meta`. Sau một hồi nhờ vả và Google đã tìm ra giải pháp gắn header vào CloudFront rồi kết nối tới S3. Nhân tiện ghi chú lại cho người sau luôn.

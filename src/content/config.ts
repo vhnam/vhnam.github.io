@@ -4,7 +4,7 @@ const tutorial = defineCollection({
   schema: z.object({
     title: z.string(),
     description: z.string(),
-    date: z
+    pubDate: z
       .string()
       .or(z.date())
       .transform((val) => new Date(val)),

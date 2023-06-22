@@ -2,12 +2,12 @@
 import dayjs from "dayjs";
 
 export interface Props {
-	date: Date;
+	pubDate: Date;
 }
 
-const { date } = Astro.props;
+const { pubDate } = Astro.props;
 ---
 
-<time class="text-sm" datetime={new Date(date).toISOString()}>
-	{dayjs(date).format("DD/MM/YYYY")}
+<time class="text-sm" datetime={new Date(pubDate).toISOString()}>
+	{dayjs(pubDate).format("DD/MM/YYYY")}
 </time>

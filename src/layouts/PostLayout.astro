@@ -9,7 +9,7 @@ import Header from "../components/Header.astro";
 import Nav from "../components/Nav.astro";
 import Navigate from "../components/Navigate.astro";
 
-const { title, description, date, prevPost, nextPost } = Astro.props;
+const { title, description, pubDate, prevPost, nextPost } = Astro.props;
 ---
 
 <html lang="en">
@@ -28,7 +28,7 @@ const { title, description, date, prevPost, nextPost } = Astro.props;
 			>
 				<h1 class="pb-2 text-3xl font-semibold !text-primary-500">{title}</h1>
 				<div class="mb-10 text-sm">
-					Ngày đăng <FormattedDate date={date} />
+					Ngày đăng <FormattedDate pubDate={pubDate} />
 				</div>
 				<div class="content">
 					<slot />
