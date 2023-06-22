@@ -2,10 +2,22 @@
 const today = new Date();
 ---
 
-<footer class="max-w-2xl mx-auto">
-	<div
-		class="pt-10 pb-20 border-t border-slate-200 dark:border-slate-700 text-center"
-	>
-		&copy; {today.getFullYear()} Nam Vo's blog.
+<footer class="max-w-2xl mx-auto px-4">
+	<div class="pt-10 pb-20 border-t border-slate-200 dark:border-slate-700">
+		<div class="flex items-center justify-between">
+			<span class="text-sm">&copy; {today.getFullYear()} Nam Vo's blog.</span>
+			<span class="flex gap-4">
+				<a
+					href="/policy-privacy"
+					class="text-sm hover:text-primary-600 active:text-primary-700 hover:underline"
+					>Điều khoản</a
+				>
+				<a
+					href="/rss.xml"
+					class="text-sm hover:text-primary-600 active:text-primary-700 hover:underline"
+					>RSS</a
+				>
+			</span>
+		</div>
 	</div>
 </footer>

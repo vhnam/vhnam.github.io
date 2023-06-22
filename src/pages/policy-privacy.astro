@@ -1,0 +1,124 @@
+---
+import {
+  FB_APP_ID,
+  GA_MEASUREMENT_ID,
+  SITE_TITLE,
+  SITE_DESCRIPTION,
+} from "../consts";
+
+import BaseHead from "../components/BaseHead.astro";
+import Footer from "../components/Footer.astro";
+import Header from "../components/Header.astro";
+import Nav from "../components/Nav.astro";
+---
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
+  </head>
+  <body>
+    <Header title={SITE_TITLE} />
+
+    <Nav />
+
+    <main class="max-w-2xl mx-auto px-4">
+      <section
+        class="mb-12 pt-10 border-t border-slate-200 dark:border-slate-700 content"
+      >
+        <h1>Điều khoản bảo mật</h1>
+
+        <p>
+          Khi các bạn truy cập và đọc bài trên Nam Võ's Blog tức là bạn đã phải
+          chấp nhận những qui định sau về các bài viết trên blog và bình luận.
+        </p>
+
+        <h2 id="1-bài-viết">1. Bài viết</h2>
+        <ul>
+          <li>
+            Bài viết dựa trên quan điểm của tác giả hoặc người viết. Bạn sẽ chịu
+            trách nhiệm khi làm theo các hướng dẫn trong Blog.
+          </li>
+          <li>
+            Không sử dụng bài viết trên blog này để dùng cho mục đích thương mại
+            khi chưa có sự đồng ý của tác giả. Tui có quyền khiếu nại trong
+            trường hợp bạn sử dụng chúng cho mục đích thương mại. Vui lòng dẫn
+            nguồn khi chia sẻ cho cộng đồng.
+          </li>
+        </ul>
+
+        <h2 id="2-bình-luận">2. Bình luận</h2>
+        <ul>
+          <li>
+            Không bình luận về các vấn đề chính trị, tôn giáo, phân biệt chủng
+            tộc vùng miền
+          </li>
+          <li>Không nói tục, chửi thề.</li>
+          <li>Không spam bài viết hay các hình thức khác.</li>
+          <li>Nên dùng tiếng Việt có dấu hoặc tiếng Anh để bình luận.</li>
+          <li>
+            Do sử dụng plugin của Facebook, các bạn sẽ phải tuân thủ theo luật
+            chơi của Facebook.
+          </li>
+        </ul>
+        <p class="text-red-500 italic">
+          Hiện giờ tui lười để mò vụ tích hợp tính năng bình luận. Dui dẻ nha!
+        </p>
+
+        <h2 id="3-về-sự-riêng-tư-của-người-dùng-truy-cập">
+          3. Về sự riêng tư của người dùng truy cập
+        </h2>
+        <ul>
+          <li>Tui không lưu cookie trên trình duyệt của bạn.</li>
+          <li>
+            Nam Võ's Blog sử dụng Google Analytics và Facebook Analytics để
+            thống kê lưu lượng truy cập Website để phục vụ cho việc theo dõi và
+            phát triển Website tốt hơn.
+          </li>
+        </ul>
+
+        <h2 id="4-chính-sách-hỗ-trợ-bạn-đọc">4. Chính sách hỗ trợ bạn đọc</h2>
+        <ul>
+          <li>Blog này hoàn toàn miễn phí và mãi mãi miễn phí.</li>
+        </ul>
+      </section>
+    </main>
+    <Footer />
+
+    <!-- Facebook SDK -->
+    <script
+      async
+      defer
+      crossorigin="anonymous"
+      type="text/partytown"
+      src="https://connect.facebook.net/en_US/sdk.js"></script>
+
+    <script type="text/partytown" define:vars={{ FB_APP_ID }}>
+      window.fbAsyncInit = function () {
+        FB.init({
+          appId: FB_APP_ID,
+          autoLogAppEvents: true,
+          xfbml: true,
+          version: "v17.0",
+        });
+      };
+    </script>
+
+    <!-- Google Analytics 4 -->
+    <script
+      async
+      type="text/partytown"
+      src={`https://www.googletagmanager.com/gtag/js?id=${GA_MEASUREMENT_ID}`}
+    ></script>
+
+    <script type="text/partytown" define:vars={{ GA_MEASUREMENT_ID }}>
+      window.dataLayer = window.dataLayer || [];
+
+      function gtag() {
+        window.dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+      gtag("config", GA_MEASUREMENT_ID);
+    </script>
+  </body>
+</html>
