@@ -104,4 +104,22 @@ h6 {
     @apply absolute w-px h-px p-0 m-[-px] overflow-hidden border-0 whitespace-nowrap;
     clip: rect(0, 0, 0, 0);
   }
+  table {
+    @apply mb-5 w-full text-sm text-left text-gray-500 dark:text-gray-400;
+  }
+  table thead {
+    @apply text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400;
+  }
+  table thead tr th {
+    @apply px-4 py-3;
+  }
+  table tbody tr {
+    @apply bg-white border-b dark:bg-gray-800 dark:border-gray-700;
+  }
+  table tbody tr th {
+    @apply px-4 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white;
+  }
+  table tbody tr td {
+    @apply px-4 py-4;
+  }
 }
