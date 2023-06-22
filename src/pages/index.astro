@@ -2,12 +2,7 @@
 import { Image } from "astro:assets";
 import { getCollection } from "astro:content";
 
-import {
-	FB_APP_ID,
-	GA_MEASUREMENT_ID,
-	SITE_TITLE,
-	SITE_DESCRIPTION,
-} from "../consts";
+import { FB_APP_ID, GA_MEASUREMENT_ID, SITE_TITLE } from "../consts";
 import { sortByDate } from "../utils/sortByDate";
 
 import BaseHead from "../components/BaseHead.astro";
@@ -25,7 +20,7 @@ const posts = allPosts.sort(sortByDate).slice(0, 4);
 <!DOCTYPE html>
 <html lang="en">
 	<head>
-		<BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
+		<BaseHead />
 	</head>
 	<body>
 		<Header title={SITE_TITLE} />
