@@ -8,7 +8,7 @@ const tutorial = defineCollection({
       .string()
       .or(z.date())
       .transform((val) => new Date(val)),
-    heroImage: z.string().optional(),
+    cover: z.string().optional(),
   }),
 });
 

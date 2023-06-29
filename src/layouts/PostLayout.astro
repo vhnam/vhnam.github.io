@@ -9,12 +9,13 @@ import Header from "../components/Header.astro";
 import Nav from "../components/Nav.astro";
 import Navigate from "../components/Navigate.astro";
 
-const { title, description, pubDate, prevPost, nextPost } = Astro.props;
+const { title, description, pubDate, cover, prevPost, nextPost } =
+	Astro.props;
 ---
 
 <html lang="en">
 	<head>
-		<BaseHead title={title} description={description} />
+		<BaseHead title={title} description={description} image={cover} />
 	</head>
 
 	<body>
