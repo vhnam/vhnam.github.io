@@ -3,26 +3,25 @@ import partytown from "@astrojs/partytown";
 import sitemap from "@astrojs/sitemap";
 import tailwind from "@astrojs/tailwind";
 import { defineConfig } from "astro/config";
+import react from "@astrojs/react";
 
+// https://astro.build/config
 export default defineConfig({
   experimental: {
-    assets: true,
+    assets: true
   },
-  integrations: [
-    mdx(),
-    partytown({
-      config: {
-        forward: ["dataLayer.push", "FB.init"],
-      },
-    }),
-    sitemap(),
-    tailwind({
-      config: { applyBaseStyles: false },
-    }),
-  ],
+  integrations: [mdx(), partytown({
+    config: {
+      forward: ["dataLayer.push", "FB.init"]
+    }
+  }), sitemap(), tailwind({
+    config: {
+      applyBaseStyles: false
+    }
+  }), react()],
   markdown: {
     theme: "github-dark",
-    wrap: true,
+    wrap: true
   },
-  site: "https://vhnam.github.io",
+  site: "https://vhnam.github.io"
 });
