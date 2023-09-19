@@ -7,9 +7,6 @@ import react from "@astrojs/react";
 
 // https://astro.build/config
 export default defineConfig({
-  experimental: {
-    assets: true
-  },
   integrations: [mdx(), partytown({
     config: {
       forward: ["dataLayer.push", "FB.init"]
