@@ -1,0 +1,140 @@
+---
+title: Nhúng Power BI Report vào Website
+description: Hướng dẫn cấu hình Azure và Power BI để nhúng Power BI Report vào Website
+pubDate: 2023-09-24
+---
+
+![Embed - Website or Portal](../../assets/tutorials/nhung-power-bi-report-vao-website/embed-website-or-portal.png)
+
+Cứ tưởng mở được popup có chứa link để truy cập trực tiếp và `<iframe>` như vầy là có thể xài được liền. Nhưng không, bạn phải publish nó mới xài được.
+
+Tuy nhiên, yêu cầu ở đây là phải giới hạn lại ai được quyền truy cập nó.
+
+## Tổng quan
+
+`Service principal` là một dạng định danh người dùng được phép truy cập tài nguyên. Nó giống như một dạng service được cấp quyền khi bạn không muốn cung cấp credentials và bạn chỉ cần cung cấp permission tối thiểu cho nó là được.
+
+## Cách cấu hình
+
+Sau khi tìm hiểu, chúng ta sẽ cần sử dụng 2 thứ là [Azure Active Directory](https://azure.microsoft.com/en-us/products/active-directory) (sau này là một phần của Microsoft Entra ID) và [Power BI](https://powerbi.microsoft.com/en-us/what-is-power-bi/).
+
+Trình tự cấu hình lần lượt như sau:
+
+1. Tạo Azure AD application, nó sẽ đóng vai trò `service principal`.
+2. Bật cấu hình Power BI
+3. Cho phép service principal truy cập Power BI
+4. Nhúng report vào website
+
+### Tạo Azure AD Application
+
+1. Đăng nhập vào [Azure Portal](https://portal.azure.com/).
+2. Tạo Azure AD Application để có `Application (client) ID` và `Directory (tenant) ID`.
+   ![Create Azure AD Application](../../assets/tutorials/nhung-power-bi-report-vao-website/create-azure-ad-application.png)
+3. Tạo `Client secret`, và lưu ý giá trị chỉ hiện 1 lần duy nhất khi bạn tạo.
+   ![Create Client secret](../../assets/tutorials/nhung-power-bi-report-vao-website/create-client-secret.png)
+
+Ở đây, ta không cần cấp thêm bất kỳ quyền nào cho service principal.
+
+> An Azure AD application doesn't require you to configure any delegated permissions or application permissions in the Azure portal when it has been created for a service principal. When you create an Azure AD application for a service principal to access the Power BI REST API, we recommended that you avoid adding permissions. They're never used and can cause errors that are hard to troubleshoot.
+>
+> -- <cite>Ref: [Embed Power BI content with service principal and an application secret](https://learn.microsoft.com/en-us/power-bi/developer/embedded/embed-service-principal#step-4---add-the-service-principal-to-your-workspace)</cite>
+
+### Bật cấu hình Power BI
+
+1. Truy cập vào [Admin Settings](https://app.powerbi.com/admin-portal/tenantSettings?experience=power-bi).
+   ![Admin portal](../../assets/tutorials/nhung-power-bi-report-vao-website/powerbi-admin-portal.png)
+2. Chọn `Enable` ở phần <strong>Embed content in apps</strong>.
+   ![Enable - Embed content in apps](../../assets/tutorials/nhung-power-bi-report-vao-website/enable-embed.png)
+3. Chọn `Enable` ở phần <strong>Allow service principals to use Power BI APIs</strong>, và chọn <strong>Apply to</strong> là `The entire organization`.
+   ![Enable - Embed content in apps](../../assets/tutorials/nhung-power-bi-report-vao-website/enable-allow-service-principal.png)
+
+### Cho phép service principal truy cập Power BI
+
+1. Mở Workspace có chứa report cần hiển thị, vào phần <strong>Manage access</strong> và thêm `service principal` với quyền `Member` hoặc `Admin`.
+   ![Add service principal into Workspace](../../assets/tutorials/nhung-power-bi-report-vao-website/add-service-principal-into-workspace.png)
+
+### Nhúng vào Website
+
+1. Ta thu thập đủ các giá trị từ những bước trên, ta được:
+
+   - `Tenant ID`
+   - `Application (client) ID`
+   - `Client secret`
+   - `Workspace ID`
+   - `Report ID`
+
+2. Đối với ReactJS, ta sẽ dùng [powerbi-client-react](https://github.com/microsoft/powerbi-client-react) để nhúng vào.
+
+```typescript
+import { models } from "powerbi-client";
+import { PowerBIEmbed } from "powerbi-client-react";
+
+import styles from "./Report.module.css";
+
+interface ReportProps {
+  accessToken: string;
+  embedUrl: string;
+  reportID: string;
+}
+
+export default function Report(props: ReportProps) {
+  const { accessToken, embedUrl, reportID } = props;
+
+  return (
+    <div className={styles.root}>
+      <PowerBIEmbed
+        embedConfig={{
+          type: "report",
+          id: reportID,
+          embedUrl,
+          accessToken,
+          tokenType: models.TokenType.Embed,
+          settings: {
+            background: models.BackgroundType.Transparent,
+            filterPaneEnabled: false,
+            navContentPaneEnabled: false,
+            panes: {
+              filters: {
+                expanded: false,
+                visible: false,
+              },
+            },
+            zoomLevel: 1,
+          },
+        }}
+      />
+    </div>
+  );
+}
+```
+
+Khoan, dừng khoảng chừng là 2 giây! `accessToken` và `embedUrl` ở đâu ra ấy nhờ? Ban đầu mình nói `embedUrl` không thể lấy trực tiếp từ <strong>File</strong> -> <strong>Embed report</strong>.
+
+## Cách lấy "Access Token" và "Embed URL" từ Power BI
+
+Ta đăng nhập vào Azure AD để có `accessToken` nhằm xác thực với Power BI.
+
+![API - Login Azure AD](../../assets/tutorials/nhung-power-bi-report-vao-website/api-login-azure-ad.png)
+
+Những API tiếp theo, ta sẽ dùng `accessToken` từ Azure AD với type là `Bearer`. Giờ ta gọi API để lấy `accessToken` dùng cho `powerbi-client-react` phía trên.
+
+![API - Generate token](../../assets/tutorials/nhung-power-bi-report-vao-website/api-generate-token.png)
+
+API này sẽ lấy `embedUrl`.
+
+![API - Get EmbedUrl](../../assets/tutorials/nhung-power-bi-report-vao-website/api-get-embed-url.png)
+
+<strong className="text-red-500">Lưu ý:</strong> Ở đây mình không có publish Report,
+nên khi bạn dán `embedUrl` vào Address Bar thì nó sẽ hiện màn hình này hoài luôn.
+
+![Loading](../../assets/tutorials/nhung-power-bi-report-vao-website/powerbi-loading.png)
+
+Khi load thành công thì nó sẽ như thế này.
+
+![Website](../../assets/tutorials/nhung-power-bi-report-vao-website/result.png)
+
+## Tham khảo
+
+- Microsoft, [Embed Power BI content with service principal and an application secret](https://learn.microsoft.com/en-us/power-bi/developer/embedded/embed-service-principal)
+- Microsoft, [Roles in workspaces in Power BI](https://learn.microsoft.com/en-us/power-bi/collaborate-share/service-roles-new-workspaces)
+- GitHub, [powerbi-client-react](https://github.com/microsoft/powerbi-client-react)
