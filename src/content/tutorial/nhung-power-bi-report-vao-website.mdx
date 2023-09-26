@@ -12,6 +12,12 @@ Tuy nhiên, yêu cầu ở đây là phải giới hạn lại ai được quy�
 
 ## Tổng quan
 
+![PowerBI Embed Diagram](../../assets/tutorials/nhung-power-bi-report-vao-website/powerBI-embed-diagram.png)
+
+Ở phía User sẽ gọi chuỗi 3 APIs như trên để lấy được `token` và `embedUrl` từ Power BI.
+
+Ở góc nhìn của hệ thống, ta muốn vào trang web là nó sẽ tự gọi API để hiển thị thông tin. Để làm được như vậy, ta cần tạo một `service principal` phía Microsoft Entra ID để nó giao tiếp với Power BI làm điều này.
+
 `Service principal` là một dạng định danh người dùng được phép truy cập tài nguyên. Nó giống như một dạng service được cấp quyền khi bạn không muốn cung cấp credentials và bạn chỉ cần cung cấp permission tối thiểu cho nó là được.
 
 ## Cách cấu hình
@@ -64,7 +70,11 @@ Nếu không thì bạn sẽ nhận được lỗi này khi gọi API Generate T
 }
 ```
 
-Trong document từ Microsoft, họ cũng đã nhắc mở mình rồi.
+Một điểm nữa, đừng có nghĩ nó báo thư mục user có quyền `reshare` có thể tạo token là mình chuyển sang quyền `Viewer` và cấp thêm quyền `Reshare`.
+
+![Reshare permission](../../assets/tutorials/nhung-power-bi-report-vao-website/reshare-permission.png)
+
+Như vậy vẫn không có tác dụng. Trong document từ Microsoft, họ cũng đã nhắc mở mình rồi, họ bắt buộc phải có quyền của `Admin` hoặc `Member`.
 
 > Your Azure AD app can access your Power BI reports, dashboards, and datasets only when it has access to your Power BI workspace. You provide that access by adding the app's service principal or its security group to your workspace as a member or admin.
 >
@@ -158,8 +168,13 @@ Khi load thành công thì nó sẽ như thế này.
 
 ![Website](../../assets/tutorials/nhung-power-bi-report-vao-website/result.png)
 
+## Kết
+
+Cảm ơn [Wongso](https://www.linkedin.com/in/wswijaya) và anh Minh Lê đã hỗ trợ bài viết này.
+
 ## Tham khảo
 
 - Microsoft, [Embed Power BI content with service principal and an application secret](https://learn.microsoft.com/en-us/power-bi/developer/embedded/embed-service-principal)
 - Microsoft, [Roles in workspaces in Power BI](https://learn.microsoft.com/en-us/power-bi/collaborate-share/service-roles-new-workspaces)
 - GitHub, [powerbi-client-react](https://github.com/microsoft/powerbi-client-react)
+- Microsoft, [Microsoft identity platform and the OAuth 2.0 client credentials flow](https://learn.microsoft.com/en-us/azure/active-directory/develop/v2-oauth2-client-creds-grant-flow)
