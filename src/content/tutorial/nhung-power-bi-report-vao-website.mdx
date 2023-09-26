@@ -50,8 +50,33 @@ Trình tự cấu hình lần lượt như sau:
 
 ### Cho phép service principal truy cập Power BI
 
-1. Mở Workspace có chứa report cần hiển thị, vào phần <strong>Manage access</strong> và thêm `service principal` với quyền `Member` hoặc `Admin`.
-   ![Add service principal into Workspace](../../assets/tutorials/nhung-power-bi-report-vao-website/add-service-principal-into-workspace.png)
+Mở Workspace có chứa report cần hiển thị, vào phần <strong>Manage access</strong> và thêm `service principal` với quyền tối thiểu là `Member` hoặc `Admin`.
+![Add service principal into Workspace](../../assets/tutorials/nhung-power-bi-report-vao-website/add-service-principal-into-workspace.png)
+
+Nếu không thì bạn sẽ nhận được lỗi này khi gọi API Generate Token.
+
+```json
+{
+  "error": {
+    "code": "InvalidRequest",
+    "message": "Only folder user with reshare permissions can generate embed token"
+  }
+}
+```
+
+Trong document từ Microsoft, họ cũng đã nhắc mở mình rồi.
+
+> Your Azure AD app can access your Power BI reports, dashboards, and datasets only when it has access to your Power BI workspace. You provide that access by adding the app's service principal or its security group to your workspace as a member or admin.
+>
+> -- Ref: [Step 4 - Add the service principal to your workspace](https://learn.microsoft.com/en-us/power-bi/developer/embedded/embed-service-principal#step-4---add-the-service-principal-to-your-workspace)
+
+Mình có thể ăn gian ở chỗ, thay vì add `service principal` vào một `security group` thì mình add trực tiếp vào Workspace luôn.
+
+<strong className="text-red-500">Lưu ý:</strong> Để service principal truy cập được
+thì ta phải add ở level Workspace. Chứ vào trong Report mà thêm thì không được. Trong
+đó chỉ cho phép add người dùng cá nhân vào thôi.
+
+![Grant permission access](../../assets/tutorials/nhung-power-bi-report-vao-website/manage-access-grant-permission-access.png)
 
 ### Nhúng vào Website
 
