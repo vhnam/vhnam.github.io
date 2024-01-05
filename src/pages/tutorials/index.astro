@@ -28,7 +28,7 @@ const posts = (await getCollection("tutorial")).sort(sortByDate);
 				class="mb-12 pt-10 border-t border-slate-200 dark:border-slate-700"
 			>
 				<ul>
-					{posts.map((post) => <PostItem post={post} />)}
+					{posts.map((post) => <PostItem post={post} category="tutorials" />)}
 				</ul>
 			</section>
 		</main>

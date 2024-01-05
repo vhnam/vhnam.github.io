@@ -1,13 +1,13 @@
 ---
 import FormattedDate from "./FormattedDate.astro";
 
-const { post } = Astro.props;
+const { post, category } = Astro.props;
 ---
 
 <li class="pb-10">
   <FormattedDate pubDate={post.data.pubDate} />
   <a
-    href={`/tutorials/${post.slug}/`}
+    href={`/${category}/${post.slug}/`}
     class="block pb-1 text-xl text-primary-500 hover:text-primary-600 active:text-primary-700"
   >
     {post.data.title}

@@ -17,89 +17,89 @@ const allPosts = await getCollection("tutorial");
 const posts = allPosts.sort(sortByDate).slice(0, 4);
 ---
 
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-	<head>
-		<BaseHead />
-	</head>
-	<body>
-		<Header title={SITE_TITLE} />
+  <head>
+    <BaseHead />
+  </head>
+  <body>
+    <Header title={SITE_TITLE} />
 
-		<Nav />
+    <Nav />
 
-		<main class="max-w-2xl mx-auto px-4">
-			<section
-				class="mb-12 pt-10 border-t border-slate-200 dark:border-slate-700"
-			>
-				<h2 class="hidden">Giới thiệu bản thân</h2>
-				<div class="inline-flex items-center mb-4">
-					<Image
-						class="rounded-full"
-						src={avatarImg}
-						alt="Nam Vo"
-						width={56}
-						height={56}
-					/>
-					<p class="ml-4 text-heading">
-						<strong>Nam Vo</strong>
-						<br />
-						Software Engineer
-					</p>
-				</div>
-				<p>
-					Đây là website cá nhân để lưu lại những kiến thức đã tích lũy trong
-					thời gian qua. Và cũng như chia sẻ chúng với mọi người.
-				</p>
-			</section>
+    <main class="max-w-2xl mx-auto px-4">
+      <section
+        class="mb-12 pt-10 border-t border-slate-200 dark:border-slate-700"
+      >
+        <h2 class="hidden">Giới thiệu bản thân</h2>
+        <div class="inline-flex items-center mb-4">
+          <Image
+            class="rounded-full"
+            src={avatarImg}
+            alt="Nam Vo"
+            width={56}
+            height={56}
+          />
+          <p class="ml-4 text-heading">
+            <strong>Nam Vo</strong>
+            <br />
+            Software Engineer
+          </p>
+        </div>
+        <p>
+          Đây là website cá nhân để lưu lại những kiến thức đã tích lũy trong
+          thời gian qua. Và cũng như chia sẻ chúng với mọi người.
+        </p>
+      </section>
 
-			<section
-				class="mb-12 py-10 border-t border-slate-200 dark:border-slate-700"
-			>
-				<h2 class="mb-6 text-xl">Có gì mới?</h2>
-				<ul>
-					{posts.map((post) => <PostItem post={post} />)}
-				</ul>
-				<p class="text-right hover:underline">
-					<a href="/tutorials">» Xem thêm</a>
-				</p>
-			</section>
-		</main>
-		<Footer />
+      <section
+        class="mb-12 py-10 border-t border-slate-200 dark:border-slate-700"
+      >
+        <h2 class="mb-6 text-xl">Có gì mới?</h2>
+        <ul>
+          {posts.map((post) => <PostItem post={post} category="tutorials" />)}
+        </ul>
+        <p class="text-right hover:underline">
+          <a href="/tutorials">» Xem thêm</a>
+        </p>
+      </section>
+    </main>
+    <Footer />
 
-		<!-- Facebook SDK -->
-		<script
-			async
-			defer
-			crossorigin="anonymous"
-			type="text/partytown"
-			src="https://connect.facebook.net/en_US/sdk.js"></script>
+    <!-- Facebook SDK -->
+    <script
+      async
+      defer
+      crossorigin="anonymous"
+      type="text/partytown"
+      src="https://connect.facebook.net/en_US/sdk.js"></script>
 
-		<script type="text/partytown" define:vars={{ FB_APP_ID }}>
-			window.fbAsyncInit = function () {
-				FB.init({
-					appId: FB_APP_ID,
-					autoLogAppEvents: true,
-					xfbml: true,
-					version: "v17.0",
-				});
-			};
-		</script>
+    <script type="text/partytown" define:vars={{ FB_APP_ID }}>
+      window.fbAsyncInit = function () {
+        FB.init({
+          appId: FB_APP_ID,
+          autoLogAppEvents: true,
+          xfbml: true,
+          version: "v17.0",
+        });
+      };
+    </script>
 
-		<!-- Google Analytics 4 -->
-		<script
-			async
-			type="text/partytown"
-			src={`https://www.googletagmanager.com/gtag/js?id=${GA_MEASUREMENT_ID}`}
-		></script>
+    <!-- Google Analytics 4 -->
+    <script
+      async
+      type="text/partytown"
+      src={`https://www.googletagmanager.com/gtag/js?id=${GA_MEASUREMENT_ID}`}
+    ></script>
 
-		<script type="text/partytown" define:vars={{ GA_MEASUREMENT_ID }}>
-			window.dataLayer = window.dataLayer || [];
+    <script type="text/partytown" define:vars={{ GA_MEASUREMENT_ID }}>
+      window.dataLayer = window.dataLayer || [];
 
-			function gtag() {
-				window.dataLayer.push(arguments);
-			}
-			gtag("js", new Date());
-			gtag("config", GA_MEASUREMENT_ID);
-		</script>
-	</body>
+      function gtag() {
+        window.dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+      gtag("config", GA_MEASUREMENT_ID);
+    </script>
+  </body>
 </html>
