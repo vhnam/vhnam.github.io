@@ -25,9 +25,7 @@
     "astro": "4.1.0",
     "dayjs": "~1.11.9",
     "react": "^18.2.0",
-    "react-dom": "^18.2.0",
-    "sharp": "^0.33.1",
-    "tailwindcss": "~3.4.0"
+    "react-dom": "^18.2.0"
   },
   "devDependencies": {
     "@tailwindcss/typography": "~0.5.10",
@@ -35,6 +33,8 @@
     "@types/react-dom": "^18.2.7",
     "autoprefixer": "~10.4.15",
     "postcss": "~8.4.30",
-    "sass": "~1.69.07"
+    "sass": "~1.69.07",
+    "sharp": "^0.33.1",
+    "tailwindcss": "~3.4.0"
   }
 }
