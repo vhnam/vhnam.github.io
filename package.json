@@ -26,7 +26,7 @@
     "dayjs": "~1.11.9",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
-    "tailwindcss": "~3.3.3"
+    "tailwindcss": "~3.4.0"
   },
   "devDependencies": {
     "@tailwindcss/typography": "~0.5.10",
@@ -34,6 +34,6 @@
     "@types/react-dom": "^18.2.7",
     "autoprefixer": "~10.4.15",
     "postcss": "~8.4.30",
-    "sass": "~1.67.0"
+    "sass": "~1.69.07"
   }
 }
