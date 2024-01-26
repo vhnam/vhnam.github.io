@@ -16,25 +16,25 @@
     "astro": "astro"
   },
   "dependencies": {
-    "@astrojs/mdx": "2.0.3",
-    "@astrojs/partytown": "2.0.3",
+    "@astrojs/mdx": "2.1.0",
+    "@astrojs/partytown": "2.0.4",
     "@astrojs/react": "3.0.9",
-    "@astrojs/rss": "4.0.1",
-    "@astrojs/sitemap": "3.0.4",
+    "@astrojs/rss": "4.0.4",
+    "@astrojs/sitemap": "3.0.5",
     "@astrojs/tailwind": "5.1.0",
-    "astro": "4.1.0",
-    "dayjs": "~1.11.9",
+    "astro": "4.2.5",
+    "dayjs": "~1.11.10",
     "react": "^18.2.0",
     "react-dom": "^18.2.0"
   },
   "devDependencies": {
     "@tailwindcss/typography": "~0.5.10",
-    "@types/react": "^18.2.22",
-    "@types/react-dom": "^18.2.7",
-    "autoprefixer": "~10.4.15",
-    "postcss": "~8.4.30",
-    "sass": "~1.69.07",
-    "sharp": "^0.33.1",
-    "tailwindcss": "~3.4.0"
+    "@types/react": "^18.2.48",
+    "@types/react-dom": "^18.2.18",
+    "autoprefixer": "~10.4.17",
+    "postcss": "~8.4.33",
+    "sass": "~1.70.0",
+    "sharp": "^0.33.2",
+    "tailwindcss": "~3.4.1"
   }
 }
