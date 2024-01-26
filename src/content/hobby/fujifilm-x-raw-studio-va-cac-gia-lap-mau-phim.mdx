@@ -5,7 +5,6 @@ pubDate: 2024-01-05
 cover: "/cover/fujifilm-x-raw-studio-va-cac-gia-lap-mau-phim.png"
 ---
 
-
 ## Fujifilm X Raw Studio
 
 [Fujifilm X Raw Studio](https://fujifilm-x.com/en-us/support/download/software/x-raw-studio/) là một phần mềm được chính Fujifilm phát triển để người dùng chỉnh ảnh được chụp bằng máy Fujifilm.
@@ -17,9 +16,10 @@ Về giao diện, nó giống như đem menu Hình Ảnh trong máy Fujifilm lê
 ## Chuẩn bị
 
 Thứ nhất, phần mềm chỉ chơi với file RAW với định dạng `.RAF`. Nếu không có thì có thể vô đây tải về bộ ảnh tương ứng với model bạn đang xài.
+
 - [Kiên Ka Ka - Stock](https://kienkaka.pro/category/stock_2)
 
-Thứ hai, bạn bắt buộc phải có một máy ảnh Fujifilm, cùng model với file ảnh bạn muốn xử lý rồi kết nối với máy tính. Ví dụ hình được chụp bởi dòng X-T5 thì bạn phải cắm body X-T5 với máy tính mới được. Vì phần mềm sẽ đọc thông tin từ [Exif](https://exifinfo.org/) của file ảnh và nó sẽ tận dụng bộ xử lý của body thay vì CPU của máy tính. 
+Thứ hai, bạn bắt buộc phải có một máy ảnh Fujifilm, cùng model với file ảnh bạn muốn xử lý rồi kết nối với máy tính. Ví dụ hình được chụp bởi dòng X-T5 thì bạn phải cắm body X-T5 với máy tính mới được. Vì phần mềm sẽ đọc thông tin từ [Exif](https://exifinfo.org/) của file ảnh và nó sẽ tận dụng bộ xử lý của body thay vì CPU của máy tính.
 
 > Quickly convert RAW files. Converting RAW files with FUJIFILM X RAW STUDIO takes around the same time as taking a photo on the camera, regardless of the performance of your computer, because the FUJIFILM X RAW STUDIO system utilizes the image processor in the camera instead of the CPU in the computer.
 
@@ -63,14 +63,17 @@ Sau đó bấm nút `Save` ở dưới phần **User Profile**, rồi nhập `"1
 ![1979 Recipe](../../assets/hobbies/fujifilm-x-raw-studio-va-cac-gia-lap-mau-phim/1979.png)
 
 ### Lưu file
+
 Công thức được lưu dưới dạng file `*.FP1` được lưu ở đường dẫn sau, tùy vào hệ điều hành.
 
 #### Windows
+
 ```
 %USERPROFILE%\AppData\Local\com.fujifilm.denji\X_RAW_STUDIO\<DEVICE>\<DEVICE_VERSION>
 ```
 
 #### MacOS
+
 ```
 ~/Library/Application Support/com.fujifilm.denji/X_RAW_STUDIO/<DEVICE>/<DEVICE_VERSION>
 ```
@@ -88,7 +91,6 @@ Ví dụ mình xài model `X-T3`, trên máy Mac sẽ là
 Thực chất, đây là một file XML chứa các thuộc tính để Fujifilm X Raw Studio đọc hiểu một số thuộc tính của một User Profile.
 
 Lưu ý, phần mềm sẽ so sánh metadata trong Exif và model được khai báo trong file FP1 để cho phép bạn xử lý hay không. Như phần trên mình có nói, phần mềm sẽ dùng chip xử lý của máy ảnh. Do đó model đang xài không khớp với model của tấm hình sẽ không hiểu.
-
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
