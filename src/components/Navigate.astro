@@ -1,5 +1,5 @@
 ---
-const { nextPost, prevPost } = Astro.props;
+const { category, nextPost, prevPost } = Astro.props;
 ---
 
 <div class="grid grid-cols-2 gap-4">
@@ -7,7 +7,7 @@ const { nextPost, prevPost } = Astro.props;
     {
       prevPost && (
         <a
-          href={`/tutorials/${prevPost.slug}/`}
+          href={`/${category}/${prevPost.slug}/`}
           class="text-xl hover:text-primary-600 active:text-primary-700"
         >
           <span class="block pb-1 text-xs text-slate-600 dark:text-slate-400 text-semibold uppercase">
@@ -23,7 +23,7 @@ const { nextPost, prevPost } = Astro.props;
     {
       nextPost && (
         <a
-          href={`/tutorials/${nextPost.slug}/`}
+          href={`/${category}/${nextPost.slug}/`}
           class="text-xl hover:text-primary-600 active:text-primary-700"
         >
           <span class="block pb-1 text-xs text-slate-600 dark:text-slate-400 text-semibold uppercase">

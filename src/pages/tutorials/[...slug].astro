@@ -1,33 +1,33 @@
 ---
-import { CollectionEntry, getCollection } from "astro:content";
+import { type CollectionEntry, getCollection } from "astro:content";
 
 import { sortByDate } from "../../utils/sortByDate";
 
 import PostLayout from "../../layouts/PostLayout.astro";
 
 export async function getStaticPaths() {
-	const posts = await getCollection("tutorial");
-	const numberOfPosts = posts.length;
+  const posts = await getCollection("tutorial");
+  const numberOfPosts = posts.length;
 
-	return posts.sort(sortByDate).map((post, index) => ({
-		params: { slug: post.slug },
-		props: {
-			...post,
-			prevPost: index + 1 === numberOfPosts ? null : posts[index + 1],
-			nextPost: index === 0 ? null : posts[index - 1],
-		},
-	}));
+  return posts.sort(sortByDate).map((post, index) => ({
+    params: { slug: post.slug },
+    props: {
+      ...post,
+      prevPost: index + 1 === numberOfPosts ? null : posts[index + 1],
+      nextPost: index === 0 ? null : posts[index - 1],
+    },
+  }));
 }
 
 type Props = CollectionEntry<"tutorial"> & {
-	nextPost: CollectionEntry<"tutorial">;
-	prevPost: CollectionEntry<"tutorial">;
+  nextPost: CollectionEntry<"tutorial">;
+  prevPost: CollectionEntry<"tutorial">;
 };
 
 const { nextPost, prevPost, ...props } = Astro.props;
 const { Content } = await props.render();
 ---
 
-<PostLayout {...props.data} {nextPost} {prevPost}>
-	<Content />
+<PostLayout {...props.data} category="tutorials" {nextPost} {prevPost}>
+  <Content />
 </PostLayout>
