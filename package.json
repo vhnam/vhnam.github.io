@@ -22,6 +22,7 @@
     "@astrojs/rss": "4.0.4",
     "@astrojs/sitemap": "3.0.5",
     "@astrojs/tailwind": "5.1.0",
+    "@fontsource-variable/inter": "^5.0.16",
     "astro": "4.2.5",
     "dayjs": "~1.11.10",
     "react": "^18.2.0",
