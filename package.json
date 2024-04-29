@@ -9,7 +9,7 @@
   "version": "5.3.1",
   "type": "module",
   "scripts": {
-    "dev": "astro dev",
+    "dev": "tinacms dev -c \"astro dev\"",
     "start": "astro dev",
     "build": "astro build",
     "preview": "astro preview",
@@ -27,14 +27,19 @@
     "astro": "^4.7.0",
     "dayjs": "~1.11.10",
     "react": "^18.2.0",
-    "react-dom": "^18.2.0"
+    "react-dom": "^18.2.0",
+    "tinacms": "^1.6.2"
   },
   "devDependencies": {
     "@rollup/plugin-yaml": "^4.1.2",
+    "@sindresorhus/slugify": "^2.2.1",
     "@tailwindcss/typography": "~0.5.10",
+    "@tinacms/cli": "^1.5.44",
+    "@types/node": "^20.12.7",
     "@types/react": "^18.2.48",
     "@types/react-dom": "^18.2.18",
     "autoprefixer": "~10.4.17",
+    "github-slugger": "^2.0.0",
     "husky": ">=6",
     "lint-staged": ">=10",
     "postcss": "~8.4.33",

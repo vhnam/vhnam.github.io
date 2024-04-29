@@ -1,18 +1,25 @@
 ---
 // Import the global.css file here so that it is included on
 // all pages through the use of the <BaseHead /> component.
-import { SITE_DESCRIPTION, SITE_TITLE } from "../consts";
+
+import { SITE_AUTHOR, SITE_DESCRIPTION, SITE_TITLE } from "../consts";
 import "../styles/global.scss";
 
 export interface Props {
-	title?: string;
-	description?: string;
-	image?: string;
+  title?: string;
+  description?: string;
+  image?: string;
+  articleDate?: string;
 }
 
 const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 
-const { title, description, image = "/placeholder-social.jpg" } = Astro.props;
+const {
+  title,
+  description,
+  image = "/placeholder-social.jpg",
+  articleDate,
+} = Astro.props;
 const expectedTitle = title ? `${title} | ${SITE_TITLE}` : SITE_TITLE;
 ---
 
@@ -36,6 +43,7 @@ const expectedTitle = title ? `${title} | ${SITE_TITLE}` : SITE_TITLE;
 <title>{expectedTitle}</title>
 <meta name="title" content={expectedTitle} />
 <meta name="description" content={description ?? SITE_DESCRIPTION} />
+<meta name="author" content={SITE_AUTHOR} />
 
 <!-- Open Graph / Facebook -->
 <meta property="og:type" content="website" />
@@ -43,16 +51,32 @@ const expectedTitle = title ? `${title} | ${SITE_TITLE}` : SITE_TITLE;
 <meta property="og:title" content={expectedTitle} />
 <meta property="og:description" content={description ?? SITE_DESCRIPTION} />
 <meta property="og:image" content={new URL(image, Astro.url)} />
+{
+  articleDate && (
+    <>
+      <meta property="article:author" content={SITE_AUTHOR} />
+      <meta property="article:published_time" content={articleDate} />
+    </>
+  )
+}
 
 <!-- Twitter -->
 <meta property="twitter:card" content="summary_large_image" />
 <meta property="twitter:url" content={Astro.url} />
 <meta property="twitter:title" content={expectedTitle} />
 <meta
-	property="twitter:description"
-	content={description ?? SITE_DESCRIPTION}
+  property="twitter:description"
+  content={description ?? SITE_DESCRIPTION}
 />
 <meta property="twitter:image" content={new URL(image, Astro.url)} />
+
+<!-- RSS auto-discovery -->
+<link
+  rel="alternate"
+  type="application/rss+xml"
+  title={SITE_TITLE}
+  href={`${Astro.site}rss.xml`}
+/>
 
 <!-- Facebook -->
 <meta property="fb:app_id" content="2064203853819553" />

@@ -2,7 +2,7 @@
 const { category, nextPost, prevPost } = Astro.props;
 ---
 
-<div class="grid grid-cols-2 gap-4">
+<footer class="grid grid-cols-2 gap-4 pb-12">
   <div class="text-left">
     {
       prevPost && (
@@ -34,4 +34,4 @@ const { category, nextPost, prevPost } = Astro.props;
       )
     }
   </div>
-</div>
+</footer>

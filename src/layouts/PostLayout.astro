@@ -1,5 +1,4 @@
 ---
-
 import { FB_APP_ID, GA_MEASUREMENT_ID } from "../consts";
 
 import BaseHead from "../components/BaseHead.astro";
@@ -9,14 +8,29 @@ import FormattedDate from "../components/FormattedDate.astro";
 import Header from "../components/Header.astro";
 import Nav from "../components/Nav.astro";
 import Navigate from "../components/Navigate.astro";
+import TableOfContents from "../components/TableOfContents.astro";
 
-const { title, description, pubDate, cover, category, prevPost, nextPost } =
-  Astro.props;
+const {
+  title,
+  description,
+  pubDate,
+  cover,
+  category,
+  headings,
+  prevPost,
+  nextPost,
+} = Astro.props;
+const articleDate = new Date(pubDate).toISOString();
 ---
 
 <html lang="en">
   <head>
-    <BaseHead title={title} description={description} image={cover} />
+    <BaseHead
+      title={title}
+      description={description}
+      image={cover}
+      articleDate={articleDate}
+    />
   </head>
 
   <body>
@@ -24,27 +38,104 @@ const { title, description, pubDate, cover, category, prevPost, nextPost } =
 
     <Nav />
 
-    <main class="max-w-2xl mx-auto px-4">
-      <article
-        class="mb-12 pt-10 border-t border-slate-200 dark:border-slate-700"
-      >
-        <h1 class="pb-2 text-3xl font-semibold !text-primary-500">{title}</h1>
-        <div class="mb-10 text-sm">
-          Ngày đăng <FormattedDate pubDate={pubDate} />
+    <main
+      class="sm:mx-auto sm:max-w-2xl px-4 sm:px-8 lg:px-0 antialiased md:max-w-6xl"
+    >
+      <div class="mb-12 pt-10">
+        <div
+          class="border-b border-slate-200 dark:border-slate-700 text-center"
+        >
+          <h1 class="pb-2 text-3xl font-semibold !text-primary-500">{title}</h1>
+          <div class="mb-10 text-sm">
+            Ngày đăng <FormattedDate pubDate={pubDate} />
+          </div>
         </div>
-        <div class="content">
-          <slot />
-        </div>
-      </article>
 
-      <div class="pt-20 pb-12">
-        <Navigate category={category} {prevPost} {nextPost} />
+        <div class="grid grid-cols-1 md:grid-cols-[30%_auto] gap-10 mt-8">
+          <!-- aside  -->
+          <aside class="md:flex flex-col gap-8 hidden">
+            <div
+              class="sticky top-24 self-start hidden md:block transition-all duration-200"
+            >
+              {
+                headings && headings.length > 0 && (
+                  <TableOfContents {headings} />
+                )
+              }
+            </div>
+          </aside>
+
+          <!-- post -->
+          <article class="max-w-full w-full">
+            <div class="mb-12 min-w-full content">
+              <slot />
+            </div>
+          </article>
+        </div>
       </div>
+
+      <!-- related posts -->
+      <Navigate category={category} {prevPost} {nextPost} />
     </main>
 
     <Footer />
 
     <CopyCodeButton />
+
+    <script>
+      const fnObserver = () => {
+        function handleIntersection(
+          entries: IntersectionObserverEntry[],
+          observer: IntersectionObserver
+        ) {
+          entries.forEach((entry) => {
+            const index = document.querySelector(
+              `aside a[href="#${entry.target.id}"]`
+            );
+
+            if (entry.isIntersecting) {
+              index?.classList.remove("bg-slate-200", "dark:bg-slate-800"); // remove bg
+              index?.classList.add(
+                "bg-indigo-600",
+                "dark:bg-indigo-700",
+                "text-white",
+                "font-bold",
+                "transition-colors",
+                "duration-200"
+              );
+            } else {
+              index?.classList.add("bg-slate-200", "dark:bg-slate-800"); // add bg
+              index?.classList.remove(
+                "bg-indigo-600",
+                "dark:bg-indigo-700",
+                "text-white",
+                "font-bold",
+                "transition-colors",
+                "duration-200"
+              );
+            }
+          });
+        }
+
+        const headings = document.querySelectorAll(
+          "div h1, div h2, div h3, div h4, div h5, div h6"
+        );
+
+        const options = {
+          root: null,
+          rootMargin: " 15% 0px 0% 0px ",
+          threshold: 1,
+        };
+
+        const observer = new IntersectionObserver(handleIntersection, options);
+
+        headings.forEach((heading) => {
+          observer.observe(heading);
+        });
+      };
+      fnObserver();
+      document.addEventListener("astro:after-swap", fnObserver);
+    </script>
 
     <!-- Facebook SDK -->
     <script
