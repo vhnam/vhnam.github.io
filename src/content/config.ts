@@ -9,7 +9,7 @@ const post = defineCollection({
         .string()
         .or(z.date())
         .transform((val) => new Date(val)),
-      cover: image(),
+      cover: image().optional(),
     }),
 });
 
