@@ -2,8 +2,11 @@
 import HeaderLink from "./HeaderLink.astro";
 ---
 
-<nav class="flex gap-4 max-w-2xl mx-auto px-4 pb-6">
-  <HeaderLink href="/">Trang chủ</HeaderLink>
-  <HeaderLink href="/tutorials">Chia sẻ</HeaderLink>
-  <HeaderLink href="/hobbies">Giải trí</HeaderLink>
+<nav
+  class="sm:mx-auto sm:max-w-2xl px-4 sm:px-8 lg:px-0 antialiased md:max-w-6xl"
+>
+  <div class="flex gap-4 pb-6">
+    <HeaderLink href="/tutorials">Chia sẻ</HeaderLink>
+    <HeaderLink href="/hobbies">Giải trí</HeaderLink>
+  </div>
 </nav>

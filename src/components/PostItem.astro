@@ -1,16 +1,43 @@
 ---
+import { Image } from "astro:assets";
+import { getAverageColor } from "fast-average-color-node";
+
 import FormattedDate from "./FormattedDate.astro";
 
 const { post, category } = Astro.props;
+
+const cover = post.data.cover ?? "/placeholder-social.jpg";
+
+const backgroundColor =
+  typeof cover === "object"
+    ? await getAverageColor(cover.fsPath)
+    : "transparent";
 ---
 
-<li class="pb-10">
-  <FormattedDate pubDate={post.data.pubDate} />
-  <a
-    href={`/${category}/${post.slug}/`}
-    class="block pb-1 text-xl text-primary-500 hover:text-primary-600 active:text-primary-700"
-  >
-    {post.data.title}
-  </a>
-  <p>{post.data.description}</p>
-</li>
+<article class="flex items-center gap-6 pb-10">
+  <div class="relative overflow-hidden min-w-[12.5rem] rounded">
+    <div
+      class="flex items-center"
+      style={`background-color: ${typeof cover === "object" ? (backgroundColor as any).hex : backgroundColor}`}
+    >
+      <Image
+        src={cover}
+        width={200}
+        height={200}
+        class="h-full min-w-full object-cover hover:scale-[101%] transition-all duration-200 rounded-[2px]"
+        alt={post.data.title}
+        quality="low"
+      />
+    </div>
+  </div>
+  <div>
+    <FormattedDate pubDate={post.data.pubDate} />
+    <a
+      href={`/${category}/${post.slug}/`}
+      class="block pb-1 text-xl text-primary-500 hover:text-primary-600 active:text-primary-700"
+    >
+      {post.data.title}
+    </a>
+    <p>{post.data.description}</p>
+  </div>
+</article>
