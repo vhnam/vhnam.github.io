@@ -27,6 +27,7 @@
     "astro": "^4.7.0",
     "dayjs": "~1.11.10",
     "fast-average-color-node": "^3.0.0",
+    "pluralize": "^8.0.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "tinacms": "^1.6.2"
@@ -37,6 +38,7 @@
     "@tailwindcss/typography": "~0.5.10",
     "@tinacms/cli": "^1.5.44",
     "@types/node": "^20.12.7",
+    "@types/pluralize": "^0.0.33",
     "@types/react": "^18.2.48",
     "@types/react-dom": "^18.2.18",
     "autoprefixer": "~10.4.17",

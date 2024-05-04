@@ -38,9 +38,9 @@ const posts = (await getCollection("hobby")).sort(sortByDate);
     border-slate-200 dark:border-slate-700
     border-solid"
     >
-      <section>
+      <ul>
         {posts.map((post) => <PostItem post={post} category="hobbies" />)}
-      </section>
+      </ul>
     </main>
     <Footer />
 

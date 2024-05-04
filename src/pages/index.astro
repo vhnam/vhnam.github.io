@@ -3,6 +3,7 @@ import { Image } from "astro:assets";
 import { getCollection } from "astro:content";
 
 import { FB_APP_ID, GA_MEASUREMENT_ID, SITE_TITLE } from "../consts";
+
 import { sortByDate } from "../utils/sortByDate";
 
 import BaseHead from "../components/BaseHead.astro";
@@ -47,6 +48,7 @@ const posts = allPosts.sort(sortByDate).slice(0, 4);
             alt="Nam Vo"
             width={56}
             height={56}
+            quality="low"
           />
           <p class="ml-4 text-heading">
             <strong>Nam Vo</strong>

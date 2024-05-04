@@ -1,6 +1,8 @@
 ---
 import LinkedIn from "./Icon/LinkedIn.astro";
 import GitHub from "./Icon/GitHub.astro";
+import YouTube from "./Icon/YouTube.astro";
+import Flickr from "./Icon/Flickr.astro";
 
 const today = new Date();
 ---
@@ -33,6 +35,7 @@ const today = new Date();
   </div>
   <div class="flex justify-center gap-3 pb-20">
     <a
+      aria-label="LinkedIn's Nam Vo"
       href="https://www.linkedin.com/in/namvh"
       role="button"
       target="_blank"
@@ -43,6 +46,7 @@ const today = new Date();
     </a>
 
     <a
+      aria-label="GitHub's Nam Vo"
       href="https://github.com/vhnam"
       role="button"
       target="_blank"
@@ -50,6 +54,28 @@ const today = new Date();
       class="bg-gray-700 hover:bg-gray-600 active:bg-gray-800 p-2 font-semibold text-white inline-flex items-center space-x-2 rounded"
     >
       <GitHub />
+    </a>
+
+    <a
+      aria-label="YouTube's Nam Vo"
+      href="https://www.youtube.com/@namvo07"
+      role="button"
+      target="_blank"
+      rel="noopener noreferrer"
+      class="bg-red-700 hover:bg-red-600 active:bg-red-800 p-2 font-semibold text-white inline-flex items-center space-x-2 rounded"
+    >
+      <YouTube />
+    </a>
+
+    <a
+      aria-label="Flickr's Nam Vo"
+      href="https://www.flickr.com/photos/197719301@N02/"
+      role="button"
+      target="_blank"
+      rel="noopener noreferrer"
+      class="bg-white hover:bg-slate-100 active:bg-slate-300 p-2 inline-flex items-center justify-center space-x-2 rounded w-9 h-9"
+    >
+      <Flickr />
     </a>
   </div>
 </footer>

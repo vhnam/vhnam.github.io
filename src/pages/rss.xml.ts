@@ -1,18 +1,26 @@
 import rss from "@astrojs/rss";
+import type { APIContext } from "astro";
 import { getCollection } from "astro:content";
+import pluralize from "pluralize";
 
 import { SITE_TITLE, SITE_DESCRIPTION } from "../consts";
 
-export async function GET(context) {
-  const posts = await getCollection("tutorial");
+import { sortByDate } from "../utils/sortByDate";
+
+export async function GET(context: APIContext) {
+  const hobbies = await getCollection("hobby");
+  const tutorials = await getCollection("tutorial");
+
+  const posts = [...hobbies, ...tutorials].sort(sortByDate);
+
   return rss({
     title: SITE_TITLE,
     description: SITE_DESCRIPTION,
-    site: context.site,
+    site: context.site as URL,
     items: posts.map((post) => ({
       ...post.data,
       pubDate: post.data.pubDate,
-      link: `/tutorials/${post.slug}/`,
+      link: `/${pluralize(post.collection)}/${post.slug}/`,
     })),
   });
 }
