@@ -17,12 +17,6 @@ export default defineConfig({
     outputFolder: "admin",
     publicFolder: "public",
   },
-  media: {
-    tina: {
-      mediaRoot: "src/assets/*",
-      publicFolder: "public",
-    },
-  },
   schema: {
     collections: [
       {
@@ -37,9 +31,51 @@ export default defineConfig({
             label: "Title",
             isTitle: true,
             required: true,
+            searchable: true,
           },
           {
+            type: "rich-text",
+            label: "description",
+            required: true,
+            name: "description",
+            description: "A short description of the post",
+          },
+          {
+            type: "datetime",
+            name: "pubDate",
+            label: "Publication Date",
+            required: true,
+          },
+          {
+            type: "image",
+            label: "Cover Image",
+            required: true,
+            name: "cover",
+            description: "The image used for the cover of the post",
+          },
+          {
+            type: "rich-text",
+            label: "Body",
+            name: "body",
+            isBody: true,
+          },
+        ],
+      },
+      {
+        name: "tutorial",
+        label: "Tutorials",
+        path: "src/content/tutorial",
+        format: "mdx",
+        fields: [
+          {
             type: "string",
+            name: "title",
+            label: "Title",
+            isTitle: true,
+            required: true,
+          },
+          {
+            type: "rich-text",
             label: "description",
             required: true,
             name: "description",

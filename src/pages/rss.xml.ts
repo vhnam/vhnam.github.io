@@ -1,9 +1,9 @@
+import { getCollection } from "astro:content";
 import rss from "@astrojs/rss";
 import type { APIContext } from "astro";
-import { getCollection } from "astro:content";
 import pluralize from "pluralize";
 
-import { SITE_TITLE, SITE_DESCRIPTION } from "../consts";
+import { SITE_DESCRIPTION, SITE_TITLE } from "../consts";
 
 import { sortByDate } from "../utils/sortByDate";
 
