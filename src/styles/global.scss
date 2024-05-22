@@ -6,23 +6,13 @@
 
 [data-mode="light"] {
   body {
-    background-color: white;
-    color: #334155;
-  }
-
-  .text-heading {
-    color: #0f172a !important;
+    @apply bg-slate-100 text-slate-700;
   }
 }
 
 [data-mode="dark"] {
   body {
-    background-color: #0f172a;
-    color: #94a3b8;
-  }
-
-  .text-heading {
-    color: #e2e8f0 !important;
+    @apply bg-slate-900 text-slate-400;
   }
 }
 
@@ -32,7 +22,7 @@ h3,
 h4,
 h5,
 h6 {
-  @apply text-heading font-semibold;
+  @apply font-semibold;
 }
 
 .content {
