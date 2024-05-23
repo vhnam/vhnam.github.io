@@ -44,7 +44,7 @@ const posts = (await getCollection("hobby")).sort(sortByDate);
             <ul class="flex flex-col gap-6 pb-6">
               {
                 posts.map((post) => (
-                  <PostItem post={post} category="tutorials" />
+                  <PostItem post={post} category="hobbies" />
                 ))
               }
             </ul>
