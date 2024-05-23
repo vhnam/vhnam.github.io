@@ -2,7 +2,7 @@
 import { Image, getImage } from "astro:assets";
 import { getCollection } from "astro:content";
 
-import { GA_MEASUREMENT_ID, SITE_TITLE } from "../consts";
+import { GA_MEASUREMENT_ID } from "../consts";
 
 import { getTags } from "../utils/post";
 import { sortByDate } from "../utils/sortByDate";
@@ -35,7 +35,7 @@ const tags = await getTags(allPosts);
     <BaseHead />
   </head>
   <body>
-    <Header title={SITE_TITLE} />
+    <Header />
 
     <main>
       <div class="bg-white dark:bg-slate-800">
@@ -128,7 +128,7 @@ const tags = await getTags(allPosts);
     <Footer />
 
     <!-- Google Analytics 4 -->
-    <!-- <script
+    <script
       async
       type="text/partytown"
       src={`https://www.googletagmanager.com/gtag/js?id=${GA_MEASUREMENT_ID}`}
@@ -142,6 +142,6 @@ const tags = await getTags(allPosts);
       }
       gtag("js", new Date());
       gtag("config", GA_MEASUREMENT_ID);
-    </script> -->
+    </script>
   </body>
 </html>

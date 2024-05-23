@@ -2,36 +2,38 @@
 const { category, nextPost, prevPost } = Astro.props;
 ---
 
-<footer class="grid grid-cols-2 gap-4 pb-12">
-  <div class="text-left">
-    {
-      prevPost && (
-        <a
-          href={`/${category}/${prevPost.slug}/`}
-          class="text-xl hover:text-primary-600 active:text-primary-700"
-        >
-          <span class="block pb-1 text-xs text-slate-600 dark:text-slate-400 text-semibold uppercase">
-            ← Quay lại
-          </span>
-          {prevPost.data?.title}
-        </a>
-      )
-    }
-  </div>
+<footer class="container mx-auto">
+  <div class="grid grid-cols-2 gap-4 pb-6 px-8">
+    <div class="text-left">
+      {
+        prevPost && (
+          <a
+            href={`/${category}/${prevPost.slug}/`}
+            class="text-xl hover:text-primary-600 active:text-primary-700"
+          >
+            <span class="block pb-1 text-xs text-slate-600 dark:text-slate-400 text-semibold uppercase">
+              ← Quay lại
+            </span>
+            {prevPost.data?.title}
+          </a>
+        )
+      }
+    </div>
 
-  <div class="text-right">
-    {
-      nextPost && (
-        <a
-          href={`/${category}/${nextPost.slug}/`}
-          class="text-xl hover:text-primary-600 active:text-primary-700"
-        >
-          <span class="block pb-1 text-xs text-slate-600 dark:text-slate-400 text-semibold uppercase">
-            Xem tiếp →
-          </span>
-          {nextPost.data?.title}
-        </a>
-      )
-    }
+    <div class="text-right">
+      {
+        nextPost && (
+          <a
+            href={`/${category}/${nextPost.slug}/`}
+            class="text-xl hover:text-primary-600 active:text-primary-700"
+          >
+            <span class="block pb-1 text-xs text-slate-600 dark:text-slate-400 text-semibold uppercase">
+              Xem tiếp →
+            </span>
+            {nextPost.data?.title}
+          </a>
+        )
+      }
+    </div>
   </div>
 </footer>

@@ -1,7 +1,7 @@
 ---
 import { getCollection } from "astro:content";
 
-import { GA_MEASUREMENT_ID, SITE_TITLE } from "../../consts";
+import { GA_MEASUREMENT_ID } from "../../consts";
 
 import { sortByDate } from "../../utils/sortByDate";
 
@@ -19,7 +19,7 @@ const posts = (await getCollection("hobby")).sort(sortByDate);
     <BaseHead title="Giải trí" />
   </head>
   <body>
-    <Header title={SITE_TITLE} />
+    <Header />
 
     <main class="my-20">
       <div class="py-20 mb-12 bg-white dark:bg-slate-800">

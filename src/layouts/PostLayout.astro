@@ -1,12 +1,11 @@
 ---
-import { FB_APP_ID, GA_MEASUREMENT_ID } from "../consts";
+import { GA_MEASUREMENT_ID } from "../consts";
 
 import BaseHead from "../components/BaseHead.astro";
 import CopyCodeButton from "../components/CopyCodeButton.astro";
 import Footer from "../components/Footer.astro";
 import FormattedDate from "../components/FormattedDate.astro";
 import Header from "../components/Header.astro";
-import Nav from "../components/Nav.astro";
 import Navigate from "../components/Navigate.astro";
 import TableOfContents from "../components/TableOfContents.astro";
 
@@ -36,24 +35,30 @@ const articleDate = new Date(pubDate).toISOString();
   <body>
     <Header />
 
-    <Nav />
-
-    <main
-      class="sm:mx-auto sm:max-w-2xl px-4 sm:px-8 lg:px-0 antialiased md:max-w-6xl"
-    >
-      <div class="mb-12 pt-10">
-        <div
-          class="border-b border-slate-200 dark:border-slate-700 text-center"
+    <main class="my-20">
+      <div class="py-20 mb-12 bg-white dark:bg-slate-800 text-center">
+        <h1
+          class="pb-2 text-slate-900 dark:text-slate-200 text-2xl tracking-tight md:text-3xl"
         >
-          <h1 class="pb-2 text-3xl font-semibold !text-primary-500">{title}</h1>
-          <div class="mb-10 text-sm">
-            Ngày đăng <FormattedDate pubDate={pubDate} />
-          </div>
+          {title}
+        </h1>
+        <div class="text-sm leading-6">
+          <dl>
+            <dt class="sr-only">Date</dt>
+            <dd class="inset-x-0 text-slate-700 dark:text-slate-400">
+              Ngày đăng
+              <time datetime="2024-05-07T16:00:00.000Z">
+                <FormattedDate pubDate={pubDate} />
+              </time>
+            </dd>
+          </dl>
         </div>
+      </div>
 
-        <div class="grid grid-cols-1 md:grid-cols-[30%_auto] gap-10 mt-8">
+      <div class="container mx-auto pb-20">
+        <div class="flex flex-row px-8 gap-8">
           <!-- aside  -->
-          <aside class="md:flex flex-col gap-8 hidden">
+          <aside class="w-3/12 shrink-0 hidden md:block">
             <div
               class="sticky top-24 self-start hidden md:block transition-all duration-200"
             >
@@ -66,7 +71,7 @@ const articleDate = new Date(pubDate).toISOString();
           </aside>
 
           <!-- post -->
-          <article class="max-w-full w-full">
+          <article class="w-9/12 shrink-0">
             <div class="mb-12 min-w-full content">
               <slot />
             </div>
@@ -96,8 +101,8 @@ const articleDate = new Date(pubDate).toISOString();
             if (entry.isIntersecting) {
               index?.classList.remove("bg-slate-200", "dark:bg-slate-800"); // remove bg
               index?.classList.add(
-                "bg-indigo-600",
-                "dark:bg-indigo-700",
+                "bg-primary-600",
+                "dark:bg-primary-700",
                 "text-white",
                 "font-bold",
                 "transition-colors",
@@ -106,8 +111,8 @@ const articleDate = new Date(pubDate).toISOString();
             } else {
               index?.classList.add("bg-slate-200", "dark:bg-slate-800"); // add bg
               index?.classList.remove(
-                "bg-indigo-600",
-                "dark:bg-indigo-700",
+                "bg-primary-600",
+                "dark:bg-primary-700",
                 "text-white",
                 "font-bold",
                 "transition-colors",
@@ -135,25 +140,6 @@ const articleDate = new Date(pubDate).toISOString();
       };
       fnObserver();
       document.addEventListener("astro:after-swap", fnObserver);
-    </script>
-
-    <!-- Facebook SDK -->
-    <script
-      async
-      defer
-      crossorigin="anonymous"
-      type="text/partytown"
-      src="https://connect.facebook.net/en_US/sdk.js"></script>
-
-    <script type="text/partytown" define:vars={{ FB_APP_ID }}>
-      window.fbAsyncInit = function () {
-        window.FB.init({
-          appId: FB_APP_ID,
-          autoLogAppEvents: true,
-          xfbml: true,
-          version: "v17.0",
-        });
-      };
     </script>
 
     <!-- Google Analytics 4 -->
