@@ -36,9 +36,11 @@ const articleDate = new Date(pubDate).toISOString();
     <Header />
 
     <main class="my-20">
-      <div class="py-20 mb-12 bg-white dark:bg-slate-800 text-center">
+      <div
+        class="py-5 xl:py-20 px-4 mb-12 bg-white dark:bg-slate-800 text-center"
+      >
         <h1
-          class="pb-2 text-slate-900 dark:text-slate-200 text-2xl tracking-tight md:text-3xl"
+          class="text-slate-900 font-semibold text-2xl sm:text-3xl lg:text-4xl tracking-tight dark:text-white mb-2 xl:mb-6"
         >
           {title}
         </h1>
@@ -47,7 +49,7 @@ const articleDate = new Date(pubDate).toISOString();
             <dt class="sr-only">Date</dt>
             <dd class="inset-x-0 text-slate-700 dark:text-slate-400">
               Ngày đăng
-              <time datetime="2024-05-07T16:00:00.000Z">
+              <time datetime={pubDate.toISOString()}>
                 <FormattedDate pubDate={pubDate} />
               </time>
             </dd>
@@ -56,11 +58,11 @@ const articleDate = new Date(pubDate).toISOString();
       </div>
 
       <div class="container mx-auto pb-20">
-        <div class="flex flex-row px-8 gap-8">
+        <div class="flex flex-row px-4 xl:px-8 gap-8">
           <!-- aside  -->
-          <aside class="w-3/12 shrink-0 hidden md:block">
+          <aside class="xl:w-3/12 shrink-0 hidden lg:block">
             <div
-              class="sticky top-24 self-start hidden md:block transition-all duration-200"
+              class="sticky top-24 self-start hidden lg:block transition-all duration-200"
             >
               {
                 headings && headings.length > 0 && (
@@ -71,7 +73,7 @@ const articleDate = new Date(pubDate).toISOString();
           </aside>
 
           <!-- post -->
-          <article class="w-9/12 shrink-0">
+          <article class="w-full xl:w-9/12 shrink-0">
             <div class="mb-12 min-w-full content">
               <slot />
             </div>

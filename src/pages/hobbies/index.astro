@@ -22,31 +22,27 @@ const posts = (await getCollection("hobby")).sort(sortByDate);
     <Header />
 
     <main class="my-20">
-      <div class="py-20 mb-12 bg-white dark:bg-slate-800">
+      <div class="py-5 xl:py-20 mb-12 bg-white dark:bg-slate-800">
         <h1
-          class="text-slate-900 font-semibold text-3xl sm:text-4xl lg:text-5xl tracking-tight text-center dark:text-white mb-6"
+          class="text-slate-900 font-semibold text-2xl sm:text-3xl lg:text-4xl tracking-tight text-center dark:text-white mb-2 xl:mb-6"
         >
           Giải trí
         </h1>
-        <p class="text-center">{posts.length} bài viết</p>
+        <p class="text-sm leading-6 text-center">{posts.length} bài viết</p>
       </div>
 
       <div class="container mx-auto">
-        <div class="flex flex-row px-8 gap-8">
-          <div class="basis-3/12">
+        <div class="flex flex-col md:flex-row px-4 md:px-8 gap-8">
+          <div class="basis-full md:basis-3/12">
             <h2
-              class="text-2xl sm:text-3xl font-medium text-slate-900 tracking-tight dark:text-slate-200"
+              class="text-2xl lg:text-3xl font-medium text-slate-900 tracking-tight dark:text-slate-200"
             >
               Bài viết mới nhất
             </h2>
           </div>
-          <section class="basis-9/12">
-            <ul class="flex flex-col gap-6 pb-6">
-              {
-                posts.map((post) => (
-                  <PostItem post={post} category="hobbies" />
-                ))
-              }
+          <section class="basis-full md:basis-9/12">
+            <ul class="flex flex-col gap-4 md:gap-6 pb-6">
+              {posts.map((post) => <PostItem post={post} category="hobbies" />)}
             </ul>
           </section>
         </div>

@@ -41,16 +41,18 @@ const tags = await getTags(allPosts);
       <div class="bg-white dark:bg-slate-800">
         <div class="container mx-auto">
           <header
-            class="flex items-center justify-center h-[50vh] mb-12 bg-fixed bg-bottom bg-cover mt-20 rounded-b-lg"
+            class="flex items-center justify-center h-[20vh] md:h-[50vh] mb-12 bg-fixed bg-bottom bg-cover mt-20 rounded-b-lg"
             style={`background-image: url(${optimizedBackground.src});`}
           >
           </header>
         </div>
 
         <section class="container mx-auto">
-          <div class="mt-[-7rem] px-8">
+          <div class="mt-[-7rem] px-8 pb-2 md:pb-0">
             <h2 class="hidden">Giới thiệu bản thân</h2>
-            <div class="inline-flex items-end mb-6">
+            <div
+              class="flex flex-col xl:flex-row md:inline-flex items-center md:items-end mb-6"
+            >
               <Image
                 class="rounded-full border-2 border-white dark:border-black"
                 src={avatarImg}
@@ -59,8 +61,11 @@ const tags = await getTags(allPosts);
                 height={160}
                 quality="mid"
               />
-              <p class="ml-6 text-heading">
-                <strong class="text-3xl text-slate-900 tracking-tight dark:text-slate-200">Nam Vo</strong>
+              <p class="md:ml-6 text-heading text-center md:text-left">
+                <strong
+                  class="text-2xl md:text-3xl text-slate-900 tracking-tight dark:text-slate-200"
+                  >Nam Vo</strong
+                >
                 <br />
                 <span class="text-xs font-semibold tracking-wide"
                   >Software Engineer</span
@@ -76,20 +81,20 @@ const tags = await getTags(allPosts);
         </section>
       </div>
 
-      <section class="container mx-auto px-8 py-10">
+      <section class="container mx-auto px-4 md:px-8 py-10">
         <h2
           class="mb-6 text-sm leading-6 font-semibold text-sky-500 dark:text-sky-400"
         >
           Bài viết mới
         </h2>
-        <ul class="grid grid-cols-3 gap-6">
+        <ul class="grid grid-cols-1 md:grid-cols-3 gap-6">
           {latestPosts.map((post) => <LatestPostItem post={post} />)}
         </ul>
       </section>
 
       <div class="container mx-auto py-10">
-        <div class="flex flex-row px-8 gap-8">
-          <section class="basis-8/12">
+        <div class="flex flex-row px-4 md:px-8 gap-8">
+          <section class="basis-full md:basis-8/12">
             <div class="py-6">
               <h2
                 class="mb-6 text-sm leading-6 font-semibold text-sky-500 dark:text-sky-400"
@@ -109,7 +114,7 @@ const tags = await getTags(allPosts);
             </div>
           </section>
 
-          <section class="basis-4/12">
+          <section class="basis-full md:basis-4/12 hidden md:block">
             <div class="py-6">
               <h2
                 class="mb-6 text-sm leading-6 font-semibold text-sky-500 dark:text-sky-400"
