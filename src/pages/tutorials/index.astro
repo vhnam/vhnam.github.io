@@ -6,42 +6,53 @@ import { GA_MEASUREMENT_ID } from "../../consts";
 import { sortByDate } from "../../utils/sortByDate";
 
 import BaseHead from "../../components/BaseHead.astro";
-import Header from "../../components/Header.astro";
 import Footer from "../../components/Footer.astro";
-import Nav from "../../components/Nav.astro";
+import Header from "../../components/Header.astro";
 import PostItem from "../../components/PostItem.astro";
 
 const posts = (await getCollection("tutorial")).sort(sortByDate);
 ---
 
 <!doctype html>
-<html lang="en">
+<html lang="vi">
   <head>
-    <BaseHead title="Chia sẻ" />
+    <BaseHead title="Phần mềm" />
   </head>
   <body>
     <Header />
 
-    <Nav />
+    <main class="my-20">
+      <div class="py-5 xl:py-20 mb-12 bg-white dark:bg-slate-800">
+        <h1
+          class="text-slate-900 font-semibold text-2xl sm:text-3xl lg:text-4xl tracking-tight text-center dark:text-white mb-2 xl:mb-6"
+        >
+          Chia sẻ về Công nghệ Phần mềm
+        </h1>
+        <p class="text-sm leading-6 text-center">{posts.length} bài viết</p>
+      </div>
 
-    <main
-      class="sm:mx-auto
-  sm:max-w-2xl
-  px-4
-  sm:px-8
-  lg:px-0
-  pt-4
-  mt-4
-  antialiased
-  md:max-w-6xl
-  border-t
-  border-slate-200 dark:border-slate-700
-  border-solid"
-    >
-      <ul>
-        {posts.map((post) => <PostItem post={post} category="tutorials" />)}
-      </ul>
+      <div class="container mx-auto">
+        <div class="flex flex-col md:flex-row px-4 md:px-8 gap-8">
+          <div class="basis-full md:basis-3/12">
+            <h2
+              class="text-2xl lg:text-3xl font-medium text-slate-900 tracking-tight dark:text-slate-200"
+            >
+              Bài viết mới nhất
+            </h2>
+          </div>
+          <section class="basis-full md:basis-9/12">
+            <ul class="flex flex-col gap-4 md:gap-6 pb-6">
+              {
+                posts.map((post) => (
+                  <PostItem post={post} category="tutorials" />
+                ))
+              }
+            </ul>
+          </section>
+        </div>
+      </div>
     </main>
+
     <Footer />
 
     <script

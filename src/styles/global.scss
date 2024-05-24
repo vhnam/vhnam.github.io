@@ -6,23 +6,13 @@
 
 [data-mode="light"] {
   body {
-    background-color: white;
-    color: #334155;
-  }
-
-  .text-heading {
-    color: #0f172a !important;
+    @apply bg-slate-100 text-slate-700;
   }
 }
 
 [data-mode="dark"] {
   body {
-    background-color: #0f172a;
-    color: #94a3b8;
-  }
-
-  .text-heading {
-    color: #e2e8f0 !important;
+    @apply bg-slate-900 text-slate-400;
   }
 }
 
@@ -32,11 +22,11 @@ h3,
 h4,
 h5,
 h6 {
-  @apply text-heading font-semibold;
+  @apply font-medium text-slate-900 dark:text-slate-50;
 }
 
 .content {
-  @apply text-left;
+  @apply text-left bg-white dark:bg-slate-800 p-4 md:p-8 rounded;
 
   h1,
   h2 {
@@ -55,20 +45,20 @@ h6 {
     @apply my-6 text-xs;
   }
   p {
-    @apply my-4 text-base;
+    @apply my-5 text-base;
   }
   a {
-    @apply text-primary-500 underline;
+    @apply text-slate-900 dark:text-white border-b border-b-primary-400;
     &:hover,
     &:focus {
-      @apply text-primary-600;
-    }
-    &:active {
-      @apply text-primary-700;
+      @apply border-b-2;
     }
   }
+  iframe {
+    @apply mb-12 w-full;
+  }
   img {
-    @apply max-w-full h-auto mx-auto;
+    @apply max-w-full h-auto mx-auto rounded-sm mb-12;
   }
   code {
     @apply px-2 py-1 font-mono text-xs text-pink-400;
@@ -83,21 +73,26 @@ h6 {
     @apply w-full;
   }
   pre {
-    @apply relative p-4 rounded-lg;
+    @apply relative p-6 rounded-lg mb-12;
+    box-shadow: inset 0 0 0 1px #ffffff1a;
 
     & > code {
       all: unset;
+      @apply text-sm;
     }
   }
   ol,
   ul {
-    @apply pl-10;
+    @apply pl-10 mt-4 mb-12;
   }
   ol {
     @apply list-decimal;
   }
   ul {
     @apply list-disc;
+  }
+  li {
+    @apply my-3;
   }
   kbd {
     @apply text-[0.875em];
@@ -107,7 +102,7 @@ h6 {
     clip: rect(0, 0, 0, 0);
   }
   table {
-    @apply mb-5 w-full text-sm text-left text-gray-500 dark:text-gray-400;
+    @apply mb-12 w-full text-sm text-left text-gray-500 dark:text-gray-400;
   }
   table thead {
     @apply text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400;

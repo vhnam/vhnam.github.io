@@ -1,99 +1,136 @@
 ---
-import { Image } from "astro:assets";
+import { Image, getImage } from "astro:assets";
 import { getCollection } from "astro:content";
 
-import { FB_APP_ID, GA_MEASUREMENT_ID, SITE_TITLE } from "../consts";
+import { GA_MEASUREMENT_ID } from "../consts";
 
+import { getTags } from "../utils/post";
 import { sortByDate } from "../utils/sortByDate";
 
 import BaseHead from "../components/BaseHead.astro";
 import Footer from "../components/Footer.astro";
 import Header from "../components/Header.astro";
-import Nav from "../components/Nav.astro";
 import PostItem from "../components/PostItem.astro";
+import Tag from "../components/Tag.astro";
 
 import avatarImg from "../assets/images/namvh.jpeg";
+import headerImg from "../assets/images/tao-dan-band.jpeg";
+import LatestPostItem from "../components/LatestPostItem.astro";
 
-const allPosts = await getCollection("tutorial");
-const posts = allPosts.sort(sortByDate).slice(0, 4);
+const tutorials = await getCollection("tutorial");
+const hobbies = await getCollection("hobby");
+
+const allPosts = [...hobbies, ...tutorials].sort(sortByDate);
+const latestPosts = allPosts.slice(0, 6);
+const posts = tutorials.sort(sortByDate).slice(0, 4);
+
+const optimizedBackground = await getImage({ src: headerImg, format: "webp" });
+
+const tags = await getTags(allPosts);
 ---
 
 <!doctype html>
-<html lang="en">
+<html lang="vi">
   <head>
     <BaseHead />
   </head>
   <body>
-    <Header title={SITE_TITLE} />
+    <Header />
 
-    <Nav />
-
-    <main
-      class="sm:mx-auto
-    sm:max-w-2xl
-    px-4
-    sm:px-8
-    lg:px-0
-    antialiased
-    md:max-w-6xl"
-    >
-      <section
-        class="mb-12 pt-10 border-t border-slate-200 dark:border-slate-700"
-      >
-        <h2 class="hidden">Giới thiệu bản thân</h2>
-        <div class="inline-flex items-center mb-4">
-          <Image
-            class="rounded-full"
-            src={avatarImg}
-            alt="Nam Vo"
-            width={56}
-            height={56}
-            quality="low"
-          />
-          <p class="ml-4 text-heading">
-            <strong>Nam Vo</strong>
-            <br />
-            Software Engineer
-          </p>
+    <main>
+      <div class="bg-white dark:bg-slate-800">
+        <div class="container mx-auto">
+          <header
+            class="flex items-center justify-center h-[20vh] md:h-[50vh] mb-12 bg-fixed bg-bottom bg-cover mt-20 rounded-b-lg"
+            style={`background-image: url(${optimizedBackground.src});`}
+          >
+          </header>
         </div>
-        <p>
-          Đây là website cá nhân để lưu lại những kiến thức đã tích lũy trong
-          thời gian qua. Và cũng như chia sẻ chúng với mọi người.
-        </p>
-      </section>
 
-      <section
-        class="mb-12 py-10 border-t border-slate-200 dark:border-slate-700"
-      >
-        <h2 class="mb-6 text-xl">Có gì mới?</h2>
-        <ul>
-          {posts.map((post) => <PostItem post={post} category="tutorials" />)}
+        <section class="container mx-auto">
+          <div class="mt-[-7rem] px-8 pb-2 md:pb-0">
+            <h2 class="hidden">Giới thiệu bản thân</h2>
+            <div
+              class="flex flex-col xl:flex-row md:inline-flex items-center md:items-end mb-6"
+            >
+              <Image
+                class="rounded-full border-2 border-white dark:border-black"
+                src={avatarImg}
+                alt="Nam Vo"
+                width={160}
+                height={160}
+                quality="mid"
+              />
+              <p class="md:ml-6 text-heading text-center md:text-left">
+                <strong
+                  class="text-2xl md:text-3xl text-slate-900 tracking-tight dark:text-slate-200"
+                  >Nam Vo</strong
+                >
+                <br />
+                <span class="text-xs font-semibold tracking-wide"
+                  >Software Engineer</span
+                >
+                <br />
+                <span class="text-sm"
+                  >Đây là website cá nhân để lưu lại những kiến thức đã tích lũy
+                  trong thời gian qua. Và cũng như chia sẻ chúng với mọi người.</span
+                >
+              </p>
+            </div>
+          </div>
+        </section>
+      </div>
+
+      <section class="container mx-auto px-4 md:px-8 py-10">
+        <h2
+          class="mb-6 text-sm leading-6 font-semibold text-sky-500 dark:text-sky-400"
+        >
+          Bài viết mới
+        </h2>
+        <ul class="grid grid-cols-1 md:grid-cols-3 gap-6">
+          {latestPosts.map((post) => <LatestPostItem post={post} />)}
         </ul>
-        <p class="text-right hover:underline">
-          <a href="/tutorials">» Xem thêm</a>
-        </p>
       </section>
+
+      <div class="container mx-auto py-10">
+        <div class="flex flex-row px-4 md:px-8 gap-8">
+          <section class="basis-full md:basis-8/12">
+            <div class="py-6">
+              <h2
+                class="mb-6 text-sm leading-6 font-semibold text-sky-500 dark:text-sky-400"
+              >
+                Chia sẻ về Công nghệ Phần mềm
+              </h2>
+              <ul class="flex flex-col gap-6 pb-6">
+                {
+                  posts.map((post) => (
+                    <PostItem post={post} category="tutorials" />
+                  ))
+                }
+              </ul>
+              <div class="text-right hover:underline">
+                <a href="/tutorials">» Xem thêm</a>
+              </div>
+            </div>
+          </section>
+
+          <section class="basis-full md:basis-4/12 hidden md:block">
+            <div class="py-6">
+              <h2
+                class="mb-6 text-sm leading-6 font-semibold text-sky-500 dark:text-sky-400"
+              >
+                Khám phá thêm các chủ đề
+              </h2>
+              <div class="flex flex-wrap gap-1">
+                {Object.keys(tags).map((tag) => <Tag tag={tag} />)}
+              </div>
+            </div>
+          </section>
+        </div>
+      </div>
     </main>
+
     <Footer />
-
-    <!-- Facebook SDK -->
-    <script
-      async
-      defer
-      crossorigin="anonymous"
-      type="text/partytown"
-      src="https://connect.facebook.net/en_US/sdk.js"></script>
-
-    <script type="text/partytown" define:vars={{ FB_APP_ID }}>
-      window.fbAsyncInit = function () {
-        FB.init({
-          appId: FB_APP_ID,
-          autoLogAppEvents: true,
-          xfbml: true,
-          version: "v17.0",
-        });
-      };
-    </script>
 
     <!-- Google Analytics 4 -->
     <script

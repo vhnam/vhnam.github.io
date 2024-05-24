@@ -8,6 +8,6 @@ export interface Props {
 const { pubDate } = Astro.props;
 ---
 
-<time class="text-sm" datetime={new Date(pubDate).toISOString()}>
+<time class="text-xs md:text-sm" datetime={new Date(pubDate).toISOString()}>
 	{dayjs(pubDate).format("DD/MM/YYYY")}
 </time>

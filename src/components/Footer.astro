@@ -1,22 +1,16 @@
 ---
-import LinkedIn from "./Icon/LinkedIn.astro";
-import GitHub from "./Icon/GitHub.astro";
-import YouTube from "./Icon/YouTube.astro";
 import Flickr from "./Icon/Flickr.astro";
+import GitHub from "./Icon/GitHub.astro";
+import LinkedIn from "./Icon/LinkedIn.astro";
+import YouTube from "./Icon/YouTube.astro";
 
 const today = new Date();
 ---
 
-<footer
-  class="sm:mx-auto
-  sm:max-w-2xl
-  px-4
-  sm:px-8
-  lg:px-0
-  antialiased
-  md:max-w-6xl"
->
-  <div class="py-10 border-t border-slate-200 dark:border-slate-700">
+<footer class="container mx-auto">
+  <div
+    class="py-6 border-t border-slate-300 dark:border-slate-700 px-4 xl:px-0"
+  >
     <div class="flex items-center justify-between">
       <span class="text-sm">&copy; {today.getFullYear()} Nam Vo's blog.</span>
       <span class="flex gap-4">

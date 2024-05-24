@@ -1,0 +1,44 @@
+---
+import { getCollection } from "astro:content";
+
+import { getTags } from "../../utils/post";
+import { sortByDate } from "../../utils/sortByDate";
+
+import BaseHead from "../../components/BaseHead.astro";
+import Header from "../../components/Header.astro";
+import Nav from "../../components/Nav.astro";
+
+const hobbies = await getCollection("hobby");
+const tutorials = await getCollection("tutorial");
+
+const posts = [...hobbies, ...tutorials].sort(sortByDate);
+
+const tags = await getTags(posts);
+---
+
+<!doctype html>
+<html lang="vi">
+  <head>
+    <BaseHead title="Tags" />
+  </head>
+  <body>
+    <Header />
+
+    <Nav />
+
+    <main class="mt-10">
+      <div class="flex justify-center flex-wrap gap-4">
+        {
+          Object.keys(tags).map((tag) => (
+            <a
+              href={`/tags/${tag}`}
+              class="inline-block bg-gray-200  rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2"
+            >
+              #{tag}
+            </a>
+          ))
+        }
+      </div>
+    </main>
+  </body>
+</html>

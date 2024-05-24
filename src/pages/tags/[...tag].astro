@@ -1,0 +1,32 @@
+---
+import { getCollection } from "astro:content";
+import slugify from "slugify";
+
+import { getTags } from "../../utils/post";
+import { sortByDate } from "../../utils/sortByDate";
+
+export async function getStaticPaths() {
+  const hobbies = await getCollection("hobby");
+  const tutorials = await getCollection("tutorial");
+
+  const posts = [...hobbies, ...tutorials].sort(sortByDate);
+
+  const tags = await getTags(posts);
+
+  return Object.keys(tags).map((tag) => {
+    return {
+      params: { tag },
+      props: { tags },
+    };
+  });
+}
+
+const { tag } = Astro.params;
+const { tags } = Astro.props;
+---
+
+<div>{tag}</div>
+
+<!-- <BaseLayout title={tag}>
+	<TitlePage title={tag} />
+	<ListPosts posts={posts} /> --><!-- </BaseLayout> -->
