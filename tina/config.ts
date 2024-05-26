@@ -54,6 +54,13 @@ export default defineConfig({
             description: "The image used for the cover of the post",
           },
           {
+            type: "string",
+            name: "tags",
+            label: "Tags",
+            required: true,
+            list: true,
+          },
+          {
             type: "rich-text",
             label: "Body",
             name: "body",
@@ -73,6 +80,7 @@ export default defineConfig({
             label: "Title",
             isTitle: true,
             required: true,
+            searchable: true,
           },
           {
             type: "rich-text",
@@ -95,6 +103,13 @@ export default defineConfig({
             description: "The image used for the cover of the post",
           },
           {
+            type: "string",
+            name: "tags",
+            label: "Tags",
+            required: true,
+            list: true,
+          },
+          {
             type: "rich-text",
             label: "Body",
             name: "body",
@@ -103,5 +118,10 @@ export default defineConfig({
         ],
       },
     ],
+  },
+  search: {
+    tina: {
+      indexerToken: undefined,
+    },
   },
 });

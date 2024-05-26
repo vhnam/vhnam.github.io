@@ -11,12 +11,11 @@ module.exports = {
     },
     extend: {
       fontFamily: {
-        sans: ["Inter Variable", ...defaultTheme.fontFamily.sans],
+        sans: ["Source Sans Pro", ...defaultTheme.fontFamily.sans],
         mono: ["Fira Code VF", ...defaultTheme.fontFamily.mono],
         source: ["Source Sans Pro", ...defaultTheme.fontFamily.sans],
         "ubuntu-mono": ["Ubuntu Mono", ...defaultTheme.fontFamily.mono],
       },
     },
   },
-  plugins: [require("@tailwindcss/typography")],
 };
