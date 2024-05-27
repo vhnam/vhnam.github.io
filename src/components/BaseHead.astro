@@ -8,19 +8,18 @@ import "../styles/global.scss";
 export interface Props {
   title?: string;
   description?: string;
-  image?: string;
+  cover?: string;
   articleDate?: string;
 }
 
-const canonicalURL = new URL(Astro.url.pathname, Astro.site);
+const { title, description, cover, articleDate } = Astro.props;
 
-const {
-  title,
-  description,
-  image = "/placeholder-social.jpg",
-  articleDate,
-} = Astro.props;
 const expectedTitle = title ? `${title} | ${SITE_TITLE}` : SITE_TITLE;
+const canonicalURL = new URL(Astro.url.pathname, Astro.site);
+const socialImageURL = new URL(
+  cover ? cover : "/placeholder-social.jpg",
+  Astro.url
+).href;
 ---
 
 <!-- Global Metadata -->
@@ -50,7 +49,7 @@ const expectedTitle = title ? `${title} | ${SITE_TITLE}` : SITE_TITLE;
 <meta property="og:url" content={Astro.url} />
 <meta property="og:title" content={expectedTitle} />
 <meta property="og:description" content={description ?? SITE_DESCRIPTION} />
-<meta property="og:image" content={new URL(image, Astro.url)} />
+<meta property="og:image" content={socialImageURL} />
 {
   articleDate && (
     <>
@@ -68,7 +67,7 @@ const expectedTitle = title ? `${title} | ${SITE_TITLE}` : SITE_TITLE;
   property="twitter:description"
   content={description ?? SITE_DESCRIPTION}
 />
-<meta property="twitter:image" content={new URL(image, Astro.url)} />
+<meta property="twitter:image" content={socialImageURL} />
 
 <!-- RSS auto-discovery -->
 <link
