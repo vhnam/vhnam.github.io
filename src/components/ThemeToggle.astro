@@ -6,7 +6,7 @@
   aria-label="Theme Switcher"
   id="themeToggle"
   type="button"
-  class="block group flex items-center text-slate-600 hover:text-blue-600 font-semibold dark:text-slate-400 dark:hover:text-slate-500"
+  class="block group flex items-center font-semibold theme-toggler"
 >
   <svg width="1rem" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
     <path
@@ -24,7 +24,11 @@
 
 <style>
   html[data-mode="light"] .sun {
-    fill: black;
+    fill: #334155;
+  }
+
+  html[data-mode="light"] .theme-toggler:hover .sun {
+    fill: #0ea5e9;
   }
 
   html[data-mode="light"] .moon {
@@ -34,8 +38,13 @@
   html[data-mode="dark"] .sun {
     fill: transparent;
   }
+
   html[data-mode="dark"] .moon {
-    fill: white;
+    fill: #94a3b8;
+  }
+
+  html[data-mode="dark"] .theme-toggler:hover .moon {
+    fill: #38bdf8;
   }
 </style>
 

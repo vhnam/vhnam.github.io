@@ -9,12 +9,12 @@ const { category, nextPost, prevPost } = Astro.props;
         prevPost && (
           <a
             href={`/${category}/${prevPost.slug}/`}
-            class="text-xl hover:text-primary-600 active:text-primary-700"
+            class="text-xl text-slate-900 dark:text-slate-200 border-b border-b-primary-400 hover:border-b-2"
           >
             <span class="block pb-1 text-xs text-slate-600 dark:text-slate-400 text-semibold uppercase">
               ← Quay lại
             </span>
-            {prevPost.data?.title}
+            <span class="font-display">{prevPost.data?.title}</span>
           </a>
         )
       }
@@ -25,12 +25,12 @@ const { category, nextPost, prevPost } = Astro.props;
         nextPost && (
           <a
             href={`/${category}/${nextPost.slug}/`}
-            class="text-xl hover:text-primary-600 active:text-primary-700"
+            class="text-xl text-slate-900 dark:text-slate-200 border-b border-b-primary-400 hover:border-b-2"
           >
             <span class="block pb-1 text-xs text-slate-600 dark:text-slate-400 text-semibold uppercase">
               Xem tiếp →
             </span>
-            {nextPost.data?.title}
+            <span class="font-display">{nextPost.data?.title}</span>
           </a>
         )
       }

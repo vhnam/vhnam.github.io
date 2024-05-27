@@ -11,6 +11,7 @@ module.exports = {
     },
     extend: {
       fontFamily: {
+        display: ["'Montserrat Variable'", ...defaultTheme.fontFamily.sans],
         sans: ["Source Sans Pro", ...defaultTheme.fontFamily.sans],
         mono: ["Fira Code VF", ...defaultTheme.fontFamily.mono],
         source: ["Source Sans Pro", ...defaultTheme.fontFamily.sans],

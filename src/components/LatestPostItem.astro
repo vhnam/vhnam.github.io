@@ -10,7 +10,7 @@ const { post } = Astro.props;
   <FormattedDate pubDate={post.data.pubDate} />
   <a
     href={`/${pluralize(post.collection)}/${post.slug}/`}
-    class="block pb-1 text-lg md:text-xl text-slate-900 tracking-tight dark:text-slate-200 box-border"
+    class="block pb-1 text-lg md:text-xl text-slate-900 dark:text-slate-200 font-display"
   >
     {post.data.title}
   </a>

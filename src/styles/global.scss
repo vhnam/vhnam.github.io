@@ -1,5 +1,6 @@
 @import "@fontsource/source-sans-pro/400.css";
 @import "@fontsource/source-sans-pro/600.css";
+@import "@fontsource-variable/montserrat";
 
 @tailwind base;
 @tailwind components;
@@ -7,13 +8,13 @@
 
 [data-mode="light"] {
   body {
-    @apply bg-slate-100 text-slate-700;
+    @apply bg-slate-100 text-slate-700 transition-colors;
   }
 }
 
 [data-mode="dark"] {
   body {
-    @apply bg-slate-900 text-slate-400;
+    @apply bg-slate-900 text-slate-400 transition-colors;
   }
 }
 
@@ -23,7 +24,7 @@ h3,
 h4,
 h5,
 h6 {
-  @apply font-semibold text-slate-900 dark:text-slate-50;
+  @apply font-display font-semibold text-slate-900 dark:text-slate-50;
 }
 
 .content {
@@ -49,7 +50,7 @@ h6 {
     @apply my-5 text-base;
   }
   a {
-    @apply text-slate-900 dark:text-white border-b border-b-primary-400;
+    @apply text-slate-900 dark:text-slate-200 border-b border-b-primary-400;
     &:hover,
     &:focus {
       @apply border-b-2;
@@ -118,7 +119,7 @@ h6 {
     @apply bg-white border-b dark:bg-gray-800 dark:border-gray-700;
   }
   table tbody tr th {
-    @apply px-4 py-4 font-semibold text-gray-900 whitespace-nowrap dark:text-white;
+    @apply px-4 py-4 font-semibold text-gray-900 whitespace-nowrap dark:text-slate-200;
   }
   table tbody tr td {
     @apply px-4 py-4;
