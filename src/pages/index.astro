@@ -27,6 +27,7 @@ const posts = tutorials.sort(sortByDate).slice(0, 4);
 const optimizedBackground = await getImage({ src: headerImg, format: "webp" });
 
 const tags = await getTags(allPosts);
+console.log(JSON.stringify(tags))
 ---
 
 <!doctype html>
