@@ -27,7 +27,6 @@ const posts = tutorials.sort(sortByDate).slice(0, 4);
 const optimizedBackground = await getImage({ src: headerImg, format: "webp" });
 
 const tags = await getTags(allPosts);
-console.log(JSON.stringify(tags))
 ---
 
 <!doctype html>
@@ -127,7 +126,11 @@ console.log(JSON.stringify(tags))
                 Khám phá thêm các chủ đề
               </h2>
               <div class="flex flex-wrap gap-1">
-                {Object.keys(tags).map((tag) => <Tag tag={tag} />)}
+                {
+                  Object.keys(tags).map((slug) => (
+                    <Tag tag={(tags as any)[slug]} slug={slug} />
+                  ))
+                }
               </div>
             </div>
           </section>

@@ -1,9 +1,15 @@
 ---
 import { getCollection } from "astro:content";
-import slugify from "slugify";
+
+import { GA_MEASUREMENT_ID } from "../../consts";
 
 import { getTags } from "../../utils/post";
 import { sortByDate } from "../../utils/sortByDate";
+
+import BaseHead from "../../components/BaseHead.astro";
+import Header from "../../components/Header.astro";
+import PostItem from "../../components/PostItem.astro";
+import Footer from "../../components/Footer.astro";
 
 export async function getStaticPaths() {
   const hobbies = await getCollection("hobby");
@@ -23,10 +29,60 @@ export async function getStaticPaths() {
 
 const { tag } = Astro.params;
 const { tags } = Astro.props;
+
+const expectedTag = (tags as any)[tag];
 ---
 
-<div>{tag}</div>
+<html lang="vi">
+  <head>
+    <BaseHead title={expectedTag.name} />
+  </head>
+  <body>
+    <Header />
 
-<!-- <BaseLayout title={tag}>
-	<TitlePage title={tag} />
-	<ListPosts posts={posts} /> --><!-- </BaseLayout> -->
+    <main class="my-20">
+      <div class="py-5 xl:py-20 mb-12 bg-white dark:bg-slate-800">
+        <h1
+          class="text-slate-900 font-semibold text-2xl sm:text-3xl lg:text-4xl tracking-tight text-center dark:text-slate-200 mb-2 xl:mb-6"
+        >
+          {expectedTag.name}
+        </h1>
+        <p class="text-sm leading-6 text-center">
+          {expectedTag.total} bài viết
+        </p>
+      </div>
+
+      <div class="container mx-auto">
+        <div class="flex flex-col md:flex-row px-4 md:px-8 gap-8">
+          <section class="basis-full md:basis-9/12 mx-auto">
+            <ul class="flex flex-col gap-4 md:gap-6 pb-6">
+              {
+                expectedTag.posts.map((post: any) => (
+                  <PostItem post={post} category={post.category} />
+                ))
+              }
+            </ul>
+          </section>
+        </div>
+      </div>
+    </main>
+
+    <Footer />
+
+    <script
+      type="text/partytown"
+      async
+      src={`https://www.googletagmanager.com/gtag/js?id=${GA_MEASUREMENT_ID}`}
+    ></script>
+
+    <script type="text/partytown" define:vars={{ GA_MEASUREMENT_ID }}>
+      window.dataLayer = window.dataLayer || [];
+
+      function gtag() {
+        window.dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+      gtag("config", GA_MEASUREMENT_ID);
+    </script>
+  </body>
+</html>

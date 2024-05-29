@@ -1,20 +1,16 @@
 ---
-import slugify from "slugify";
-
 export interface Props {
-  tag: string;
+  tag: any;
+  slug: string;
 }
 
-const { tag } = Astro.props;
-const slug = slugify(tag, {
-  locale: "vi",
-}).toLowerCase();
+const { tag, slug } = Astro.props;
 ---
 
-<a href={`/tags/${slug}`} aria-label={tag}>
+<a href={`/tags/${slug}`} aria-label={tag.name}>
   <span
     class="text-xs font-semibold me-2 px-2 py-1 tracking-wide rounded-sm bg-white dark:bg-slate-800"
   >
-    {tag}
+    {tag.name}
   </span>
 </a>
