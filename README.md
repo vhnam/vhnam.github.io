@@ -7,12 +7,12 @@ Inside of project, you'll see the following folders and files:
 ```
 ├── public/
 ├── src/
-│   ├── assets/
-│   ├── components/
-│   ├── content/
-│   ├── layouts/
-│   └── pages/
-│   └── styles/
+│   ├── assets/
+│   ├── components/
+│   ├── content/
+│   ├── layouts/
+│   └── pages/
+│   └── styles/
 ├── astro.config.mjs
 ├── package.json
 ├── postcss.config.cjs
