@@ -26,8 +26,8 @@ const tags = await getTags(posts);
 
     <Nav />
 
-    <main class="mt-10">
-      <div class="flex justify-center flex-wrap gap-4">
+    <main class="mt-10 container mx-auto">
+      <div class="flex justify-center flex-wrap gap-4 md:gap-6">
         {
           Object.keys(tags).map((tag) => (
             <a

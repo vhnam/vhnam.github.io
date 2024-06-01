@@ -61,7 +61,7 @@ const tags = await getTags(posts);
 
           <section class="basis-full md:basis-9/12">
             <div class="mb-12 min-w-full">
-              <ul>
+              <ul class="flex flex-col gap-4 md:gap-6 pb-6">
                 {
                   posts.map((post) => (
                     <PostItem post={post} category="tutorials" />

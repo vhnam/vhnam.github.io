@@ -1,5 +1,6 @@
 ---
 import { getCollection } from "astro:content";
+import pluralize from "pluralize";
 
 import { GA_MEASUREMENT_ID } from "../../consts";
 
@@ -58,7 +59,7 @@ const expectedTag = (tags as any)[tag];
             <ul class="flex flex-col gap-4 md:gap-6 pb-6">
               {
                 expectedTag.posts.map((post: any) => (
-                  <PostItem post={post} category={post.category} />
+                  <PostItem post={post} category={pluralize(post.collection)} />
                 ))
               }
             </ul>
