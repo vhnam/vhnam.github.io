@@ -3,14 +3,17 @@ import { getCollection } from "astro:content";
 
 import { GA_MEASUREMENT_ID } from "../../consts";
 
+import { getTags } from "../../utils/post";
 import { sortByDate } from "../../utils/sortByDate";
 
 import BaseHead from "../../components/BaseHead.astro";
 import Footer from "../../components/Footer.astro";
 import Header from "../../components/Header.astro";
 import PostItem from "../../components/PostItem.astro";
+import Tag from "../../components/Tag.astro";
 
 const posts = (await getCollection("tutorial")).sort(sortByDate);
+const tags = await getTags(posts);
 ---
 
 <!doctype html>
@@ -22,32 +25,50 @@ const posts = (await getCollection("tutorial")).sort(sortByDate);
     <Header />
 
     <main class="my-20">
-      <div class="py-5 xl:py-20 mb-12 bg-white dark:bg-slate-800">
+      <div
+        class="py-5 xl:py-20 px-4 mb-12 bg-white dark:bg-slate-800 text-center"
+      >
         <h1
-          class="text-slate-900 font-semibold text-2xl sm:text-3xl lg:text-4xl tracking-tight text-center dark:text-slate-200 mb-2 xl:mb-6"
+          class="text-slate-900 font-semibold text-2xl sm:text-3xl lg:text-4xl tracking-tight dark:text-slate-200 mb-2 xl:mb-6"
         >
           Chia sẻ về Công nghệ Phần mềm
         </h1>
-        <p class="text-sm leading-6 text-center">{posts.length} bài viết</p>
+        <p class="text-sm leading-6 text-slate-700 dark:text-slate-400">
+          {posts.length} bài viết
+        </p>
       </div>
 
-      <div class="container mx-auto">
-        <div class="flex flex-col md:flex-row px-4 md:px-8 gap-8">
-          <div class="basis-full md:basis-3/12">
-            <h2
-              class="text-2xl lg:text-3xl font-semibold text-slate-900 tracking-tight dark:text-slate-200"
+      <div class="container mx-auto pb-20">
+        <div class="flex flex-row px-4 xl:px-8 gap-8">
+          <aside class="xl:w-3/12 shrink-0 hidden lg:block">
+            <div
+              class="sticky top-24 self-start hidden lg:block transition-all duration-200"
             >
-              Bài viết mới nhất
-            </h2>
-          </div>
+              <h2
+                class="mb-2 text-2xl lg:text-3xl font-semibold text-slate-900 tracking-tight dark:text-slate-200"
+              >
+                Bài viết mới nhất
+              </h2>
+              <div class="flex flex-wrap gap-1">
+                {
+                  Object.keys(tags).map((slug) => (
+                    <Tag tag={(tags as any)[slug]} slug={slug} />
+                  ))
+                }
+              </div>
+            </div>
+          </aside>
+
           <section class="basis-full md:basis-9/12">
-            <ul class="flex flex-col gap-4 md:gap-6 pb-6">
-              {
-                posts.map((post) => (
-                  <PostItem post={post} category="tutorials" />
-                ))
-              }
-            </ul>
+            <div class="mb-12 min-w-full">
+              <ul>
+                {
+                  posts.map((post) => (
+                    <PostItem post={post} category="tutorials" />
+                  ))
+                }
+              </ul>
+            </div>
           </section>
         </div>
       </div>
