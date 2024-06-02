@@ -25,7 +25,7 @@
     "@astrojs/tailwind": "^5.1.0",
     "@fontsource-variable/montserrat": "^5.0.19",
     "@fontsource/source-sans-pro": "^5.0.8",
-    "astro": "^4.9.1",
+    "astro": "^4.9.2",
     "dayjs": "~1.11.11",
     "fast-average-color-node": "^3.0.0",
     "pluralize": "^8.0.0",
@@ -37,7 +37,7 @@
   "devDependencies": {
     "@rollup/plugin-yaml": "^4.1.2",
     "@tinacms/cli": "^1.5.45",
-    "@types/node": "^20.12.12",
+    "@types/node": "^20.13.0",
     "@types/pluralize": "^0.0.33",
     "@types/react": "^18.3.3",
     "@types/react-dom": "^18.3.0",
@@ -46,13 +46,13 @@
     "husky": "^9.0.11",
     "lint-staged": "^15.2.5",
     "postcss": "~8.4.38",
-    "prettier": "^3.2.5",
+    "prettier": "^3.3.0",
     "prettier-plugin-astro": "^0.13.0",
     "prettier-plugin-tailwindcss": "^0.5.14",
-    "sass": "^1.77.2",
+    "sass": "^1.77.4",
     "sharp": "^0.33.4",
     "tailwindcss": "~3.4.3",
-    "vite": "^5.2.11"
+    "vite": "^5.2.12"
   },
   "lint-staged": {
     "*.{js,css,md}": "prettier --write"
