@@ -8,7 +8,6 @@ import FormattedDate from "../components/FormattedDate.astro";
 import Header from "../components/Header.astro";
 import Navigate from "../components/Navigate.astro";
 import TableOfContents from "../components/TableOfContents.astro";
-import Tag from "../components/Tag.astro";
 
 const {
   category,
@@ -22,8 +21,6 @@ const {
   title,
 } = Astro.props;
 const articleDate = new Date(pubDate).toISOString();
-
-console.log("line 26", tags);
 ---
 
 <html lang="vi">
