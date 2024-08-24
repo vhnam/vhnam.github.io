@@ -8,18 +8,22 @@ import FormattedDate from "../components/FormattedDate.astro";
 import Header from "../components/Header.astro";
 import Navigate from "../components/Navigate.astro";
 import TableOfContents from "../components/TableOfContents.astro";
+import Tag from "../components/Tag.astro";
 
 const {
-  title,
-  description,
-  pubDate,
-  cover,
   category,
+  cover,
+  description,
   headings,
-  prevPost,
   nextPost,
+  prevPost,
+  pubDate,
+  tags,
+  title,
 } = Astro.props;
 const articleDate = new Date(pubDate).toISOString();
+
+console.log("line 26", tags);
 ---
 
 <html lang="vi">
@@ -44,7 +48,7 @@ const articleDate = new Date(pubDate).toISOString();
         >
           {title}
         </h1>
-        <div class="text-sm leading-6">
+        <div class="text-sm leading-6 mb-3">
           <dl>
             <dt class="sr-only">Date</dt>
             <dd class="inset-x-0 text-slate-700 dark:text-slate-400">
@@ -54,6 +58,17 @@ const articleDate = new Date(pubDate).toISOString();
               </time>
             </dd>
           </dl>
+        </div>
+        <div class="flex justify-center">
+          <div class="flex flex-wrap gap-1">
+            {
+              tags.map((tag: string) => (
+                <span class="text-xs font-semibold me-2 px-2 py-1 tracking-wide rounded-sm bg-white dark:bg-slate-800">
+                  #{tag}
+                </span>
+              ))
+            }
+          </div>
         </div>
       </div>
 

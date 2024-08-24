@@ -29,7 +29,7 @@ type Props = CollectionEntry<"hobby"> & {
 };
 
 const { nextPost, prevPost, data, render } = Astro.props;
-const { title, description, cover, pubDate } = data;
+const { title, description, cover, pubDate, tags } = data;
 const { Content, headings } = await render();
 ---
 
@@ -40,6 +40,7 @@ const { Content, headings } = await render();
   category="hobbies"
   headings={headings}
   pubDate={pubDate}
+  tags={tags}
   {nextPost}
   {prevPost}
 >
