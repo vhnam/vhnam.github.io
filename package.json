@@ -25,7 +25,7 @@
     "@astrojs/tailwind": "^5.1.0",
     "@fontsource-variable/montserrat": "^5.0.20",
     "@fontsource/source-sans-pro": "^5.0.8",
-    "astro": "^4.14.5",
+    "astro": "^4.16.1",
     "dayjs": "~1.11.13",
     "fast-average-color-node": "^3.0.0",
     "github-slugger": "^2.0.0",
