@@ -9,7 +9,7 @@ const postSchema = z.object({
     .transform((val) => new Date(val)),
   cover: z.any().optional(),
   tags: z.array(z.string()).optional(),
-  slug: z.string(),
+  // slug: z.string(),
 });
 
 const postCollection = defineCollection({
