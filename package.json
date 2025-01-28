@@ -6,7 +6,7 @@
     "url": "https://github.com/vhnam/vhnam.github.io/issues"
   },
   "homepage": "https://github.com/vhnam/vhnam.github.io#readme",
-  "version": "5.11.2",
+  "version": "5.11.3",
   "type": "module",
   "scripts": {
     "dev": "tinacms dev -c \"astro dev\"",
