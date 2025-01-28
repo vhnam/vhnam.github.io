@@ -7,7 +7,6 @@
   --starlight-image-zoom-backdrop-bg: oklch(0.274 0.006 286.033 / 0.75);
   --font-display: "Montserrat Variable", "sans-serif";
   --font-sans: "Source Sans Pro", "sans-serif";
-  --font-mono: "Fira Code VF", "monospace";
   --color-primary: var(--color-sky-500);
 }
 
