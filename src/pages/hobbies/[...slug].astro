@@ -10,7 +10,7 @@ export async function getStaticPaths() {
   const posts = await getCollection("hobby");
   const numberOfPosts = posts.length;
 
-  return posts.sort(sortByDate).map((post, index) => ({
+  return posts.sort(sortByDate).map((post, index: number) => ({
     params: { slug: post.slug },
     props: {
       ...post,

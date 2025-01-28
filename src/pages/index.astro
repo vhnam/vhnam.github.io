@@ -127,7 +127,7 @@ const tags = await getTags(allPosts);
               <div class="flex flex-wrap gap-1">
                 {
                   Object.keys(tags).map((slug) => (
-                    <Tag tag={(tags as any)[slug]} slug={slug} />
+                    <Tag tag={tags[slug]} slug={slug} />
                   ))
                 }
               </div>

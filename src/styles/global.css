@@ -1,10 +1,15 @@
 @import "@fontsource/source-sans-pro/400.css";
 @import "@fontsource/source-sans-pro/600.css";
 @import "@fontsource-variable/montserrat";
+@import "tailwindcss";
 
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@theme {
+  --starlight-image-zoom-backdrop-bg: oklch(0.274 0.006 286.033 / 0.75);
+  --font-display: "Montserrat Variable", "sans-serif";
+  --font-sans: "Source Sans Pro", "sans-serif";
+  --font-mono: "Fira Code VF", "monospace";
+  --color-primary: var(--color-sky-500);
+}
 
 [data-mode="light"] {
   body {
@@ -58,7 +63,9 @@ h6 {
     }
   }
   a {
-    @apply text-slate-900 dark:text-slate-200 border-b border-b-primary-400 break-words;
+    @apply text-slate-900 dark:text-slate-200 border-b break-words;
+    @reference border-b-primary-400;
+
     &:hover,
     &:focus {
       @apply border-b-2;
@@ -74,7 +81,8 @@ h6 {
     @apply px-2 py-1 font-mono text-xs text-pink-400;
   }
   blockquote {
-    @apply py-1 pe-1 ps-5 border-l-2 border-primary-500 border-solid;
+    @apply py-1 pe-1 ps-5 border-l-2 border-solid;
+    @reference border-primary-500;
   }
   cite {
     @apply italic;
@@ -131,5 +139,15 @@ h6 {
   }
   table tbody tr td {
     @apply px-4 py-4;
+  }
+}
+
+.starlight-image-zoom-opened {
+  button {
+    @apply text-white;
+  }
+
+  figure figcaption {
+    @apply bg-gradient-to-t from-black to-transparent text-white text-center pb-10 pt-6;
   }
 }

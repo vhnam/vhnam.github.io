@@ -1,26 +1,32 @@
+import { defineConfig } from "astro/config";
 import mdx from "@astrojs/mdx";
 import partytown from "@astrojs/partytown";
 import react from "@astrojs/react";
 import sitemap from "@astrojs/sitemap";
-import tailwind from "@astrojs/tailwind";
+import starlight from "@astrojs/starlight";
+import starlightImageZoom from "starlight-image-zoom";
+import tailwindcss from "@tailwindcss/vite";
 import yaml from "@rollup/plugin-yaml";
-import { defineConfig } from "astro/config";
 
 // https://astro.build/config
 export default defineConfig({
   integrations: [
-    mdx(),
     partytown({
       config: {
         forward: ["dataLayer.push", "FB.init"],
       },
     }),
-    sitemap(),
-    tailwind({
-      config: {
-        applyBaseStyles: false,
-      },
+    starlight({
+      title: "Nam Vo | Software Developer, Product Manager, UX/UI Designer",
+      plugins: [
+        starlightImageZoom({
+          showCaptions: true,
+        }),
+      ],
     }),
+    sitemap(),
+    mdx(),
+
     react(),
   ],
   markdown: {
@@ -29,6 +35,6 @@ export default defineConfig({
   },
   site: "https://vhnam.github.io",
   vite: {
-    plugins: [yaml()],
+    plugins: [yaml(), tailwindcss()],
   },
 });
