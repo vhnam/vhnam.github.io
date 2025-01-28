@@ -6,6 +6,10 @@
 @tailwind components;
 @tailwind utilities;
 
+:root {
+  --starlight-image-zoom-backdrop-bg: oklch(0.274 0.006 286.033 / 0.75);
+}
+
 [data-mode="light"] {
   body {
     @apply bg-slate-100 text-slate-700 transition-colors;
@@ -131,5 +135,15 @@ h6 {
   }
   table tbody tr td {
     @apply px-4 py-4;
+  }
+}
+
+.starlight-image-zoom-opened {
+  button {
+    @apply text-white;
+  }
+
+  figure figcaption {
+    @apply bg-gradient-to-t from-black to-transparent text-white text-center pb-10 pt-6;
   }
 }
