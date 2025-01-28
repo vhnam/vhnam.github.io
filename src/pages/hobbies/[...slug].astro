@@ -2,8 +2,6 @@
 import { type CollectionEntry, getCollection } from "astro:content";
 import type { MarkdownHeading } from "astro";
 
-import { type Post } from "../../content/config";
-
 import { sortByDate } from "../../utils/sortByDate";
 
 import PostLayout from "../../layouts/PostLayout.astro";
@@ -12,7 +10,7 @@ export async function getStaticPaths() {
   const posts = await getCollection("hobby");
   const numberOfPosts = posts.length;
 
-  return posts.sort(sortByDate).map((post: Post, index: number) => ({
+  return posts.sort(sortByDate).map((post, index: number) => ({
     params: { slug: post.slug },
     props: {
       ...post,

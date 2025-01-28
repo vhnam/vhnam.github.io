@@ -1,21 +1,17 @@
 import type { DataEntry } from "astro:content";
 import slugify from "slugify";
 
-import type { Post } from "../content/config";
-
-export const getTags = (
-  posts: DataEntry[]
-): Record<string, DataEntry & Post> => {
+export const getTags = (posts: any): Record<string, DataEntry> => {
   const tags = {} as Record<
     string,
     {
-      posts: DataEntry[];
+      posts: any[];
       total: number;
     }
   >;
 
-  posts.forEach((post: DataEntry) => {
-    (post.data as Post).tags?.forEach((tag: string) => {
+  posts.forEach((post: any) => {
+    post.data.tags.forEach((tag: string) => {
       if (undefined === tags[tag]) {
         tags[tag] = {
           total: 0,

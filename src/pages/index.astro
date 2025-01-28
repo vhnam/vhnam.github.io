@@ -3,7 +3,6 @@ import { getCollection } from "astro:content";
 import { Image, getImage } from "astro:assets";
 
 import { GA_MEASUREMENT_ID } from "../consts";
-import type { Post } from "../content/config";
 
 import { getTags } from "../utils/post";
 import { sortByDate } from "../utils/sortByDate";
@@ -23,7 +22,7 @@ const hobbies = await getCollection("hobby");
 
 const allPosts = [...hobbies, ...tutorials].sort(sortByDate);
 const latestPosts = allPosts.slice(0, 6);
-const posts: Post[] = tutorials.sort(sortByDate).slice(0, 4);
+const posts = tutorials.sort(sortByDate).slice(0, 4);
 
 const optimizedBackground = await getImage({ src: headerImg, format: "webp" });
 
