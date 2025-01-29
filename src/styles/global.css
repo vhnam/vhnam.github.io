@@ -10,6 +10,8 @@
   --color-primary: var(--color-sky-500);
 }
 
+@custom-variant dark (&:where([data-mode=dark], [data-mode=dark] *));
+
 [data-mode="light"] {
   body {
     @apply bg-slate-100 text-slate-700 transition-colors;
