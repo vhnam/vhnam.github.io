@@ -3,14 +3,14 @@
 @import "@fontsource-variable/montserrat";
 @import "tailwindcss";
 
+@custom-variant dark (&:where([data-mode=dark], [data-mode=dark] *));
+
 @theme {
   --starlight-image-zoom-backdrop-bg: oklch(0.274 0.006 286.033 / 0.75);
   --font-display: "Montserrat Variable", "sans-serif";
   --font-sans: "Source Sans Pro", "sans-serif";
   --color-primary: var(--color-sky-500);
 }
-
-@custom-variant dark (&:where([data-mode=dark], [data-mode=dark] *));
 
 [data-mode="light"] {
   body {
@@ -41,13 +41,13 @@ h6 {
     @apply my-5 text-2xl;
   }
   h3 {
-    @apply my-[1.125rem] text-lg;
+    @apply my-4.5 text-lg;
   }
   h4 {
     @apply my-5 text-base;
   }
   h5 {
-    @apply my-[1.375rem] text-sm;
+    @apply my-5.5 text-sm;
   }
   h6 {
     @apply my-6 text-xs;
@@ -149,6 +149,6 @@ h6 {
   }
 
   figure figcaption {
-    @apply bg-gradient-to-t from-black to-transparent text-white text-center pb-10 pt-6;
+    @apply bg-linear-to-t from-black to-transparent text-white text-center pb-10 pt-6;
   }
 }

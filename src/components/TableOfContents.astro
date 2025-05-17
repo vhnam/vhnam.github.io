@@ -30,7 +30,7 @@ function buildToc(headings: TableOfContent[]) {
 
 <nav class="max-w-xs dark:text-black">
   <h1 class="font-bold mb-3 text-2xl dark:text-slate-200">Mục lục</h1>
-  <ul class="[text-wrap:balance] flex flex-col gap-1">
+  <ul class="text-balance flex flex-col gap-1">
     {toc.map((heading) => <TabletOfContentsHeading heading={heading} />)}
   </ul>
 </nav>
