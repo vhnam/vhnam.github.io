@@ -9,7 +9,7 @@ const { post } = Astro.props;
 <li class="box-border">
   <FormattedDate pubDate={post.data.pubDate} />
   <a
-    href={`/${pluralize(post.collection)}/${post.slug}/`}
+    href={`/${pluralize(post.collection)}/${post.id}/`}
     class="block pb-1 text-lg md:text-xl text-slate-900 dark:text-slate-200 font-display"
   >
     {post.data.title}

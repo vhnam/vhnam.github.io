@@ -1,36 +1,55 @@
 ---
-import { type CollectionEntry, getCollection } from "astro:content";
-import type { MarkdownHeading } from "astro";
+import {
+  type CollectionEntry,
+  getCollection,
+  getEntry,
+  render,
+} from "astro:content";
 
+import {
+  type CollectionNavPost,
+  collectionNavSlice,
+} from "../../utils/collectionNav";
 import { sortByDate } from "../../utils/sortByDate";
 
 import PostLayout from "../../layouts/PostLayout.astro";
 
+type TutorialEntry = CollectionEntry<"tutorial">;
+
 export async function getStaticPaths() {
   const posts = await getCollection("tutorial");
   const numberOfPosts = posts.length;
+  const sorted = posts.sort(sortByDate);
 
-  return posts.sort(sortByDate).map((post, index) => ({
-    params: { slug: post.slug },
+  return sorted.map((post, index: number) => ({
+    params: { slug: post.id },
     props: {
-      ...post,
-      prevPost: index + 1 === numberOfPosts ? null : posts[index + 1],
-      nextPost: index === 0 ? null : posts[index - 1],
+      id: post.id,
+      prevPost:
+        index + 1 === numberOfPosts
+          ? null
+          : collectionNavSlice(sorted[index + 1]!),
+      nextPost:
+        index === 0 ? null : collectionNavSlice(sorted[index - 1]!),
     },
   }));
 }
 
-type Props = CollectionEntry<"tutorial"> & {
-  id: CollectionEntry<"tutorial">["id"];
-  data: CollectionEntry<"tutorial">["data"];
-  headings: MarkdownHeading[];
-  nextPost: CollectionEntry<"tutorial">;
-  prevPost: CollectionEntry<"tutorial">;
+type Props = {
+  id: TutorialEntry["id"];
+  nextPost: CollectionNavPost | null;
+  prevPost: CollectionNavPost | null;
 };
 
-const { nextPost, prevPost, data, render } = Astro.props;
-const { title, description, cover, pubDate, tags } = data;
-const { Content, headings } = await render();
+const { id, nextPost, prevPost } = Astro.props as Props;
+
+const entry = await getEntry("tutorial", id);
+if (!entry) {
+  return Astro.redirect("/404");
+}
+
+const { Content, headings } = await render(entry);
+const { title, description, cover, pubDate, tags } = entry.data;
 ---
 
 <PostLayout
@@ -40,7 +59,7 @@ const { Content, headings } = await render();
   category="tutorials"
   headings={headings}
   pubDate={pubDate}
-  tags={tags}
+  tags={tags ?? []}
   {nextPost}
   {prevPost}
 >

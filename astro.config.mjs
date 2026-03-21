@@ -6,7 +6,6 @@ import sitemap from "@astrojs/sitemap";
 import starlight from "@astrojs/starlight";
 import starlightImageZoom from "starlight-image-zoom";
 import tailwindcss from "@tailwindcss/vite";
-import yaml from "@rollup/plugin-yaml";
 
 // https://astro.build/config
 export default defineConfig({
@@ -35,6 +34,6 @@ export default defineConfig({
   },
   site: "https://vhnam.github.io",
   vite: {
-    plugins: [yaml(), tailwindcss()],
+    plugins: [tailwindcss()],
   },
 });

@@ -20,7 +20,7 @@ export async function GET(context: APIContext) {
     items: posts.map((post) => ({
       ...post.data,
       pubDate: post.data.pubDate,
-      link: `/${pluralize(post.collection)}/${post.slug}/`,
+      link: `/${pluralize(post.collection)}/${post.id}/`,
     })),
   });
 }
