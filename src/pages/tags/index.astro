@@ -36,7 +36,7 @@ const tags = getTags(posts);
           Object.keys(tags).map((tag) => (
             <a
               href={`/tags/${tag}`}
-              class="inline-block bg-gray-200  rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2"
+              class="mb-2 mr-2 inline-block rounded-full border border-primary-200/80 bg-primary-50/90 px-3 py-1 text-sm font-semibold text-primary-900 shadow-sm shadow-primary-500/10 transition-colors hover:border-primary-300 hover:bg-primary-100/90 dark:border-primary-700/60 dark:bg-primary-950/40 dark:text-primary-200 dark:shadow-none dark:hover:border-primary-500/50 dark:hover:bg-primary-950/65"
             >
               #{tag}
             </a>

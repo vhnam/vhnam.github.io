@@ -42,17 +42,17 @@ const articleDate = new Date(pubDate).toISOString();
 
     <main id="main-content" class="my-20">
       <div
-        class="py-5 xl:py-20 px-4 mb-12 bg-white dark:bg-slate-800 text-center"
+        class="mb-12 border-b border-primary-200/55 bg-white/80 px-4 py-5 text-center backdrop-blur-md dark:border-primary-800/35 dark:bg-zinc-900/75 xl:py-20"
       >
         <h1
-          class="text-slate-900 font-semibold text-2xl sm:text-3xl lg:text-4xl tracking-tight dark:text-slate-200 mb-2 xl:mb-6"
+          class="mb-2 text-2xl font-semibold tracking-tight text-stone-900 sm:text-3xl lg:text-4xl dark:text-zinc-100 xl:mb-6"
         >
           {title}
         </h1>
         <div class="text-sm leading-6 mb-3">
           <dl>
             <dt class="sr-only">Ngày đăng</dt>
-            <dd class="inset-x-0 text-slate-700 dark:text-slate-400">
+            <dd class="inset-x-0 text-stone-600 dark:text-zinc-400">
               Ngày đăng
               <time datetime={pubDate.toISOString()}>
                 <FormattedDate pubDate={pubDate} />
@@ -64,7 +64,9 @@ const articleDate = new Date(pubDate).toISOString();
           <div class="flex flex-wrap gap-1">
             {
               tags.map((tag: string) => (
-                <span class="text-xs font-semibold me-2 px-2 py-1 tracking-wide rounded-sm bg-white dark:bg-slate-800">
+                <span
+                  class="me-2 rounded-full border border-primary-200/70 bg-primary-50/60 px-2.5 py-1 text-xs font-semibold tracking-wide text-primary-900 backdrop-blur-sm dark:border-primary-700/50 dark:bg-primary-950/35 dark:text-primary-200"
+                >
                   #{tag}
                 </span>
               ))
@@ -117,24 +119,38 @@ const articleDate = new Date(pubDate).toISOString();
             );
 
             if (entry.isIntersecting) {
-              index?.classList.remove("bg-slate-200", "dark:bg-slate-800"); // remove bg
+              index?.classList.remove(
+                "text-stone-800",
+                "dark:text-zinc-200",
+                "font-medium"
+              );
               index?.classList.add(
+                "rounded-lg",
                 "bg-primary-600",
                 "dark:bg-primary-700",
                 "text-white",
                 "font-bold",
+                "shadow-sm",
+                "shadow-primary-600/25",
                 "transition-colors",
                 "duration-200"
               );
             } else {
-              index?.classList.add("bg-slate-200", "dark:bg-slate-800"); // add bg
               index?.classList.remove(
+                "rounded-lg",
                 "bg-primary-600",
                 "dark:bg-primary-700",
                 "text-white",
                 "font-bold",
+                "shadow-sm",
+                "shadow-primary-600/25",
                 "transition-colors",
                 "duration-200"
+              );
+              index?.classList.add(
+                "text-stone-800",
+                "dark:text-zinc-200",
+                "font-medium"
               );
             }
           });

@@ -29,7 +29,7 @@ const backgroundColorHex = await (async () => {
 ---
 
 <li
-  class="flex flex-col md:flex-row items-center md:gap-6 px-4 bg-white dark:bg-slate-800"
+  class="flex flex-col items-center gap-0 overflow-hidden rounded-2xl border border-primary-200/55 bg-white/90 px-4 shadow-sm shadow-primary-500/8 backdrop-blur-sm md:flex-row md:gap-6 dark:border-primary-800/35 dark:bg-zinc-900/85 dark:shadow-none"
 >
   <div class="relative overflow-hidden min-w-40 rounded">
     <div
@@ -50,10 +50,12 @@ const backgroundColorHex = await (async () => {
     <FormattedDate pubDate={post.data.pubDate} />
     <a
       href={`/${category}/${post.id}/`}
-      class="block pb-1 text-lg md:text-xl text-slate-900 dark:text-slate-200 font-display"
+      class="font-display block pb-1 text-lg text-stone-900 transition-colors md:text-xl hover:text-primary-700 dark:text-zinc-100 dark:hover:text-primary-400"
     >
       {post.data.title}
     </a>
-    <p class="text-sm">{post.data.description}</p>
+    <p class="text-sm text-stone-600 dark:text-zinc-400">
+      {post.data.description}
+    </p>
   </div>
 </li>

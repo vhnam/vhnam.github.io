@@ -6,13 +6,17 @@ import FormattedDate from "./FormattedDate.astro";
 const { post } = Astro.props;
 ---
 
-<li class="box-border">
+<li
+  class="box-border rounded-2xl border border-primary-200/55 bg-white/85 p-5 shadow-sm shadow-primary-500/8 backdrop-blur-sm transition-[box-shadow,transform] hover:shadow-md hover:shadow-primary-500/15 dark:border-primary-800/35 dark:bg-zinc-900/75 dark:shadow-none dark:hover:shadow-none"
+>
   <FormattedDate pubDate={post.data.pubDate} />
   <a
     href={`/${pluralize(post.collection)}/${post.id}/`}
-    class="block pb-1 text-lg md:text-xl text-slate-900 dark:text-slate-200 font-display"
+    class="font-display block pb-1 text-lg text-stone-900 transition-colors md:text-xl hover:text-primary-700 dark:text-zinc-100 dark:hover:text-primary-400"
   >
     {post.data.title}
   </a>
-  <p class="text-sm box-border">{post.data.description}</p>
+  <p class="box-border text-sm text-stone-600 dark:text-zinc-400">
+    {post.data.description}
+  </p>
 </li>

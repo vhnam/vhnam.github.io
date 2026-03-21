@@ -9,13 +9,23 @@ const today = new Date();
 
 <footer class="container mx-auto">
   <div
-    class="py-6 border-t border-slate-300 dark:border-slate-700 px-4 xl:px-0"
+    class="border-t border-primary-200/60 px-4 py-6 dark:border-primary-800/40 xl:px-0"
   >
     <div class="flex items-center justify-between">
-      <span class="text-sm">&copy; {today.getFullYear()} Nam Vo's blog.</span>
+      <span class="text-sm text-stone-600 dark:text-zinc-500"
+        >&copy; {today.getFullYear()} Nam Vo's blog.</span
+      >
       <span class="flex gap-4">
-        <a href="/policy-privacy" class="text-sm hover:underline">Điều khoản</a>
-        <a href="/rss.xml" class="text-sm hover:underline">RSS</a>
+        <a
+          href="/policy-privacy"
+          class="text-sm text-stone-600 underline-offset-2 hover:text-primary-600 hover:underline dark:text-zinc-500 dark:hover:text-primary-400"
+          >Điều khoản</a
+        >
+        <a
+          href="/rss.xml"
+          class="text-sm text-stone-600 underline-offset-2 hover:text-primary-600 hover:underline dark:text-zinc-500 dark:hover:text-primary-400"
+          >RSS</a
+        >
       </span>
     </div>
   </div>
@@ -55,7 +65,7 @@ const today = new Date();
       href="https://www.flickr.com/photos/197719301@N02/"
       target="_blank"
       rel="noopener noreferrer"
-      class="bg-white hover:bg-slate-100 active:bg-slate-300 p-2 inline-flex items-center justify-center space-x-2 rounded w-9 h-9"
+      class="inline-flex h-9 w-9 items-center justify-center space-x-2 rounded border border-stone-200/80 bg-white p-2 hover:bg-stone-50 active:bg-stone-200 dark:border-zinc-600 dark:bg-zinc-800 dark:hover:bg-zinc-700 dark:active:bg-zinc-600"
     >
       <Flickr />
     </a>

@@ -28,9 +28,20 @@ function buildToc(headings: TableOfContent[]) {
 }
 ---
 
-<nav class="max-w-xs dark:text-black" aria-label="Mục lục">
-  <h2 class="font-bold mb-3 text-2xl dark:text-slate-200">Mục lục</h2>
-  <ul class="text-balance flex flex-col gap-1">
-    {toc.map((heading) => <TabletOfContentsHeading heading={heading} />)}
-  </ul>
+<nav
+  class="max-w-xs text-stone-800 dark:text-zinc-200"
+  aria-label="Mục lục"
+>
+  <div
+    class="rounded-3xl border border-primary-200/50 bg-white/95 p-6 shadow-sm shadow-primary-500/8 backdrop-blur-sm dark:border-primary-800/40 dark:bg-zinc-900/80 dark:shadow-none"
+  >
+    <h2
+      class="mb-6 border-b border-primary-200/70 pb-4 text-lg font-bold tracking-tight text-primary-950 dark:border-primary-800/50 dark:text-zinc-50"
+    >
+      Mục lục
+    </h2>
+    <ul class="flex flex-col gap-3 text-balance">
+      {toc.map((heading) => <TabletOfContentsHeading heading={heading} />)}
+    </ul>
+  </div>
 </nav>
