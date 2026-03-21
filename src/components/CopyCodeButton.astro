@@ -2,7 +2,24 @@
 ---
 
 <script>
-  const copyButtonLabel = "Copy";
+  const copyButtonLabel = "Sao chép";
+  const copiedLabel = "Đã chép";
+  const copyAriaDefault = "Sao chép mã nguồn";
+  const copyAriaCopied = "Đã sao chép mã vào bộ nhớ tạm";
+
+  function getOrCreateCopyStatus(): HTMLDivElement {
+    let el = document.getElementById("copy-code-status");
+    if (!el) {
+      el = document.createElement("div");
+      el.id = "copy-code-status";
+      el.setAttribute("role", "status");
+      el.setAttribute("aria-live", "polite");
+      el.className = "";
+      document.body.appendChild(el);
+    }
+    return el as HTMLDivElement;
+  }
+
   const codeBlocks = Array.from(document.querySelectorAll("pre"));
 
   for (let codeBlock of codeBlocks) {
@@ -10,11 +27,12 @@
     wrapper.style.position = "relative";
 
     const copyButton = document.createElement("button");
+    copyButton.type = "button";
     copyButton.className =
       "absolute top-4 right-4 px-2 py-1 text-sm border-2 border-solid rounded-md border-slate-500 text-slate-500 hover:text-slate-200";
-    copyButton.innerHTML = copyButtonLabel;
+    copyButton.textContent = copyButtonLabel;
+    copyButton.setAttribute("aria-label", copyAriaDefault);
 
-    codeBlock.setAttribute("tabindex", "0");
     codeBlock.appendChild(copyButton);
     codeBlock.parentNode?.insertBefore(wrapper, codeBlock);
     wrapper.appendChild(codeBlock);
@@ -30,10 +48,15 @@
 
     await navigator.clipboard.writeText(text);
 
-    button.innerText = "Copied!";
+    button.textContent = copiedLabel;
+    button.setAttribute("aria-label", copyAriaCopied);
+    const status = getOrCreateCopyStatus();
+    status.textContent = "Đã sao chép mã vào bộ nhớ tạm.";
 
     setTimeout(() => {
-      button.innerText = copyButtonLabel;
+      button.textContent = copyButtonLabel;
+      button.setAttribute("aria-label", copyAriaDefault);
+      status.textContent = "";
     }, 700);
   }
 </script>

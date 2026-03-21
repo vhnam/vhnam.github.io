@@ -5,6 +5,11 @@
       "source": "astrolicious/agent-skills",
       "sourceType": "github",
       "computedHash": "ebefe26b231d32379c14e41a46c2de7b4b0184543bedab7febdabe4fb21fba4e"
+    },
+    "web-accessibility": {
+      "source": "supercent-io/skills-template",
+      "sourceType": "github",
+      "computedHash": "1e0a30c11fc1524b36124c278642204597e137d927a46cc6262753c174af5a81"
     }
   }
 }

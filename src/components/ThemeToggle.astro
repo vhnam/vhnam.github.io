@@ -3,12 +3,18 @@
 ---
 
 <button
-  aria-label="Theme Switcher"
   id="themeToggle"
   type="button"
+  aria-pressed="false"
+  aria-label="Chuyển sang giao diện tối"
   class="block group flex items-center font-semibold theme-toggler hover:cursor-pointer"
 >
-  <svg width="1rem" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+  <svg
+    width="1rem"
+    xmlns="http://www.w3.org/2000/svg"
+    viewBox="0 0 24 24"
+    aria-hidden="true"
+  >
     <path
       class="sun"
       fill-rule="evenodd"
@@ -67,6 +73,18 @@
       : "light";
   }
 
+  function syncThemeToggleA11y() {
+    const btn = document.getElementById("themeToggle");
+    if (!btn) return;
+    const isDark =
+      document.documentElement.getAttribute("data-mode") === "dark";
+    btn.setAttribute("aria-pressed", isDark ? "true" : "false");
+    btn.setAttribute(
+      "aria-label",
+      isDark ? "Chuyển sang giao diện sáng" : "Chuyển sang giao diện tối"
+    );
+  }
+
   function setTheme(theme: Theme) {
     if (
       theme === "auto" &&
@@ -78,6 +96,7 @@
       document.documentElement.setAttribute("data-mode", theme);
       setStoredTheme(theme);
     }
+    syncThemeToggleA11y();
   }
 
   setTheme(getPreferredTheme());

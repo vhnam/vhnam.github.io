@@ -2,7 +2,7 @@
 const { category, nextPost, prevPost } = Astro.props;
 ---
 
-<footer class="container mx-auto">
+<nav class="container mx-auto" aria-label="Bài viết trước và sau">
   <div class="grid grid-cols-2 gap-4 pb-6 px-8">
     <div class="text-left">
       {
@@ -36,4 +36,4 @@ const { category, nextPost, prevPost } = Astro.props;
       }
     </div>
   </div>
-</footer>
+</nav>

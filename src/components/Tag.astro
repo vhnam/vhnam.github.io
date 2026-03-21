@@ -9,7 +9,7 @@ export interface Props {
 const { tag, slug } = Astro.props;
 ---
 
-<a href={`/tags/${slug}`} aria-label={tag.name}>
+<a href={`/tags/${slug}`}>
   <span
     class="text-xs font-semibold me-2 px-2 py-1 tracking-wide rounded-sm bg-white dark:bg-slate-800"
   >

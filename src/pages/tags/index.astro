@@ -4,7 +4,10 @@ import { getCollection } from "astro:content";
 import { getTags } from "../../utils/post";
 import { sortByDate } from "../../utils/sortByDate";
 
+import { GA_MEASUREMENT_ID } from "../../consts";
+
 import BaseHead from "../../components/BaseHead.astro";
+import Footer from "../../components/Footer.astro";
 import Header from "../../components/Header.astro";
 import Nav from "../../components/Nav.astro";
 
@@ -26,7 +29,8 @@ const tags = getTags(posts);
 
     <Nav />
 
-    <main class="mt-10 container mx-auto">
+    <main id="main-content" class="mt-10 container mx-auto">
+      <h1 class="sr-only">Thẻ</h1>
       <div class="flex justify-center flex-wrap gap-4 md:gap-6">
         {
           Object.keys(tags).map((tag) => (
@@ -40,5 +44,24 @@ const tags = getTags(posts);
         }
       </div>
     </main>
+
+    <Footer />
+
+    <script
+      is:inline
+      type="text/partytown"
+      async
+      src={`https://www.googletagmanager.com/gtag/js?id=${GA_MEASUREMENT_ID}`}
+    ></script>
+
+    <script is:inline type="text/partytown" define:vars={{ GA_MEASUREMENT_ID }}>
+      window.dataLayer = window.dataLayer || [];
+
+      function gtag() {
+        window.dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+      gtag("config", GA_MEASUREMENT_ID);
+    </script>
   </body>
 </html>

@@ -14,7 +14,7 @@ import Header from "../components/Header.astro";
   <body>
     <Header />
 
-    <main class="my-20">
+    <main id="main-content" class="my-20">
       <div class="container mx-auto">
         <div class="px-4 xl:px-8 pt-10">
           <section class="flex items-center h-full p-16">
@@ -22,13 +22,15 @@ import Header from "../components/Header.astro";
               class="container flex flex-col items-center justify-center px-5 mx-auto my-8"
             >
               <div class="max-w-md text-center">
-                <h2 class="mb-8 font-bold text-9xl">
-                  <span class="sr-only">Error</span>
-                  <span class="text-primary">404</span>
-                </h2>
-                <p class="text-3xl font-semibold md:text-3xl">
-                  Không tìm thấy trang
+                <p
+                  class="mb-8 font-bold text-9xl text-primary"
+                  aria-hidden="true"
+                >
+                  404
                 </p>
+                <h1 class="text-3xl font-semibold md:text-3xl">
+                  Không tìm thấy trang
+                </h1>
                 <p class="mt-4 mb-8 text-lg text-muted dark:text-slate-400">
                   Không sao, bạn vẫn có thể tìm được nhiều thứ hay ho trên trang
                   của mình

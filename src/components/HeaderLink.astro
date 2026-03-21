@@ -13,6 +13,7 @@ const isActive = tmpPathname[1] === tmpHref[1];
 
 <a
   href={href}
+  aria-current={isActive ? "page" : undefined}
   class:list={[
     "inline-block",
     "no-underline",

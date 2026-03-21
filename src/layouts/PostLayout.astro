@@ -40,7 +40,7 @@ const articleDate = new Date(pubDate).toISOString();
 
     <Header />
 
-    <main class="my-20">
+    <main id="main-content" class="my-20">
       <div
         class="py-5 xl:py-20 px-4 mb-12 bg-white dark:bg-slate-800 text-center"
       >
@@ -51,7 +51,7 @@ const articleDate = new Date(pubDate).toISOString();
         </h1>
         <div class="text-sm leading-6 mb-3">
           <dl>
-            <dt class="sr-only">Date</dt>
+            <dt class="sr-only">Ngày đăng</dt>
             <dd class="inset-x-0 text-slate-700 dark:text-slate-400">
               Ngày đăng
               <time datetime={pubDate.toISOString()}>

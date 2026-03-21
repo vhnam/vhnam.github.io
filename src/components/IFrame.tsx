@@ -1,8 +1,9 @@
 interface IFrameComponentProps {
   src: string;
+  /** Required for screen readers (WCAG). Describe the embedded content. */
+  title: string;
   width?: string | number;
   height?: string | number;
-  title?: string;
   allowFullScreen?: boolean;
   loading?: "lazy" | "eager";
   referrerPolicy?:
