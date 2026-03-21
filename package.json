@@ -13,6 +13,7 @@
     "start": "astro dev",
     "build": "astro build",
     "preview": "astro preview",
+    "check": "astro check",
     "astro": "astro",
     "prepare": "husky"
   },
@@ -36,9 +37,12 @@
     "starlight-image-zoom": "^0.10.1"
   },
   "devDependencies": {
+    "@astrojs/check": "^0.9.8",
     "@tailwindcss/vite": "^4.2.2",
     "@types/node": "^22.19.15",
     "@types/pluralize": "^0.0.33",
+    "@types/react": "^19.2.14",
+    "@types/react-dom": "^19.2.3",
     "autoprefixer": "~10.4.27",
     "husky": "^9.1.7",
     "lint-staged": "^15.5.2",
@@ -48,6 +52,7 @@
     "sass": "^1.98.0",
     "sharp": "^0.33.5",
     "tailwindcss": "^4.2.2",
+    "typescript": "^5.9.3",
     "vite": "^7.3.1"
   },
   "lint-staged": {

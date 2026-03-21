@@ -19,7 +19,7 @@ type TutorialEntry = CollectionEntry<"tutorial">;
 export async function getStaticPaths() {
   const posts = await getCollection("tutorial");
   const numberOfPosts = posts.length;
-  const sorted = posts.sort(sortByDate);
+  const sorted = [...posts].sort(sortByDate);
 
   return sorted.map((post, index: number) => ({
     params: { slug: post.id },

@@ -6,7 +6,7 @@ interface TagData {
   total: number;
 }
 
-interface TagWithName extends TagData {
+export interface TagWithName extends TagData {
   name: string;
 }
 

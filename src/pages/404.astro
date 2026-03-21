@@ -50,12 +50,13 @@ import Header from "../components/Header.astro";
 
     <!-- Google Analytics 4 -->
     <script
+      is:inline
       async
       type="text/partytown"
       src={`https://www.googletagmanager.com/gtag/js?id=${GA_MEASUREMENT_ID}`}
     ></script>
 
-    <script type="text/partytown" define:vars={{ GA_MEASUREMENT_ID }}>
+    <script is:inline type="text/partytown" define:vars={{ GA_MEASUREMENT_ID }}>
       window.dataLayer = window.dataLayer || [];
 
       function gtag() {

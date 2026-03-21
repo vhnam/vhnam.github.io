@@ -1,10 +1,13 @@
 ---
-import { getCollection } from "astro:content";
+import {
+  type CollectionEntry,
+  getCollection,
+} from "astro:content";
 import pluralize from "pluralize";
 
 import { GA_MEASUREMENT_ID } from "../../consts";
 
-import { getTags } from "../../utils/post";
+import { type TagWithName, getTags } from "../../utils/post";
 import { sortByDate } from "../../utils/sortByDate";
 
 import BaseHead from "../../components/BaseHead.astro";
@@ -12,13 +15,17 @@ import Header from "../../components/Header.astro";
 import PostItem from "../../components/PostItem.astro";
 import Footer from "../../components/Footer.astro";
 
+type Props = {
+  tags: Record<string, TagWithName>;
+};
+
 export async function getStaticPaths() {
   const hobbies = await getCollection("hobby");
   const tutorials = await getCollection("tutorial");
 
   const posts = [...hobbies, ...tutorials].sort(sortByDate);
 
-  const tags = await getTags(posts);
+  const tags = getTags(posts);
 
   return Object.keys(tags).map((tag) => {
     return {
@@ -29,9 +36,18 @@ export async function getStaticPaths() {
 }
 
 const { tag } = Astro.params;
-const { tags } = Astro.props;
+const { tags } = Astro.props as Props;
 
-const expectedTag = (tags as any)[tag];
+if (tag === undefined) {
+  return Astro.redirect("/404");
+}
+
+const expectedTag = tags[tag];
+if (!expectedTag) {
+  return Astro.redirect("/404");
+}
+
+type PostEntry = CollectionEntry<"tutorial" | "hobby">;
 ---
 
 <html lang="vi">
@@ -58,7 +74,7 @@ const expectedTag = (tags as any)[tag];
           <section class="basis-full md:basis-9/12 mx-auto">
             <ul class="flex flex-col gap-4 md:gap-6 pb-6">
               {
-                expectedTag.posts.map((post: any) => (
+                expectedTag.posts.map((post: PostEntry) => (
                   <PostItem post={post} category={pluralize(post.collection)} />
                 ))
               }
@@ -71,12 +87,13 @@ const expectedTag = (tags as any)[tag];
     <Footer />
 
     <script
+      is:inline
       type="text/partytown"
       async
       src={`https://www.googletagmanager.com/gtag/js?id=${GA_MEASUREMENT_ID}`}
     ></script>
 
-    <script type="text/partytown" define:vars={{ GA_MEASUREMENT_ID }}>
+    <script is:inline type="text/partytown" define:vars={{ GA_MEASUREMENT_ID }}>
       window.dataLayer = window.dataLayer || [];
 
       function gtag() {

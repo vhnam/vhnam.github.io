@@ -13,7 +13,7 @@ const tutorials = await getCollection("tutorial");
 
 const posts = [...hobbies, ...tutorials].sort(sortByDate);
 
-const tags = await getTags(posts);
+const tags = getTags(posts);
 ---
 
 <!doctype html>

@@ -16,6 +16,7 @@ export default defineConfig({
       },
     }),
     starlight({
+      disable404Route: true,
       title: "Nam Vo | Software Developer, Product Manager, UX/UI Designer",
       plugins: [
         starlightImageZoom({

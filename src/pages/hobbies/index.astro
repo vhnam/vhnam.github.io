@@ -13,7 +13,7 @@ import PostItem from "../../components/PostItem.astro";
 import Tag from "../../components/Tag.astro";
 
 const posts = (await getCollection("hobby")).sort(sortByDate);
-const tags = await getTags(posts);
+const tags = getTags(posts);
 ---
 
 <!doctype html>
@@ -77,12 +77,13 @@ const tags = await getTags(posts);
     <Footer />
 
     <script
+      is:inline
       type="text/partytown"
       async
       src={`https://www.googletagmanager.com/gtag/js?id=${GA_MEASUREMENT_ID}`}
     ></script>
 
-    <script type="text/partytown" define:vars={{ GA_MEASUREMENT_ID }}>
+    <script is:inline type="text/partytown" define:vars={{ GA_MEASUREMENT_ID }}>
       window.dataLayer = window.dataLayer || [];
 
       function gtag() {

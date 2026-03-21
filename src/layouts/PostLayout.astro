@@ -109,7 +109,7 @@ const articleDate = new Date(pubDate).toISOString();
       const fnObserver = () => {
         function handleIntersection(
           entries: IntersectionObserverEntry[],
-          observer: IntersectionObserver
+          _observer: IntersectionObserver
         ) {
           entries.forEach((entry) => {
             const index = document.querySelector(
@@ -162,12 +162,13 @@ const articleDate = new Date(pubDate).toISOString();
 
     <!-- Google Analytics 4 -->
     <script
+      is:inline
       async
       type="text/partytown"
       src={`https://www.googletagmanager.com/gtag/js?id=${GA_MEASUREMENT_ID}`}
     ></script>
 
-    <script type="text/partytown" define:vars={{ GA_MEASUREMENT_ID }}>
+    <script is:inline type="text/partytown" define:vars={{ GA_MEASUREMENT_ID }}>
       window.dataLayer = window.dataLayer || [];
 
       function gtag() {
