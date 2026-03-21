@@ -207,7 +207,7 @@ h6 {
   }
   ol,
   ul {
-    @apply pl-10 mt-4 mb-12;
+    @apply pl-10 mt-4 mb-8 md:mb-4;
   }
   ol {
     @apply list-decimal marker:text-primary-600 marker:font-semibold dark:marker:text-primary-400;
@@ -242,6 +242,16 @@ h6 {
   }
   table tbody tr td {
     @apply px-4 py-4;
+  }
+}
+
+starlight-image-zoom-zoomable {
+  img {
+    @apply !mb-2;
+  }
+
+  & + em {
+    @apply text-center block mb-4;
   }
 }
 
