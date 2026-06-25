@@ -29,6 +29,14 @@ export default defineConfig({
 
     react(),
   ],
+  image: {
+    service: {
+      entrypoint: "./src/image-service.ts",
+      config: {
+        defaultFormat: "avif",
+      },
+    },
+  },
   markdown: {
     theme: "github-dark",
     wrap: true,

@@ -24,7 +24,7 @@ const allPosts = [...hobbies, ...tutorials].sort(sortByDate);
 const latestPosts = allPosts.slice(0, 6);
 const posts = [...tutorials].sort(sortByDate).slice(0, 4);
 
-const optimizedBackground = await getImage({ src: headerImg, format: "webp" });
+const optimizedBackground = await getImage({ src: headerImg });
 
 const tags = getTags(allPosts);
 ---
