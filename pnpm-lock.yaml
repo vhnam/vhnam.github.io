@@ -8,6 +8,9 @@ importers:
 
   .:
     dependencies:
+      '@astrojs/markdown-remark':
+        specifier: 7.2.1
+        version: 7.2.1
       '@astrojs/mdx':
         specifier: 7.0.3
         version: 7.0.3(@astrojs/markdown-satteri@0.3.2)(astro@7.1.1(@astrojs/markdown-remark@7.2.1)(@emnapi/core@1.11.1)(@emnapi/runtime@1.11.1)(@types/node@22.20.0)(jiti@2.7.0)(rollup@4.62.2)(sass@1.101.0)(yaml@2.9.0))
@@ -57,8 +60,8 @@ importers:
         specifier: ^1.6.9
         version: 1.6.9
       starlight-image-zoom:
-        specifier: ^0.10.1
-        version: 0.10.1(@astrojs/starlight@0.41.3(@astrojs/markdown-remark@7.2.1)(astro@7.1.1(@astrojs/markdown-remark@7.2.1)(@emnapi/core@1.11.1)(@emnapi/runtime@1.11.1)(@types/node@22.20.0)(jiti@2.7.0)(rollup@4.62.2)(sass@1.101.0)(yaml@2.9.0))(typescript@5.9.3))
+        specifier: ^0.15.0
+        version: 0.15.0(@astrojs/starlight@0.41.3(@astrojs/markdown-remark@7.2.1)(astro@7.1.1(@astrojs/markdown-remark@7.2.1)(@emnapi/core@1.11.1)(@emnapi/runtime@1.11.1)(@types/node@22.20.0)(jiti@2.7.0)(rollup@4.62.2)(sass@1.101.0)(yaml@2.9.0))(typescript@5.9.3))
     devDependencies:
       '@astrojs/check':
         specifier: ^0.9.9
@@ -2987,11 +2990,11 @@ packages:
   space-separated-tokens@2.0.2:
     resolution: {integrity: sha512-PEGlAwrG8yXGXRjW32fGbg66JAlOAwbObuqVoJpv/mRgoWDQfgH1wDPvtzWyUSNAXBGSk8h755YDbbcEy3SH2Q==}
 
-  starlight-image-zoom@0.10.1:
-    resolution: {integrity: sha512-1uEwijShhFFcYA++lDmFV32WmZkpp/VMvD4+PC5h+7InnyPGMiT+mSVJzbddNEit44OxM5kxbO6/OqcBtjKpOA==}
-    engines: {node: '>=18'}
+  starlight-image-zoom@0.15.0:
+    resolution: {integrity: sha512-GIZVuaiaVuFsbyYqiT7M4FYJBvkTsvdO1XoOKM/iNHt85BaVn/A7/kLpdb5XnUsAZohOMS77ahaolofnGIqeOQ==}
+    engines: {node: '>=22.12.0'}
     peerDependencies:
-      '@astrojs/starlight': '>=0.30.0'
+      '@astrojs/starlight': '>=0.41.0'
 
   stream-replace-string@2.0.0:
     resolution: {integrity: sha512-TlnjJ1C0QrmxRNrON00JvaFFlNh5TTG00APw23j74ET7gkQpTASi6/L2fuiav8pzK715HXtUeClpBTw2NPSn6w==}
@@ -6750,12 +6753,15 @@ snapshots:
 
   space-separated-tokens@2.0.2: {}
 
-  starlight-image-zoom@0.10.1(@astrojs/starlight@0.41.3(@astrojs/markdown-remark@7.2.1)(astro@7.1.1(@astrojs/markdown-remark@7.2.1)(@emnapi/core@1.11.1)(@emnapi/runtime@1.11.1)(@types/node@22.20.0)(jiti@2.7.0)(rollup@4.62.2)(sass@1.101.0)(yaml@2.9.0))(typescript@5.9.3)):
+  starlight-image-zoom@0.15.0(@astrojs/starlight@0.41.3(@astrojs/markdown-remark@7.2.1)(astro@7.1.1(@astrojs/markdown-remark@7.2.1)(@emnapi/core@1.11.1)(@emnapi/runtime@1.11.1)(@types/node@22.20.0)(jiti@2.7.0)(rollup@4.62.2)(sass@1.101.0)(yaml@2.9.0))(typescript@5.9.3)):
     dependencies:
       '@astrojs/starlight': 0.41.3(@astrojs/markdown-remark@7.2.1)(astro@7.1.1(@astrojs/markdown-remark@7.2.1)(@emnapi/core@1.11.1)(@emnapi/runtime@1.11.1)(@types/node@22.20.0)(jiti@2.7.0)(rollup@4.62.2)(sass@1.101.0)(yaml@2.9.0))(typescript@5.9.3)
+      mdast-util-mdx-jsx: 3.2.0
       rehype-raw: 7.0.0
       unist-util-visit: 5.1.0
       unist-util-visit-parents: 6.0.2
+    transitivePeerDependencies:
+      - supports-color
 
   stream-replace-string@2.0.0: {}
 

@@ -19,6 +19,7 @@
     "prepare": "husky"
   },
   "dependencies": {
+    "@astrojs/markdown-remark": "7.2.1",
     "@astrojs/mdx": "7.0.3",
     "@astrojs/partytown": "^2.1.7",
     "@astrojs/react": "6.0.1",
@@ -35,7 +36,7 @@
     "react": "^19.2.7",
     "react-dom": "^19.2.7",
     "slugify": "^1.6.9",
-    "starlight-image-zoom": "^0.10.1"
+    "starlight-image-zoom": "^0.15.0"
   },
   "devDependencies": {
     "@astrojs/check": "^0.9.9",

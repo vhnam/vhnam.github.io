@@ -54,7 +54,7 @@ const articleDate = new Date(pubDate).toISOString();
             <dt class="sr-only">Ngày đăng</dt>
             <dd class="inset-x-0 text-stone-600 dark:text-zinc-400">
               Ngày đăng
-              <time datetime={pubDate.toISOString()}>
+              <time datetime={pubDate.toISOString()} class="pl-1">
                 <FormattedDate pubDate={pubDate} />
               </time>
             </dd>
