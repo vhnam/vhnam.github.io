@@ -6,7 +6,7 @@
     "url": "https://github.com/vhnam/vhnam.github.io/issues"
   },
   "homepage": "https://github.com/vhnam/vhnam.github.io#readme",
-  "version": "5.12.5",
+  "version": "5.12.6",
   "packageManager": "pnpm@11.13.1",
   "type": "module",
   "scripts": {
