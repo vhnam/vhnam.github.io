@@ -18,11 +18,9 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout your repository using git
-        uses: actions/checkout@v6
+        uses: actions/checkout@v7
       - name: Install, build, and upload your site
         uses: withastro/action@v6
-        with:
-          package-manager: pnpm@9.15.5
 
   deploy:
     needs: build
@@ -33,7 +31,7 @@ jobs:
     steps:
       - name: Deploy to GitHub Pages
         id: deployment
-        uses: actions/deploy-pages@v4
+        uses: actions/deploy-pages@v5
 
   bump-version:
     needs: deploy
@@ -41,7 +39,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: "Checkout source code"
-        uses: "actions/checkout@v6"
+        uses: "actions/checkout@v7
         with:
           ref: ${{ github.ref }}
       - name: "cat package.json"
