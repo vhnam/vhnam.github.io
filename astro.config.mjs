@@ -1,3 +1,4 @@
+import { unified } from "@astrojs/markdown-remark";
 import { defineConfig } from "astro/config";
 import mdx from "@astrojs/mdx";
 import partytown from "@astrojs/partytown";
@@ -38,6 +39,7 @@ export default defineConfig({
     },
   },
   markdown: {
+    processor: unified(),
     theme: "github-dark",
     wrap: true,
   },
