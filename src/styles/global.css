@@ -129,7 +129,7 @@ h6 {
 }
 
 .content {
-  @apply text-left rounded-2xl border-l-4 border-l-primary-500 p-4 md:p-8;
+  @apply text-left rounded-2xl border-l-4 border-l-primary-500 p-4 lg:p-6 2xl:p-8;
   @apply bg-white/90 shadow-sm shadow-stone-200/40 ring-1 ring-stone-200/70 backdrop-blur-sm;
   @apply dark:border-l-primary-400 dark:bg-zinc-900/85 dark:shadow-none dark:ring-zinc-700/75 dark:backdrop-blur-sm;
 
@@ -151,6 +151,14 @@ h6 {
   }
   p {
     @apply my-5 text-base;
+
+    &:first-child {
+      @apply mt-0;
+    }
+
+    &:last-child {
+      @apply mb-0;
+    }
 
     &:has(img + em) {
       @apply text-center text-sm;
@@ -191,7 +199,7 @@ h6 {
     @apply text-stone-900 dark:text-zinc-100;
   }
   pre {
-    @apply relative mb-12 rounded-xl p-6;
+    @apply relative mb-12 overflow-x-auto rounded-xl p-6;
     box-shadow:
       inset 0 0 0 1px rgb(14 165 233 / 0.2),
       0 1px 2px rgb(28 25 23 / 0.04);
