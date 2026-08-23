@@ -75,10 +75,10 @@ const articleDate = new Date(pubDate).toISOString();
         </div>
       </div>
 
-      <div class="container mx-auto pb-20">
-        <div class="flex flex-row px-4 xl:px-8 gap-8">
+      <div class="container mx-auto px-4 pb-20 xl:px-8">
+        <div class="grid grid-cols-1 gap-8 lg:grid-cols-12">
           <!-- aside  -->
-          <aside class="xl:w-3/12 shrink-0 hidden lg:block">
+          <aside class="hidden lg:col-span-3 lg:block">
             <div
               class="sticky top-24 self-start hidden lg:block transition-all duration-200"
             >
@@ -91,8 +91,8 @@ const articleDate = new Date(pubDate).toISOString();
           </aside>
 
           <!-- post -->
-          <article class="w-full xl:w-9/12 shrink-0">
-            <div class="mb-12 min-w-full content">
+          <article class="min-w-0 lg:col-span-9">
+            <div class="content mb-12">
               <slot />
             </div>
           </article>
