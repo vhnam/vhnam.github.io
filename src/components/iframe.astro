@@ -1,0 +1,12 @@
+---
+interface Props {
+  src: string;
+  title?: string;
+  height?: string | number;
+  width?: string | number;
+}
+
+const { src, title = "", height, width } = Astro.props;
+---
+
+<iframe src={src} title={title} height={height} width={width}></iframe>
