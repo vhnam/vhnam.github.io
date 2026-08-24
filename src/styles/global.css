@@ -1,0 +1,111 @@
+@import "@fontsource-variable/space-grotesk/wght.css";
+@import "@fontsource-variable/source-serif-4/wght.css";
+@import "@fontsource-variable/jetbrains-mono/wght.css";
+@import "tailwindcss";
+
+@custom-variant dark (&:where([data-theme="dark"], [data-theme="dark"] *));
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+
+  --color-accent-software: var(--accent-software);
+  --color-accent-software-dim: var(--accent-software-dim);
+  --color-on-accent-software: var(--on-accent-software);
+
+  --color-accent-hobby: var(--accent-hobby);
+  --color-accent-hobby-dim: var(--accent-hobby-dim);
+  --color-on-accent-hobby: var(--on-accent-hobby);
+
+  --color-music: var(--color-music);
+  --color-header-bg: var(--header-bg);
+
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+
+  --font-display: var(--font-display);
+  --font-body: var(--font-body);
+  --font-mono: var(--font-mono);
+
+  --text-tiny: 0.625rem;
+}
+
+:root {
+  --background: var(--color-amber-50);
+  --foreground: var(--color-stone-900);
+
+  --card: var(--color-amber-100);
+  --card-foreground: var(--color-stone-900);
+
+  --primary: var(--color-teal-700);
+  --primary-foreground: var(--color-teal-50);
+
+  --secondary: var(--color-amber-700);
+  --secondary-foreground: var(--color-amber-50);
+
+  --muted: var(--color-amber-100);
+  --muted-foreground: var(--color-stone-500);
+
+  --border: var(--color-stone-300);
+  --input: var(--color-stone-300);
+  --ring: var(--color-teal-700);
+
+  --header-bg: color-mix(in srgb, var(--color-amber-50) 88%, transparent);
+
+  --accent: var(--color-amber-900);
+
+  --font-display: "Space Grotesk Variable", sans-serif;
+  --font-body: "Source Serif 4 Variable", serif;
+  --font-mono: "JetBrains Mono Variable", monospace;
+}
+
+[data-theme="dark"] {
+  --background: var(--color-zinc-950);
+  --foreground: var(--color-stone-100);
+
+  --card: var(--color-zinc-900);
+  --card-foreground: var(--color-stone-100);
+
+  --primary: var(--color-teal-400);
+  --primary-foreground: var(--color-teal-950);
+
+  --secondary: var(--color-amber-400);
+  --secondary-foreground: var(--color-amber-950);
+
+  --muted: var(--color-zinc-900);
+  --muted-foreground: var(--color-stone-400);
+
+  --border: var(--color-zinc-700);
+  --input: var(--color-zinc-700);
+  --ring: var(--color-teal-400);
+
+  --header-bg: color-mix(in srgb, var(--color-zinc-950) 90%, transparent);
+
+  --accent: var(--color-amber-700);
+}
+
+@layer base {
+  body {
+    font-family: var(--font-body);
+    background-color: var(--background);
+    color: var(--foreground);
+  }
+}
