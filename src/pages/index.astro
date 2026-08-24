@@ -1,17 +1,21 @@
 ---
-// Welcome to Astro! Everything between these triple-dash code fences
-// is your "component frontmatter". It never runs in the browser.
-console.log('This runs in your terminal, not the browser!');
+import CvStrip from "../components/home/cv-strip.astro";
+import FeaturedPost from "../components/home/featured-post.astro";
+import Hero from "../components/home/hero.astro";
+import Identity from "../components/home/identity.astro";
+import RelatedPosts from "../components/home/related-posts.astro";
+import Layout from "../layouts/page-layout.astro";
+
+import { getLatestPost, getPosts } from "../lib/posts";
+
+const featuredPost = await getLatestPost();
+const posts = await getPosts({ filter: "all", limit: 6, ignoreFeatured: true });
 ---
-<!-- Below is your "component template." It's just HTML, but with
-    some magic sprinkled in to help you build great templates. -->
-<html>
-  <body>
-    <h1>Hello, World!</h1>
-  </body>
-</html>
-<style>
-  h1 {
-    color: orange;
-  }
-</style>
+
+<Layout>
+  <Hero />
+  <Identity />
+  {featuredPost && <FeaturedPost post={featuredPost} />}
+  {posts.length > 0 && <RelatedPosts posts={posts} />}
+  <CvStrip />
+</Layout>
