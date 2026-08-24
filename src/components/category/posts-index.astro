@@ -1,0 +1,31 @@
+---
+import type { Post } from "../../lib/posts";
+
+import PostCard from "../post-card.astro";
+
+interface Props {
+  heading: string;
+  posts: Post[];
+}
+
+const { heading, posts } = Astro.props;
+---
+
+<section class="py-12 pb-20">
+  <h1
+    class="font-display font-bold text-3xl lg:text-4xl leading-tight tracking-tight mb-8"
+  >
+    {heading}
+  </h1>
+  {posts.length === 0 ? (
+      <p class="font-mono font-medium text-xs tracking-wide text-muted-foreground text-center py-12">
+        Chưa có bài viết nào trong mục này.
+      </p>
+    ) : (
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+        {posts.map((post) => (
+          <PostCard post={post} />
+        ))}
+      </div>
+    )}
+</section>

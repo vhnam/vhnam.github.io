@@ -1,0 +1,13 @@
+---
+import PostsIndex from "../../components/category/posts-index.astro";
+
+import Layout from "../../layouts/page-layout.astro";
+
+import { getPosts } from "../../lib/posts";
+
+const posts = await getPosts({ filter: "hobbies" });
+---
+
+<Layout title="Giải Trí">
+  <PostsIndex heading="Giải Trí" posts={posts} />
+</Layout>
