@@ -1,0 +1,27 @@
+---
+import type { Post } from "../../lib/posts";
+
+import PostCard from "../post-card.astro";
+
+interface Props {
+  posts: Post[];
+}
+
+const { posts } = Astro.props;
+---
+
+<section class="pb-20">
+  <div
+    class="flex items-center justify-between mb-6 border-b border-border pb-3 flex-wrap gap-2"
+  >
+    <span
+      class="font-mono font-medium text-xs tracking-wide text-muted-foreground uppercase"
+    >
+      Bài viết gần đây
+    </span>
+  </div>
+
+  <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+    {posts.map((post) => <PostCard post={post} />)}
+  </div>
+</section>
