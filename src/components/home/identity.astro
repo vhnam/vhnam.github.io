@@ -1,0 +1,28 @@
+---
+import IconAperture from "../icons/aperture.svg";
+import IconCode from "../icons/code.svg";
+import IconTrumpet from "../icons/trumpet.svg";
+
+import IdentityCircle from "./identity-circle.astro";
+---
+
+<div class="relative my-16">
+  <div class="absolute top-1/2 left-0 right-0 h-px bg-border"></div>
+  <div class="relative flex justify-evenly max-w-36 mx-auto gap-4">
+    <IdentityCircle
+      class="text-amber-900 bg-amber-200 dark:text-amber-700 dark:bg-amber-950 border border-amber-900 dark:border-amber-700"
+    >
+      <IconTrumpet width={20} height={20} />
+    </IdentityCircle>
+    <IdentityCircle
+      class="text-secondary bg-amber-100 dark:bg-amber-950 border border-secondary dark:border-amber-950"
+    >
+      <IconAperture width={20} height={20} />
+    </IdentityCircle>
+    <IdentityCircle
+      class="text-primary bg-teal-100 dark:bg-teal-950 border border-primary dark:border-teal-950"
+    >
+      <IconCode width={20} height={20} />
+    </IdentityCircle>
+  </div>
+</div>
