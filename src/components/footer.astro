@@ -1,0 +1,43 @@
+---
+const currentYear = new Date().getFullYear();
+
+const SOCIAL_NETWORKS = [
+  {
+    name: "LinkedIn",
+    url: "https://www.linkedin.com/in/namvh",
+    icon: "linkedin",
+  },
+  {
+    name: "GitHub",
+    url: "https://github.com/vhnam",
+    icon: "github",
+  },
+  {
+    name: "YouTube",
+    url: "https://www.youtube.com/@namvo07",
+    icon: "youtube",
+  },
+  {
+    name: "Flickr",
+    url: "https://www.flickr.com/photos/197719301@N02/",
+    icon: "flickr",
+  },
+];
+---
+
+<footer class="py-6 border-t border-border">
+  <div
+    class="container mx-auto px-4 lg:px-6 xl:px-0 flex justify-between items-center flex-wrap gap-x-12 gap-y-2"
+  >
+    <span class="font-display text-xs text-muted-foreground">
+      © {currentYear} Nam Vo's Blog
+    </span>
+    <div class="flex gap-5 flex-wrap">
+      {SOCIAL_NETWORKS.map((network) => (
+        <a href={network.url} class="font-mono text-xs text-muted-foreground transition-colors hover:text-foreground hover:underline tracking-wider">
+          {network.name}
+        </a>
+       ))}
+    </div>
+  </div>
+</footer>

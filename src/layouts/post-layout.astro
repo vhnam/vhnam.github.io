@@ -1,0 +1,45 @@
+---
+import { Image } from "astro:assets";
+import { render } from "astro:content";
+
+import { CATEGORY_LABEL, type Post } from "../lib/posts";
+
+import PageLayout from "./page-layout.astro";
+
+interface Props {
+  post: Post;
+}
+
+const { post } = Astro.props;
+const { Content } = await render(post);
+const date = post.data.pubDate.toLocaleDateString("vi-VN");
+const categoryClass =
+  post.collection === "hobby" ? "text-secondary" : "text-primary";
+---
+
+<PageLayout title={post.data.title}>
+  <article class="py-12 max-w-3xl">
+    <p
+      class:list={[
+        "font-mono text-xs tracking-wide uppercase mb-4",
+        categoryClass,
+      ]}
+    >
+      {CATEGORY_LABEL[post.collection]}
+      <time datetime={post.data.pubDate.toISOString()}> · {date}</time>
+    </p>
+    <h1
+      class="font-display font-bold text-3xl lg:text-4xl leading-tight tracking-tight mb-8"
+    >
+      {post.data.title}
+    </h1>
+    <Image
+      src={post.data.cover}
+      alt={post.data.title}
+      class="w-full rounded-md mb-8"
+    />
+    <div class="font-serif text-base lg:text-lg leading-relaxed space-y-4">
+      <Content />
+    </div>
+  </article>
+</PageLayout>

@@ -1,0 +1,30 @@
+---
+import "../styles/global.css";
+
+import Footer from "../components/footer.astro";
+import Header from "../components/header.astro";
+
+interface Props {
+  title?: string;
+}
+
+const { title = "Nam Vo" } = Astro.props;
+---
+
+<!doctype html>
+<html lang="vi">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+
+    <title>{title}</title>
+  </head>
+  <body class="bg-background text-foreground">
+    <Header />
+    <main class="container mx-auto px-4 lg:px-6 xl:px-0">
+      <slot />
+    </main>
+    <Footer />
+  </body>
+</html>
