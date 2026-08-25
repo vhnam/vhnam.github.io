@@ -7,13 +7,27 @@ import TagList from "./tag-list.astro";
 
 interface Props {
   heading: string;
-  collection: "hobby" | "tutorial";
+  collection?: "hobby" | "tutorial";
   href: string;
   posts: Post[];
+  showTags?: boolean;
+  showCategory?: boolean;
 }
 
-const { heading, collection, href, posts } = Astro.props;
-const countColor = collection === "hobby" ? "text-secondary" : "text-primary";
+const {
+  heading,
+  collection,
+  href,
+  posts,
+  showTags = false,
+  showCategory = false,
+} = Astro.props;
+const countColor =
+  collection === "hobby"
+    ? "text-secondary"
+    : collection === "tutorial"
+      ? "text-primary"
+      : "text-accent";
 ---
 
 <header>
@@ -45,7 +59,7 @@ const countColor = collection === "hobby" ? "text-secondary" : "text-primary";
     class="lg:col-span-2 lg:order-first z-10 lg:z-0 bg-background lg:bg-transparent"
     aria-label="Danh sách bài viết"
   >
-    <PostList posts={posts} />
+    <PostList posts={posts} showTags={showTags} showCategory={showCategory} />
   </section>
 </div>
 

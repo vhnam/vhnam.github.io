@@ -110,6 +110,31 @@ export async function getFeaturedPost() {
   return sorted.find((post) => post.data.isFeatured) ?? sorted[0];
 }
 
+export function getTagSlug(tag: string) {
+  return slugify(tag, { lower: true, locale: "vi" });
+}
+
 export function getTagHref(tag: string) {
-  return `/tags/${slugify(tag, { lower: true, locale: "vi" })}`;
+  return `/tags/${getTagSlug(tag)}`;
+}
+
+export async function getPostsByTagSlug() {
+  const posts = await getPosts({ filter: "all" });
+  const tags = new Map<string, { tag: string; posts: Post[] }>();
+
+  for (const post of posts) {
+    for (const tag of post.data.tags) {
+      const slug = getTagSlug(tag);
+      const entry = tags.get(slug);
+
+      if (entry == null) {
+        tags.set(slug, { tag, posts: [post] });
+        continue;
+      }
+
+      entry.posts.push(post);
+    }
+  }
+
+  return tags;
 }

@@ -4,9 +4,11 @@ import PostCard from "../common/post-card.astro";
 
 interface Props {
   posts: Post[];
+  showTags?: boolean;
+  showCategory?: boolean;
 }
 
-const { posts } = Astro.props;
+const { posts, showTags = false, showCategory = false } = Astro.props;
 ---
 
 {posts.length === 0 ? (
@@ -17,7 +19,7 @@ const { posts } = Astro.props;
   <ul class="grid grid-cols-1 gap-4">
     {posts.map((post) => (
       <li class="flex">
-        <PostCard post={post} heading="h2" showTags showCategory={false} />
+        <PostCard post={post} heading="h2" showTags={showTags} showCategory={showCategory} />
       </li>
     ))}
   </ul>

@@ -1,0 +1,37 @@
+---
+import CategoryPage from "../../components/category/category-page.astro";
+
+import Layout from "../../layouts/page-layout.astro";
+
+import { getPostsByTagSlug, type Post } from "../../lib/posts";
+
+interface Props {
+  tag: string;
+  posts: Post[];
+}
+
+export async function getStaticPaths() {
+  const tags = await getPostsByTagSlug();
+
+  return [...tags.entries()].map(([slug, { tag, posts }]) => ({
+    params: { slug },
+    props: { tag, posts },
+  }));
+}
+
+const { tag, posts } = Astro.props;
+const slug = Astro.params.slug;
+const collections = new Set(posts.map((post) => post.collection));
+const collection = collections.size === 1 ? posts[0]?.collection : undefined;
+---
+
+<Layout title={tag}>
+  <CategoryPage
+    heading={tag}
+    collection={collection}
+    href={`/tags/${slug}`}
+    posts={posts}
+    showTags
+    showCategory
+  />
+</Layout>
