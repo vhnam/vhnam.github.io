@@ -1,0 +1,83 @@
+---
+import PageLayout from "../layouts/page-layout.astro";
+
+const title = "Điều khoản bảo mật";
+---
+
+<PageLayout title={title}>
+  <article class="max-w-3xl mx-auto">
+    <header class="pt-12">
+      <h1
+        class="font-display font-bold text-3xl lg:text-5xl leading-tight tracking-tight mb-5"
+      >
+        {title}
+      </h1>
+      <p class="text-base lg:text-lg text-muted-foreground mb-10 italic">
+        Khi các bạn truy cập và đọc bài trên Nam Võ's Blog tức là bạn đã phải
+        chấp nhận những qui định sau về các bài viết trên blog và bình luận.
+      </p>
+    </header>
+
+    <div
+      class="prose prose-stone dark:prose-invert max-w-none pb-16 pt-8 font-body prose-headings:font-display prose-headings:tracking-tight prose-headings:scroll-mt-28"
+    >
+      <section>
+        <h2>1. Bài viết</h2>
+        <ul>
+          <li>
+            Bài viết dựa trên quan điểm của tác giả hoặc người viết. Bạn sẽ chịu
+            trách nhiệm khi làm theo các hướng dẫn trong Blog.
+          </li>
+          <li>
+            Không sử dụng bài viết trên blog này để dùng cho mục đích thương mại
+            khi chưa có sự đồng ý của tác giả. Tui có quyền khiếu nại trong
+            trường hợp bạn sử dụng chúng cho mục đích thương mại. Vui lòng dẫn
+            nguồn khi chia sẻ cho cộng đồng.
+          </li>
+        </ul>
+      </section>
+
+      <section>
+        <h2>2. Bình luận</h2>
+        <ul>
+          <li>
+            Không bình luận về các vấn đề chính trị, tôn giáo, phân biệt chủng
+            tộc vùng miền
+          </li>
+          <li>Không nói tục, chửi thề.</li>
+          <li>Không spam bài viết hay các hình thức khác.</li>
+          <li>Nên dùng tiếng Việt có dấu hoặc tiếng Anh để bình luận.</li>
+          <li>
+            Do sử dụng plugin của Facebook, các bạn sẽ phải tuân thủ theo luật
+            chơi của Facebook.
+          </li>
+        </ul>
+        <p>
+          <strong
+            >Hiện giờ tui lười để mò vụ tích hợp tính năng bình luận. Dui dẻ
+            nha!</strong
+          >
+        </p>
+      </section>
+
+      <section>
+        <h2>3. Về sự riêng tư của người dùng truy cập</h2>
+        <ul>
+          <li>Tui không lưu cookie trên trình duyệt của bạn.</li>
+          <li>
+            Nam Võ's Blog sử dụng Google Analytics để thống kê lưu lượng truy
+            cập Website để phục vụ cho việc theo dõi và phát triển Website tốt
+            hơn.
+          </li>
+        </ul>
+      </section>
+
+      <section>
+        <h2>4. Chính sách hỗ trợ bạn đọc</h2>
+        <ul>
+          <li>Blog này hoàn toàn miễn phí và mãi mãi miễn phí.</li>
+        </ul>
+      </section>
+    </div>
+  </article>
+</PageLayout>
