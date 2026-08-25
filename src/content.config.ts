@@ -9,6 +9,7 @@ function postSchema({ image }: SchemaContext) {
     pubDate: z.coerce.date(),
     cover: image(),
     tags: z.array(z.string()).default([]),
+    isFeatured: z.boolean().default(false),
   });
 }
 

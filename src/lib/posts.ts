@@ -45,14 +45,16 @@ export async function getPosts({
   return sorted.slice(ignoreFeatured ? 1 : 0, numberOfPosts);
 }
 
-export async function getLatestPost() {
+export async function getFeaturedPost() {
   const [hobbies, tutorials] = await Promise.all([
     getCollection("hobby"),
     getCollection("tutorial"),
   ]);
 
-  return [...hobbies, ...tutorials].sort(
+  const sorted = [...hobbies, ...tutorials].sort(
     (firstPost, secondPost) =>
       secondPost.data.pubDate.valueOf() - firstPost.data.pubDate.valueOf(),
-  )[0];
+  );
+
+  return sorted.find((post) => post.data.isFeatured) ?? sorted[0];
 }
