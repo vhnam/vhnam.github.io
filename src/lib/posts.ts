@@ -1,4 +1,5 @@
 import { type CollectionEntry, getCollection } from "astro:content";
+import slugify from "slugify";
 
 export type Post = CollectionEntry<"hobby"> | CollectionEntry<"tutorial">;
 
@@ -61,4 +62,8 @@ export async function getFeaturedPost() {
   );
 
   return sorted.find((post) => post.data.isFeatured) ?? sorted[0];
+}
+
+export function getTagHref(tag: string) {
+  return `/tags/${slugify(tag, { lower: true, locale: "vi" })}`;
 }
