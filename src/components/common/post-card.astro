@@ -5,11 +5,17 @@ import PostTag from "./post-tag.astro";
 
 interface Props {
   post: Post;
+  heading?: "h2" | "h3";
   showTags?: boolean;
   showCategory?: boolean;
 }
 
-const { post, showTags = false, showCategory = true } = Astro.props;
+const {
+  post,
+  heading: Heading = "h3",
+  showTags = false,
+  showCategory = true,
+} = Astro.props;
 
 const href = getPostHref(post);
 const pubDate = new Date(post.data.pubDate).toLocaleDateString("vi-VN");
@@ -19,7 +25,7 @@ const borderColor =
 
 <article
   class:list={[
-    "relative border border-border border-l rounded-md overflow-hidden bg-card transition-transform duration-200 hover:-translate-y-2 hover:shadow-lg border-l-4 p-4 lg:p-6",
+    "relative h-full w-full border border-border rounded-md overflow-hidden bg-card transition-transform duration-200 hover:-translate-y-2 hover:shadow-lg border-l-4 p-4 lg:p-6",
     borderColor,
   ]}
 >
@@ -35,13 +41,13 @@ const borderColor =
     )}
   </div>
 
-  <h3
+  <Heading
     class="font-display font-semibold text-base text-foreground tracking-tight py-2"
   >
     <a href={href} class="after:absolute after:inset-0 hover:underline">
       {post.data.title}
     </a>
-  </h3>
+  </Heading>
 
   <p class="text-sm text-muted-foreground leading-relaxed line-clamp-2">
     {post.data.description}
