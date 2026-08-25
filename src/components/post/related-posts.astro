@@ -1,0 +1,35 @@
+---
+import { getRelatedPosts, type Post } from "../../lib/posts";
+import PostCard from "../common/post-card.astro";
+
+interface Props {
+  post: Post;
+}
+
+const { post } = Astro.props;
+const relatedPosts = await getRelatedPosts(post);
+---
+
+{relatedPosts.length > 0 && (
+  <section
+    class="mb-10 border-t border-border pt-10"
+    aria-labelledby="related-posts-heading"
+  >
+    <header class="mb-6">
+      <h2
+        id="related-posts-heading"
+        class="font-mono font-medium text-xs tracking-wide text-muted-foreground uppercase"
+      >
+        Bài viết liên quan
+      </h2>
+    </header>
+
+    <ul class="grid grid-cols-1 gap-4">
+      {relatedPosts.map((relatedPost) => (
+        <li class="flex">
+          <PostCard post={relatedPost} showCategory={false} showTags />
+        </li>
+      ))}
+    </ul>
+  </section>
+)}

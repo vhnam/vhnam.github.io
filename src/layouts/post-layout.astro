@@ -6,6 +6,7 @@ import AdjacentPosts from "../components/post/adjacent-posts.astro";
 import MarkdownCode from "../components/post/markdown-code.astro";
 import MarkdownHeading from "../components/post/markdown-heading.astro";
 import MarkdownImage from "../components/post/markdown-image.astro";
+import RelatedPosts from "../components/post/related-posts.astro";
 import TableOfContents from "../components/post/table-of-contents.astro";
 import { CATEGORY_LABEL, type Post } from "../lib/posts";
 import { formatReadingTime, getReadingTimeMinutes } from "../lib/reading-time";
@@ -89,6 +90,8 @@ const anchorClass =
         )}
 
         <AdjacentPosts post={post} />
+
+        <RelatedPosts post={post} />
       </footer>
     </article>
   </div>

@@ -50,13 +50,14 @@ export async function getPosts({
   return sorted.slice(start, start + limit);
 }
 
+function isSamePost(first: Post, second: Post) {
+  return first.id === second.id && first.collection === second.collection;
+}
+
 export async function getAdjacentPosts(post: Post) {
   const filter: Filter = post.collection === "hobby" ? "hobbies" : "tutorials";
   const posts = await getPosts({ filter });
-  const index = posts.findIndex(
-    (candidate) =>
-      candidate.id === post.id && candidate.collection === post.collection,
-  );
+  const index = posts.findIndex((candidate) => isSamePost(candidate, post));
 
   if (index === -1) {
     return { previous: null, next: null };
@@ -66,6 +67,33 @@ export async function getAdjacentPosts(post: Post) {
     previous: posts[index + 1] ?? null,
     next: posts[index - 1] ?? null,
   };
+}
+
+export async function getRelatedPosts(post: Post, limit = 3) {
+  const filter: Filter = post.collection === "hobby" ? "hobbies" : "tutorials";
+  const posts = await getPosts({ filter });
+  const currentTags = new Set(post.data.tags);
+
+  return posts
+    .filter((candidate) => !isSamePost(candidate, post))
+    .filter((candidate) =>
+      candidate.data.tags.some((tag) => currentTags.has(tag)),
+    )
+    .sort((firstPost, secondPost) => {
+      const firstOverlap = firstPost.data.tags.filter((tag) =>
+        currentTags.has(tag),
+      ).length;
+      const secondOverlap = secondPost.data.tags.filter((tag) =>
+        currentTags.has(tag),
+      ).length;
+      if (secondOverlap !== firstOverlap) {
+        return secondOverlap - firstOverlap;
+      }
+      return (
+        secondPost.data.pubDate.valueOf() - firstPost.data.pubDate.valueOf()
+      );
+    })
+    .slice(0, limit);
 }
 
 export async function getFeaturedPost() {
