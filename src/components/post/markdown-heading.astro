@@ -1,0 +1,15 @@
+---
+import { isReferencesHeadingId } from "../../lib/references";
+
+interface Props {
+  id?: string;
+  class?: string;
+}
+
+const { id, class: className } = Astro.props;
+const isReferences = isReferencesHeadingId(id);
+---
+
+<h2 id={id} class={className} data-references={isReferences ? true : undefined}>
+  <slot />
+</h2>

@@ -72,6 +72,18 @@
     },
     {
       "includes": [
+        "src/components/post/markdown-heading.astro"
+      ],
+      "linter": {
+        "rules": {
+          "a11y": {
+            "useHeadingContent": "off"
+          }
+        }
+      }
+    },
+    {
+      "includes": [
         "**/*.astro"
       ],
       "linter": {
