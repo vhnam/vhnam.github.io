@@ -1,0 +1,10 @@
+pre-commit:
+  jobs:
+    - name: biome
+      glob: "*.{js,ts,cjs,mjs,d.cts,d.mts,jsx,tsx,json,jsonc,css,astro}"
+      run: pnpm biome check --write --no-errors-on-unmatched --files-ignore-unknown=true --colors=off {staged_files}
+      stage_fixed: true
+    - name: format-mdx
+      glob: "*.mdx"
+      run: pnpm tsx scripts/format-mdx.ts
+      stage_fixed: true
