@@ -188,3 +188,14 @@
     text-decoration-color: var(--border) !important;
   }
 }
+
+@layer utilities {
+  .prose pre > code {
+    border-radius: unset;
+    background-color: unset;
+    padding: unset;
+    color: unset;
+    font-size: unset;
+    font-weight: unset;
+  }
+}
