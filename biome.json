@@ -6,7 +6,11 @@
     "useIgnoreFile": true
   },
   "files": {
-    "includes": ["**", "!!**/dist", "!**/.astro"],
+    "includes": [
+      "**",
+      "!!**/dist",
+      "!**/.astro"
+    ],
     "ignoreUnknown": true
   },
   "formatter": {
@@ -55,7 +59,21 @@
   },
   "overrides": [
     {
-      "includes": ["**/*.astro"],
+      "includes": [
+        "src/styles/global.css"
+      ],
+      "linter": {
+        "rules": {
+          "complexity": {
+            "noImportantStyles": "off"
+          }
+        }
+      }
+    },
+    {
+      "includes": [
+        "**/*.astro"
+      ],
       "linter": {
         "rules": {
           "correctness": {

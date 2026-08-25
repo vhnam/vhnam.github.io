@@ -109,3 +109,64 @@
     color: var(--foreground);
   }
 }
+
+@layer components {
+  .prose .post-references {
+    margin-top: 3.5rem;
+    margin-bottom: 2.5rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid var(--border);
+    color: var(--muted-foreground);
+    font-family: var(--font-mono);
+    font-size: 0.8125rem;
+    line-height: 1.65;
+  }
+
+  .prose .post-references > :first-child {
+    margin-top: 0;
+  }
+
+  .prose .post-references > :last-child {
+    margin-bottom: 0;
+  }
+
+  .prose .post-references :is(h1, h2, h3, h4, h5, h6) {
+    margin-top: 0 !important;
+    margin-bottom: 0.75rem;
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    font-weight: 500;
+    letter-spacing: 0.08em;
+    line-height: 1.5;
+    text-transform: uppercase;
+    color: var(--muted-foreground);
+  }
+
+  .prose .post-references :is(p, ul, ol, li) {
+    font-family: var(--font-mono);
+    font-size: inherit;
+    line-height: inherit;
+    color: inherit;
+  }
+
+  .prose .post-references ol {
+    margin-top: 0;
+    padding-left: 1.25em;
+    list-style: decimal;
+  }
+
+  .prose .post-references ol > li {
+    margin-top: 0.4rem;
+    margin-bottom: 0.4rem;
+    padding-left: 0.35em;
+  }
+
+  .prose .post-references a {
+    font-style: italic;
+    font-size: 0.75rem;
+    font-weight: 500;
+    letter-spacing: 0.02em;
+    line-height: 1.5;
+    text-decoration-color: var(--border) !important;
+  }
+}
