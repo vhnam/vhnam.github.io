@@ -2,6 +2,7 @@
 @import "@fontsource-variable/source-serif-4/wght.css";
 @import "@fontsource-variable/jetbrains-mono/wght.css";
 @import "tailwindcss";
+@plugin "@tailwindcss/typography";
 
 @custom-variant dark (&:where([data-theme="dark"], [data-theme="dark"] *));
 
@@ -41,11 +42,14 @@
   --radius-lg: var(--radius);
   --radius-xl: calc(var(--radius) + 4px);
 
-  --font-display: var(--font-display);
-  --font-body: var(--font-body);
-  --font-mono: var(--font-mono);
-
   --text-tiny: 0.625rem;
+}
+
+@theme {
+  --font-display: "Space Grotesk Variable", sans-serif;
+  --font-body: "Source Serif 4 Variable", serif;
+  --font-mono: "JetBrains Mono Variable", monospace;
+  --font-sans: var(--font-body);
 }
 
 :root {
@@ -71,10 +75,6 @@
   --header-bg: color-mix(in srgb, var(--color-amber-50) 88%, transparent);
 
   --accent: var(--color-amber-900);
-
-  --font-display: "Space Grotesk Variable", sans-serif;
-  --font-body: "Source Serif 4 Variable", serif;
-  --font-mono: "JetBrains Mono Variable", monospace;
 }
 
 [data-theme="dark"] {

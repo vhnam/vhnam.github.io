@@ -1,0 +1,24 @@
+---
+interface Props {
+  class?: string;
+}
+
+const { class: className, ...rest } = Astro.props;
+const isBlock = typeof className === "string" && /\blanguage-/.test(className);
+---
+
+{isBlock ? (
+    <code class={className} {...rest}>
+      <slot />
+    </code>
+  ) : (
+    <code
+      class:list={[
+        "rounded-md bg-muted px-1.5 py-0.5 font-mono text-sm font-normal text-pink-600 dark:text-pink-400",
+        className,
+      ]}
+      {...rest}
+    >
+      <slot />
+    </code>
+  )}

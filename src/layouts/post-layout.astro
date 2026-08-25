@@ -1,9 +1,14 @@
 ---
-import { Image } from "astro:assets";
 import { render } from "astro:content";
-
+import Breadcrumb from "../components/common/breadcrumb.astro";
+import PostTag from "../components/common/post-tag.astro";
+import AdjacentPosts from "../components/post/adjacent-posts.astro";
+import MarkdownCode from "../components/post/markdown-code.astro";
+import MarkdownHeading from "../components/post/markdown-heading.astro";
+import MarkdownImage from "../components/post/markdown-image.astro";
+import TableOfContents from "../components/post/table-of-contents.astro";
 import { CATEGORY_LABEL, type Post } from "../lib/posts";
-
+import { formatReadingTime, getReadingTimeMinutes } from "../lib/reading-time";
 import PageLayout from "./page-layout.astro";
 
 interface Props {
@@ -11,35 +16,80 @@ interface Props {
 }
 
 const { post } = Astro.props;
-const { Content } = await render(post);
+const { Content, headings } = await render(post);
 const date = post.data.pubDate.toLocaleDateString("vi-VN");
-const categoryClass =
-  post.collection === "hobby" ? "text-secondary" : "text-primary";
+const readingTime = formatReadingTime(getReadingTimeMinutes(post.body));
+const anchorClass =
+  post.collection === "hobby"
+    ? "[&_a]:decoration-secondary prose-blockquote:border-secondary"
+    : "[&_a]:decoration-primary prose-blockquote:border-primary";
 ---
 
 <PageLayout title={post.data.title}>
-  <article class="py-12 max-w-3xl">
-    <p
-      class:list={[
-        "font-mono text-xs tracking-wide uppercase mb-4",
-        categoryClass,
-      ]}
-    >
-      {CATEGORY_LABEL[post.collection]}
-      <time datetime={post.data.pubDate.toISOString()}> · {date}</time>
-    </p>
-    <h1
-      class="font-display font-bold text-3xl lg:text-4xl leading-tight tracking-tight mb-8"
-    >
-      {post.data.title}
-    </h1>
-    <Image
-      src={post.data.cover}
-      alt={post.data.title}
-      class="w-full rounded-md mb-8"
-    />
-    <div class="font-serif text-base lg:text-lg leading-relaxed space-y-4">
-      <Content />
-    </div>
-  </article>
+  <div class="grid grid-cols-1 lg:grid-cols-3 gap-4 pb-12">
+    <aside class="sticky top-28 self-start lg:order-last">
+      <TableOfContents headings={headings} collection={post.collection} />
+    </aside>
+
+    <article class="lg:col-span-2 z-10 lg:z-0 bg-background lg:bg-transparent">
+      <header>
+        <div class="py-12">
+          <Breadcrumb
+            collection={post.collection}
+            paths={[
+              { label: "Trang chủ", href: "/" },
+              { label: CATEGORY_LABEL[post.collection], href: `/${post.collection}` },
+            ]}
+          />
+        </div>
+
+        <p class="mb-5 flex items-center gap-2 text-xs text-muted-foreground">
+          <time datetime={post.data.pubDate.toISOString()}>{date}</time>
+          <span aria-hidden="true">·</span>
+          <span>{readingTime}</span>
+        </p>
+
+        <h1
+          class="font-display font-bold text-3xl lg:text-5xl leading-tight tracking-tight mb-5"
+        >
+          {post.data.title}
+        </h1>
+        <p class="text-base lg:text-lg text-muted-foreground mb-10 italic">
+          {post.data.description}
+        </p>
+      </header>
+
+      <div
+        class:list={[
+          "prose prose-stone dark:prose-invert max-w-none pb-12 pt-8 font-body",
+          "prose-headings:font-display prose-headings:tracking-tight prose-headings:scroll-mt-28",
+          "prose-img:rounded-md prose-code:font-mono prose-code:before:content-none prose-code:after:content-none prose-pre:font-mono",
+          "prose-figcaption:mt-3 prose-figcaption:text-center prose-figcaption:text-sm prose-figcaption:text-muted-foreground prose-figcaption:font-mono prose-figcaption:tracking-wide prose-figcaption:not-italic",
+          "prose-blockquote:bg-muted prose-blockquote:p-4",
+          "underline-offset-4", anchorClass,
+        ]}
+      >
+        <Content
+          components={{ img: MarkdownImage, code: MarkdownCode, h2: MarkdownHeading }}
+        />
+      </div>
+
+      <footer>
+        {post.data.tags.length > 0 && (
+          <ul
+            class="mb-10 flex flex-wrap items-center gap-2"
+            aria-label="Thẻ"
+          >
+            {post.data.tags.map((tag) => (
+              <li>
+                <PostTag tag={tag} />
+              </li>
+            ))}
+          </ul>
+        )}
+
+        <AdjacentPosts post={post} />
+      </footer>
+    </article>
+  </div>
 </PageLayout>

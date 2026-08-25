@@ -31,6 +31,7 @@
     "@astrojs/check": "^0.9.10",
     "@biomejs/biome": "2.5.10",
     "@changesets/cli": "^3.0.1",
+    "@tailwindcss/typography": "^0.5.20",
     "typescript": "^6.0.3"
   }
 }
