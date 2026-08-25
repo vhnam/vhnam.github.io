@@ -7,6 +7,14 @@ interface Props {
 }
 
 const { src, title = "", height, width } = Astro.props;
+const isYouTube = /youtube\.com|youtube-nocookie\.com|youtu\.be/.test(src);
 ---
 
-<iframe src={src} title={title} height={height} width={width}></iframe>
+<iframe
+  src={src}
+  title={title}
+  height={isYouTube ? undefined : height}
+  width={isYouTube ? undefined : width}
+  class:list={[isYouTube && "block aspect-video h-auto w-full rounded-md border-0"]}
+  allowfullscreen
+></iframe>
