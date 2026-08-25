@@ -8,7 +8,7 @@ interface Props {
 
 const { posts } = Astro.props;
 const tags = posts.flatMap((post) => post.data.tags);
-const uniqueTags = [...new Set(tags)];
+const uniqueTags = [...new Set(tags)].sort((a, b) => a.localeCompare(b, "vi"));
 ---
 
 {uniqueTags.length > 0 && (

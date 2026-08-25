@@ -1,0 +1,42 @@
+---
+import TagList from "../../components/category/tag-list.astro";
+import Breadcrumb from "../../components/common/breadcrumb.astro";
+import PageLayout from "../../layouts/page-layout.astro";
+import { getPosts } from "../../lib/posts";
+
+const posts = await getPosts({ filter: "all" });
+const tags = [...new Set(posts.flatMap((post) => post.data.tags))];
+---
+
+<PageLayout title="Tags">
+  <header>
+    <div class="pt-10 pb-8">
+      <Breadcrumb
+        paths={[
+          { label: "Trang Chủ", href: "/" },
+          { label: "Tags", href: "/tags" },
+        ]}
+      />
+    </div>
+
+    <h1
+      class="font-display font-bold text-3xl lg:text-4xl leading-tight tracking-tight mb-8"
+    >
+      Tags
+    </h1>
+
+    <p class:list={["text-sm mb-8", "text-accent"]}>
+      {tags.length}{' '}
+      thẻ bài viết.
+    </p>
+  </header>
+
+  <div class="grid grid-cols-1 lg:grid-cols-3 gap-4 pb-12">
+    <section
+      class="lg:col-span-2 lg:order-first z-10 lg:z-0 bg-background lg:bg-transparent"
+      aria-label="Danh sách bài viết"
+    >
+      <TagList posts={posts} />
+    </section>
+  </div>
+</PageLayout>
