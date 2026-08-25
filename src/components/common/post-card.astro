@@ -1,39 +1,59 @@
 ---
 import { getPostHref, type Post } from "../../lib/posts";
 import Badge from "./badge.astro";
+import PostTag from "./post-tag.astro";
 
 interface Props {
   post: Post;
+  showTags?: boolean;
+  showCategory?: boolean;
 }
 
-const { post } = Astro.props;
+const { post, showTags = false, showCategory = true } = Astro.props;
 
 const href = getPostHref(post);
 const pubDate = new Date(post.data.pubDate).toLocaleDateString("vi-VN");
 const borderColor =
-  post.collection === "hobby" ? "border-secondary" : "border-primary";
+  post.collection === "hobby" ? "border-l-secondary" : "border-l-primary";
 ---
 
 <article
-  class="border border-border rounded-md overflow-hidden bg-card transition-transform duration-200 hover:-translate-y-2 hover:shadow-lg"
+  class:list={[
+    "relative border border-border border-l rounded-md overflow-hidden bg-card transition-transform duration-200 hover:-translate-y-2 hover:shadow-lg border-l-4 p-4 lg:p-6",
+    borderColor,
+  ]}
 >
-  <a
-    href={href}
-    class:list={["block h-full p-4 lg:p-6 border-l-4", borderColor]}
-  >
-    <div class="flex items-center gap-4">
-      <span class="font-mono text-muted-foreground text-tiny tracking-wider">
-        {pubDate}
-      </span>
-      <Badge collection={post.collection} />
-    </div>
-    <h3
-      class="font-display font-semibold text-base text-foreground tracking-tight py-2"
+  <div class="flex items-center gap-4">
+    <time
+      datetime={post.data.pubDate.toISOString()}
+      class="font-mono text-muted-foreground text-tiny tracking-wider"
     >
+      {pubDate}
+    </time>
+    {showCategory && (
+      <Badge collection={post.collection} />
+    )}
+  </div>
+
+  <h3
+    class="font-display font-semibold text-base text-foreground tracking-tight py-2"
+  >
+    <a href={href} class="after:absolute after:inset-0 hover:underline">
       {post.data.title}
-    </h3>
-    <p class="text-sm text-muted-foreground leading-relaxed line-clamp-2">
-      {post.data.description}
-    </p>
-  </a>
+    </a>
+  </h3>
+
+  <p class="text-sm text-muted-foreground leading-relaxed line-clamp-2">
+    {post.data.description}
+  </p>
+
+  {showTags && post.data.tags.length > 0 && (
+      <ul class="relative z-10 flex flex-wrap items-center gap-2 pt-3">
+        {post.data.tags.map((tag) => (
+          <li>
+            <PostTag tag={tag} />
+          </li>
+        ))}
+      </ul>
+    )}
 </article>
