@@ -6,6 +6,7 @@ import { rehypeWrapReferences } from "./src/lib/references";
 import { rehypeUnwrapImages } from "./src/lib/unwrap-images";
 
 export default defineConfig({
+  site: "https://vhnam.github.io",
   integrations: [mdx()],
   markdown: {
     processor: unified({
