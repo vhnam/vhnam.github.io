@@ -1,5 +1,5 @@
 ---
-import { getPostHref, type Post } from "../lib/posts";
+import { getPostHref, type Post } from "../../lib/posts";
 import Badge from "./badge.astro";
 
 interface Props {
@@ -10,8 +10,6 @@ const { post } = Astro.props;
 
 const href = getPostHref(post);
 const pubDate = new Date(post.data.pubDate).toLocaleDateString("vi-VN");
-const textColor =
-  post.collection === "hobby" ? "text-secondary" : "text-primary";
 const borderColor =
   post.collection === "hobby" ? "border-secondary" : "border-primary";
 ---
