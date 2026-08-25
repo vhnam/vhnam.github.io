@@ -50,6 +50,24 @@ export async function getPosts({
   return sorted.slice(start, start + limit);
 }
 
+export async function getAdjacentPosts(post: Post) {
+  const filter: Filter = post.collection === "hobby" ? "hobbies" : "tutorials";
+  const posts = await getPosts({ filter });
+  const index = posts.findIndex(
+    (candidate) =>
+      candidate.id === post.id && candidate.collection === post.collection,
+  );
+
+  if (index === -1) {
+    return { previous: null, next: null };
+  }
+
+  return {
+    previous: posts[index + 1] ?? null,
+    next: posts[index - 1] ?? null,
+  };
+}
+
 export async function getFeaturedPost() {
   const [hobbies, tutorials] = await Promise.all([
     getCollection("hobby"),
