@@ -1,5 +1,7 @@
 ---
 import ToggleTheme from "./toggle-theme.astro";
+
+const isAbout = Astro.url.pathname.replace(/\/$/, "") === "/about";
 ---
 
 <header
@@ -30,6 +32,18 @@ import ToggleTheme from "./toggle-theme.astro";
             href="/hobbies"
             class="font-mono font-medium text-xs text-muted-foreground hover:text-secondary hover:underline tracking-wide"
             >Giải Trí</a
+          >
+        </li>
+        <li>
+          <a
+            href="/about"
+            class:list={[
+              "font-mono font-medium text-xs tracking-wide rounded-full px-3 py-1 border transition-colors",
+              isAbout
+                ? "bg-primary text-primary-foreground border-primary"
+                : "text-muted-foreground border-border hover:text-primary hover:border-primary",
+            ]}
+            >CV</a
           >
         </li>
       </ul>
