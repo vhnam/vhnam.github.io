@@ -1,0 +1,22 @@
+---
+import type { Post } from "../../lib/posts";
+import PostTag from "../common/post-tag.astro";
+
+interface Props {
+  posts: Post[];
+}
+
+const { posts } = Astro.props;
+const tags = posts.flatMap((post) => post.data.tags);
+const uniqueTags = [...new Set(tags)];
+---
+
+<div>
+  <ul class="flex flex-wrap gap-2">
+    {uniqueTags.map((tag) => (
+      <li>
+        <PostTag tag={tag} numberOfPosts={tags.filter((t) => t === tag).length} />
+      </li>
+    ))}
+  </ul>
+</div>

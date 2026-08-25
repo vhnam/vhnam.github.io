@@ -1,0 +1,29 @@
+---
+interface Props {
+  paths: { label: string; href: string }[];
+  collection?: "hobby" | "tutorial";
+}
+
+const { paths, collection } = Astro.props;
+const textColor =
+  collection == null
+    ? "text-accent"
+    : collection === "hobby"
+      ? "text-secondary"
+      : "text-primary";
+---
+
+<nav class="flex items-center gap-2">
+  <ul class="flex items-center gap-2">
+    {paths.map((path, index) => (
+      <>
+        {index > 0 && (
+          <li aria-hidden="true" class="h-3 w-px bg-muted-foreground/40" />
+        )}
+        <li class:list={["font-mono font-medium text-xs hover:underline tracking-wide", index === paths.length - 1 ? textColor : "text-muted-foreground"]}>
+          <a href={path.href}>{path.label}</a>
+        </li>
+      </>
+    ))}
+  </ul>
+</nav>

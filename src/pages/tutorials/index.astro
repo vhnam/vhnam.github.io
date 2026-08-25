@@ -1,5 +1,5 @@
 ---
-import PostsIndex from "../../components/category/posts-index.astro";
+import CategoryPage from "../../components/category/category-page.astro";
 
 import Layout from "../../layouts/page-layout.astro";
 
@@ -8,6 +8,11 @@ import { getPosts } from "../../lib/posts";
 const posts = await getPosts({ filter: "tutorials" });
 ---
 
-<Layout title="Phần Mềm">
-  <PostsIndex heading="Phần Mềm" posts={posts} />
+<Layout title="Lập Trình">
+  <CategoryPage
+    heading="Lập Trình"
+    collection="tutorial"
+    href="/tutorials"
+    posts={posts}
+  />
 </Layout>

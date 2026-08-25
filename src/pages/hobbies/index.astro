@@ -1,5 +1,5 @@
 ---
-import PostsIndex from "../../components/category/posts-index.astro";
+import CategoryPage from "../../components/category/category-page.astro";
 
 import Layout from "../../layouts/page-layout.astro";
 
@@ -9,5 +9,10 @@ const posts = await getPosts({ filter: "hobbies" });
 ---
 
 <Layout title="Giải Trí">
-  <PostsIndex heading="Giải Trí" posts={posts} />
+  <CategoryPage
+    heading="Giải Trí"
+    collection="hobby"
+    href="/hobbies"
+    posts={posts}
+  />
 </Layout>
