@@ -16,20 +16,20 @@ const textColor =
   post.collection === "hobby" ? "text-secondary" : "text-primary";
 ---
 
-<section class="pb-16">
+<section class="pb-16" aria-label="Bài viết nổi bật">
   <article
     class="grid grid-cols-1 md:grid-cols-2 border border-border rounded-md overflow-hidden bg-card transition-transform duration-200 hover:-translate-y-2 hover:shadow-lg"
   >
-    <div class="bg-primary-muted overflow-hidden min-h-64">
+    <figure class="bg-primary-muted overflow-hidden min-h-64 m-0">
       <Image
         src={post.data.cover}
         alt={post.data.title}
         class="size-full object-cover block"
       />
-    </div>
+    </figure>
     <div class="p-4 lg:p-6 flex flex-col justify-center gap-6">
-      <div class="flex items-center justify-between w-full">
-        <div class="flex items-center gap-2">
+      <header class="flex items-center justify-between w-full">
+        <p class="flex items-center gap-2">
           <Badge collection={post.collection} />
           <time
             datetime={post.data.pubDate.toISOString()}
@@ -37,13 +37,13 @@ const textColor =
           >
             {date}
           </time>
-        </div>
-        <span
+        </p>
+        <p
           class="font-mono font-light text-xs tracking-wide text-teal-700 bg-teal-100 dark:text-teal-400 dark:bg-teal-950 px-2 py-1 rounded-md"
         >
           Nổi bật
-        </span>
-      </div>
+        </p>
+      </header>
       <h2
         class="font-display font-bold text-2xl lg:text-3xl xl:text-4xl leading-tight tracking-tight"
       >
@@ -52,12 +52,14 @@ const textColor =
       <p class="text-base leading-relaxed text-muted-foreground">
         {post.data.description}
       </p>
-      <a
-        href={href}
-        class:list={["font-mono font-medium text-xs tracking-wide underline-offset-3 self-start underline", textColor]}
-      >
-        Đọc tiếp →
-      </a>
+      <p>
+        <a
+          href={href}
+          class:list={["font-mono font-medium text-xs tracking-wide underline-offset-3 self-start underline", textColor]}
+        >
+          Đọc tiếp →
+        </a>
+      </p>
     </div>
   </article>
 </section>

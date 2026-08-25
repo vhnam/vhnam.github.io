@@ -10,18 +10,23 @@ interface Props {
 const { posts } = Astro.props;
 ---
 
-<section class="pb-20">
-  <div
+<section class="pb-20" aria-labelledby="recent-posts-heading">
+  <header
     class="flex items-center justify-between mb-6 border-b border-border pb-3 flex-wrap gap-2"
   >
-    <span
+    <h2
+      id="recent-posts-heading"
       class="font-mono font-medium text-xs tracking-wide text-muted-foreground uppercase"
     >
       Bài viết gần đây
-    </span>
-  </div>
+    </h2>
+  </header>
 
-  <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-    {posts.map((post) => <PostCard post={post} />)}
-  </div>
+  <ul class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+    {posts.map((post) => (
+      <li class="flex">
+        <PostCard post={post} />
+      </li>
+    ))}
+  </ul>
 </section>

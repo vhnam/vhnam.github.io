@@ -6,7 +6,7 @@ import taoDanBand from "../../assets/images/tao-dan-band.jpeg";
 const START_YEAR = 2014;
 ---
 
-<div class="grid grid-cols-1 lg:grid-cols-2 gap-4">
+<header class="grid grid-cols-1 lg:grid-cols-2 gap-4">
   <div class="pt-12 pb-4 lg:pb-12 flex flex-col justify-center">
     <p
       class="font-mono font-medium text-xs text-primary tracking-wide uppercase mb-6"
@@ -27,12 +27,16 @@ const START_YEAR = 2014;
         <span class="hidden lg:block text-primary">Vai trò:</span>
         Front-End Engineer
       </li>
-      <li><span class="rounded-full size-1 bg-border block">&nbsp;</span></li>
+      <li aria-hidden="true">
+        <span class="rounded-full size-1 bg-border block">&nbsp;</span>
+      </li>
       <li class="flex gap-2">
         <span class="hidden lg:block">Tới từ:</span>
         Sài Gòn, Việt Nam
       </li>
     </ul>
   </div>
-  <Image src={taoDanBand} alt="Tao Dan band" class="size-full object-cover" />
-</div>
+  <figure class="size-full m-0">
+    <Image src={taoDanBand} alt="Tao Dan band" class="size-full object-cover" />
+  </figure>
+</header>

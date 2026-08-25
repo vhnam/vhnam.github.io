@@ -4,7 +4,10 @@ import { Image } from "astro:assets";
 import profilePhoto from "../../assets/images/namvh.jpeg";
 ---
 
-<section class="border-t border-border pt-5 mb-16 flex items-center gap-3">
+<section
+  class="border-t border-border pt-5 mb-16 flex items-center gap-3"
+  aria-label="Giới thiệu"
+>
   <Image
     src={profilePhoto}
     alt="Nam Vo"
@@ -12,14 +15,12 @@ import profilePhoto from "../../assets/images/namvh.jpeg";
   />
   <div class="flex items-center justify-between gap-2 w-full">
     <div>
-      <span class="font-display font-semibold text-base text-foreground block">
-        Nam Vo
-      </span>
-      <span
+      <p class="font-display font-semibold text-base text-foreground">Nam Vo</p>
+      <p
         class="font-mono font-medium text-xs text-muted-foreground tracking-wide"
       >
         Có hứng thú với các vấn đề liên quan đến: UI/UX, Âm Nhạc, và Nhiếp Ảnh.
-      </span>
+      </p>
     </div>
     <a
       href="/about"

@@ -14,9 +14,11 @@ const { posts } = Astro.props;
     Chưa có bài viết nào trong mục này.
   </p>
 ) : (
-  <div class="grid grid-cols-1 gap-4">
+  <ul class="grid grid-cols-1 gap-4">
     {posts.map((post) => (
-      <PostCard post={post} showTags showCategory={false} />
+      <li class="flex">
+        <PostCard post={post} heading="h2" showTags showCategory={false} />
+      </li>
     ))}
-  </div>
+  </ul>
 )}
