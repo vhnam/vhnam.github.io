@@ -2,3 +2,5 @@ User-agent: *
 Allow: /
 
 Sitemap: https://vhnam.github.io/sitemap-index.xml
+
+Content-Signal: ai-train=no, search=yes, ai-input=yes
