@@ -1,0 +1,42 @@
+---
+import IconArrowUp from "../icons/arrow-up.svg";
+---
+
+<button
+  id="scroll-to-top"
+  type="button"
+  class="fixed right-4 bottom-4 z-40 inline-flex size-10 items-center justify-center rounded-md border border-border bg-card text-muted-foreground shadow-md opacity-0 pointer-events-none translate-y-2 transition-[opacity,transform,color] duration-200 hover:text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring data-[visible=true]:opacity-100 data-[visible=true]:pointer-events-auto data-[visible=true]:translate-y-0 lg:right-6 cursor-pointer hover:bg-muted-foreground/10 active:bg-muted-foreground/20"
+  aria-label="Lên đầu trang"
+  aria-hidden="true"
+  tabindex="-1"
+>
+  <IconArrowUp class="size-4" />
+</button>
+
+<script>
+const SHOW_AFTER_PX = 320;
+const button = document.getElementById("scroll-to-top");
+
+if (button instanceof HTMLButtonElement) {
+  const prefersReducedMotion = window.matchMedia(
+    "(prefers-reduced-motion: reduce)",
+  ).matches;
+
+  const updateVisibility = () => {
+    const visible = window.scrollY > SHOW_AFTER_PX;
+    button.dataset.visible = String(visible);
+    button.setAttribute("aria-hidden", String(!visible));
+    button.tabIndex = visible ? 0 : -1;
+  };
+
+  button.addEventListener("click", () => {
+    window.scrollTo({
+      top: 0,
+      behavior: prefersReducedMotion ? "auto" : "smooth",
+    });
+  });
+
+  window.addEventListener("scroll", updateVisibility, { passive: true });
+  updateVisibility();
+}
+</script>
