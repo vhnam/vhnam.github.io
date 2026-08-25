@@ -121,6 +121,14 @@
     border-radius: var(--radius-md);
   }
 
+  .prose iframe[src*="stackblitz.com"] {
+    display: block;
+    width: 100%;
+    max-width: 100%;
+    border: 0;
+    border-radius: var(--radius-md);
+  }
+
   .prose .post-references {
     margin-top: 3.5rem;
     margin-bottom: 2.5rem;

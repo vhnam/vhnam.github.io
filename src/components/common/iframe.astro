@@ -15,6 +15,9 @@ const isYouTube = /youtube\.com|youtube-nocookie\.com|youtu\.be/.test(src);
   title={title}
   height={isYouTube ? undefined : height}
   width={isYouTube ? undefined : width}
-  class:list={[isYouTube && "block aspect-video h-auto w-full rounded-md border-0"]}
+  class:list={[
+    "block w-full max-w-full rounded-md border-0",
+    isYouTube && "aspect-video h-auto",
+  ]}
   allowfullscreen
 ></iframe>
