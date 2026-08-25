@@ -5,9 +5,9 @@ import { fileURLToPath } from "node:url";
 const ROOT = join(fileURLToPath(new URL("..", import.meta.url)), "src");
 const CHECK = process.argv.includes("--check");
 
-async function walk(dir) {
+async function walk(dir: string): Promise<string[]> {
   const entries = await readdir(dir, { withFileTypes: true });
-  const files = [];
+  const files: string[] = [];
 
   for (const entry of entries) {
     const path = join(dir, entry.name);
@@ -21,20 +21,20 @@ async function walk(dir) {
   return files;
 }
 
-function formatQuotedAttribute(value) {
+function formatQuotedAttribute(value: string) {
   return value.replace(/^\s+|\s+$/g, "").replace(/\s*\n\s*/g, " ");
 }
 
-function formatOpeningTag(attributes) {
+function formatOpeningTag(attributes: string) {
   const withoutBlankLines = attributes.replace(/\n[ \t]*\n+/g, "\n");
 
   return withoutBlankLines.replace(
     /=\s*"([^"]*)"/g,
-    (_match, value) => `="${formatQuotedAttribute(value)}"`,
+    (_match, value: string) => `="${formatQuotedAttribute(value)}"`,
   );
 }
 
-function formatMdx(source) {
+function formatMdx(source: string) {
   return source
     .split(/(```[\s\S]*?```)/g)
     .map((part, index) => {
@@ -44,7 +44,7 @@ function formatMdx(source) {
 
       return part.replace(
         /<([A-Za-z][\w:-]*)(\s[\s\S]*?)(\s*\/?)>/g,
-        (_match, name, attributes, close) =>
+        (_match, name: string, attributes: string, close: string) =>
           `<${name}${formatOpeningTag(attributes)}${close}>`,
       );
     })
@@ -52,7 +52,7 @@ function formatMdx(source) {
 }
 
 const files = await walk(ROOT);
-const dirty = [];
+const dirty: string[] = [];
 
 for (const file of files) {
   const original = await readFile(file, "utf8");

@@ -6,11 +6,7 @@
     "useIgnoreFile": true
   },
   "files": {
-    "includes": [
-      "**",
-      "!!**/dist",
-      "!**/.astro"
-    ],
+    "includes": ["**", "!!**/dist", "!**/.astro"],
     "ignoreUnknown": true
   },
   "formatter": {
@@ -59,9 +55,7 @@
   },
   "overrides": [
     {
-      "includes": [
-        "src/styles/global.css"
-      ],
+      "includes": ["src/styles/global.css"],
       "linter": {
         "rules": {
           "complexity": {
@@ -71,9 +65,7 @@
       }
     },
     {
-      "includes": [
-        "src/components/post/markdown-heading.astro"
-      ],
+      "includes": ["src/components/post/markdown-heading.astro"],
       "linter": {
         "rules": {
           "a11y": {
@@ -83,9 +75,7 @@
       }
     },
     {
-      "includes": [
-        "**/*.astro"
-      ],
+      "includes": ["**/*.astro"],
       "linter": {
         "rules": {
           "correctness": {
