@@ -22,12 +22,11 @@ export function getPostHref(post: Post) {
 
 export async function getPosts({
   filter = "all",
-  limit = 6,
+  limit,
   ignoreFeatured = false,
 }: GetPostsOptions) {
   const hobbies = await getCollection("hobby");
   const tutorials = await getCollection("tutorial");
-  const numberOfPosts = ignoreFeatured ? limit + 1 : limit;
 
   let posts = [...hobbies, ...tutorials];
   if (filter !== "all") {
@@ -42,7 +41,12 @@ export async function getPosts({
       secondPost.data.pubDate.valueOf() - firstPost.data.pubDate.valueOf(),
   );
 
-  return sorted.slice(ignoreFeatured ? 1 : 0, numberOfPosts);
+  const start = ignoreFeatured ? 1 : 0;
+  if (limit == null) {
+    return sorted.slice(start);
+  }
+
+  return sorted.slice(start, start + limit);
 }
 
 export async function getFeaturedPost() {
