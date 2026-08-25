@@ -1,0 +1,30 @@
+---
+import PageLayout from "../layouts/page-layout.astro";
+
+export const prerender = true;
+---
+
+<PageLayout title="404">
+  <div
+    class="flex flex-1 flex-col items-center justify-center py-16 text-center"
+  >
+    <p
+      class="font-display font-bold text-8xl sm:text-9xl lg:text-[9.5rem] leading-none tracking-tight text-muted-foreground/30 mb-10 select-none"
+    >
+      404
+    </p>
+
+    <p class="text-sm leading-relaxed text-muted-foreground max-w-md mb-10">
+      Trang bạn tìm không tồn tại, hoặc đã được di chuyển.
+    </p>
+
+    <div class="flex flex-wrap items-center justify-center gap-4">
+      <a
+        href="/"
+        class="font-mono text-sm tracking-wide text-primary border border-primary rounded-md px-5 py-2 hover:bg-primary/10 transition-colors"
+      >
+        ← Về trang chủ
+      </a>
+    </div>
+  </div>
+</PageLayout>

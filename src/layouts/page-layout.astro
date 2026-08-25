@@ -20,9 +20,9 @@ const { title = "Nam Vo" } = Astro.props;
 
     <title>{title}</title>
   </head>
-  <body class="bg-background text-foreground">
+  <body class="min-h-dvh flex flex-col bg-background text-foreground">
     <Header />
-    <main class="container mx-auto px-4 lg:px-6 xl:px-0">
+    <main class="container mx-auto px-4 lg:px-6 xl:px-0 flex-1 flex flex-col">
       <slot />
     </main>
     <Footer />
