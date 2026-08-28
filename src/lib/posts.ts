@@ -16,6 +16,10 @@ export const CATEGORY_LABEL = {
   tutorial: "Phần Mềm",
 } as const;
 
+export function getCategoryHref(collection: "hobby" | "tutorial") {
+  return collection === "hobby" ? "/hobbies" : "/tutorials";
+}
+
 export function getPostHref(post: Post) {
   const prefix = post.collection === "hobby" ? "/hobbies" : "/tutorials";
   return `${prefix}/${post.id}`;

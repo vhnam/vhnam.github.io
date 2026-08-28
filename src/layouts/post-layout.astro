@@ -10,7 +10,7 @@ import MarkdownPre from "../components/post/markdown-pre.astro";
 import Prose from "../components/post/prose.astro";
 import RelatedPosts from "../components/post/related-posts.astro";
 import TableOfContents from "../components/post/table-of-contents.astro";
-import { CATEGORY_LABEL, type Post } from "../lib/posts";
+import { CATEGORY_LABEL, getCategoryHref, type Post } from "../lib/posts";
 import { formatReadingTime } from "../lib/reading-time";
 import PageLayout from "./page-layout.astro";
 
@@ -53,7 +53,7 @@ const showLastModified =
             collection={post.collection}
             paths={[
               { label: "Trang chủ", href: "/" },
-              { label: CATEGORY_LABEL[post.collection], href: `/${post.collection}` },
+              { label: CATEGORY_LABEL[post.collection], href: getCategoryHref(post.collection) },
             ]}
           />
         </div>
