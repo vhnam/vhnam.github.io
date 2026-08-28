@@ -16,7 +16,7 @@ export async function GET(context: APIContext) {
     description: "Nam Vo | UX Engineer, Music Enthusiast, Cinematographer",
     site,
     trailingSlash: false,
-    customData: "<language>vi</language>",
+    customData: "<language>vi-vn</language>",
     items: posts.map((post) => ({
       title: post.data.title,
       description: post.data.description,
