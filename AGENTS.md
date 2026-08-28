@@ -32,7 +32,7 @@ Hobby and tutorial posts are MDX under `src/content/{hobby,tutorial}`. Schema li
 - Dates are Schema.org Article fields, `YYYY-MM-DD` (or a datetime the schema can coerce):
   - **`datePublished`** (required): the calendar date the article first went live. Never change it when editing an existing post. For a new post, use the intended publish date (usually today).
   - **`dateModified`** (optional): the calendar date of the last *editorial* content change (new sections, corrected facts, rewritten passages). Omit it when the body is unchanged since publish. Do not set it for typo-only, image-path, or layout/CSS work. It must be on or after `datePublished`. Git last-modified is a fallback for the page UI and `article:modified_time` when this field is omitted — it is not a substitute when you intentionally update the article.
-- Cover and inline images live under `src/assets/{hobbies,tutorials}/<slug>/`. Point `cover` at a relative path from the MDX file.
+- Cover and inline images live under `src/assets/{hobbies,tutorials}/<slug>/`. Point `cover` at a relative path from the MDX file. Post `![alt](…)` alt text is the visible caption in v6 — put the caption in `alt`, do not leave a separate `_italic_` / `*italic*` line under the image.
 - Embeds use `IFrameComponent` from `src/components/common/iframe`.
 - A closing references section uses heading **Tham khảo** (or References). That heading is styled specially; keep that id.
 
