@@ -13,6 +13,10 @@ interface Props {
 }
 
 const { title, description, cover, articleDate } = Astro.props;
+
+const gaId = import.meta.env.PROD
+  ? import.meta.env.GA_MEASUREMENT_ID
+  : undefined;
 ---
 
 <!doctype html>
@@ -48,6 +52,19 @@ const { title, description, cover, articleDate } = Astro.props;
             : "light";
       document.documentElement.setAttribute("data-theme", theme);
     })();
+    </script>
+
+    <!-- Google Analytics (GA4) -->
+    {gaId && <script is:inline async src={`https://www.googletagmanager.com/gtag/js?id=${gaId}`}></script>}
+    <script is:inline define:vars={{ gaId }}>
+    if (gaId) {
+      window.dataLayer = window.dataLayer || [];
+      function gtag(...args) {
+        dataLayer.push(args);
+      }
+      gtag("js", new Date());
+      gtag("config", gaId);
+    }
     </script>
   </body>
 </html>
