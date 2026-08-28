@@ -199,3 +199,18 @@
     font-weight: unset;
   }
 }
+
+@layer utilities {
+  .glightbox-clean .gslide-description {
+    background: var(--card);
+  }
+
+  .glightbox-clean .gslide-title {
+    color: var(--card-foreground);
+  }
+
+  .glightbox-clean .gslide-desc {
+    color: var(--muted-foreground);
+    text-align: center;
+  }
+}
