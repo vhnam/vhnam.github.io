@@ -3,6 +3,7 @@ import mdx from "@astrojs/mdx";
 import sitemap from "@astrojs/sitemap";
 import tailwindcss from "@tailwindcss/vite";
 import { defineConfig } from "astro/config";
+import { hastExternalLinksPlugin } from "./src/lib/external-links";
 import { mdastLastModifiedPlugin } from "./src/lib/last-modified";
 import { mdastReadingTimePlugin } from "./src/lib/reading-time";
 import { hastUnwrapImagesPlugin } from "./src/lib/unwrap-images";
@@ -27,7 +28,7 @@ export default defineConfig({
   markdown: {
     processor: satteri({
       mdastPlugins: [mdastReadingTimePlugin, mdastLastModifiedPlugin],
-      hastPlugins: [hastUnwrapImagesPlugin],
+      hastPlugins: [hastUnwrapImagesPlugin, hastExternalLinksPlugin],
     }),
   },
   vite: {
