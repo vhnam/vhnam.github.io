@@ -1,47 +1,53 @@
-# Nam Vo's blog
+# vhnam.github.io
 
-## 🚀 Project Structure
+Personal site of Nam Vo — UX Engineer, music enthusiast, cinematographer.
 
-Inside of project, you'll see the following folders and files:
+Built with [Astro 7](https://astro.build), Tailwind CSS 4, and MDX content collections.
+
+## Tech stack
+
+- **Astro 7** — static site generation
+- **Tailwind CSS 4** (`@tailwindcss/vite`) — styling
+- **MDX** — hobby and tutorial posts
+- **Satteri** — markdown pipeline (reading time, last-modified, unwrap images, external links)
+- **Sharp** — image optimization
+- **GLightbox** — post image zoom
+- **Biome** — lint/format
+- **Lefthook** — git hooks
+- **Changesets** — versioning
+- **pnpm 11** — package manager
+
+## Project structure
 
 ```
-├── public/
-├── src/
-│   ├── assets/
-│   ├── components/
-│   ├── content/
-│   ├── layouts/
-│   └── pages/
-│   └── styles/
-├── astro.config.mjs
-├── package.json
-├── postcss.config.cjs
-├── README.md
-├── tailwind.config.cjs
-└── tsconfig.json
+src/
+  assets/       images (hobbies, tutorials, homepage hero, icons)
+  components/   home, post, category, common, icons
+  content/      hobby and tutorial MDX collections
+  layouts/      page-layout.astro, post-layout.astro
+  lib/          posts, reading-time, last-modified, unwrap-images, external-links, references
+  pages/        index, about, hobbies, tutorials, tags, rss.xml, 404, policy-privacy
+  styles/       global.css (theme tokens, typography)
 ```
 
-Astro looks for `.astro` or `.md` files in the `src/pages/` directory. Each page is exposed as a route based on its file name.
+Copy `.env.example` to `.env` for local `pnpm dev`. Site title, description, author, `GA_MEASUREMENT_ID`, and `FB_APP_ID` are read at build time.
 
-There's nothing special about `src/components/`, but that's where we like to put any Astro/React/Vue/Svelte/Preact components.
+## Scripts
 
-The `src/content/` directory contains "collections" of related Markdown and MDX documents. Use `getCollection()` to retrieve posts from `src/content/blog/`, and type-check your [frontmatter](https://daily-dev-tips.com/posts/what-exactly-is-frontmatter/) using an optional schema. See [Astro's Content Collections docs](https://docs.astro.build/en/guides/content-collections/) to learn more.
+| Command         | Description                              |
+| --------------- | ----------------------------------------- |
+| `pnpm dev`      | Start the dev server                      |
+| `pnpm build`    | Build the production site                 |
+| `pnpm preview`  | Preview the production build              |
+| `pnpm check`    | Run Biome checks + MDX format check       |
+| `pnpm format`   | Format code and MDX with Biome            |
 
-Any static assets, like images, can be placed in the `src/assets/` directory.
+## Content
 
-## 🧞 Commands
+Hobby and tutorial posts live under `src/content/{hobby,tutorial}` as MDX. Front matter is validated in `src/content.config.ts`: `title`, `description`, `datePublished`, optional `dateModified`, `cover`, `tags`, `isFeatured`. Routes are `/hobbies/[id]` and `/tutorials/[id]`.
 
-All commands are run from the root of the project, from a terminal:
+Posts get Open Graph / Twitter tags, reading time, table of contents, adjacent and related posts, a copy-code button, and image zoom. Date field rules live in `AGENTS.md`.
 
-| Command                   | Action                                           |
-| :------------------------ | :----------------------------------------------- |
-| `npm install`             | Installs dependencies                            |
-| `npm run dev`             | Starts local dev server at `localhost:4321`      |
-| `npm run build`           | Build your production site to `./dist/`          |
-| `npm run preview`         | Preview your build locally, before deploying     |
-| `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `npm run astro -- --help` | Get help using the Astro CLI                     |
+## Notes
 
-## 👀 Want to learn more?
-
-Check out [Astro documentation](https://docs.astro.build) or jump into [Discord server](https://astro.build/chat).
+This is the v6 rewrite of the site (Astro 7 + Tailwind 4), replacing the previous v5 stack. See `.changeset/` for a granular history of feature and fix entries, and `git log` for full commit history. Agent and shipping policy is in `AGENTS.md`.

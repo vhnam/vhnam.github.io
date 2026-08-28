@@ -1,71 +1,30 @@
 ---
-import { GA_MEASUREMENT_ID } from "../consts";
+import PageLayout from "../layouts/page-layout.astro";
 
-import BaseHead from "../components/BaseHead.astro";
-import Footer from "../components/Footer.astro";
-import Header from "../components/Header.astro";
+export const prerender = true;
 ---
 
-<!doctype html>
-<html lang="vi">
-  <head>
-    <BaseHead title="404 - Không tìm thấy trang" />
-  </head>
-  <body>
-    <Header />
+<PageLayout title="404">
+  <div
+    class="flex flex-1 flex-col items-center justify-center py-16 text-center"
+  >
+    <p
+      class="font-display font-bold text-8xl sm:text-9xl lg:text-[9.5rem] leading-none tracking-tight text-muted-foreground/30 mb-10 select-none"
+    >
+      404
+    </p>
 
-    <main id="main-content" class="my-20">
-      <div class="container mx-auto">
-        <div class="px-4 xl:px-8 pt-10">
-          <section class="flex items-center h-full p-16">
-            <div
-              class="container flex flex-col items-center justify-center px-5 mx-auto my-8"
-            >
-              <div class="max-w-md text-center">
-                <p
-                  class="mb-8 font-bold text-9xl text-primary"
-                  aria-hidden="true"
-                >
-                  404
-                </p>
-                <h1 class="text-3xl font-semibold md:text-3xl">
-                  Không tìm thấy trang
-                </h1>
-                <p class="text-muted mt-4 mb-8 text-lg text-stone-600 dark:text-zinc-400">
-                  Không sao, bạn vẫn có thể tìm được nhiều thứ hay ho trên trang
-                  của mình
-                </p>
-                <a
-                  rel="noopener noreferrer"
-                  href="/"
-                  class="text-page ml-4 inline-flex cursor-pointer items-center justify-center rounded-full border border-primary-300/80 bg-white/80 px-6 py-3.5 text-center text-base font-medium leading-snug text-stone-800 shadow-sm shadow-primary-500/10 transition duration-200 ease-in hover:border-primary-400 hover:bg-primary-50/80 focus:ring-2 focus:ring-primary-500 focus:ring-offset-2 focus:ring-offset-stone-100 md:px-8 dark:border-primary-700/60 dark:bg-zinc-900/80 dark:text-zinc-200 dark:shadow-none dark:hover:border-primary-500 dark:hover:bg-primary-950/40 dark:focus:ring-primary-400 dark:focus:ring-offset-zinc-900"
-                  >Quay về Trang chủ</a
-                >
-              </div>
-            </div>
-          </section>
-        </div>
-      </div>
-    </main>
+    <p class="text-sm leading-relaxed text-muted-foreground max-w-md mb-10">
+      Trang bạn tìm không tồn tại, hoặc đã được di chuyển.
+    </p>
 
-    <Footer />
-
-    <!-- Google Analytics 4 -->
-    <script
-      is:inline
-      async
-      type="text/partytown"
-      src={`https://www.googletagmanager.com/gtag/js?id=${GA_MEASUREMENT_ID}`}
-    ></script>
-
-    <script is:inline type="text/partytown" define:vars={{ GA_MEASUREMENT_ID }}>
-      window.dataLayer = window.dataLayer || [];
-
-      function gtag() {
-        window.dataLayer.push(arguments);
-      }
-      gtag("js", new Date());
-      gtag("config", GA_MEASUREMENT_ID);
-    </script>
-  </body>
-</html>
+    <div class="flex flex-wrap items-center justify-center gap-4">
+      <a
+        href="/"
+        class="font-mono text-sm tracking-wide text-primary border border-primary rounded-md px-5 py-2 hover:bg-primary/10 transition-colors"
+      >
+        ← Về trang chủ
+      </a>
+    </div>
+  </div>
+</PageLayout>

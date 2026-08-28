@@ -1,0 +1,140 @@
+---
+interface Heading {
+  depth: number;
+  slug: string;
+  text: string;
+}
+
+interface Props {
+  headings: Heading[];
+  collection: "hobby" | "tutorial";
+}
+
+const { headings, collection } = Astro.props;
+const items = headings.filter(
+  (heading) => heading.depth === 2 || heading.depth === 3,
+);
+
+const activeLinkClass =
+  collection === "hobby"
+    ? "[&_a[aria-current=true]]:text-secondary [&_a[aria-current=true]]:border-secondary"
+    : "[&_a[aria-current=true]]:text-primary [&_a[aria-current=true]]:border-primary";
+---
+
+{items.length > 0 && (
+    <nav
+      aria-label="Mục lục"
+      class:list={["hidden lg:block", activeLinkClass]}
+      data-toc
+    >
+      <p class="font-mono text-xs tracking-wide text-muted-foreground uppercase mb-4">
+        Nội dung
+      </p>
+      <ul class="space-y-1 border-l border-border">
+        {items.map((item) => (
+          <li>
+            <a
+              href={`#${item.slug}`}
+              data-toc-link
+              data-toc-id={item.slug}
+              class:list={[
+                "block -ml-px border-l-2 border-transparent py-1.5 font-mono text-xs tracking-wide text-muted-foreground transition-colors hover:text-foreground",
+                item.depth === 2 ? "pl-4" : "pl-7",
+              ]}
+            >
+              {item.text}
+            </a>
+          </li>
+        ))}
+      </ul>
+    </nav>
+  )}
+
+<script>
+const HEADER_OFFSET_PX = 112;
+
+function initTableOfContents() {
+  const links = [
+    ...document.querySelectorAll<HTMLAnchorElement>("[data-toc-link]"),
+  ];
+  if (links.length === 0) {
+    return;
+  }
+
+  const headings = links
+    .map((link) => {
+      const id = link.dataset.tocId;
+      return id ? document.getElementById(id) : null;
+    })
+    .filter((element): element is HTMLElement => element != null);
+
+  if (headings.length === 0) {
+    return;
+  }
+
+  const prefersReducedMotion = window.matchMedia(
+    "(prefers-reduced-motion: reduce)",
+  ).matches;
+
+  const setActive = (id: string | undefined) => {
+    for (const link of links) {
+      const isActive = link.dataset.tocId === id;
+      if (isActive) {
+        link.setAttribute("aria-current", "true");
+      } else {
+        link.removeAttribute("aria-current");
+      }
+    }
+  };
+
+  const updateActiveFromScroll = () => {
+    let currentId = headings[0]?.id;
+
+    for (const heading of headings) {
+      if (heading.getBoundingClientRect().top <= HEADER_OFFSET_PX) {
+        currentId = heading.id;
+      } else {
+        break;
+      }
+    }
+
+    setActive(currentId);
+  };
+
+  let frame = 0;
+  const onScroll = () => {
+    cancelAnimationFrame(frame);
+    frame = requestAnimationFrame(updateActiveFromScroll);
+  };
+
+  for (const link of links) {
+    link.addEventListener("click", (event) => {
+      const id = link.dataset.tocId;
+      const target = id ? document.getElementById(id) : null;
+      if (!target) {
+        return;
+      }
+
+      event.preventDefault();
+      const top =
+        window.scrollY +
+        target.getBoundingClientRect().top -
+        HEADER_OFFSET_PX +
+        1;
+      window.scrollTo({
+        top,
+        behavior: prefersReducedMotion ? "auto" : "smooth",
+      });
+      history.replaceState(null, "", `#${id}`);
+      setActive(id);
+    });
+  }
+
+  window.addEventListener("scroll", onScroll, { passive: true });
+  window.addEventListener("resize", onScroll, { passive: true });
+  updateActiveFromScroll();
+}
+
+initTableOfContents();
+document.addEventListener("astro:page-load", initTableOfContents);
+</script>

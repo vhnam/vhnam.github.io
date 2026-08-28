@@ -1,0 +1,51 @@
+---
+import { Image } from "astro:assets";
+import type { ImageMetadata } from "astro";
+import "glightbox/dist/css/glightbox.min.css";
+
+interface Props {
+  src: ImageMetadata | string;
+  alt?: string;
+  title?: string;
+  class?: string;
+}
+
+const { src, alt = "", title, class: className } = Astro.props;
+const caption = title || alt;
+const imageAlt = title ? alt : caption ? "" : alt;
+const imageClass = "mx-auto rounded-md cursor-zoom-in";
+const href = typeof src === "object" ? src.src : src;
+const lightboxData = caption ? `description: ${caption}` : undefined;
+---
+
+{typeof src === "object" ? (
+    caption ? (
+    <figure>
+        <a href={href} class="glightbox block" data-glightbox={lightboxData}>
+          <Image src={src} alt={imageAlt} class:list={[className, imageClass]} />
+        </a>
+        <figcaption>{caption}</figcaption>
+      </figure>
+    ) : (
+      <a href={href} class="glightbox block">
+        <Image src={src} alt={alt} class:list={[className, imageClass]} />
+      </a>
+    )
+  ) : caption ? (
+    <figure>
+      <a href={href} class="glightbox block" data-glightbox={lightboxData}>
+        <img src={src} alt={imageAlt} class:list={[className, imageClass]} />
+      </a>
+      <figcaption>{caption}</figcaption>
+    </figure>
+  ) : (
+    <a href={href} class="glightbox block">
+      <img src={src} alt={alt} class:list={[className, imageClass]} />
+    </a>
+  )}
+
+<script>
+import GLightbox from "glightbox";
+
+GLightbox({ selector: ".glightbox" });
+</script>

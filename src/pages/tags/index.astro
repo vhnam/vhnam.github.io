@@ -1,67 +1,42 @@
 ---
-import { getCollection } from "astro:content";
+import TagList from "../../components/category/tag-list.astro";
+import Breadcrumb from "../../components/common/breadcrumb.astro";
+import PageLayout from "../../layouts/page-layout.astro";
+import { getPosts } from "../../lib/posts";
 
-import { getTags } from "../../utils/post";
-import { sortByDate } from "../../utils/sortByDate";
-
-import { GA_MEASUREMENT_ID } from "../../consts";
-
-import BaseHead from "../../components/BaseHead.astro";
-import Footer from "../../components/Footer.astro";
-import Header from "../../components/Header.astro";
-import Nav from "../../components/Nav.astro";
-
-const hobbies = await getCollection("hobby");
-const tutorials = await getCollection("tutorial");
-
-const posts = [...hobbies, ...tutorials].sort(sortByDate);
-
-const tags = getTags(posts);
+const posts = await getPosts({ filter: "all" });
+const tags = [...new Set(posts.flatMap((post) => post.data.tags))];
 ---
 
-<!doctype html>
-<html lang="vi">
-  <head>
-    <BaseHead title="Tags" />
-  </head>
-  <body>
-    <Header />
+<PageLayout title="Tags">
+  <header>
+    <div class="pt-10 pb-8">
+      <Breadcrumb
+        paths={[
+          { label: "Trang Chủ", href: "/" },
+          { label: "Tags", href: "/tags" },
+        ]}
+      />
+    </div>
 
-    <Nav />
+    <h1
+      class="font-display font-bold text-3xl lg:text-4xl leading-tight tracking-tight mb-8"
+    >
+      Tags
+    </h1>
 
-    <main id="main-content" class="mt-10 container mx-auto">
-      <h1 class="sr-only">Thẻ</h1>
-      <div class="flex justify-center flex-wrap gap-4 md:gap-6">
-        {
-          Object.keys(tags).map((tag) => (
-            <a
-              href={`/tags/${tag}`}
-              class="mb-2 mr-2 inline-block rounded-full border border-primary-200/80 bg-primary-50/90 px-3 py-1 text-sm font-semibold text-primary-900 shadow-sm shadow-primary-500/10 transition-colors hover:border-primary-300 hover:bg-primary-100/90 dark:border-primary-700/60 dark:bg-primary-950/40 dark:text-primary-200 dark:shadow-none dark:hover:border-primary-500/50 dark:hover:bg-primary-950/65"
-            >
-              #{tag}
-            </a>
-          ))
-        }
-      </div>
-    </main>
+    <p class:list={["text-sm mb-8", "text-accent"]}>
+      {tags.length}{' '}
+      thẻ bài viết.
+    </p>
+  </header>
 
-    <Footer />
-
-    <script
-      is:inline
-      type="text/partytown"
-      async
-      src={`https://www.googletagmanager.com/gtag/js?id=${GA_MEASUREMENT_ID}`}
-    ></script>
-
-    <script is:inline type="text/partytown" define:vars={{ GA_MEASUREMENT_ID }}>
-      window.dataLayer = window.dataLayer || [];
-
-      function gtag() {
-        window.dataLayer.push(arguments);
-      }
-      gtag("js", new Date());
-      gtag("config", GA_MEASUREMENT_ID);
-    </script>
-  </body>
-</html>
+  <div class="grid grid-cols-1 lg:grid-cols-3 gap-4 pb-12">
+    <section
+      class="lg:col-span-2 lg:order-first z-10 lg:z-0 bg-background lg:bg-transparent"
+      aria-label="Danh sách bài viết"
+    >
+      <TagList posts={posts} />
+    </section>
+  </div>
+</PageLayout>

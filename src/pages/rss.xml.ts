@@ -1,11 +1,7 @@
-import { getCollection } from "astro:content";
 import rss from "@astrojs/rss";
 import type { APIContext } from "astro";
-import pluralize from "pluralize";
 
-import { SITE_DESCRIPTION, SITE_TITLE } from "../consts";
-
-import { sortByDate } from "../utils/sortByDate";
+import { getPostHref, getPosts } from "../lib/posts";
 
 export async function GET(context: APIContext) {
   const site = context.site;
@@ -13,20 +9,19 @@ export async function GET(context: APIContext) {
     throw new Error("RSS requires `site` in astro.config");
   }
 
-  const hobbies = await getCollection("hobby");
-  const tutorials = await getCollection("tutorial");
-
-  const posts = [...hobbies, ...tutorials].sort(sortByDate);
+  const posts = await getPosts({ filter: "all" });
 
   return rss({
-    title: SITE_TITLE,
-    description: SITE_DESCRIPTION,
+    title: "Nam Vo's Blog",
+    description: "Nam Vo | UX Engineer, Music Enthusiast, Cinematographer",
     site,
+    trailingSlash: false,
+    customData: "<language>vi-vn</language>",
     items: posts.map((post) => ({
       title: post.data.title,
       description: post.data.description,
-      pubDate: post.data.pubDate,
-      link: `/${pluralize(post.collection)}/${post.id}/`,
+      pubDate: post.data.datePublished,
+      link: getPostHref(post),
       categories: post.data.tags,
     })),
   });

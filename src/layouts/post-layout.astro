@@ -1,0 +1,118 @@
+---
+import { render } from "astro:content";
+import Breadcrumb from "../components/common/breadcrumb.astro";
+import PostTag from "../components/common/post-tag.astro";
+import AdjacentPosts from "../components/post/adjacent-posts.astro";
+import MarkdownCode from "../components/post/markdown-code.astro";
+import MarkdownHeading from "../components/post/markdown-heading.astro";
+import MarkdownImage from "../components/post/markdown-image.astro";
+import MarkdownPre from "../components/post/markdown-pre.astro";
+import Prose from "../components/post/prose.astro";
+import RelatedPosts from "../components/post/related-posts.astro";
+import TableOfContents from "../components/post/table-of-contents.astro";
+import { CATEGORY_LABEL, getCategoryHref, type Post } from "../lib/posts";
+import { formatReadingTime } from "../lib/reading-time";
+import PageLayout from "./page-layout.astro";
+
+interface Props {
+  post: Post;
+}
+
+const { post } = Astro.props;
+
+const { Content, headings, remarkPluginFrontmatter } = await render(post);
+const datePublished = post.data.datePublished;
+const dateModified =
+  post.data.dateModified ??
+  (remarkPluginFrontmatter.lastModified
+    ? new Date(remarkPluginFrontmatter.lastModified)
+    : undefined);
+const publishedLabel = datePublished.toLocaleDateString("vi-VN");
+const modifiedLabel = dateModified?.toLocaleDateString("vi-VN");
+const readingTime = formatReadingTime(remarkPluginFrontmatter.minutesRead);
+const showLastModified =
+  modifiedLabel != null && modifiedLabel !== publishedLabel;
+---
+
+<PageLayout
+  title={post.data.title}
+  description={post.data.description}
+  cover={post.data.cover.src}
+  datePublished={datePublished.toISOString()}
+  dateModified={dateModified?.toISOString()}
+>
+  <div class="grid grid-cols-1 lg:grid-cols-3 gap-4 pb-12">
+    <aside class="sticky top-28 self-start lg:order-last">
+      <TableOfContents headings={headings} collection={post.collection} />
+    </aside>
+
+    <article class="lg:col-span-2 z-10 lg:z-0 bg-background lg:bg-transparent">
+      <header>
+        <div class="py-12">
+          <Breadcrumb
+            collection={post.collection}
+            paths={[
+              { label: "Trang chủ", href: "/" },
+              { label: CATEGORY_LABEL[post.collection], href: getCategoryHref(post.collection) },
+            ]}
+          />
+        </div>
+
+        <p
+          class="mb-5 flex flex-wrap items-center gap-2 text-xs text-muted-foreground"
+        >
+          <time datetime={datePublished.toISOString()}>{publishedLabel}</time>
+          <span aria-hidden="true">·</span>
+          <span>{readingTime}</span>
+          {showLastModified && dateModified && (
+            <>
+              <span aria-hidden="true">·</span>
+              <span>
+                Cập nhật lần cuối: {modifiedLabel}
+              </span>
+            </>
+          )}
+        </p>
+
+        <h1
+          class="font-display font-bold text-3xl lg:text-5xl leading-tight tracking-tight mb-5"
+        >
+          {post.data.title}
+        </h1>
+        <p class="text-base lg:text-lg text-muted-foreground mb-10 italic">
+          {post.data.description}
+        </p>
+      </header>
+
+      <Prose collection={post.collection}>
+        <Content
+          components={{
+            img: MarkdownImage,
+            code: MarkdownCode,
+            h2: MarkdownHeading,
+            pre: MarkdownPre,
+          }}
+        />
+      </Prose>
+
+      <footer>
+        {post.data.tags.length > 0 && (
+          <ul
+            class="mb-10 flex flex-wrap items-center gap-2"
+            aria-label="Thẻ"
+          >
+            {post.data.tags.map((tag) => (
+              <li>
+                <PostTag tag={tag} />
+              </li>
+            ))}
+          </ul>
+        )}
+
+        <AdjacentPosts post={post} />
+
+        <RelatedPosts post={post} />
+      </footer>
+    </article>
+  </div>
+</PageLayout>

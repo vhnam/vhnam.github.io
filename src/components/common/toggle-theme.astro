@@ -1,0 +1,47 @@
+---
+import IconMoon from "../icons/moon.svg";
+import IconSun from "../icons/sun.svg";
+---
+
+<button
+  id="theme-toggle"
+  type="button"
+  class="inline-flex size-8 items-center justify-center rounded-md text-muted-foreground transition-colors hover:text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
+  aria-label="Chuyển chế độ sáng/tối"
+>
+  <IconMoon class="size-4 dark:hidden" />
+  <IconSun class="hidden size-4 dark:block" />
+</button>
+
+<script>
+const STORAGE_KEY = "theme";
+
+function getStoredTheme(): "light" | "dark" | null {
+  const value = localStorage.getItem(STORAGE_KEY);
+  return value === "light" || value === "dark" ? value : null;
+}
+
+function getPreferredTheme(): "light" | "dark" {
+  return window.matchMedia("(prefers-color-scheme: dark)").matches
+    ? "dark"
+    : "light";
+}
+
+function applyTheme(theme: "light" | "dark") {
+  document.documentElement.setAttribute("data-theme", theme);
+  localStorage.setItem(STORAGE_KEY, theme);
+}
+
+function toggleTheme() {
+  const current =
+    document.documentElement.getAttribute("data-theme") === "dark"
+      ? "dark"
+      : "light";
+  applyTheme(current === "dark" ? "light" : "dark");
+}
+
+const stored = getStoredTheme();
+applyTheme(stored ?? getPreferredTheme());
+
+document.getElementById("theme-toggle")?.addEventListener("click", toggleTheme);
+</script>

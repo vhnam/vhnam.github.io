@@ -1,0 +1,21 @@
+---
+import { getTagHref } from "../../lib/posts";
+
+interface Props {
+  tag: string;
+  numberOfPosts?: number;
+}
+
+const { tag, numberOfPosts = 0 } = Astro.props;
+---
+
+<a
+  href={getTagHref(tag)}
+  class:list={[
+    "font-mono text-tiny tracking-wider text-muted-foreground bg-muted-foreground/10 px-2 py-1 rounded-md hover:bg-muted-foreground/20 flex items-center gap-1",
+    "text-muted-foreground/70 border border-border",
+  ]}
+>
+  #{tag}
+  {numberOfPosts > 0 &&  <span class="text-muted-foreground/70">({numberOfPosts})</span>}
+</a>

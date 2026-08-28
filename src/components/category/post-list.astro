@@ -1,0 +1,26 @@
+---
+import type { Post } from "../../lib/posts";
+import PostCard from "../common/post-card.astro";
+
+interface Props {
+  posts: Post[];
+  showTags?: boolean;
+  showCategory?: boolean;
+}
+
+const { posts, showTags = false, showCategory = false } = Astro.props;
+---
+
+{posts.length === 0 ? (
+  <p class="font-mono font-medium text-xs tracking-wide text-muted-foreground text-center py-12">
+    Chưa có bài viết nào trong mục này.
+  </p>
+) : (
+  <ul class="grid grid-cols-1 gap-4">
+    {posts.map((post) => (
+      <li class="flex">
+        <PostCard post={post} heading="h2" showTags={showTags} showCategory={showCategory} showCover={false} />
+      </li>
+    ))}
+  </ul>
+)}

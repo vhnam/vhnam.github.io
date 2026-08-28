@@ -1,0 +1,32 @@
+---
+import { Image } from "astro:assets";
+
+import profilePhoto from "../../assets/images/namvh.jpeg";
+---
+
+<section
+  class="border-t border-border pt-5 mb-16 flex items-center gap-3"
+  aria-label="Giới thiệu"
+>
+  <Image
+    src={profilePhoto}
+    alt="Nam Vo"
+    class="size-10 rounded-full object-cover border border-border flex shrink-0"
+  />
+  <div class="flex items-center justify-between gap-2 w-full">
+    <div>
+      <p class="font-display font-semibold text-base text-foreground">Nam Vo</p>
+      <p
+        class="font-mono font-medium text-xs text-muted-foreground tracking-wide"
+      >
+        Có hứng thú với các vấn đề liên quan đến: UI/UX, Âm Nhạc, và Nhiếp Ảnh.
+      </p>
+    </div>
+    <a
+      href="/about"
+      class="bg-primary text-primary-foreground px-4 py-2 rounded-md hover:bg-primary/80 transition-colors"
+    >
+      Tìm hiểu thêm →
+    </a>
+  </div>
+</section>

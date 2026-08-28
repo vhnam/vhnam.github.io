@@ -1,0 +1,66 @@
+---
+import type { Post } from "../../lib/posts";
+import Breadcrumb from "../common/breadcrumb.astro";
+import ScrollToTopButton from "../common/scroll-to-top-button.astro";
+import PostList from "./post-list.astro";
+import TagList from "./tag-list.astro";
+
+interface Props {
+  heading: string;
+  collection?: "hobby" | "tutorial";
+  href: string;
+  posts: Post[];
+  showTags?: boolean;
+  showCategory?: boolean;
+}
+
+const {
+  heading,
+  collection,
+  href,
+  posts,
+  showTags = false,
+  showCategory = false,
+} = Astro.props;
+const countColor =
+  collection === "hobby"
+    ? "text-secondary"
+    : collection === "tutorial"
+      ? "text-primary"
+      : "text-accent";
+---
+
+<header>
+  <div class="pt-10 pb-8">
+    <Breadcrumb
+      collection={collection}
+      paths={[
+        { label: "Trang Chủ", href: "/" },
+        { label: heading, href },
+      ]}
+    />
+  </div>
+
+  <h1
+    class="font-display font-bold text-3xl lg:text-4xl leading-tight tracking-tight mb-8"
+  >
+    {heading}
+  </h1>
+
+  <p class:list={["text-sm mb-8", countColor]}>{posts.length} bài viết.</p>
+</header>
+
+<div class="grid grid-cols-1 lg:grid-cols-3 gap-4 pb-12">
+  <aside class="sticky top-20 self-start lg:order-last">
+    <TagList posts={posts} />
+  </aside>
+
+  <section
+    class="lg:col-span-2 lg:order-first z-10 lg:z-0 bg-background lg:bg-transparent"
+    aria-label="Danh sách bài viết"
+  >
+    <PostList posts={posts} showTags={showTags} showCategory={showCategory} />
+  </section>
+</div>
+
+<ScrollToTopButton />

@@ -1,0 +1,382 @@
+---
+import { Image } from "astro:assets";
+
+import profilePhoto from "../assets/images/namvh.jpeg";
+import IconPrint from "../components/icons/print.svg";
+import Layout from "../layouts/page-layout.astro";
+
+const TOP_SKILLS = ["Color Grading", "TypeScript", "React.js"];
+
+const EXPERIENCE = [
+  {
+    company: "Care",
+    role: "Front-End Engineer",
+    dates: "Tháng 9/2023 - Hiện tại (3 năm)",
+
+    bullets: [
+      "Design System Governance & Evolution: spearheaded the architectural evolution of the Web Design System, establishing engineering standards that reduced UI technical debt through component reusability and pixel-perfect consistency across all web properties.",
+      "Cross-Platform Strategic Alignment: orchestrated a cross-functional initiative between Design, Mobile, and Web teams to architect a unified, multi-platform Design System, using Design Tokens and scalable component libraries to bridge design intent and engineering execution.",
+      "Product Innovation & UX Engineering: led technical strategy and implementation of high-impact features, including a dynamic Form Builder engine and low-latency Telehealth Video modules, focused on high-performance interaction design and accessibility (A11y).",
+    ],
+    stack: ["Design Tokens", "React.js", "TypeScript", "A11y"],
+  },
+  {
+    company: "2359 Media",
+    role: "Senior Software Engineer",
+    dates: "Tháng 9/2018 - Tháng 4/2023 (4 năm 8 tháng)",
+
+    bullets: [
+      "Developed web applications using ReactJS; managed deployment on AWS and Azure for stable client delivery.",
+      "Acted as UX Engineer on internal tools, handling both UI/UX design and frontend development to improve internal user flows.",
+      "Participated in recruitment interviews; mentored interns and new members on the Web Team.",
+      "Provided technical support and troubleshooting for Application Management Services (AMS) client projects.",
+    ],
+    stack: ["React.js", "AWS", "Azure"],
+  },
+  {
+    company: "VLAB CO., LTD",
+    role: "Head of ICT Department",
+    dates: "Tháng 11/2016 - Tháng 6/2018 (1 năm 8 tháng)",
+
+    bullets: [
+      "Led a team of 5 to develop and deploy an online GIS planning map, launched across multiple districts in Ho Chi Minh City.",
+      "Collaborated with the World Bank and HCMC departments (Planning & Architecture, Information & Communications) on smart city solutions.",
+      "Solely responsible for UI design and UX optimization using Sketch and Figma, translating complex urban planning data into digital interfaces.",
+      "Decided technical stacks and managed the full lifecycle: infra setup, deployment, and release management.",
+      "Managed the technical team's recruitment cycle and mentoring.",
+    ],
+    stack: ["Sketch", "Figma"],
+  },
+  {
+    company: "Home",
+    role: "Web Developer",
+    dates: "Tháng 10/2015 - Tháng 9/2016 (1 năm)",
+
+    bullets: [
+      "Maintained and improved UI, developed features for CaiLuongSo.com (music/forum portal) with PHP/MySQL.",
+      "Developed a warehouse management website for mobile accessories with Laravel.",
+      "Developed a JavaScript library similar to At.js.",
+      "Built a visualization tracking app: mobile UI design, hybrid app with PhoneGap/Angular 1, RESTful APIs with Node.js/Express/MySQL.",
+    ],
+    stack: ["PHP", "Laravel", "Angular", "Node.js", "Express", "MySQL"],
+  },
+  {
+    company: "ZenithTek",
+    role: "Front-end Developer",
+    dates: "Tháng 1/2015 - Tháng 6/2015 (6 tháng)",
+
+    bullets: [
+      "Researched Material Design language and implemented a UI module for real-time employee check-in/check-out tracking with Angular 1 and elasticsearch.js.",
+    ],
+    stack: ["Angular", "Elasticsearch"],
+  },
+];
+
+const SKILL_GROUPS = [
+  {
+    label: "Frontend",
+    skills: [
+      "React.js",
+      "TypeScript",
+      "Angular",
+      "JavaScript",
+      "Tailwind CSS",
+      "Next.js",
+    ],
+  },
+  {
+    label: "Design / UX",
+    skills: ["Figma", "Sketch", "Design Tokens", "Color Grading", "A11y"],
+  },
+  {
+    label: "Backend / Infra",
+    skills: [
+      "Node.js",
+      "Express",
+      "PHP",
+      "Laravel",
+      "MySQL",
+      "PostgreSQL",
+      "AWS",
+      "Azure",
+    ],
+  },
+];
+
+const CERTIFICATIONS = [
+  "Design for a Better World with Don Norman",
+  "Color Grading",
+  "Google UX Design",
+  "AI for Designers",
+  "Design for the 21st Century with Don Norman",
+];
+
+const HONORS = [
+  "Incentive Award, HCMUS's Olympiad in Informatics",
+  "Top 10, Nhân Tài Đất Việt 2017",
+];
+
+const PUBLICATIONS = [
+  {
+    title: "Nam Vo's Digital Garden",
+    description: "A multidisciplinary personal knowledge base.",
+  },
+  {
+    title: "Certfolio",
+    description:
+      "A personal knowledge system for UX Engineering and Product Design.",
+  },
+];
+---
+
+<Layout title="Nam Vo — CV">
+  <article class="pb-16 print:pb-0 max-w-3xl mx-auto">
+    <header class="pt-10 pb-8 border-b border-border print:pt-0 print:pb-6">
+      <div class="flex items-start justify-between gap-4 mb-6">
+        <div class="flex items-center gap-4">
+          <Image
+            src={profilePhoto}
+            alt="Nam Vo"
+            class="size-16 lg:size-20 rounded-full object-cover border border-border shrink-0"
+          />
+          <div>
+            <h1
+              class="font-display font-bold text-2xl lg:text-3xl text-foreground tracking-tight"
+            >
+              Nam Vo
+            </h1>
+            <p
+              class="font-mono font-medium text-xs text-primary tracking-wide uppercase mt-1"
+            >
+              Front-End Engineer
+            </p>
+          </div>
+        </div>
+
+        <div class="flex items-center gap-2 shrink-0 print:hidden">
+          <button
+            type="button"
+            id="download-pdf"
+            class="font-mono text-xs tracking-wide text-primary border border-primary rounded-md px-3 py-2 hover:bg-primary hover:text-primary-foreground transition-colors"
+          >
+            Tải về
+          </button>
+          <button
+            type="button"
+            id="print-page"
+            aria-label="In trang này"
+            class="inline-flex size-9 items-center justify-center rounded-md border border-border text-muted-foreground hover:text-foreground hover:border-primary transition-colors"
+          >
+            <IconPrint width={16} height={16} />
+          </button>
+        </div>
+      </div>
+
+      <blockquote
+        class="font-body italic text-sm text-muted-foreground border-l-2 border-primary pl-4 mb-4 max-w-2xl"
+      >
+        "A man is but the product of his thoughts. What he thinks, he becomes."
+        <cite class="block not-italic font-mono text-tiny mt-1 tracking-wide">
+          — Mahatma Gandhi
+        </cite>
+      </blockquote>
+
+      <ul class="flex flex-wrap gap-2" aria-label="Kỹ năng nổi bật">
+        {TOP_SKILLS.map((skill) => (
+          <li
+            class="font-mono text-tiny font-medium tracking-wide uppercase bg-primary text-primary-foreground rounded-full px-3 py-1"
+          >
+            {skill}
+          </li>
+        ))}
+      </ul>
+    </header>
+
+    <section class="pt-10 print:pt-6" aria-label="Kinh nghiệm làm việc">
+      <h2
+        class="font-display font-bold text-lg text-foreground tracking-tight mb-6"
+      >
+        Kinh nghiệm làm việc
+      </h2>
+      <ol class="flex flex-col gap-8">
+        {EXPERIENCE.map((job) => (
+          <li class="border-l-2 border-primary pl-5">
+            <div class="flex flex-wrap items-baseline justify-between gap-x-4 gap-y-1 mb-1">
+              <h3 class="font-display font-semibold text-base text-foreground">
+                {job.company}
+              </h3>
+              <p class="font-mono text-tiny text-muted-foreground tracking-wide whitespace-nowrap">
+                {job.dates}
+              </p>
+            </div>
+            <p class="font-mono text-xs text-primary tracking-wide mb-3">
+              {job.role}
+            </p>
+            <ul class="flex flex-col gap-2 mb-4">
+              {job.bullets.map((bullet) => (
+                <li class="font-body text-sm text-foreground leading-relaxed flex gap-2">
+                  <span class="text-muted-foreground shrink-0">—</span>
+                  <span>{bullet}</span>
+                </li>
+              ))}
+            </ul>
+            <ul class="flex flex-wrap gap-2" aria-label="Công nghệ sử dụng">
+              {job.stack.map((tech) => (
+                <li
+                  class="font-mono text-tiny text-muted-foreground border border-border rounded px-2 py-0.5"
+                >
+                  {tech}
+                </li>
+              ))}
+            </ul>
+          </li>
+        ))}
+      </ol>
+    </section>
+
+    <section class="pt-10 print:pt-6" aria-label="Kỹ năng">
+      <h2
+        class="font-display font-bold text-lg text-foreground tracking-tight mb-6"
+      >
+        Kỹ năng
+      </h2>
+      <div class="flex flex-col gap-4">
+        {SKILL_GROUPS.map((group) => (
+          <div class="flex flex-col sm:flex-row sm:items-baseline gap-x-4 gap-y-2">
+            <p
+              class="font-mono text-xs text-muted-foreground tracking-wide uppercase w-36 shrink-0"
+            >
+              {group.label}
+            </p>
+            <ul class="flex flex-wrap gap-2">
+              {group.skills.map((skill) => (
+                <li
+                  class="font-mono text-tiny text-foreground border border-border rounded px-2 py-0.5"
+                >
+                  {skill}
+                </li>
+              ))}
+            </ul>
+          </div>
+        ))}
+      </div>
+    </section>
+
+    <section class="pt-10 print:pt-6" aria-label="Học vấn">
+      <h2
+        class="font-display font-bold text-lg text-foreground tracking-tight mb-6"
+      >
+        Học vấn
+      </h2>
+      <div class="border-l-2 border-primary pl-5">
+        <div
+          class="flex flex-wrap items-baseline justify-between gap-x-4 gap-y-1 mb-1"
+        >
+          <h3 class="font-display font-semibold text-base text-foreground">
+            Đại học Khoa học Tự nhiên, ĐHQG-HCM
+          </h3>
+          <p
+            class="font-mono text-tiny text-muted-foreground tracking-wide whitespace-nowrap"
+          >
+            2012 - 2018
+          </p>
+        </div>
+        <p class="font-mono text-xs text-primary tracking-wide">
+          Cử nhân, Công nghệ phần mềm
+        </p>
+      </div>
+    </section>
+
+    <div class="pt-10 print:pt-6 grid grid-cols-1 sm:grid-cols-2 gap-8">
+      <section aria-label="Chứng chỉ">
+        <h2
+          class="font-display font-bold text-lg text-foreground tracking-tight mb-4"
+        >
+          Chứng chỉ
+        </h2>
+        <ul class="flex flex-col gap-2 list-disc list-inside">
+          {CERTIFICATIONS.map((cert) => (
+            <li class="font-mono text-xs text-foreground leading-relaxed">
+              {cert}
+            </li>
+          ))}
+        </ul>
+      </section>
+      <section aria-label="Giải thưởng">
+        <h2
+          class="font-display font-bold text-lg text-foreground tracking-tight mb-4"
+        >
+          Giải thưởng
+        </h2>
+        <ul class="flex flex-col gap-2 list-disc list-inside">
+          {HONORS.map((honor) => (
+            <li class="font-mono text-xs text-foreground leading-relaxed">
+              {honor}
+            </li>
+          ))}
+        </ul>
+      </section>
+    </div>
+
+    <section class="pt-10 print:pt-6" aria-label="Dự án cá nhân">
+      <h2
+        class="font-display font-bold text-lg text-foreground tracking-tight mb-6"
+      >
+        Dự án cá nhân
+      </h2>
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+        {PUBLICATIONS.map((pub) => (
+          <div class="border border-border rounded-md p-4">
+            <h3 class="font-display font-semibold text-sm text-foreground mb-1">
+              {pub.title}
+            </h3>
+            <p class="font-body text-sm text-muted-foreground leading-relaxed">
+              {pub.description}
+            </p>
+          </div>
+        ))}
+      </div>
+    </section>
+  </article>
+</Layout>
+
+<script>
+document
+  .getElementById("print-page")
+  ?.addEventListener("click", () => window.print());
+document
+  .getElementById("download-pdf")
+  ?.addEventListener("click", () => window.print());
+</script>
+
+<style>
+@media print {
+  :global(html) {
+    color-scheme: light;
+  }
+
+  :global(:root) {
+    --background: var(--color-amber-50);
+    --foreground: var(--color-stone-900);
+    --primary: var(--color-teal-700);
+    --muted-foreground: var(--color-stone-500);
+    --border: var(--color-stone-300);
+  }
+
+  :global(body) {
+    background: white;
+  }
+
+  :global(main) {
+    max-width: 100%;
+  }
+
+  article {
+    padding: 0;
+  }
+
+  @page {
+    margin: 2cm;
+  }
+}
+</style>

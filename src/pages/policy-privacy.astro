@@ -1,107 +1,85 @@
 ---
-import { GA_MEASUREMENT_ID } from "../consts";
+import PageLayout from "../layouts/page-layout.astro";
 
-import BaseHead from "../components/BaseHead.astro";
-import Footer from "../components/Footer.astro";
-import Header from "../components/Header.astro";
+const title = "Điều khoản bảo mật";
+const description =
+  "Khi các bạn truy cập và đọc bài trên Nam Võ's Blog tức là bạn đã phải chấp nhận những qui định sau về các bài viết trên blog và bình luận.";
 ---
 
-<!doctype html>
-<html lang="vi">
-  <head>
-    <BaseHead title="Điều khoản bảo mật" />
-  </head>
-  <body>
-    <Header />
+<PageLayout title={title} description={description}>
+  <article class="max-w-3xl mx-auto">
+    <header class="pt-12">
+      <h1
+        class="font-display font-bold text-3xl lg:text-5xl leading-tight tracking-tight mb-5"
+      >
+        {title}
+      </h1>
+      <p class="text-base lg:text-lg text-muted-foreground mb-10 italic">
+        Khi các bạn truy cập và đọc bài trên Nam Võ's Blog tức là bạn đã phải
+        chấp nhận những qui định sau về các bài viết trên blog và bình luận.
+      </p>
+    </header>
 
-    <main id="main-content" class="my-20">
-      <div class="container mx-auto">
-        <div class="px-4 xl:px-8 pt-10">
-          <section
-            class="content mb-12 border-t border-primary-200/70 pt-10 dark:border-primary-800/45"
+    <div
+      class="prose prose-stone dark:prose-invert max-w-none pb-16 pt-8 font-body prose-headings:font-display prose-headings:tracking-tight prose-headings:scroll-mt-28"
+    >
+      <section>
+        <h2>1. Bài viết</h2>
+        <ul>
+          <li>
+            Bài viết dựa trên quan điểm của tác giả hoặc người viết. Bạn sẽ chịu
+            trách nhiệm khi làm theo các hướng dẫn trong Blog.
+          </li>
+          <li>
+            Không sử dụng bài viết trên blog này để dùng cho mục đích thương mại
+            khi chưa có sự đồng ý của tác giả. Tui có quyền khiếu nại trong
+            trường hợp bạn sử dụng chúng cho mục đích thương mại. Vui lòng dẫn
+            nguồn khi chia sẻ cho cộng đồng.
+          </li>
+        </ul>
+      </section>
+
+      <section>
+        <h2>2. Bình luận</h2>
+        <ul>
+          <li>
+            Không bình luận về các vấn đề chính trị, tôn giáo, phân biệt chủng
+            tộc vùng miền
+          </li>
+          <li>Không nói tục, chửi thề.</li>
+          <li>Không spam bài viết hay các hình thức khác.</li>
+          <li>Nên dùng tiếng Việt có dấu hoặc tiếng Anh để bình luận.</li>
+          <li>
+            Do sử dụng plugin của Facebook, các bạn sẽ phải tuân thủ theo luật
+            chơi của Facebook.
+          </li>
+        </ul>
+        <p>
+          <strong
+            >Hiện giờ tui lười để mò vụ tích hợp tính năng bình luận. Dui dẻ
+            nha!</strong
           >
-            <h1>Điều khoản bảo mật</h1>
+        </p>
+      </section>
 
-            <p>
-              Khi các bạn truy cập và đọc bài trên Nam Võ's Blog tức là bạn đã
-              phải chấp nhận những qui định sau về các bài viết trên blog và
-              bình luận.
-            </p>
+      <section>
+        <h2>3. Về sự riêng tư của người dùng truy cập</h2>
+        <ul>
+          <li>Tui không lưu cookie trên trình duyệt của bạn.</li>
+          <li>
+            Nam Võ's Blog sử dụng Google Analytics để thống kê lưu lượng truy
+            cập Website để phục vụ cho việc theo dõi và phát triển Website tốt
+            hơn.
+          </li>
+        </ul>
+      </section>
 
-            <h2 id="1-bài-viết">1. Bài viết</h2>
-            <ul>
-              <li>
-                Bài viết dựa trên quan điểm của tác giả hoặc người viết. Bạn sẽ
-                chịu trách nhiệm khi làm theo các hướng dẫn trong Blog.
-              </li>
-              <li>
-                Không sử dụng bài viết trên blog này để dùng cho mục đích thương
-                mại khi chưa có sự đồng ý của tác giả. Tui có quyền khiếu nại
-                trong trường hợp bạn sử dụng chúng cho mục đích thương mại. Vui
-                lòng dẫn nguồn khi chia sẻ cho cộng đồng.
-              </li>
-            </ul>
-
-            <h2 id="2-bình-luận">2. Bình luận</h2>
-            <ul>
-              <li>
-                Không bình luận về các vấn đề chính trị, tôn giáo, phân biệt
-                chủng tộc vùng miền
-              </li>
-              <li>Không nói tục, chửi thề.</li>
-              <li>Không spam bài viết hay các hình thức khác.</li>
-              <li>Nên dùng tiếng Việt có dấu hoặc tiếng Anh để bình luận.</li>
-              <li>
-                Do sử dụng plugin của Facebook, các bạn sẽ phải tuân thủ theo
-                luật chơi của Facebook.
-              </li>
-            </ul>
-            <p class="text-red-500 italic">
-              Hiện giờ tui lười để mò vụ tích hợp tính năng bình luận. Dui dẻ
-              nha!
-            </p>
-
-            <h2 id="3-về-sự-riêng-tư-của-người-dùng-truy-cập">
-              3. Về sự riêng tư của người dùng truy cập
-            </h2>
-            <ul>
-              <li>Tui không lưu cookie trên trình duyệt của bạn.</li>
-              <li>
-                Nam Võ's Blog sử dụng Google Analytics để thống kê lưu lượng
-                truy cập Website để phục vụ cho việc theo dõi và phát triển
-                Website tốt hơn.
-              </li>
-            </ul>
-
-            <h2 id="4-chính-sách-hỗ-trợ-bạn-đọc">
-              4. Chính sách hỗ trợ bạn đọc
-            </h2>
-            <ul>
-              <li>Blog này hoàn toàn miễn phí và mãi mãi miễn phí.</li>
-            </ul>
-          </section>
-        </div>
-      </div>
-    </main>
-
-    <Footer />
-
-    <!-- Google Analytics 4 -->
-    <script
-      is:inline
-      async
-      type="text/partytown"
-      src={`https://www.googletagmanager.com/gtag/js?id=${GA_MEASUREMENT_ID}`}
-    ></script>
-
-    <script is:inline type="text/partytown" define:vars={{ GA_MEASUREMENT_ID }}>
-      window.dataLayer = window.dataLayer || [];
-
-      function gtag() {
-        window.dataLayer.push(arguments);
-      }
-      gtag("js", new Date());
-      gtag("config", GA_MEASUREMENT_ID);
-    </script>
-  </body>
-</html>
+      <section>
+        <h2>4. Chính sách hỗ trợ bạn đọc</h2>
+        <ul>
+          <li>Blog này hoàn toàn miễn phí và mãi mãi miễn phí.</li>
+        </ul>
+      </section>
+    </div>
+  </article>
+</PageLayout>

@@ -1,0 +1,20 @@
+---
+import { CATEGORY_LABEL } from "../../lib/posts";
+
+interface Props {
+  collection: "hobby" | "tutorial";
+}
+
+const { collection } = Astro.props;
+
+const textColor = collection === "hobby" ? "text-secondary" : "text-primary";
+
+const backgroundColor =
+  collection === "hobby" ? "bg-secondary/10" : "bg-primary/10";
+---
+
+<span
+  class:list={["px-2 py-1 rounded-md font-mono text-tiny tracking-wider uppercase", textColor, backgroundColor]}
+>
+  {CATEGORY_LABEL[collection]}
+</span>

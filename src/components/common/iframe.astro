@@ -1,0 +1,24 @@
+---
+interface Props {
+  src: string;
+  title?: string;
+  height?: string | number;
+  width?: string | number;
+}
+
+const { src, title = "", height, width } = Astro.props;
+const isYouTube = /youtube\.com|youtube-nocookie\.com|youtu\.be/.test(src);
+---
+
+<iframe
+  src={src}
+  title={title}
+  height={isYouTube ? undefined : height}
+  width={isYouTube ? undefined : width}
+  loading="lazy"
+  class:list={[
+    "block w-full max-w-full rounded-md border-0",
+    isYouTube && "aspect-video h-auto",
+  ]}
+  allowfullscreen
+></iframe>

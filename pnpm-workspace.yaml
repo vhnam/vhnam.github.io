@@ -1,11 +1,5 @@
-packages:
-  - '.'
-
 allowBuilds:
-  '@parcel/watcher': true
   esbuild: true
   lefthook: true
-  sharp: true
 
-minimumReleaseAgeExclude:
-  - astro@7.1.1
+minimumReleaseAge: 0

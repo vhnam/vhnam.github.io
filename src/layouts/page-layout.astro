@@ -1,0 +1,72 @@
+---
+import "../styles/global.css";
+
+import Footer from "../components/common/footer.astro";
+import Header from "../components/common/header.astro";
+import Metadata from "../components/common/metadata.astro";
+
+interface Props {
+  title?: string;
+  description?: string;
+  cover?: string;
+  datePublished?: string;
+  dateModified?: string;
+}
+
+const { title, description, cover, datePublished, dateModified } = Astro.props;
+
+const gaId = import.meta.env.PROD
+  ? import.meta.env.GA_MEASUREMENT_ID
+  : undefined;
+---
+
+<!doctype html>
+<html lang="vi">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+    <link rel="sitemap" href="/sitemap-index.xml">
+
+    <Metadata
+      title={title}
+      description={description}
+      cover={cover}
+      datePublished={datePublished}
+      dateModified={dateModified}
+    />
+  </head>
+  <body class="min-h-dvh flex flex-col bg-background text-foreground">
+    <Header />
+    <main class="container mx-auto px-4 lg:px-6 xl:px-0 flex-1 flex flex-col">
+      <slot />
+    </main>
+    <Footer />
+
+    <script is:inline>
+    (() => {
+      const stored = localStorage.getItem("theme");
+      const theme =
+        stored === "light" || stored === "dark"
+          ? stored
+          : window.matchMedia("(prefers-color-scheme: dark)").matches
+            ? "dark"
+            : "light";
+      document.documentElement.setAttribute("data-theme", theme);
+    })();
+    </script>
+
+    <!-- Google Analytics (GA4) -->
+    {gaId && <script is:inline async src={`https://www.googletagmanager.com/gtag/js?id=${gaId}`}></script>}
+    <script is:inline define:vars={{ gaId }}>
+    if (gaId) {
+      window.dataLayer = window.dataLayer || [];
+      function gtag(...args) {
+        dataLayer.push(args);
+      }
+      gtag("js", new Date());
+      gtag("config", gaId);
+    }
+    </script>
+  </body>
+</html>

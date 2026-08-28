@@ -1,6 +1,10 @@
 pre-commit:
-  commands:
-    prettier:
-      glob: "*.{js,css,md}"
-      run: pnpm prettier --write {staged_files}
+  jobs:
+    - name: biome
+      glob: "*.{js,ts,cjs,mjs,d.cts,d.mts,jsx,tsx,json,jsonc,css,astro}"
+      run: pnpm biome check --write --no-errors-on-unmatched --files-ignore-unknown=true --colors=off {staged_files}
+      stage_fixed: true
+    - name: format-mdx
+      glob: "*.mdx"
+      run: pnpm tsx scripts/format-mdx.ts
       stage_fixed: true

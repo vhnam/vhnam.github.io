@@ -1,0 +1,71 @@
+---
+import { getAdjacentPosts, getPostHref, type Post } from "../../lib/posts";
+import IconArrowLeft from "../icons/arrow-left.svg";
+import IconArrowRight from "../icons/arrow-right.svg";
+
+interface Props {
+  post: Post;
+}
+
+const { post } = Astro.props;
+const { previous, next } = await getAdjacentPosts(post);
+const hasBoth = previous != null && next != null;
+const accentClass =
+  post.collection === "hobby"
+    ? "hover:border-secondary"
+    : "hover:border-primary";
+---
+
+{(previous != null || next != null) && (
+  <nav
+    aria-label="Bài viết liền kề"
+    class:list={[
+      "mb-10 grid gap-4 border-t border-border pt-10",
+      hasBoth ? "grid-cols-1 sm:grid-cols-2" : "grid-cols-1",
+    ]}
+  >
+    {previous != null && (
+      <a
+        href={getPostHref(previous)}
+        class:list={[
+          "group flex h-full flex-col gap-2 rounded-md border border-border bg-card p-4 lg:p-6 transition-[transform,box-shadow,border-color] duration-200 hover:-translate-y-1 hover:shadow-lg",
+          accentClass,
+        ]}
+      >
+        <span
+          class="flex items-center gap-2 font-mono text-xs tracking-wide text-muted-foreground uppercase"
+        >
+          <IconArrowLeft class="size-3.5" />
+          Bài trước
+        </span>
+        <span
+          class="font-display font-semibold text-base text-foreground tracking-tight group-hover:underline"
+        >
+          {previous.data.title}
+        </span>
+      </a>
+    )}
+
+    {next != null && (
+      <a
+        href={getPostHref(next)}
+        class:list={[
+          "group flex h-full flex-col items-end gap-2 rounded-md border border-border bg-card p-4 lg:p-6 text-right transition-[transform,box-shadow,border-color] duration-200 hover:-translate-y-1 hover:shadow-lg",
+          accentClass,
+        ]}
+      >
+        <span
+          class="flex items-center gap-2 font-mono text-xs tracking-wide text-muted-foreground uppercase"
+        >
+          Bài sau
+          <IconArrowRight class="size-3.5" />
+        </span>
+        <span
+          class="font-display font-semibold text-base text-foreground tracking-tight group-hover:underline"
+        >
+          {next.data.title}
+        </span>
+      </a>
+    )}
+  </nav>
+)}

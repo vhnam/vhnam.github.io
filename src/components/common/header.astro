@@ -1,0 +1,53 @@
+---
+import ToggleTheme from "./toggle-theme.astro";
+
+const isAbout = Astro.url.pathname.replace(/\/$/, "") === "/about";
+---
+
+<header
+  class="sticky top-0 z-50 bg-header-bg border-b border-border backdrop-blur-md print:hidden"
+>
+  <div
+    class="container mx-auto px-4 lg:px-6 xl:px-0 h-16 flex items-center justify-between"
+  >
+    <a href="/" class="flex items-center gap-2">
+      <img src="/favicon.svg" alt="Nam Vo" class="size-8">
+      <span
+        class="font-display font-bold text-sm text-foreground tracking-tight"
+        >Nam Vo</span
+      >
+    </a>
+
+    <nav class="flex items-center gap-6" aria-label="Chính">
+      <ul class="flex items-center gap-6">
+        <li>
+          <a
+            href="/tutorials"
+            class="font-mono font-medium text-xs text-muted-foreground hover:text-primary hover:underline tracking-wide"
+            >Lập Trình</a
+          >
+        </li>
+        <li>
+          <a
+            href="/hobbies"
+            class="font-mono font-medium text-xs text-muted-foreground hover:text-secondary hover:underline tracking-wide"
+            >Giải Trí</a
+          >
+        </li>
+        <li>
+          <a
+            href="/about"
+            class:list={[
+              "font-mono font-medium text-xs tracking-wide rounded-full px-3 py-1 border transition-colors",
+              isAbout
+                ? "bg-primary text-primary-foreground border-primary"
+                : "text-muted-foreground border-border hover:text-primary hover:border-primary",
+            ]}
+            >CV</a
+          >
+        </li>
+      </ul>
+      <ToggleTheme />
+    </nav>
+  </div>
+</header>

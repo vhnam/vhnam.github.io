@@ -1,22 +1,33 @@
-import { defineCollection } from "astro:content";
+import { defineCollection, type SchemaContext } from "astro:content";
 import { glob } from "astro/loaders";
 import { z } from "astro/zod";
 
-function definePostCollection(base: string) {
-  return defineCollection({
-    loader: glob({ base, pattern: "**/*.{md,mdx}" }),
-    schema: ({ image }) =>
-      z.object({
-        title: z.string(),
-        description: z.string(),
-        pubDate: z.coerce.date(),
-        cover: image().optional(),
-        tags: z.array(z.string()).optional(),
-      }),
+function postSchema({ image }: SchemaContext) {
+  return z.object({
+    title: z.string(),
+    description: z.string(),
+    datePublished: z.coerce.date(),
+    dateModified: z.coerce.date().optional(),
+    cover: image(),
+    tags: z.array(z.string()).default([]),
+    isFeatured: z.boolean().default(false),
   });
 }
 
-export const collections = {
-  hobby: definePostCollection("./src/content/hobby"),
-  tutorial: definePostCollection("./src/content/tutorial"),
-};
+const hobby = defineCollection({
+  loader: glob({
+    pattern: "**/*.mdx",
+    base: "./src/content/hobby",
+  }),
+  schema: postSchema,
+});
+
+const tutorial = defineCollection({
+  loader: glob({
+    pattern: "**/*.mdx",
+    base: "./src/content/tutorial",
+  }),
+  schema: postSchema,
+});
+
+export const collections = { hobby, tutorial };
