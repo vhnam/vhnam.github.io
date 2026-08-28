@@ -6,6 +6,7 @@ import AdjacentPosts from "../components/post/adjacent-posts.astro";
 import MarkdownCode from "../components/post/markdown-code.astro";
 import MarkdownHeading from "../components/post/markdown-heading.astro";
 import MarkdownImage from "../components/post/markdown-image.astro";
+import MarkdownPre from "../components/post/markdown-pre.astro";
 import Prose from "../components/post/prose.astro";
 import RelatedPosts from "../components/post/related-posts.astro";
 import TableOfContents from "../components/post/table-of-contents.astro";
@@ -78,7 +79,12 @@ const showLastModified = lastModified != null && lastModified !== date;
 
       <Prose collection={post.collection}>
         <Content
-          components={{ img: MarkdownImage, code: MarkdownCode, h2: MarkdownHeading }}
+          components={{
+            img: MarkdownImage,
+            code: MarkdownCode,
+            h2: MarkdownHeading,
+            pre: MarkdownPre,
+          }}
         />
       </Prose>
 

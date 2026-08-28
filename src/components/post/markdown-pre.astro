@@ -1,0 +1,52 @@
+---
+interface Props {
+  class?: string;
+}
+
+const { class: className, ...rest } = Astro.props;
+---
+
+<div class="group relative">
+  <pre class:list={[className]} {...rest}><slot /></pre>
+  <button
+    type="button"
+    data-copy-code-button
+    aria-label="Sao chép mã nguồn"
+    class="absolute top-3 right-3 rounded-md border border-border bg-card/80 px-2 py-1 font-mono text-xs text-muted-foreground opacity-0 backdrop-blur-sm transition-opacity duration-150 group-hover:opacity-100 hover:text-foreground focus-visible:opacity-100 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
+  >
+    Sao chép
+  </button>
+</div>
+
+<script>
+const COPY_LABEL = "Sao chép";
+const COPIED_LABEL = "Đã chép";
+const COPY_ARIA_LABEL = "Sao chép mã nguồn";
+const COPIED_ARIA_LABEL = "Đã sao chép mã vào bộ nhớ tạm";
+const RESET_DELAY_MS = 1500;
+
+document.addEventListener("click", (event) => {
+  const button = (event.target as HTMLElement).closest<HTMLButtonElement>(
+    "[data-copy-code-button]",
+  );
+  if (!button) {
+    return;
+  }
+
+  const code = button.previousElementSibling?.querySelector("code");
+  const text = code?.textContent;
+  if (!text) {
+    return;
+  }
+
+  navigator.clipboard.writeText(text).then(() => {
+    button.textContent = COPIED_LABEL;
+    button.setAttribute("aria-label", COPIED_ARIA_LABEL);
+
+    setTimeout(() => {
+      button.textContent = COPY_LABEL;
+      button.setAttribute("aria-label", COPY_ARIA_LABEL);
+    }, RESET_DELAY_MS);
+  });
+});
+</script>
