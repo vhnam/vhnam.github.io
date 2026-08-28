@@ -8,8 +8,10 @@ Built with [Astro 7](https://astro.build), Tailwind CSS 4, and MDX content colle
 
 - **Astro 7** — static site generation
 - **Tailwind CSS 4** (`@tailwindcss/vite`) — styling
-- **MDX** — post/hobby/tutorial content
+- **MDX** — hobby and tutorial posts
+- **Satteri** — markdown pipeline (reading time, last-modified, unwrap images, external links)
 - **Sharp** — image optimization
+- **GLightbox** — post image zoom
 - **Biome** — lint/format
 - **Lefthook** — git hooks
 - **Changesets** — versioning
@@ -23,10 +25,12 @@ src/
   components/   home, post, category, common, icons
   content/      hobby and tutorial MDX collections
   layouts/      page-layout.astro, post-layout.astro
-  lib/          posts, reading-time, references, unwrap-images
+  lib/          posts, reading-time, last-modified, unwrap-images, external-links, references
   pages/        index, about, hobbies, tutorials, tags, rss.xml, 404, policy-privacy
   styles/       global.css (theme tokens, typography)
 ```
+
+Copy `.env.example` to `.env` for local `pnpm dev`. Site title, description, author, `GA_MEASUREMENT_ID`, and `FB_APP_ID` are read at build time.
 
 ## Scripts
 
@@ -40,8 +44,10 @@ src/
 
 ## Content
 
-Hobby and tutorial posts live under `src/content/{hobby,tutorial}` as MDX, with front matter validated by the Astro content collection schema. Each post supports featured flags, tags, reading time, table of contents, adjacent-post navigation, and related posts.
+Hobby and tutorial posts live under `src/content/{hobby,tutorial}` as MDX. Front matter is validated in `src/content.config.ts`: `title`, `description`, `datePublished`, optional `dateModified`, `cover`, `tags`, `isFeatured`. Routes are `/hobbies/[id]` and `/tutorials/[id]`.
+
+Posts get Open Graph / Twitter tags, reading time, table of contents, adjacent and related posts, a copy-code button, and image zoom. Date field rules live in `AGENTS.md`.
 
 ## Notes
 
-This is the v6 rewrite of the site (Astro 7 + Tailwind 4), replacing the previous v5 stack. See `.changeset/` for a granular history of feature and fix entries, and `git log` for full commit history.
+This is the v6 rewrite of the site (Astro 7 + Tailwind 4), replacing the previous v5 stack. See `.changeset/` for a granular history of feature and fix entries, and `git log` for full commit history. Agent and shipping policy is in `AGENTS.md`.
