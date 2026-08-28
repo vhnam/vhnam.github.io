@@ -1,3 +1,5 @@
-onlyBuiltDependencies:
-  - esbuild
-  - lefthook
+allowBuilds:
+  esbuild: true
+  lefthook: true
+
+minimumReleaseAge: 0
