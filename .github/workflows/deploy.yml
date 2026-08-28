@@ -21,6 +21,12 @@ jobs:
         uses: actions/checkout@v7
       - name: Install, build, and upload your site
         uses: withastro/action@v6
+        env:
+          SITE_TITLE: ${{ vars.SITE_TITLE }}
+          SITE_DESCRIPTION: ${{ vars.SITE_DESCRIPTION }}
+          SITE_AUTHOR: ${{ vars.SITE_AUTHOR }}
+          GA_MEASUREMENT_ID: ${{ secrets.GA_MEASUREMENT_ID }}
+          FB_APP_ID: ${{ secrets.FB_APP_ID }}
 
   deploy:
     needs: build
