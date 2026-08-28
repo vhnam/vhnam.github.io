@@ -1,28 +1,18 @@
-const WORDS_PER_MINUTE = 200;
+import getReadingTime from "reading-time";
+import { defineMdastPlugin } from "satteri";
 
-/** Strip MDX/Markdown noise so word count roughly matches readable text. */
-function toPlainText(body: string) {
-  return body
-    .replace(/^import\s.+from\s.+;?\s*$/gm, "")
-    .replace(/^export\s.+;?\s*$/gm, "")
-    .replace(/```[\s\S]*?```/g, " ")
-    .replace(/`[^`]*`/g, " ")
-    .replace(/!\[[^\]]*]\([^)]*\)/g, " ")
-    .replace(/\[([^\]]*)]\([^)]*\)/g, "$1")
-    .replace(/<[^>]+>/g, " ")
-    .replace(/[#>*_~|-]/g, " ")
-    .replace(/\s+/g, " ")
-    .trim();
-}
+export const mdastReadingTimePlugin = defineMdastPlugin({
+  name: "reading-time",
+  after(root, context) {
+    const text = context.textContent(root);
+    const { minutes } = getReadingTime(text);
 
-export function getReadingTimeMinutes(body: string | undefined) {
-  if (!body?.trim()) {
-    return 1;
-  }
-
-  const words = toPlainText(body).split(/\s+/).filter(Boolean).length;
-  return Math.max(1, Math.ceil(words / WORDS_PER_MINUTE));
-}
+    const astro = context.data.astro;
+    if (astro) {
+      astro.frontmatter.minutesRead = Math.max(1, Math.ceil(minutes));
+    }
+  },
+});
 
 export function formatReadingTime(minutes: number) {
   return `${minutes} phút đọc`;

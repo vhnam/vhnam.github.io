@@ -1,53 +1,24 @@
-type HastNode = {
-  type: string;
-  tagName?: string;
-  children?: HastNode[];
-  value?: string;
-};
+import { defineHastPlugin, type HastNode } from "satteri";
 
 function isWhitespace(node: HastNode) {
-  return node.type === "text" && !node.value?.trim();
+  return node.type === "text" && !("value" in node && node.value?.trim());
 }
 
-function isBareImageParagraph(node: HastNode) {
-  if (node.type !== "element" || node.tagName !== "p") {
-    return false;
-  }
+export const hastUnwrapImagesPlugin = defineHastPlugin({
+  name: "unwrap-images",
+  element: {
+    filter: ["p"],
+    visit(node, ctx) {
+      const significant = node.children.filter((child) => !isWhitespace(child));
+      const onlyChild = significant[0];
+      const isBareImageParagraph =
+        significant.length === 1 &&
+        onlyChild?.type === "element" &&
+        onlyChild.tagName === "img";
 
-  const significant = (node.children ?? []).filter(
-    (child) => !isWhitespace(child),
-  );
-  return (
-    significant.length === 1 &&
-    significant[0]?.type === "element" &&
-    significant[0].tagName === "img"
-  );
-}
-
-function unwrapImageParagraphs(parent: HastNode) {
-  const children = parent.children;
-  if (!children) {
-    return;
-  }
-
-  parent.children = children.flatMap((node) => {
-    if (!isBareImageParagraph(node)) {
-      return [node];
-    }
-
-    return (node.children ?? []).filter((child) => !isWhitespace(child));
-  });
-}
-
-function walk(node: HastNode) {
-  for (const child of node.children ?? []) {
-    walk(child);
-  }
-  unwrapImageParagraphs(node);
-}
-
-export function rehypeUnwrapImages() {
-  return (tree: HastNode) => {
-    walk(tree);
-  };
-}
+      if (isBareImageParagraph) {
+        ctx.replaceNode(node, significant);
+      }
+    },
+  },
+});

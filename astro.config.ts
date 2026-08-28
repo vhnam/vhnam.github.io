@@ -1,10 +1,10 @@
-import { unified } from "@astrojs/markdown-remark";
+import { satteri } from "@astrojs/markdown-satteri";
 import mdx from "@astrojs/mdx";
 import sitemap from "@astrojs/sitemap";
 import tailwindcss from "@tailwindcss/vite";
 import { defineConfig } from "astro/config";
-import { rehypeWrapReferences } from "./src/lib/references";
-import { rehypeUnwrapImages } from "./src/lib/unwrap-images";
+import { mdastReadingTimePlugin } from "./src/lib/reading-time";
+import { hastUnwrapImagesPlugin } from "./src/lib/unwrap-images";
 
 export default defineConfig({
   site: "https://vhnam.github.io",
@@ -24,8 +24,9 @@ export default defineConfig({
     }),
   ],
   markdown: {
-    processor: unified({
-      rehypePlugins: [rehypeUnwrapImages, rehypeWrapReferences],
+    processor: satteri({
+      mdastPlugins: [mdastReadingTimePlugin],
+      hastPlugins: [hastUnwrapImagesPlugin],
     }),
   },
   vite: {
