@@ -6,6 +6,7 @@ import AdjacentPosts from "../components/post/adjacent-posts.astro";
 import MarkdownCode from "../components/post/markdown-code.astro";
 import MarkdownHeading from "../components/post/markdown-heading.astro";
 import MarkdownImage from "../components/post/markdown-image.astro";
+import Prose from "../components/post/prose.astro";
 import RelatedPosts from "../components/post/related-posts.astro";
 import TableOfContents from "../components/post/table-of-contents.astro";
 import { formatLastModified } from "../lib/last-modified";
@@ -18,15 +19,12 @@ interface Props {
 }
 
 const { post } = Astro.props;
+
 const { Content, headings, remarkPluginFrontmatter } = await render(post);
 const date = post.data.pubDate.toLocaleDateString("vi-VN");
 const readingTime = formatReadingTime(remarkPluginFrontmatter.minutesRead);
 const lastModified = formatLastModified(remarkPluginFrontmatter.lastModified);
 const showLastModified = lastModified != null && lastModified !== date;
-const anchorClass =
-  post.collection === "hobby"
-    ? "[&_a]:decoration-secondary prose-blockquote:border-secondary"
-    : "[&_a]:decoration-primary prose-blockquote:border-primary";
 ---
 
 <PageLayout title={post.data.title}>
@@ -73,20 +71,11 @@ const anchorClass =
         </p>
       </header>
 
-      <div
-        class:list={[
-          "prose prose-stone dark:prose-invert max-w-none pb-12 pt-8 font-body",
-          "prose-headings:font-display prose-headings:tracking-tight prose-headings:scroll-mt-28",
-          "prose-img:rounded-md prose-code:font-mono prose-code:before:content-none prose-code:after:content-none prose-pre:font-mono",
-          "prose-figcaption:mt-3 prose-figcaption:text-center prose-figcaption:text-sm prose-figcaption:text-muted-foreground prose-figcaption:font-mono prose-figcaption:tracking-wide prose-figcaption:not-italic",
-          "prose-blockquote:bg-muted prose-blockquote:p-4",
-          "underline-offset-4", anchorClass,
-        ]}
-      >
+      <Prose collection={post.collection}>
         <Content
           components={{ img: MarkdownImage, code: MarkdownCode, h2: MarkdownHeading }}
         />
-      </div>
+      </Prose>
 
       <footer>
         {post.data.tags.length > 0 && (

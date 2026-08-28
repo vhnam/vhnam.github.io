@@ -1,0 +1,25 @@
+---
+interface Props {
+  collection: "hobby" | "tutorial";
+}
+
+const { collection } = Astro.props;
+
+const anchorClass =
+  collection === "hobby"
+    ? "[&_a]:decoration-secondary prose-blockquote:border-secondary"
+    : "[&_a]:decoration-primary prose-blockquote:border-primary";
+---
+
+<div
+  class:list={[
+    "prose prose-stone dark:prose-invert max-w-none pb-12 pt-8 font-body",
+    "prose-headings:font-display prose-headings:tracking-tight prose-headings:scroll-mt-28",
+    "prose-img:rounded-md prose-code:font-mono prose-code:before:content-none prose-code:after:content-none prose-pre:font-mono",
+    "prose-figcaption:mt-3 prose-figcaption:text-center prose-figcaption:text-sm prose-figcaption:text-muted-foreground prose-figcaption:font-mono prose-figcaption:tracking-wide prose-figcaption:not-italic",
+    "prose-blockquote:bg-muted prose-blockquote:p-4",
+    "underline-offset-4 [&_a]:font-mono [&_a]:text-sm [&_a]:tracking-tighter [&_a]:hover:text-muted-foreground", anchorClass,
+  ]}
+>
+  <slot />
+</div>
