@@ -9,10 +9,11 @@ interface Props {
   title?: string;
   description?: string;
   cover?: string;
-  articleDate?: string;
+  datePublished?: string;
+  dateModified?: string;
 }
 
-const { title, description, cover, articleDate } = Astro.props;
+const { title, description, cover, datePublished, dateModified } = Astro.props;
 
 const gaId = import.meta.env.PROD
   ? import.meta.env.GA_MEASUREMENT_ID
@@ -31,7 +32,8 @@ const gaId = import.meta.env.PROD
       title={title}
       description={description}
       cover={cover}
-      articleDate={articleDate}
+      datePublished={datePublished}
+      dateModified={dateModified}
     />
   </head>
   <body class="min-h-dvh flex flex-col bg-background text-foreground">

@@ -6,7 +6,8 @@ function postSchema({ image }: SchemaContext) {
   return z.object({
     title: z.string(),
     description: z.string(),
-    pubDate: z.coerce.date(),
+    datePublished: z.coerce.date(),
+    dateModified: z.coerce.date().optional(),
     cover: image(),
     tags: z.array(z.string()).default([]),
     isFeatured: z.boolean().default(false),

@@ -10,7 +10,6 @@ import MarkdownPre from "../components/post/markdown-pre.astro";
 import Prose from "../components/post/prose.astro";
 import RelatedPosts from "../components/post/related-posts.astro";
 import TableOfContents from "../components/post/table-of-contents.astro";
-import { formatLastModified } from "../lib/last-modified";
 import { CATEGORY_LABEL, type Post } from "../lib/posts";
 import { formatReadingTime } from "../lib/reading-time";
 import PageLayout from "./page-layout.astro";
@@ -22,17 +21,25 @@ interface Props {
 const { post } = Astro.props;
 
 const { Content, headings, remarkPluginFrontmatter } = await render(post);
-const date = post.data.pubDate.toLocaleDateString("vi-VN");
+const datePublished = post.data.datePublished;
+const dateModified =
+  post.data.dateModified ??
+  (remarkPluginFrontmatter.lastModified
+    ? new Date(remarkPluginFrontmatter.lastModified)
+    : undefined);
+const publishedLabel = datePublished.toLocaleDateString("vi-VN");
+const modifiedLabel = dateModified?.toLocaleDateString("vi-VN");
 const readingTime = formatReadingTime(remarkPluginFrontmatter.minutesRead);
-const lastModified = formatLastModified(remarkPluginFrontmatter.lastModified);
-const showLastModified = lastModified != null && lastModified !== date;
+const showLastModified =
+  modifiedLabel != null && modifiedLabel !== publishedLabel;
 ---
 
 <PageLayout
   title={post.data.title}
   description={post.data.description}
   cover={post.data.cover.src}
-  articleDate={post.data.pubDate.toISOString()}
+  datePublished={datePublished.toISOString()}
+  dateModified={dateModified?.toISOString()}
 >
   <div class="grid grid-cols-1 lg:grid-cols-3 gap-4 pb-12">
     <aside class="sticky top-28 self-start lg:order-last">
@@ -54,14 +61,14 @@ const showLastModified = lastModified != null && lastModified !== date;
         <p
           class="mb-5 flex flex-wrap items-center gap-2 text-xs text-muted-foreground"
         >
-          <time datetime={post.data.pubDate.toISOString()}>{date}</time>
+          <time datetime={datePublished.toISOString()}>{publishedLabel}</time>
           <span aria-hidden="true">·</span>
           <span>{readingTime}</span>
-          {showLastModified && (
+          {showLastModified && dateModified && (
             <>
               <span aria-hidden="true">·</span>
               <span>
-                Cập nhật lần cuối: {lastModified}
+                Cập nhật lần cuối: {modifiedLabel}
               </span>
             </>
           )}

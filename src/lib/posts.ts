@@ -39,7 +39,8 @@ export async function getPosts({
 
   const sorted = posts.sort(
     (firstPost, secondPost) =>
-      secondPost.data.pubDate.valueOf() - firstPost.data.pubDate.valueOf(),
+      secondPost.data.datePublished.valueOf() -
+      firstPost.data.datePublished.valueOf(),
   );
 
   const start = ignoreFeatured ? 1 : 0;
@@ -77,20 +78,21 @@ export async function getRelatedPosts(post: Post, limit = 3) {
   return posts
     .filter((candidate) => !isSamePost(candidate, post))
     .filter((candidate) =>
-      candidate.data.tags.some((tag) => currentTags.has(tag)),
+      candidate.data.tags.some((tag: string) => currentTags.has(tag)),
     )
     .sort((firstPost, secondPost) => {
-      const firstOverlap = firstPost.data.tags.filter((tag) =>
+      const firstOverlap = firstPost.data.tags.filter((tag: string) =>
         currentTags.has(tag),
       ).length;
-      const secondOverlap = secondPost.data.tags.filter((tag) =>
+      const secondOverlap = secondPost.data.tags.filter((tag: string) =>
         currentTags.has(tag),
       ).length;
       if (secondOverlap !== firstOverlap) {
         return secondOverlap - firstOverlap;
       }
       return (
-        secondPost.data.pubDate.valueOf() - firstPost.data.pubDate.valueOf()
+        secondPost.data.datePublished.valueOf() -
+        firstPost.data.datePublished.valueOf()
       );
     })
     .slice(0, limit);
@@ -104,7 +106,8 @@ export async function getFeaturedPost() {
 
   const sorted = [...hobbies, ...tutorials].sort(
     (firstPost, secondPost) =>
-      secondPost.data.pubDate.valueOf() - firstPost.data.pubDate.valueOf(),
+      secondPost.data.datePublished.valueOf() -
+      firstPost.data.datePublished.valueOf(),
   );
 
   return sorted.find((post) => post.data.isFeatured) ?? sorted[0];

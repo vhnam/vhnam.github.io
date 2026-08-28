@@ -29,11 +29,3 @@ export const mdastLastModifiedPlugin = defineMdastPlugin({
     }
   },
 });
-
-export function formatLastModified(iso: string | undefined) {
-  if (!iso) {
-    return undefined;
-  }
-
-  return new Date(iso).toLocaleDateString("vi-VN");
-}

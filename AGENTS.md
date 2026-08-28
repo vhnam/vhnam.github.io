@@ -26,9 +26,12 @@ Add hobby post: Chỉ định thử vài cuộn phim
 
 ## Content
 
-Hobby and tutorial posts are MDX under `src/content/{hobby,tutorial}`. Schema lives in `src/content.config.ts`. Filenames are kebab-case slugs (`pubDate` + `title` / `description` / `cover` / `tags`). Routes are `/hobbies/[id]` and `/tutorials/[id]` — collection names stay singular.
+Hobby and tutorial posts are MDX under `src/content/{hobby,tutorial}`. Schema lives in `src/content.config.ts`. Filenames are kebab-case slugs (`datePublished` + `title` / `description` / `cover` / `tags`). Routes are `/hobbies/[id]` and `/tutorials/[id]` — collection names stay singular.
 
 - Write posts in **Vietnamese**. UI chrome already uses Vietnamese (`Giải Trí`, `Phần Mềm`, dates via `vi-VN`).
+- Dates are Schema.org Article fields, `YYYY-MM-DD` (or a datetime the schema can coerce):
+  - **`datePublished`** (required): the calendar date the article first went live. Never change it when editing an existing post. For a new post, use the intended publish date (usually today).
+  - **`dateModified`** (optional): the calendar date of the last *editorial* content change (new sections, corrected facts, rewritten passages). Omit it when the body is unchanged since publish. Do not set it for typo-only, image-path, or layout/CSS work. It must be on or after `datePublished`. Git last-modified is a fallback for the page UI and `article:modified_time` when this field is omitted — it is not a substitute when you intentionally update the article.
 - Cover and inline images live under `src/assets/{hobbies,tutorials}/<slug>/`. Point `cover` at a relative path from the MDX file.
 - Embeds use `IFrameComponent` from `src/components/common/iframe`.
 - A closing references section uses heading **Tham khảo** (or References). That heading is styled specially; keep that id.

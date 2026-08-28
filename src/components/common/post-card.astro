@@ -22,7 +22,7 @@ const {
 } = Astro.props;
 
 const href = getPostHref(post);
-const pubDate = new Date(post.data.pubDate).toLocaleDateString("vi-VN");
+const publishedLabel = post.data.datePublished.toLocaleDateString("vi-VN");
 const borderColor =
   post.collection === "hobby" ? "border-l-secondary" : "border-l-primary";
 ---
@@ -48,10 +48,10 @@ const borderColor =
   <div class="flex flex-1 flex-col p-4 lg:p-6">
     <div class="flex items-center gap-4">
       <time
-        datetime={post.data.pubDate.toISOString()}
+        datetime={post.data.datePublished.toISOString()}
         class="font-mono text-muted-foreground text-tiny tracking-wider"
       >
-        {pubDate}
+        {publishedLabel}
       </time>
       {showCategory && (
         <Badge collection={post.collection} />

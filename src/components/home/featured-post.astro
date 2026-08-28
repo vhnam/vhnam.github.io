@@ -11,7 +11,7 @@ interface Props {
 const { post } = Astro.props;
 
 const href = getPostHref(post);
-const date = post.data.pubDate.toLocaleDateString("vi-VN");
+const publishedLabel = post.data.datePublished.toLocaleDateString("vi-VN");
 const textColor =
   post.collection === "hobby" ? "text-secondary" : "text-primary";
 ---
@@ -32,10 +32,10 @@ const textColor =
         <p class="flex items-center gap-2">
           <Badge collection={post.collection} />
           <time
-            datetime={post.data.pubDate.toISOString()}
+            datetime={post.data.datePublished.toISOString()}
             class="font-mono font-medium text-xs tracking-wide text-muted-foreground"
           >
-            {date}
+            {publishedLabel}
           </time>
         </p>
         <p

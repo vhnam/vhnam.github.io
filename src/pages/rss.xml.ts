@@ -20,7 +20,7 @@ export async function GET(context: APIContext) {
     items: posts.map((post) => ({
       title: post.data.title,
       description: post.data.description,
-      pubDate: post.data.pubDate,
+      pubDate: post.data.datePublished,
       link: getPostHref(post),
       categories: post.data.tags,
     })),
