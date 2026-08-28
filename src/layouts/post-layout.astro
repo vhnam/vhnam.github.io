@@ -8,6 +8,7 @@ import MarkdownHeading from "../components/post/markdown-heading.astro";
 import MarkdownImage from "../components/post/markdown-image.astro";
 import RelatedPosts from "../components/post/related-posts.astro";
 import TableOfContents from "../components/post/table-of-contents.astro";
+import { formatLastModified } from "../lib/last-modified";
 import { CATEGORY_LABEL, type Post } from "../lib/posts";
 import { formatReadingTime } from "../lib/reading-time";
 import PageLayout from "./page-layout.astro";
@@ -20,6 +21,8 @@ const { post } = Astro.props;
 const { Content, headings, remarkPluginFrontmatter } = await render(post);
 const date = post.data.pubDate.toLocaleDateString("vi-VN");
 const readingTime = formatReadingTime(remarkPluginFrontmatter.minutesRead);
+const lastModified = formatLastModified(remarkPluginFrontmatter.lastModified);
+const showLastModified = lastModified != null && lastModified !== date;
 const anchorClass =
   post.collection === "hobby"
     ? "[&_a]:decoration-secondary prose-blockquote:border-secondary"
@@ -44,10 +47,20 @@ const anchorClass =
           />
         </div>
 
-        <p class="mb-5 flex items-center gap-2 text-xs text-muted-foreground">
+        <p
+          class="mb-5 flex flex-wrap items-center gap-2 text-xs text-muted-foreground"
+        >
           <time datetime={post.data.pubDate.toISOString()}>{date}</time>
           <span aria-hidden="true">·</span>
           <span>{readingTime}</span>
+          {showLastModified && (
+            <>
+              <span aria-hidden="true">·</span>
+              <span>
+                Cập nhật lần cuối: {lastModified}
+              </span>
+            </>
+          )}
         </p>
 
         <h1
