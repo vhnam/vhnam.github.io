@@ -27,7 +27,7 @@ const relatedPosts = await getRelatedPosts(post);
     <ul class="grid grid-cols-1 gap-4">
       {relatedPosts.map((relatedPost) => (
         <li class="flex">
-          <PostCard post={relatedPost} showCategory={false} showTags />
+          <PostCard post={relatedPost} showCategory={false} showCover={false} />
         </li>
       ))}
     </ul>

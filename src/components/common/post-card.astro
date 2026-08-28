@@ -1,4 +1,6 @@
 ---
+import { Image } from "astro:assets";
+
 import { getPostHref, type Post } from "../../lib/posts";
 import Badge from "./badge.astro";
 import PostTag from "./post-tag.astro";
@@ -8,6 +10,7 @@ interface Props {
   heading?: "h2" | "h3";
   showTags?: boolean;
   showCategory?: boolean;
+  showCover?: boolean;
 }
 
 const {
@@ -15,6 +18,7 @@ const {
   heading: Heading = "h3",
   showTags = false,
   showCategory = true,
+  showCover = true,
 } = Astro.props;
 
 const href = getPostHref(post);
@@ -25,41 +29,55 @@ const borderColor =
 
 <article
   class:list={[
-    "relative h-full w-full border border-border rounded-md overflow-hidden bg-card transition-transform duration-200 hover:-translate-y-2 hover:shadow-lg border-l-4 p-4 lg:p-6",
+    "relative flex h-full w-full flex-col rounded-md overflow-hidden bg-card transition-transform duration-200",
+    " border border-border border-l-4",
+    "hover:-translate-y-2 hover:shadow-lg",
     borderColor,
   ]}
 >
-  <div class="flex items-center gap-4">
-    <time
-      datetime={post.data.pubDate.toISOString()}
-      class="font-mono text-muted-foreground text-tiny tracking-wider"
+  {showCover && (
+  <figure class="m-0 aspect-video overflow-hidden bg-muted">
+    <Image
+      src={post.data.cover}
+      alt={post.data.title}
+      class="size-full object-cover"
+    />
+  </figure>
+  )}
+
+  <div class="flex flex-1 flex-col p-4 lg:p-6">
+    <div class="flex items-center gap-4">
+      <time
+        datetime={post.data.pubDate.toISOString()}
+        class="font-mono text-muted-foreground text-tiny tracking-wider"
+      >
+        {pubDate}
+      </time>
+      {showCategory && (
+        <Badge collection={post.collection} />
+      )}
+    </div>
+
+    <Heading
+      class="font-display font-semibold text-base text-foreground tracking-tight py-2"
     >
-      {pubDate}
-    </time>
-    {showCategory && (
-      <Badge collection={post.collection} />
-    )}
+      <a href={href} class="after:absolute after:inset-0 hover:underline">
+        {post.data.title}
+      </a>
+    </Heading>
+
+    <p class="text-sm text-muted-foreground leading-relaxed line-clamp-2">
+      {post.data.description}
+    </p>
+
+    {showTags && post.data.tags.length > 0 && (
+        <ul class="relative z-10 flex flex-wrap items-center gap-2 pt-3">
+          {post.data.tags.map((tag) => (
+            <li>
+              <PostTag tag={tag} />
+            </li>
+          ))}
+        </ul>
+      )}
   </div>
-
-  <Heading
-    class="font-display font-semibold text-base text-foreground tracking-tight py-2"
-  >
-    <a href={href} class="after:absolute after:inset-0 hover:underline">
-      {post.data.title}
-    </a>
-  </Heading>
-
-  <p class="text-sm text-muted-foreground leading-relaxed line-clamp-2">
-    {post.data.description}
-  </p>
-
-  {showTags && post.data.tags.length > 0 && (
-      <ul class="relative z-10 flex flex-wrap items-center gap-2 pt-3">
-        {post.data.tags.map((tag) => (
-          <li>
-            <PostTag tag={tag} />
-          </li>
-        ))}
-      </ul>
-    )}
 </article>
