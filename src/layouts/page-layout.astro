@@ -3,12 +3,16 @@ import "../styles/global.css";
 
 import Footer from "../components/common/footer.astro";
 import Header from "../components/common/header.astro";
+import Metadata from "../components/common/metadata.astro";
 
 interface Props {
   title?: string;
+  description?: string;
+  cover?: string;
+  articleDate?: string;
 }
 
-const { title = "Nam Vo" } = Astro.props;
+const { title, description, cover, articleDate } = Astro.props;
 ---
 
 <!doctype html>
@@ -19,7 +23,12 @@ const { title = "Nam Vo" } = Astro.props;
     <link rel="icon" type="image/svg+xml" href="/favicon.svg">
     <link rel="sitemap" href="/sitemap-index.xml">
 
-    <title>{title}</title>
+    <Metadata
+      title={title}
+      description={description}
+      cover={cover}
+      articleDate={articleDate}
+    />
   </head>
   <body class="min-h-dvh flex flex-col bg-background text-foreground">
     <Header />

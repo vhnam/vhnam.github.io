@@ -27,7 +27,12 @@ const lastModified = formatLastModified(remarkPluginFrontmatter.lastModified);
 const showLastModified = lastModified != null && lastModified !== date;
 ---
 
-<PageLayout title={post.data.title}>
+<PageLayout
+  title={post.data.title}
+  description={post.data.description}
+  cover={post.data.cover.src}
+  articleDate={post.data.pubDate.toISOString()}
+>
   <div class="grid grid-cols-1 lg:grid-cols-3 gap-4 pb-12">
     <aside class="sticky top-28 self-start lg:order-last">
       <TableOfContents headings={headings} collection={post.collection} />
