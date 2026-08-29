@@ -1,5 +1,11 @@
 # vhnam.github.io
 
+## 6.1.1
+
+### Patch Changes
+
+- a5da2c2: Bind the GitHub Pages build job to the github-pages environment so environment-scoped SITE_* vars and GA/FB secrets reach the Astro build
+
 ## 6.1.0
 
 ### Minor Changes
