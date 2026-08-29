@@ -1,9 +1,9 @@
 ---
-import CategoryPage from "../../components/category/category-page.astro";
+import { getPostsByTagSlug, type Post } from "#/lib/posts";
 
-import Layout from "../../layouts/page-layout.astro";
+import Layout from "#/layouts/page-layout.astro";
 
-import { getPostsByTagSlug, type Post } from "../../lib/posts";
+import CategoryPage from "#/components/category/category-page.astro";
 
 interface Props {
   tag: string;

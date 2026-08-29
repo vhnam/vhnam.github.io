@@ -1,12 +1,13 @@
 ---
-import CvStrip from "../components/home/cv-strip.astro";
-import FeaturedPost from "../components/home/featured-post.astro";
-import Hero from "../components/home/hero.astro";
-import Identity from "../components/home/identity.astro";
-import RelatedPosts from "../components/home/related-posts.astro";
-import Layout from "../layouts/page-layout.astro";
+import { getFeaturedPost, getPosts } from "#/lib/posts";
 
-import { getFeaturedPost, getPosts } from "../lib/posts";
+import Layout from "#/layouts/page-layout.astro";
+
+import CvStrip from "#/components/home/cv-strip.astro";
+import FeaturedPost from "#/components/home/featured-post.astro";
+import Hero from "#/components/home/hero.astro";
+import Identity from "#/components/home/identity.astro";
+import RelatedPosts from "#/components/home/related-posts.astro";
 
 const featuredPost = await getFeaturedPost();
 const posts = await getPosts({ filter: "all", limit: 6, ignoreFeatured: true });

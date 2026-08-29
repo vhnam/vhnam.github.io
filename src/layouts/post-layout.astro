@@ -1,18 +1,21 @@
 ---
 import { render } from "astro:content";
-import Breadcrumb from "../components/common/breadcrumb.astro";
-import PostTag from "../components/common/post-tag.astro";
-import AdjacentPosts from "../components/post/adjacent-posts.astro";
-import MarkdownCode from "../components/post/markdown-code.astro";
-import MarkdownHeading from "../components/post/markdown-heading.astro";
-import MarkdownImage from "../components/post/markdown-image.astro";
-import MarkdownPre from "../components/post/markdown-pre.astro";
-import Prose from "../components/post/prose.astro";
-import RelatedPosts from "../components/post/related-posts.astro";
-import TableOfContents from "../components/post/table-of-contents.astro";
-import { CATEGORY_LABEL, getCategoryHref, type Post } from "../lib/posts";
-import { formatReadingTime } from "../lib/reading-time";
-import PageLayout from "./page-layout.astro";
+
+import { CATEGORY_LABEL, getCategoryHref, type Post } from "#/lib/posts";
+import { formatReadingTime } from "#/lib/reading-time";
+
+import PageLayout from "#/layouts/page-layout.astro";
+
+import Breadcrumb from "#/components/common/breadcrumb.astro";
+import PostTag from "#/components/common/post-tag.astro";
+import AdjacentPosts from "#/components/post/adjacent-posts.astro";
+import MarkdownCode from "#/components/post/markdown-code.astro";
+import MarkdownHeading from "#/components/post/markdown-heading.astro";
+import MarkdownImage from "#/components/post/markdown-image.astro";
+import MarkdownPre from "#/components/post/markdown-pre.astro";
+import Prose from "#/components/post/prose.astro";
+import RelatedPosts from "#/components/post/related-posts.astro";
+import TableOfContents from "#/components/post/table-of-contents.astro";
 
 interface Props {
   post: Post;

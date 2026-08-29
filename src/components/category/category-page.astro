@@ -1,9 +1,10 @@
 ---
-import type { Post } from "../../lib/posts";
-import Breadcrumb from "../common/breadcrumb.astro";
-import ScrollToTopButton from "../common/scroll-to-top-button.astro";
-import PostList from "./post-list.astro";
-import TagList from "./tag-list.astro";
+import type { Post } from "#/lib/posts";
+
+import PostList from "#/components/category/post-list.astro";
+import TagList from "#/components/category/tag-list.astro";
+import Breadcrumb from "#/components/common/breadcrumb.astro";
+import ScrollToTopButton from "#/components/common/scroll-to-top-button.astro";
 
 interface Props {
   heading: string;

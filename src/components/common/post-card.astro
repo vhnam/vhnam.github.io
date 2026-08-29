@@ -1,9 +1,10 @@
 ---
 import { Image } from "astro:assets";
 
-import { getPostHref, type Post } from "../../lib/posts";
-import Badge from "./badge.astro";
-import PostTag from "./post-tag.astro";
+import { getPostHref, type Post } from "#/lib/posts";
+
+import Badge from "#/components/common/badge.astro";
+import PostTag from "#/components/common/post-tag.astro";
 
 interface Props {
   post: Post;
