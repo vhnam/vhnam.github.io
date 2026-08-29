@@ -1,5 +1,11 @@
 # vhnam.github.io
 
+## 6.2.0
+
+### Minor Changes
+
+- 25fb041: Add a `#/*` path alias and Biome import groups so CSS, packages, and `src` layers stay in a stable order
+
 ## 6.1.1
 
 ### Patch Changes
