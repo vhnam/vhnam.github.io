@@ -29,6 +29,7 @@
 
 ### Patch Changes
 
+- 7cf29de: Bind the GitHub Pages build job to the github-pages environment so environment-scoped SITE_* vars and GA/FB secrets reach the Astro build
 - 9c4a53c: Restyle the 404 page with a centered layout and pill actions
 - 9f29020: Document the agent contract, README, and Changesets policy
 - 5c7c21b: Make the ApexCharts StackBlitz embed full width
