@@ -1,9 +1,9 @@
 ---
-import CategoryPage from "../../components/category/category-page.astro";
+import { getPosts } from "#/lib/posts";
 
-import Layout from "../../layouts/page-layout.astro";
+import Layout from "#/layouts/page-layout.astro";
 
-import { getPosts } from "../../lib/posts";
+import CategoryPage from "#/components/category/category-page.astro";
 
 const posts = await getPosts({ filter: "hobbies" });
 ---

@@ -1,6 +1,6 @@
 import { defineHastPlugin } from "satteri";
 
-import externalLinkIconSource from "../components/icons/external-link.svg?raw";
+import externalLinkIconSource from "#/components/icons/external-link.svg?raw";
 
 const externalLinkIconPath =
   externalLinkIconSource.match(/<path[^>]*\sd="([^"]+)"/)?.[1] ?? "";

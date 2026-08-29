@@ -3,10 +3,11 @@ import mdx from "@astrojs/mdx";
 import sitemap from "@astrojs/sitemap";
 import tailwindcss from "@tailwindcss/vite";
 import { defineConfig } from "astro/config";
-import { hastExternalLinksPlugin } from "./src/lib/external-links";
-import { mdastLastModifiedPlugin } from "./src/lib/last-modified";
-import { mdastReadingTimePlugin } from "./src/lib/reading-time";
-import { hastUnwrapImagesPlugin } from "./src/lib/unwrap-images";
+
+import { hastExternalLinksPlugin } from "#/lib/external-links";
+import { mdastLastModifiedPlugin } from "#/lib/last-modified";
+import { mdastReadingTimePlugin } from "#/lib/reading-time";
+import { hastUnwrapImagesPlugin } from "#/lib/unwrap-images";
 
 export default defineConfig({
   site: "https://vhnam.github.io",

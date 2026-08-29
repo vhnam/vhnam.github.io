@@ -27,7 +27,29 @@
     "enabled": true,
     "actions": {
       "source": {
-        "organizeImports": "on"
+        "organizeImports": {
+          "level": "on",
+          "options": {
+            "sortBareImports": true,
+            "groups": [
+              ":STYLE:",
+              ":BLANK_LINE:",
+              [":NODE:", ":PACKAGE_WITH_PROTOCOL:", ":PACKAGE:"],
+              ":BLANK_LINE:",
+              "#/lib/**",
+              ":BLANK_LINE:",
+              "#/layouts/**",
+              ":BLANK_LINE:",
+              "#/components/**",
+              ":BLANK_LINE:",
+              "#/pages/**",
+              ":BLANK_LINE:",
+              "#/styles/**",
+              ":BLANK_LINE:",
+              [":ALIAS:", ":PATH:"]
+            ]
+          }
+        }
       }
     }
   },
