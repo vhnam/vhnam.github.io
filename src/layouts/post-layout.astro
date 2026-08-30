@@ -49,9 +49,12 @@ const showLastModified =
       <TableOfContents headings={headings} collection={post.collection} />
     </aside>
 
-    <article class="lg:col-span-2 z-10 lg:z-0 bg-background lg:bg-transparent">
+    <article
+      class="lg:col-span-2 z-10 lg:z-0 bg-background lg:bg-transparent"
+      data-pagefind-body
+    >
       <header>
-        <div class="py-12">
+        <div class="py-12" data-pagefind-ignore>
           <Breadcrumb
             collection={post.collection}
             paths={[
@@ -63,6 +66,7 @@ const showLastModified =
 
         <p
           class="mb-5 flex flex-wrap items-center gap-2 text-xs text-muted-foreground"
+          data-pagefind-ignore
         >
           <time datetime={datePublished.toISOString()}>{publishedLabel}</time>
           <span aria-hidden="true">·</span>
@@ -70,9 +74,9 @@ const showLastModified =
           {showLastModified && dateModified && (
             <>
               <span aria-hidden="true">·</span>
-              <span>
+              <time datetime={dateModified.toISOString()}>
                 Cập nhật lần cuối: {modifiedLabel}
-              </span>
+              </time>
             </>
           )}
         </p>
@@ -98,20 +102,20 @@ const showLastModified =
         />
       </Prose>
 
-      <footer>
-        {post.data.tags.length > 0 && (
-          <ul
-            class="mb-10 flex flex-wrap items-center gap-2"
-            aria-label="Thẻ"
-          >
-            {post.data.tags.map((tag) => (
-              <li>
-                <PostTag tag={tag} />
-              </li>
-            ))}
-          </ul>
-        )}
+      {post.data.tags.length > 0 && (
+        <ul
+          class="mb-10 flex flex-wrap items-center gap-2"
+          aria-label="Thẻ"
+        >
+          {post.data.tags.map((tag) => (
+            <li>
+              <PostTag tag={tag} />
+            </li>
+          ))}
+        </ul>
+      )}
 
+      <footer data-pagefind-ignore="all">
         <AdjacentPosts post={post} />
 
         <RelatedPosts post={post} />
