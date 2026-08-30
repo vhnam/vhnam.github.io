@@ -8,7 +8,7 @@
   "homepage": "https://github.com/vhnam/vhnam.github.io#readme",
   "private": true,
   "type": "module",
-  "version": "6.3.0",
+  "version": "6.4.0",
   "packageManager": "pnpm@11.24.0",
   "scripts": {
     "dev": "astro dev",
@@ -29,6 +29,7 @@
     "@tailwindcss/vite": "^4.3.3",
     "astro": "^7.2.9",
     "glightbox": "^3.3.1",
+    "pagefind": "^1.5.2",
     "reading-time": "^1.5.0",
     "satteri": "^0.10.5",
     "sharp": "^0.35.4",

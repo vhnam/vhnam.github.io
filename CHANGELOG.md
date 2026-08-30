@@ -1,5 +1,11 @@
 # vhnam.github.io
 
+## 6.4.0
+
+### Minor Changes
+
+- 929aeee: Add full-text search with Pagefind
+
 ## 6.3.0
 
 ### Minor Changes

@@ -102,6 +102,24 @@
   --accent: var(--color-amber-700);
 }
 
+:root {
+  --pf-text: var(--foreground);
+  --pf-text-secondary: var(--muted-foreground);
+  --pf-text-muted: var(--muted-foreground);
+  --pf-background: var(--background);
+  --pf-border: var(--border);
+  --pf-border-focus: var(--ring);
+  --pf-skeleton: var(--muted);
+  --pf-skeleton-shine: var(--card);
+  --pf-hover: var(--muted);
+  --pf-mark: var(--primary);
+  --pf-scroll-shadow: color-mix(in srgb, var(--foreground) 8%, transparent);
+  --pf-outline-focus: var(--ring);
+  --pf-font: var(--font-display);
+  --pf-border-radius: var(--radius-md);
+  --pf-modal-backdrop: color-mix(in srgb, var(--foreground) 40%, transparent);
+}
+
 @layer base {
   body {
     font-family: var(--font-body);

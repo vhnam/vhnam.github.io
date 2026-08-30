@@ -29,6 +29,7 @@ function getPreferredTheme(): "light" | "dark" {
 
 function applyTheme(theme: "light" | "dark") {
   document.documentElement.setAttribute("data-theme", theme);
+  document.documentElement.setAttribute("data-pf-theme", theme);
   localStorage.setItem(STORAGE_KEY, theme);
 
   const toggle = document.getElementById("theme-toggle");
