@@ -13,7 +13,6 @@ interface Props {
 
 const { src, alt = "", title, class: className } = Astro.props;
 const caption = title || alt;
-const imageAlt = title ? alt : caption ? "" : alt;
 const imageClass = "mx-auto rounded-md cursor-zoom-in";
 const href = typeof src === "object" ? src.src : src;
 const lightboxData = caption ? `description: ${caption}` : undefined;
@@ -23,7 +22,7 @@ const lightboxData = caption ? `description: ${caption}` : undefined;
     caption ? (
     <figure>
         <a href={href} class="glightbox block" data-glightbox={lightboxData}>
-          <Image src={src} alt={imageAlt} class:list={[className, imageClass]} />
+          <Image src={src} alt={alt} class:list={[className, imageClass]} />
         </a>
         <figcaption>{caption}</figcaption>
       </figure>
@@ -35,7 +34,7 @@ const lightboxData = caption ? `description: ${caption}` : undefined;
   ) : caption ? (
     <figure>
       <a href={href} class="glightbox block" data-glightbox={lightboxData}>
-        <img src={src} alt={imageAlt} class:list={[className, imageClass]} />
+        <img src={src} alt={alt} class:list={[className, imageClass]} />
       </a>
       <figcaption>{caption}</figcaption>
     </figure>

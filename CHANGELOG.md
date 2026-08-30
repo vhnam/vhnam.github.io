@@ -1,5 +1,15 @@
 # vhnam.github.io
 
+## 6.3.0
+
+### Minor Changes
+
+- 5c6f319: Add a mobile hamburger menu for site navigation
+
+### Patch Changes
+
+- 5c6f319: Fix accessibility issues across components and layouts: require a non-empty `title` on embedded iframes, stop markdown images from losing their `alt` text when a caption is present, make the theme toggle's `aria-label` reflect the current state, mark decorative cover images with `alt=""`, add an external-link indicator and `target="_blank"` handling to footer social links, and add a skip-to-content link to the page layout.
+
 ## 6.2.0
 
 ### Minor Changes

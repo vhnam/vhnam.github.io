@@ -1,12 +1,12 @@
 ---
 interface Props {
   src: string;
-  title?: string;
+  title: string;
   height?: string | number;
   width?: string | number;
 }
 
-const { src, title = "", height, width } = Astro.props;
+const { src, title, height, width } = Astro.props;
 const isYouTube = /youtube\.com|youtube-nocookie\.com|youtu\.be/.test(src);
 ---
 

@@ -5,7 +5,7 @@ import profilePhoto from "#/assets/images/namvh.jpeg";
 ---
 
 <section
-  class="border-t border-border pt-5 mb-16 flex items-center gap-3"
+  class="border-t border-border pt-5 mb-16 flex md:items-center gap-3"
   aria-label="Giới thiệu"
 >
   <Image
@@ -13,20 +13,24 @@ import profilePhoto from "#/assets/images/namvh.jpeg";
     alt="Nam Vo"
     class="size-10 rounded-full object-cover border border-border flex shrink-0"
   />
-  <div class="flex items-center justify-between gap-2 w-full">
+  <div
+    class="flex flex-col md:flex-row md:items-center justify-between gap-x-2 gap-y-6 md:gap-y-0 w-full"
+  >
     <div>
       <p class="font-display font-semibold text-base text-foreground">Nam Vo</p>
       <p
-        class="font-mono font-medium text-xs text-muted-foreground tracking-wide"
+        class="font-mono font-medium text-xs text-muted-foreground tracking-wide max-w-xs lg:max-w-none"
       >
         Có hứng thú với các vấn đề liên quan đến: UI/UX, Âm Nhạc, và Nhiếp Ảnh.
       </p>
     </div>
-    <a
-      href="/about"
-      class="bg-primary text-primary-foreground px-4 py-2 rounded-md hover:bg-primary/80 transition-colors"
-    >
-      Tìm hiểu thêm →
-    </a>
+    <div>
+      <a
+        href="/about"
+        class="bg-primary text-sm text-primary-foreground px-4 py-2 rounded-md hover:bg-primary/80 transition-colors"
+      >
+        Tìm hiểu thêm →
+      </a>
+    </div>
   </div>
 </section>

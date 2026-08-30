@@ -37,8 +37,17 @@ const gaId = import.meta.env.PROD
     />
   </head>
   <body class="min-h-dvh flex flex-col bg-background text-foreground">
+    <a
+      href="#main-content"
+      class="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-60 focus:rounded-md focus:bg-background focus:px-4 focus:py-2 focus:text-foreground focus:outline-none focus:ring-2 focus:ring-ring"
+    >
+      Bỏ qua để đến nội dung chính
+    </a>
     <Header />
-    <main class="container mx-auto px-4 lg:px-6 xl:px-0 flex-1 flex flex-col">
+    <main
+      id="main-content"
+      class="container mx-auto px-4 lg:px-6 xl:px-0 flex-1 flex flex-col"
+    >
       <slot />
     </main>
     <Footer />
