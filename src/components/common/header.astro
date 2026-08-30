@@ -1,53 +1,172 @@
 ---
 import ToggleTheme from "#/components/common/toggle-theme.astro";
+import IconClose from "#/components/icons/close.svg";
+import IconMenu from "#/components/icons/menu.svg";
 
-const isAbout = Astro.url.pathname.replace(/\/$/, "") === "/about";
+const desktopLinkClass =
+  "font-mono font-medium text-xs text-muted-foreground hover:underline tracking-wide";
+const mobileLinkClass =
+  "block font-mono font-medium text-sm tracking-wide py-3 text-foreground";
 ---
 
-<header
-  class="sticky top-0 z-50 bg-header-bg border-b border-border backdrop-blur-md print:hidden"
->
+<header class="sticky top-0 z-50 print:hidden">
   <div
-    class="container mx-auto px-4 lg:px-6 xl:px-0 h-16 flex items-center justify-between"
+    class="relative z-50 border-b border-border bg-header-bg backdrop-blur-md"
   >
-    <a href="/" class="flex items-center gap-2">
-      <img src="/favicon.svg" alt="Nam Vo" class="size-8">
-      <span
-        class="font-display font-bold text-sm text-foreground tracking-tight"
-        >Nam Vo</span
-      >
-    </a>
+    <div
+      class="container mx-auto px-4 lg:px-6 xl:px-0 h-16 flex items-center justify-between"
+    >
+      <a href="/" class="flex items-center gap-2">
+        <img src="/favicon.svg" alt="Nam Vo" width="32" height="32">
+        <span
+          class="font-display font-bold text-2xl text-foreground tracking-tight"
+          >Nam Vo</span
+        >
+      </a>
 
-    <nav class="flex items-center gap-6" aria-label="Chính">
-      <ul class="flex items-center gap-6">
+      <div class="flex items-center gap-2 md:gap-6">
+        <nav class="hidden md:flex items-center gap-6" aria-label="Chính">
+          <ul class="flex items-center gap-6">
+            <li>
+              <a
+                href="/tutorials"
+                class:list={[desktopLinkClass, "hover:text-primary"]}
+                >Lập Trình</a
+              >
+            </li>
+            <li>
+              <a
+                href="/hobbies"
+                class:list={[desktopLinkClass, "hover:text-secondary"]}
+                >Giải Trí</a
+              >
+            </li>
+            <li>
+              <a
+                href="/about"
+                class="inline-flex h-8 items-center justify-center gap-1.5 whitespace-nowrap rounded-md border bg-background px-3 font-mono text-sm font-medium shadow-xs transition-all outline-none hover:bg-muted hover:text-foreground focus-visible:border-ring focus-visible:ring-[3px] focus-visible:ring-ring/50 dark:border-input dark:bg-input/30 dark:hover:bg-input/50"
+                >CV</a
+              >
+            </li>
+          </ul>
+        </nav>
+        <ToggleTheme />
+        <button
+          id="mobile-nav-toggle"
+          type="button"
+          class="group md:hidden inline-flex size-8 items-center justify-center rounded-md text-muted-foreground transition-colors hover:text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring cursor-pointer"
+          aria-label="Mở menu"
+          aria-expanded="false"
+          aria-controls="mobile-nav"
+        >
+          <IconMenu class="size-4 group-aria-expanded:hidden" />
+          <IconClose class="hidden size-4 group-aria-expanded:block" />
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <div
+    id="mobile-nav-backdrop"
+    class="fixed inset-0 z-40 bg-background/40 backdrop-blur-sm md:hidden"
+    hidden
+  ></div>
+
+  <nav
+    id="mobile-nav"
+    class="relative z-50 md:hidden border-b border-border bg-header-bg backdrop-blur-md"
+    aria-label="Chính"
+    hidden
+  >
+    <div class="container mx-auto px-4 py-2">
+      <ul>
         <li>
           <a
             href="/tutorials"
-            class="font-mono font-medium text-xs text-muted-foreground hover:text-primary hover:underline tracking-wide"
-            >Lập Trình</a
+            class:list={[mobileLinkClass, "hover:text-primary"]}
+            >Lập trình</a
           >
         </li>
         <li>
           <a
             href="/hobbies"
-            class="font-mono font-medium text-xs text-muted-foreground hover:text-secondary hover:underline tracking-wide"
-            >Giải Trí</a
+            class:list={[mobileLinkClass, "hover:text-secondary"]}
+            >Giải trí</a
           >
         </li>
+      </ul>
+      <hr class="border-border my-1">
+      <ul>
         <li>
-          <a
-            href="/about"
-            class:list={[
-              "font-mono font-medium text-xs tracking-wide rounded-full px-3 py-1 border transition-colors",
-              isAbout
-                ? "bg-primary text-primary-foreground border-primary"
-                : "text-muted-foreground border-border hover:text-primary hover:border-primary",
-            ]}
+          <a href="/about" class:list={[mobileLinkClass, "hover:text-primary"]}
             >CV</a
           >
         </li>
       </ul>
-      <ToggleTheme />
-    </nav>
-  </div>
+    </div>
+  </nav>
 </header>
+
+<script>
+const DESKTOP_QUERY = "(min-width: 768px)";
+
+const toggle = document.getElementById("mobile-nav-toggle");
+const panel = document.getElementById("mobile-nav");
+const backdrop = document.getElementById("mobile-nav-backdrop");
+
+function isOpen() {
+  return toggle?.getAttribute("aria-expanded") === "true";
+}
+
+function setOpen(open: boolean) {
+  if (
+    !(toggle instanceof HTMLButtonElement) ||
+    !(panel instanceof HTMLElement) ||
+    !(backdrop instanceof HTMLElement)
+  ) {
+    return;
+  }
+
+  toggle.setAttribute("aria-expanded", String(open));
+  toggle.setAttribute("aria-label", open ? "Đóng menu" : "Mở menu");
+  panel.hidden = !open;
+  backdrop.hidden = !open;
+}
+
+if (
+  toggle instanceof HTMLButtonElement &&
+  panel instanceof HTMLElement &&
+  backdrop instanceof HTMLElement
+) {
+  toggle.addEventListener("click", () => {
+    setOpen(!isOpen());
+  });
+
+  document.addEventListener("keydown", (event) => {
+    if (event.key !== "Escape" || !isOpen()) {
+      return;
+    }
+
+    setOpen(false);
+    toggle.focus();
+  });
+
+  document.addEventListener("click", (event) => {
+    if (!isOpen() || !(event.target instanceof Node)) {
+      return;
+    }
+
+    if (toggle.contains(event.target) || panel.contains(event.target)) {
+      return;
+    }
+
+    setOpen(false);
+  });
+
+  window.matchMedia(DESKTOP_QUERY).addEventListener("change", (event) => {
+    if (event.matches) {
+      setOpen(false);
+    }
+  });
+}
+</script>

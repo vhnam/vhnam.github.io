@@ -7,7 +7,7 @@ import IconSun from "#/components/icons/sun.svg";
   id="theme-toggle"
   type="button"
   class="inline-flex size-8 items-center justify-center rounded-md text-muted-foreground transition-colors hover:text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
-  aria-label="Chuyển chế độ sáng/tối"
+  aria-label="Chuyển sang chế độ tối"
 >
   <IconMoon class="size-4 dark:hidden" />
   <IconSun class="hidden size-4 dark:block" />
@@ -30,6 +30,12 @@ function getPreferredTheme(): "light" | "dark" {
 function applyTheme(theme: "light" | "dark") {
   document.documentElement.setAttribute("data-theme", theme);
   localStorage.setItem(STORAGE_KEY, theme);
+
+  const toggle = document.getElementById("theme-toggle");
+  toggle?.setAttribute(
+    "aria-label",
+    theme === "dark" ? "Chuyển sang chế độ sáng" : "Chuyển sang chế độ tối",
+  );
 }
 
 function toggleTheme() {

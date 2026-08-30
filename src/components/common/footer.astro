@@ -1,4 +1,6 @@
 ---
+import IconExternalLink from "#/components/icons/external-link.svg";
+
 const currentYear = new Date().getFullYear();
 
 const SOCIAL_NETWORKS = [
@@ -27,20 +29,24 @@ const SOCIAL_NETWORKS = [
 
 <footer class="py-6 border-t border-border print:hidden">
   <div
-    class="container mx-auto px-4 lg:px-6 xl:px-0 flex justify-between items-center flex-wrap gap-x-12 gap-y-2"
+    class="container mx-auto px-4 lg:px-6 xl:px-0 flex justify-between items-center flex-wrap gap-x-12 gap-y-6 lg:gap-y-2"
   >
     <span class="font-display text-xs text-muted-foreground">
       © {currentYear} Nam Vo's Blog
     </span>
     <nav aria-label="Mạng xã hội">
-      <ul class="flex gap-5 flex-wrap">
+      <ul class="flex gap-x-5 gap-y-2 flex-wrap">
         {SOCIAL_NETWORKS.map((network) => (
           <li>
             <a
               href={network.url}
-              class="font-mono text-xs text-muted-foreground transition-colors hover:text-foreground hover:underline tracking-wider"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="inline-flex items-center gap-1 font-mono text-xs text-muted-foreground transition-colors hover:text-foreground hover:underline tracking-wider"
             >
               {network.name}
+              <IconExternalLink class="size-3" />
+              <span class="sr-only">(mở tab mới)</span>
             </a>
           </li>
         ))}
