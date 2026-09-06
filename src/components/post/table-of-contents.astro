@@ -52,6 +52,8 @@ const activeLinkClass =
 
 <script>
 const HEADER_OFFSET_PX = 112;
+/** Heading becomes current once it crosses 60% down the viewport. */
+const ACTIVATION_VIEWPORT_RATIO = 0.6;
 
 function initTableOfContents() {
   const links = [
@@ -89,9 +91,13 @@ function initTableOfContents() {
 
   const updateActiveFromScroll = () => {
     let currentId = headings[0]?.id;
+    const activationLine = Math.max(
+      HEADER_OFFSET_PX,
+      window.innerHeight * ACTIVATION_VIEWPORT_RATIO,
+    );
 
     for (const heading of headings) {
-      if (heading.getBoundingClientRect().top <= HEADER_OFFSET_PX) {
+      if (heading.getBoundingClientRect().top <= activationLine) {
         currentId = heading.id;
       } else {
         break;
