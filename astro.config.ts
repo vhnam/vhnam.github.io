@@ -29,6 +29,12 @@ export default defineConfig({
     }),
   ],
   markdown: {
+    shikiConfig: {
+      themes: {
+        light: "slack-ochin",
+        dark: "slack-dark",
+      },
+    },
     processor: satteri({
       mdastPlugins: [mdastReadingTimePlugin, mdastLastModifiedPlugin],
       hastPlugins: [hastUnwrapImagesPlugin, hastExternalLinksPlugin],
