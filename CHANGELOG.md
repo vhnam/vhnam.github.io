@@ -1,5 +1,22 @@
 # vhnam.github.io
 
+## 6.5.0
+
+### Minor Changes
+
+- f25e9a2: Pair Shiki light and dark themes so code blocks follow the site theme
+
+### Patch Changes
+
+- ed42335: Bump Astro, MDX, markdown-satteri, and sitemap to current patch/minor releases
+- 28cd684: Fix GA4 page views by loading gtag from a head component that reads `data-ga-measurement-id` and queues commands as Arguments objects
+- 2af10c4: Tighten post image, figcaption, and inline-link layout, and underline featured “Đọc tiếp” only on hover
+- 131b7f5: Cache the sorted hobby and tutorial collections for the static build
+- 96884de: Prefix tag listing headings with `#`
+- 59123e9: Ease theme colors when toggling light and dark mode
+- 362a546: Highlight the ToC section once its heading reaches 60% down the viewport
+- 6760b98: Point series and cross-post links in tutorials at site-relative `/tutorials/…` paths
+
 ## 6.4.0
 
 ### Minor Changes
