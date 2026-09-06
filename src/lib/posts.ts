@@ -25,34 +25,46 @@ export function getPostHref(post: Post) {
   return `${prefix}/${post.id}`;
 }
 
+let allPostsCache: Promise<Post[]> | null = null;
+
+async function getAllPostsSorted() {
+  allPostsCache ??= (async () => {
+    const [hobbies, tutorials] = await Promise.all([
+      getCollection("hobby"),
+      getCollection("tutorial"),
+    ]);
+
+    return [...hobbies, ...tutorials].sort(
+      (firstPost, secondPost) =>
+        secondPost.data.datePublished.valueOf() -
+        firstPost.data.datePublished.valueOf(),
+    );
+  })();
+
+  return allPostsCache;
+}
+
 export async function getPosts({
   filter = "all",
   limit,
   ignoreFeatured = false,
 }: GetPostsOptions) {
-  const hobbies = await getCollection("hobby");
-  const tutorials = await getCollection("tutorial");
+  const sorted = await getAllPostsSorted();
 
-  let posts = [...hobbies, ...tutorials];
-  if (filter !== "all") {
-    posts = posts.filter(
-      (post) =>
-        post.collection === (filter === "hobbies" ? "hobby" : "tutorial"),
-    );
-  }
-
-  const sorted = posts.sort(
-    (firstPost, secondPost) =>
-      secondPost.data.datePublished.valueOf() -
-      firstPost.data.datePublished.valueOf(),
-  );
+  const posts =
+    filter === "all"
+      ? sorted
+      : sorted.filter(
+          (post) =>
+            post.collection === (filter === "hobbies" ? "hobby" : "tutorial"),
+        );
 
   const start = ignoreFeatured ? 1 : 0;
   if (limit == null) {
-    return sorted.slice(start);
+    return posts.slice(start);
   }
 
-  return sorted.slice(start, start + limit);
+  return posts.slice(start, start + limit);
 }
 
 function isSamePost(first: Post, second: Post) {
@@ -103,16 +115,7 @@ export async function getRelatedPosts(post: Post, limit = 3) {
 }
 
 export async function getFeaturedPost() {
-  const [hobbies, tutorials] = await Promise.all([
-    getCollection("hobby"),
-    getCollection("tutorial"),
-  ]);
-
-  const sorted = [...hobbies, ...tutorials].sort(
-    (firstPost, secondPost) =>
-      secondPost.data.datePublished.valueOf() -
-      firstPost.data.datePublished.valueOf(),
-  );
+  const sorted = await getAllPostsSorted();
 
   return sorted.find((post) => post.data.isFeatured) ?? sorted[0];
 }

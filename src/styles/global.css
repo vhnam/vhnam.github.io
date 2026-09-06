@@ -52,6 +52,96 @@
   --font-sans: var(--font-body);
 }
 
+@property --background {
+  syntax: "<color>";
+  inherits: true;
+  initial-value: transparent;
+}
+
+@property --foreground {
+  syntax: "<color>";
+  inherits: true;
+  initial-value: transparent;
+}
+
+@property --card {
+  syntax: "<color>";
+  inherits: true;
+  initial-value: transparent;
+}
+
+@property --card-foreground {
+  syntax: "<color>";
+  inherits: true;
+  initial-value: transparent;
+}
+
+@property --primary {
+  syntax: "<color>";
+  inherits: true;
+  initial-value: transparent;
+}
+
+@property --primary-foreground {
+  syntax: "<color>";
+  inherits: true;
+  initial-value: transparent;
+}
+
+@property --secondary {
+  syntax: "<color>";
+  inherits: true;
+  initial-value: transparent;
+}
+
+@property --secondary-foreground {
+  syntax: "<color>";
+  inherits: true;
+  initial-value: transparent;
+}
+
+@property --muted {
+  syntax: "<color>";
+  inherits: true;
+  initial-value: transparent;
+}
+
+@property --muted-foreground {
+  syntax: "<color>";
+  inherits: true;
+  initial-value: transparent;
+}
+
+@property --border {
+  syntax: "<color>";
+  inherits: true;
+  initial-value: transparent;
+}
+
+@property --input {
+  syntax: "<color>";
+  inherits: true;
+  initial-value: transparent;
+}
+
+@property --ring {
+  syntax: "<color>";
+  inherits: true;
+  initial-value: transparent;
+}
+
+@property --header-bg {
+  syntax: "<color>";
+  inherits: true;
+  initial-value: transparent;
+}
+
+@property --accent {
+  syntax: "<color>";
+  inherits: true;
+  initial-value: transparent;
+}
+
 :root {
   --background: var(--color-amber-50);
   --foreground: var(--color-stone-900);
@@ -125,6 +215,31 @@
     font-family: var(--font-body);
     background-color: var(--background);
     color: var(--foreground);
+  }
+}
+
+html.theme-transition {
+  transition:
+    --background 400ms ease,
+    --foreground 400ms ease,
+    --card 400ms ease,
+    --card-foreground 400ms ease,
+    --primary 400ms ease,
+    --primary-foreground 400ms ease,
+    --secondary 400ms ease,
+    --secondary-foreground 400ms ease,
+    --muted 400ms ease,
+    --muted-foreground 400ms ease,
+    --border 400ms ease,
+    --input 400ms ease,
+    --ring 400ms ease,
+    --header-bg 400ms ease,
+    --accent 400ms ease;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html.theme-transition {
+    transition: none;
   }
 }
 
@@ -204,6 +319,14 @@
     letter-spacing: 0.02em;
     line-height: 1.5;
     text-decoration-color: var(--border) !important;
+  }
+
+  [data-theme="dark"] :is(.astro-code, .astro-code span) {
+    color: var(--shiki-dark) !important;
+    background-color: var(--shiki-dark-bg) !important;
+    font-style: var(--shiki-dark-font-style) !important;
+    font-weight: var(--shiki-dark-font-weight) !important;
+    text-decoration: var(--shiki-dark-text-decoration) !important;
   }
 }
 

@@ -27,7 +27,7 @@ const collection = collections.size === 1 ? posts[0]?.collection : undefined;
 
 <Layout title={tag}>
   <CategoryPage
-    heading={tag}
+    heading={`#${tag}`}
     collection={collection}
     href={`/tags/${slug}`}
     posts={posts}

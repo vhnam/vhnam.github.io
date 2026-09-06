@@ -6,7 +6,10 @@ import IconSun from "#/components/icons/sun.svg";
 <button
   id="theme-toggle"
   type="button"
-  class="inline-flex size-8 items-center justify-center rounded-md text-muted-foreground transition-colors hover:text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
+  class:list={[
+    "inline-flex size-8 items-center justify-center rounded-md text-muted-foreground transition-colors hover:text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring",
+    "cursor-pointer",
+  ]}
   aria-label="Chuyển sang chế độ tối"
 >
   <IconMoon class="size-4 dark:hidden" />
@@ -27,6 +30,9 @@ function getPreferredTheme(): "light" | "dark" {
     : "light";
 }
 
+const THEME_TRANSITION_MS = 400;
+let themeMotionTimer = 0;
+
 function applyTheme(theme: "light" | "dark") {
   document.documentElement.setAttribute("data-theme", theme);
   document.documentElement.setAttribute("data-pf-theme", theme);
@@ -39,11 +45,23 @@ function applyTheme(theme: "light" | "dark") {
   );
 }
 
+function prefersReducedMotion() {
+  return window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+}
+
 function toggleTheme() {
-  const current =
-    document.documentElement.getAttribute("data-theme") === "dark"
-      ? "dark"
-      : "light";
+  const root = document.documentElement;
+  const current = root.getAttribute("data-theme") === "dark" ? "dark" : "light";
+
+  if (!prefersReducedMotion()) {
+    root.classList.add("theme-transition");
+    window.clearTimeout(themeMotionTimer);
+    themeMotionTimer = window.setTimeout(() => {
+      root.classList.remove("theme-transition");
+    }, THEME_TRANSITION_MS);
+    void root.offsetWidth;
+  }
+
   applyTheme(current === "dark" ? "light" : "dark");
 }
 
