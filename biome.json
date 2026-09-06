@@ -87,6 +87,16 @@
       }
     },
     {
+      "includes": ["src/components/common/google-analytics.astro"],
+      "linter": {
+        "rules": {
+          "complexity": {
+            "noArguments": "off"
+          }
+        }
+      }
+    },
+    {
       "includes": ["src/components/post/markdown-heading.astro"],
       "linter": {
         "rules": {

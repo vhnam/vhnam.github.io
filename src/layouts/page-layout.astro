@@ -2,6 +2,7 @@
 import "#/styles/global.css";
 
 import Footer from "#/components/common/footer.astro";
+import GoogleAnalytics from "#/components/common/google-analytics.astro";
 import Header from "#/components/common/header.astro";
 import Metadata from "#/components/common/metadata.astro";
 import SearchModal from "#/components/common/search-modal.astro";
@@ -40,6 +41,8 @@ const isProd = import.meta.env.PROD;
       datePublished={datePublished}
       dateModified={dateModified}
     />
+
+    {gaId && <GoogleAnalytics measurementId={gaId} />}
   </head>
   <body class="min-h-dvh flex flex-col bg-background text-foreground">
     <a
@@ -78,19 +81,6 @@ const isProd = import.meta.env.PROD;
       document.documentElement.setAttribute("data-theme", theme);
       document.documentElement.setAttribute("data-pf-theme", theme);
     })();
-    </script>
-
-    <!-- Google Analytics (GA4) -->
-    {gaId && <script is:inline async src={`https://www.googletagmanager.com/gtag/js?id=${gaId}`}></script>}
-    <script is:inline define:vars={{ gaId }}>
-    if (gaId) {
-      window.dataLayer = window.dataLayer || [];
-      function gtag(...args) {
-        dataLayer.push(args);
-      }
-      gtag("js", new Date());
-      gtag("config", gaId);
-    }
     </script>
   </body>
 </html>
