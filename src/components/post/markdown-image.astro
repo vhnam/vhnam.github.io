@@ -13,9 +13,8 @@ interface Props {
 
 const { src, alt = "", title, class: className } = Astro.props;
 const caption = title || alt;
-const imageClass = "block rounded-md cursor-zoom-in mb-2";
-const triggerClass =
-  "glightbox mx-auto block w-fit rounded-md focus:outline-none focus-visible:ring-2 focus-visible:ring-ring";
+const imageClass = "mx-auto rounded-md cursor-zoom-in mb-0";
+const triggerClass = "glightbox mx-auto";
 const href = typeof src === "object" ? src.src : src;
 const lightboxData = caption ? `description: ${caption}` : undefined;
 ---
