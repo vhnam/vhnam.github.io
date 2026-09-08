@@ -1,5 +1,17 @@
 # vhnam.github.io
 
+## 6.6.0
+
+### Minor Changes
+
+- 90e5220: Add hobby post: Một bước nhỏ
+- eb49cc1: Add gen:hobby and gen:tutorial scripts to scaffold new posts
+
+### Patch Changes
+
+- 6c75095: Stop Tailwind Typography from stacking extra quotes on blockquotes
+- c3f5529: Center post images and drop extra lightbox wrapper classes
+
 ## 6.5.0
 
 ### Minor Changes
