@@ -26,7 +26,7 @@ Add hobby post: Chỉ định thử vài cuộn phim
 
 ## Content
 
-Hobby and tutorial posts are MDX under `src/content/{hobby,tutorial}`. Schema lives in `src/content.config.ts`. Filenames are kebab-case slugs (`datePublished` + `title` / `description` / `cover` / `tags`). Routes are `/hobbies/[id]` and `/tutorials/[id]` — collection names stay singular.
+Hobby and tutorial posts are MDX under `src/content/{hobby,tutorial}`. Schema lives in `src/content.config.ts`. Filenames are kebab-case slugs (`datePublished` + `title` / `description` / `cover` / `tags`). Routes are `/hobbies/[id]` and `/tutorials/[id]` — collection names stay singular. Scaffold with `pnpm gen:hobby <slug>` or `pnpm gen:tutorial <slug>`.
 
 - Write posts in **Vietnamese**. UI chrome already uses Vietnamese (`Giải Trí`, `Phần Mềm`, dates via `vi-VN`).
 - Dates are Schema.org Article fields, `YYYY-MM-DD` (or a datetime the schema can coerce):

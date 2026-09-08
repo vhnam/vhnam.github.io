@@ -8,7 +8,7 @@
   "homepage": "https://github.com/vhnam/vhnam.github.io#readme",
   "private": true,
   "type": "module",
-  "version": "6.5.0",
+  "version": "6.6.0",
   "packageManager": "pnpm@11.24.0",
   "scripts": {
     "dev": "astro dev",
@@ -16,6 +16,8 @@
     "preview": "astro preview",
     "check": "biome check . && tsx scripts/format-mdx.ts --check",
     "format": "biome format --write . && tsx scripts/format-mdx.ts",
+    "gen:hobby": "tsx scripts/generate-content.ts hobby",
+    "gen:tutorial": "tsx scripts/generate-content.ts tutorial",
     "prepare": "lefthook install"
   },
   "dependencies": {
