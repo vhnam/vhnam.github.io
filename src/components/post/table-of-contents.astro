@@ -22,33 +22,33 @@ const activeLinkClass =
 ---
 
 {items.length > 0 && (
-    <nav
-      aria-label="Mục lục"
-      class:list={["hidden lg:block", activeLinkClass]}
-      data-toc
-    >
-      <p class="font-mono text-xs tracking-wide text-muted-foreground uppercase mb-4">
-        Nội dung
-      </p>
-      <ul class="space-y-1 border-l border-border">
-        {items.map((item) => (
-          <li>
-            <a
-              href={`#${item.slug}`}
-              data-toc-link
-              data-toc-id={item.slug}
-              class:list={[
-                "block -ml-px border-l-2 border-transparent py-1.5 font-mono text-xs tracking-wide text-muted-foreground transition-colors hover:text-foreground",
-                item.depth === 2 ? "pl-4" : "pl-7",
-              ]}
-            >
-              {item.text}
-            </a>
-          </li>
-        ))}
-      </ul>
-    </nav>
-  )}
+  <nav
+    aria-label="Mục lục"
+    class:list={["hidden lg:block", activeLinkClass]}
+    data-toc
+  >
+    <p class="font-mono text-xs tracking-wide text-muted-foreground uppercase mb-4">
+      Nội dung
+    </p>
+    <ul class="space-y-1 border-l border-border">
+      {items.map((item) => (
+        <li>
+          <a
+            href={`#${item.slug}`}
+            data-toc-link
+            data-toc-id={item.slug}
+            class:list={[
+              "block -ml-px border-l-2 border-transparent py-1.5 font-mono text-xs tracking-wide text-muted-foreground transition-colors hover:text-foreground",
+              item.depth === 2 ? "pl-4" : "pl-7",
+            ]}
+          >
+            {item.text}
+          </a>
+        </li>
+      ))}
+    </ul>
+  </nav>
+)}
 
 <script>
 const HEADER_OFFSET_PX = 112;

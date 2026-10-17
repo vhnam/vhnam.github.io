@@ -37,13 +37,9 @@ const borderColor =
   ]}
 >
   {showCover && (
-  <figure class="m-0 aspect-video overflow-hidden bg-muted">
-    <Image
-      src={post.data.cover}
-      alt=""
-      class="size-full object-cover"
-    />
-  </figure>
+    <figure class="m-0 aspect-video overflow-hidden bg-muted">
+      <Image src={post.data.cover} alt="" class="size-full object-cover" />
+    </figure>
   )}
 
   <div class="flex flex-1 flex-col p-4 lg:p-6">
@@ -54,9 +50,7 @@ const borderColor =
       >
         {publishedLabel}
       </time>
-      {showCategory && (
-        <Badge collection={post.collection} />
-      )}
+      {showCategory && <Badge collection={post.collection} />}
     </div>
 
     <Heading
@@ -72,13 +66,13 @@ const borderColor =
     </p>
 
     {showTags && post.data.tags.length > 0 && (
-        <ul class="relative z-10 flex flex-wrap items-center gap-2 pt-3">
-          {post.data.tags.map((tag) => (
-            <li>
-              <PostTag tag={tag} />
-            </li>
-          ))}
-        </ul>
-      )}
+      <ul class="relative z-10 flex flex-wrap items-center gap-2 pt-3">
+        {post.data.tags.map((tag) => (
+          <li>
+            <PostTag tag={tag} />
+          </li>
+        ))}
+      </ul>
+    )}
   </div>
 </article>

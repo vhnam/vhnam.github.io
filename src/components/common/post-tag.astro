@@ -17,5 +17,7 @@ const { tag, numberOfPosts = 0 } = Astro.props;
   ]}
 >
   #{tag}
-  {numberOfPosts > 0 &&  <span class="text-muted-foreground/70">({numberOfPosts})</span>}
+  {numberOfPosts > 0 && (
+    <span class="text-muted-foreground/70">({numberOfPosts})</span>
+  )}
 </a>

@@ -16,7 +16,7 @@ Built with [Astro 7](https://astro.build), Tailwind CSS 4, and MDX content colle
 - **Biome** — lint/format
 - **Lefthook** — git hooks
 - **Changesets** — versioning
-- **pnpm 11** — package manager
+- **pnpm 12** — package manager
 
 ## Project structure
 

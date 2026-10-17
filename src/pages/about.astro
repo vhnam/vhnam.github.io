@@ -185,9 +185,7 @@ const PUBLICATIONS = [
 
       <ul class="flex flex-wrap gap-2" aria-label="Kỹ năng nổi bật">
         {TOP_SKILLS.map((skill) => (
-          <li
-            class="font-mono text-tiny font-medium tracking-wide uppercase bg-primary text-primary-foreground rounded-full px-3 py-1"
-          >
+          <li class="font-mono text-tiny font-medium tracking-wide uppercase bg-primary text-primary-foreground rounded-full px-3 py-1">
             {skill}
           </li>
         ))}
@@ -224,9 +222,7 @@ const PUBLICATIONS = [
             </ul>
             <ul class="flex flex-wrap gap-2" aria-label="Công nghệ sử dụng">
               {job.stack.map((tech) => (
-                <li
-                  class="font-mono text-tiny text-muted-foreground border border-border rounded px-2 py-0.5"
-                >
+                <li class="font-mono text-tiny text-muted-foreground border border-border rounded px-2 py-0.5">
                   {tech}
                 </li>
               ))}
@@ -245,16 +241,12 @@ const PUBLICATIONS = [
       <div class="flex flex-col gap-4">
         {SKILL_GROUPS.map((group) => (
           <div class="flex flex-col sm:flex-row sm:items-baseline gap-x-4 gap-y-2">
-            <p
-              class="font-mono text-xs text-muted-foreground tracking-wide uppercase w-36 shrink-0"
-            >
+            <p class="font-mono text-xs text-muted-foreground tracking-wide uppercase w-36 shrink-0">
               {group.label}
             </p>
             <ul class="flex flex-wrap gap-2">
               {group.skills.map((skill) => (
-                <li
-                  class="font-mono text-tiny text-foreground border border-border rounded px-2 py-0.5"
-                >
+                <li class="font-mono text-tiny text-foreground border border-border rounded px-2 py-0.5">
                   {skill}
                 </li>
               ))}

@@ -20,7 +20,12 @@ const textColor =
         {index > 0 && (
           <li aria-hidden="true" class="h-3 w-px bg-muted-foreground/40" />
         )}
-        <li class:list={["font-mono font-medium text-xs hover:underline tracking-wide", index === paths.length - 1 ? textColor : "text-muted-foreground"]}>
+        <li
+          class:list={[
+            "font-mono font-medium text-xs hover:underline tracking-wide",
+            index === paths.length - 1 ? textColor : "text-muted-foreground",
+          ]}
+        >
           <a href={path.href}>{path.label}</a>
         </li>
       </>

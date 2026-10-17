@@ -37,14 +37,14 @@ const isArticle = datePublished != null;
 <meta property="og:description" content={pageDescription}>
 <meta property="og:image" content={socialImageURL}>
 {isArticle && (
-    <>
-      <meta property="article:author" content={SITE_AUTHOR} />
-      <meta property="article:published_time" content={datePublished} />
-      {dateModified && (
-        <meta property="article:modified_time" content={dateModified} />
-      )}
-    </>
-  )}
+  <>
+    <meta property="article:author" content={SITE_AUTHOR} />
+    <meta property="article:published_time" content={datePublished} />
+    {dateModified && (
+      <meta property="article:modified_time" content={dateModified} />
+    )}
+  </>
+)}
 {FB_APP_ID && <meta property="fb:app_id" content={FB_APP_ID} />}
 
 <!-- Twitter -->

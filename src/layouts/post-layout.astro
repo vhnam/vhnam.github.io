@@ -59,7 +59,10 @@ const showLastModified =
             collection={post.collection}
             paths={[
               { label: "Trang chủ", href: "/" },
-              { label: CATEGORY_LABEL[post.collection], href: getCategoryHref(post.collection) },
+              {
+                label: CATEGORY_LABEL[post.collection],
+                href: getCategoryHref(post.collection),
+              },
             ]}
           />
         </div>
@@ -103,10 +106,7 @@ const showLastModified =
       </Prose>
 
       {post.data.tags.length > 0 && (
-        <ul
-          class="mb-10 flex flex-wrap items-center gap-2"
-          aria-label="Thẻ"
-        >
+        <ul class="mb-10 flex flex-wrap items-center gap-2" aria-label="Thẻ">
           {post.data.tags.map((tag) => (
             <li>
               <PostTag tag={tag} />

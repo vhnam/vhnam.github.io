@@ -20,30 +20,30 @@ const lightboxData = caption ? `description: ${caption}` : undefined;
 ---
 
 {typeof src === "object" ? (
-    caption ? (
-    <figure>
-        <a href={href} class={triggerClass} data-glightbox={lightboxData}>
-          <Image src={src} alt={alt} class:list={[className, imageClass]} />
-        </a>
-        <figcaption>{caption}</figcaption>
-      </figure>
-    ) : (
-      <a href={href} class={triggerClass}>
-        <Image src={src} alt={alt} class:list={[className, imageClass]} />
-      </a>
-    )
-  ) : caption ? (
+  caption ? (
     <figure>
       <a href={href} class={triggerClass} data-glightbox={lightboxData}>
-        <img src={src} alt={alt} class:list={[className, imageClass]} />
+        <Image src={src} alt={alt} class:list={[className, imageClass]} />
       </a>
       <figcaption>{caption}</figcaption>
     </figure>
   ) : (
     <a href={href} class={triggerClass}>
+      <Image src={src} alt={alt} class:list={[className, imageClass]} />
+    </a>
+  )
+) : caption ? (
+  <figure>
+    <a href={href} class={triggerClass} data-glightbox={lightboxData}>
       <img src={src} alt={alt} class:list={[className, imageClass]} />
     </a>
-  )}
+    <figcaption>{caption}</figcaption>
+  </figure>
+) : (
+  <a href={href} class={triggerClass}>
+    <img src={src} alt={alt} class:list={[className, imageClass]} />
+  </a>
+)}
 
 <script>
 import GLightbox from "glightbox";

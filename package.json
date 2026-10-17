@@ -9,7 +9,7 @@
   "private": true,
   "type": "module",
   "version": "6.6.0",
-  "packageManager": "pnpm@11.24.0",
+  "packageManager": "pnpm@12.14.0",
   "scripts": {
     "dev": "astro dev",
     "build": "astro build",
@@ -21,31 +21,31 @@
     "prepare": "lefthook install"
   },
   "dependencies": {
-    "@astrojs/markdown-satteri": "^0.4.0",
-    "@astrojs/mdx": "^8.0.0",
+    "@astrojs/markdown-satteri": "^0.4.4",
+    "@astrojs/mdx": "^8.1.0",
     "@astrojs/rss": "^4.0.19",
     "@astrojs/sitemap": "^3.7.4",
     "@fontsource-variable/jetbrains-mono": "^5.3.0",
-    "@fontsource-variable/source-serif-4": "^5.3.0",
+    "@fontsource-variable/source-serif-4": "^5.3.1",
     "@fontsource-variable/space-grotesk": "^5.3.0",
     "@tailwindcss/vite": "^4.3.3",
-    "astro": "^7.3.1",
+    "astro": "^7.4.0",
     "glightbox": "^3.3.1",
     "pagefind": "^1.5.2",
     "reading-time": "^1.5.0",
     "satteri": "^0.10.5",
-    "sharp": "^0.35.4",
+    "sharp": "^0.35.5",
     "slugify": "^1.6.9",
     "tailwindcss": "^4.3.3"
   },
   "devDependencies": {
     "@astrojs/check": "^0.9.10",
-    "@biomejs/biome": "2.5.11",
-    "@changesets/cli": "^3.0.1",
+    "@biomejs/biome": "2.5.15",
+    "@changesets/cli": "^3.0.3",
     "@tailwindcss/typography": "^0.5.20",
-    "@types/node": "^26.4.0",
-    "lefthook": "^2.1.12",
-    "tsx": "^4.23.12",
+    "@types/node": "^26.6.5",
+    "lefthook": "^2.2.2",
+    "tsx": "^4.23.15",
     "typescript": "^6.0.3"
   }
 }
