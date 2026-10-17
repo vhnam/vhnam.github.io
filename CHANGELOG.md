@@ -1,5 +1,11 @@
 # vhnam.github.io
 
+## 6.6.1
+
+### Patch Changes
+
+- fbbaf4c: Bump Astro, MDX, markdown-satteri, Sharp, Biome, Lefthook, and related dependencies
+
 ## 6.6.0
 
 ### Minor Changes
