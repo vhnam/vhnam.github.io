@@ -1,5 +1,12 @@
 # vhnam.github.io
 
+## 6.6.2
+
+### Patch Changes
+
+- daf2b75: Rewrite hobby post Chỉ định thử vài cuộn phim around the lessons from a first film camera
+- 9353915: Rewrite hobby post Một bước nhỏ around Nikon's stop / improve / limit story
+
 ## 6.6.1
 
 ### Patch Changes

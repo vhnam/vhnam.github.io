@@ -8,7 +8,7 @@
   "homepage": "https://github.com/vhnam/vhnam.github.io#readme",
   "private": true,
   "type": "module",
-  "version": "6.6.1",
+  "version": "6.6.2",
   "packageManager": "pnpm@12.14.0",
   "scripts": {
     "dev": "astro dev",
