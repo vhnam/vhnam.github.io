@@ -24,6 +24,11 @@ Routine PRs use **minor** or **patch**. Content-only article work is **minor**. 
 Add hobby post: Chỉ định thử vài cuộn phim
 ```
 
+### Commits and changelog
+
+- Commit messages never carry a `Co-Authored-By` trailer (or any other agent attribution line).
+- Every hand edit to `CHANGELOG.md` follows [Keep a Changelog](https://keepachangelog.com/): new entries go under `## [Unreleased]`, grouped by `### Added`, `### Changed`, `### Deprecated`, `### Removed`, `### Fixed`, `### Security`. Write each entry for a reader of the site, not as a commit summary.
+
 ## Content
 
 Hobby and tutorial posts are MDX under `src/content/{hobby,tutorial}`. Schema lives in `src/content.config.ts`. Filenames are kebab-case slugs (`datePublished` + `title` / `description` / `cover` / `tags`). Routes are `/hobbies/[id]` and `/tutorials/[id]` — collection names stay singular. Scaffold with `pnpm gen:hobby <slug>` or `pnpm gen:tutorial <slug>`.
