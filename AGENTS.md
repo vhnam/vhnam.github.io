@@ -36,6 +36,10 @@ Hobby and tutorial posts are MDX under `src/content/{hobby,tutorial}`. Schema li
 - Embeds use `IFrameComponent` from `src/components/common/iframe`.
 - A closing references section uses heading **Tham khảo** (or References). That heading is styled specially; keep that id.
 
+### Gallery
+
+`/gallery` embeds public Threads posts through the Threads oEmbed endpoint. The list of post URLs is `src/content/gallery.json`; add one with `pnpm gallery:add <threads-url>`. Order comes from the shortcode (newest first), not the file. Never download or store captions or images from oEmbed; its terms only allow rendering the embed.
+
 New article → **minor** changeset. Fix on an existing article → **patch**.
 
 ## Code
