@@ -1,0 +1,92 @@
+---
+import { getCollection } from "astro:content";
+
+import { OEMBED_ENDPOINT, threadsPostDate } from "#/lib/threads";
+
+import Layout from "#/layouts/page-layout.astro";
+
+import Breadcrumb from "#/components/common/breadcrumb.astro";
+import ScrollToTopButton from "#/components/common/scroll-to-top-button.astro";
+
+const posts = (await getCollection("gallery")).sort(
+  (a, b) => threadsPostDate(b.id).valueOf() - threadsPostDate(a.id).valueOf(),
+);
+
+// The oEmbed html ends with its own embed.js tag; the page loads it once below.
+async function embedHtml(url: string) {
+  try {
+    const response = await fetch(
+      `${OEMBED_ENDPOINT}?url=${encodeURIComponent(url)}`,
+    );
+
+    if (!response.ok) {
+      throw new Error(`oEmbed ${response.status}`);
+    }
+
+    const { html } = (await response.json()) as { html: string };
+    return html.replace(/<script[^>]*embed\.js[^>]*><\/script>/g, "");
+  } catch (error) {
+    console.warn(`Threads embed fallback for ${url}: ${error}`);
+    return `<blockquote class="text-post-media" data-text-post-permalink="${url}" data-text-post-version="0"><a href="${url}">Xem trên Threads</a></blockquote>`;
+  }
+}
+
+const embeds = await Promise.all(posts.map((post) => embedHtml(post.data.url)));
+---
+
+<Layout title="Ảnh Film" description="Ảnh chụp film đã đăng trên Threads.">
+  <!-- One centered feed column, as wide as a Threads embed gets. -->
+  <div class="w-full max-w-[658px] mx-auto">
+    <header>
+      <div class="pt-10 pb-8">
+        <Breadcrumb
+          collection="hobby"
+          paths={[
+            { label: "Trang Chủ", href: "/" },
+            { label: "Ảnh Film", href: "/gallery" },
+          ]}
+        />
+      </div>
+
+      <h1
+        class="font-display font-bold text-3xl lg:text-4xl leading-tight tracking-tight text-balance mb-8"
+      >
+        Ảnh Film
+      </h1>
+
+      <p class="text-sm mb-8 text-secondary tabular-nums">
+        {`${posts.length} bài đăng.`}
+      </p>
+    </header>
+
+    {posts.length === 0 ? (
+      <p class="font-mono font-medium text-xs tracking-wide text-muted-foreground text-center py-12">
+        Chưa có ảnh nào.
+      </p>
+    ) : (
+      <ul class="flex flex-col gap-4 pb-12" aria-label="Danh sách bài đăng">
+        {embeds.map((html) => (
+          <li>
+            <Fragment set:html={html} />
+          </li>
+        ))}
+      </ul>
+    )}
+  </div>
+
+  <ScrollToTopButton />
+</Layout>
+
+<script>
+// Match the embeds to the site theme before embed.js renders them.
+const theme = document.documentElement.dataset.theme ?? "light";
+
+for (const embed of document.querySelectorAll(".text-post-media")) {
+  embed.setAttribute("data-theme", theme);
+}
+
+const script = document.createElement("script");
+script.src = "https://www.threads.com/embed.js";
+script.async = true;
+document.body.append(script);
+</script>
