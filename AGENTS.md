@@ -24,6 +24,11 @@ Routine PRs use **minor** or **patch**. Content-only article work is **minor**. 
 Add hobby post: Chỉ định thử vài cuộn phim
 ```
 
+### Commits and changelog
+
+- Commit messages never carry a `Co-Authored-By` trailer (or any other agent attribution line).
+- Every hand edit to `CHANGELOG.md` follows [Keep a Changelog](https://keepachangelog.com/): new entries go under `## [Unreleased]`, grouped by `### Added`, `### Changed`, `### Deprecated`, `### Removed`, `### Fixed`, `### Security`. Write each entry for a reader of the site, not as a commit summary.
+
 ## Content
 
 Hobby and tutorial posts are MDX under `src/content/{hobby,tutorial}`. Schema lives in `src/content.config.ts`. Filenames are kebab-case slugs (`datePublished` + `title` / `description` / `cover` / `tags`). Routes are `/hobbies/[id]` and `/tutorials/[id]` — collection names stay singular. Scaffold with `pnpm gen:hobby <slug>` or `pnpm gen:tutorial <slug>`.
@@ -35,6 +40,10 @@ Hobby and tutorial posts are MDX under `src/content/{hobby,tutorial}`. Schema li
 - Cover and inline images live under `src/assets/{hobbies,tutorials}/<slug>/`. Point `cover` at a relative path from the MDX file. Post `![alt](…)` alt text is the visible caption in v6 — put the caption in `alt`, do not leave a separate `_italic_` / `*italic*` line under the image.
 - Embeds use `IFrameComponent` from `src/components/common/iframe`.
 - A closing references section uses heading **Tham khảo** (or References). That heading is styled specially; keep that id.
+
+### Gallery
+
+`/gallery` embeds public Threads posts through the Threads oEmbed endpoint. The list of post URLs is `src/content/gallery.json`; add one with `pnpm gallery:add <threads-url>`. Order comes from the shortcode (newest first), not the file. Never download or store captions or images from oEmbed; its terms only allow rendering the embed.
 
 New article → **minor** changeset. Fix on an existing article → **patch**.
 

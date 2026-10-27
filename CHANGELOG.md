@@ -1,5 +1,17 @@
 # vhnam.github.io
 
+## 6.7.0
+
+### Added
+
+- `/gallery` page ("Ảnh Film") that embeds film posts from Threads in a single centered column, newest first, following the site's light/dark theme.
+- "Ảnh Film" link in the desktop and mobile header navigation.
+- `pnpm gallery:add <threads-url>` to validate a public Threads post through oEmbed and add it to `src/content/gallery.json`.
+
+### Changed
+
+- Pin Astro 7.4.2, `@astrojs/mdx` 8.1.1, `@astrojs/markdown-satteri` 0.4.5, and `@astrojs/check` 0.9.12 to exact versions.
+
 ## 6.6.2
 
 ### Patch Changes

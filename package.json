@@ -8,7 +8,7 @@
   "homepage": "https://github.com/vhnam/vhnam.github.io#readme",
   "private": true,
   "type": "module",
-  "version": "6.6.2",
+  "version": "6.7.0",
   "packageManager": "pnpm@12.14.0",
   "scripts": {
     "dev": "astro dev",
@@ -18,18 +18,19 @@
     "format": "biome format --write . && tsx scripts/format-mdx.ts",
     "gen:hobby": "tsx scripts/generate-content.ts hobby",
     "gen:tutorial": "tsx scripts/generate-content.ts tutorial",
+    "gallery:add": "tsx scripts/gallery-add.ts",
     "prepare": "lefthook install"
   },
   "dependencies": {
-    "@astrojs/markdown-satteri": "^0.4.4",
-    "@astrojs/mdx": "^8.1.0",
+    "@astrojs/markdown-satteri": "0.4.5",
+    "@astrojs/mdx": "8.1.1",
     "@astrojs/rss": "^4.0.19",
     "@astrojs/sitemap": "^3.7.4",
     "@fontsource-variable/jetbrains-mono": "^5.3.0",
     "@fontsource-variable/source-serif-4": "^5.3.1",
     "@fontsource-variable/space-grotesk": "^5.3.0",
     "@tailwindcss/vite": "^4.3.3",
-    "astro": "^7.4.0",
+    "astro": "7.4.2",
     "glightbox": "^3.3.1",
     "pagefind": "^1.5.2",
     "reading-time": "^1.5.0",
@@ -39,7 +40,7 @@
     "tailwindcss": "^4.3.3"
   },
   "devDependencies": {
-    "@astrojs/check": "^0.9.10",
+    "@astrojs/check": "0.9.12",
     "@biomejs/biome": "2.5.15",
     "@changesets/cli": "^3.0.3",
     "@tailwindcss/typography": "^0.5.20",

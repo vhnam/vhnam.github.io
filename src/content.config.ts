@@ -1,6 +1,8 @@
 import { defineCollection, type SchemaContext } from "astro:content";
-import { glob } from "astro/loaders";
+import { file, glob } from "astro/loaders";
 import { z } from "astro/zod";
+
+import { threadsShortcode } from "#/lib/threads";
 
 function postSchema({ image }: SchemaContext) {
   return z.object({
@@ -30,4 +32,16 @@ const tutorial = defineCollection({
   schema: postSchema,
 });
 
-export const collections = { hobby, tutorial };
+// One Threads post URL per array item; the id is the post shortcode.
+const gallery = defineCollection({
+  loader: file("src/content/gallery.json", {
+    parser: (text) =>
+      (JSON.parse(text) as string[]).map((url) => ({
+        id: threadsShortcode(url),
+        url,
+      })),
+  }),
+  schema: z.object({ url: z.url() }),
+});
+
+export const collections = { hobby, tutorial, gallery };

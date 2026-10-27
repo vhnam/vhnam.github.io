@@ -44,6 +44,7 @@ Copy `.env.example` to `.env` for local `pnpm dev`. Site title, description, aut
 | `pnpm format`   | Format code and MDX with Biome            |
 | `pnpm gen:hobby <slug>` | Scaffold a hobby MDX post and asset folder |
 | `pnpm gen:tutorial <slug>` | Scaffold a tutorial MDX post and asset folder |
+| `pnpm gallery:add <threads-url>` | Add a Threads post to `/gallery` |
 
 ## Content
 
